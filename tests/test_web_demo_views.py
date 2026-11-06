@@ -42,14 +42,25 @@ class ExhibitionViewTests(unittest.TestCase):
 
     def setUp(self):
         self.before = data_fingerprint()
+        self.apps = []
 
     def tearDown(self):
-        self.assertEqual(data_fingerprint(), self.before,
-                         "Viewing/filtering must not mutate the bundled records")
+        try:
+            self.assertEqual(data_fingerprint(), self.before,
+                             "Viewing/filtering must not mutate the bundled records")
+        finally:
+            from web_demo.sandbox import SESSION_KEY, destroy_sandbox
+            for app in self.apps:
+                try:
+                    handle = app.session_state[SESSION_KEY]
+                except KeyError:
+                    continue
+                self.assertTrue(destroy_sandbox(handle), "Finished visitors must release temporary data")
 
     def render(self, route):
-        app = AppTest.from_function(_render_product, args=(route,),
-                                   default_timeout=60).run()
+        app = AppTest.from_function(_render_product, args=(route,), default_timeout=60)
+        self.apps.append(app)
+        app.run()
         self.assert_healthy(app)
         return app
 
@@ -127,11 +138,13 @@ class ExhibitionViewTests(unittest.TestCase):
         self.assert_healthy(app)
         self.assertEqual(len(app.dataframe[0].value), 14)
 
-    def test_home_has_five_working_exhibition_destinations(self):
-        app = AppTest.from_file(DATA_ROOT / "main.py", default_timeout=60).run()
+    def test_home_has_working_journey_and_feature_destinations(self):
+        app = AppTest.from_file(DATA_ROOT / "main.py", default_timeout=60)
+        self.apps.append(app)
+        app.run()
         self.assert_healthy(app)
         self.assertEqual([element.proto.page for element in app.get("page_link")],
-                         ["roadmap", "study", "growth", "health", "city"])
+                         ["today", "timer", "notes", "study", "roadmap", "cards", "health"])
         self.assertTrue(all(element.proto.page_script_hash
                             for element in app.get("page_link")))
         text = "\n".join(element.value for element in app.markdown)
@@ -139,12 +152,16 @@ class ExhibitionViewTests(unittest.TestCase):
         self.assertIn("2026/05/10", text)
         self.assertIn("2026/11/05", text)
 
-    def test_about_explains_the_readonly_synthetic_scope(self):
+    def test_about_explains_the_isolated_temporary_and_synthetic_scope(self):
         app = AppTest.from_function(_render_about, default_timeout=60).run()
         self.assert_healthy(app)
         text = "\n".join(element.value for element in app.markdown)
         self.assertIn("架空", text)
-        self.assertIn("保存・削除", text)
+        self.assertIn("追加・編集", text)
+        self.assertIn("セッションごと", text)
+        self.assertIn("永続保存は行いません", text)
+        self.assertIn("Google", text)
+        self.assertIn("Hobby & Tools", text)
         self.assertIn("ライセンスは未確定", text)
 
 

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from web_demo.runtime import fragment as demo_fragment
+
 import random
 from pathlib import Path
 from typing import Any
@@ -25,7 +27,9 @@ from data_utils import (
 )
 
 
-ROOT = Path(__file__).resolve().parents[1]
+from config import get_data_root
+
+ROOT = get_data_root()
 MASTER_SNAPSHOT = MasterSnapshot.load(ROOT)
 IMPORTANCE_OPTIONS = {
     "low": "低",
@@ -174,7 +178,7 @@ def choose_review_card(cards: list[dict[str, Any]], *, advance: bool = False) ->
     return available[selected]
 
 
-@st.fragment
+@demo_fragment
 def render_card_review(filters: dict[str, Any], initial_context: dict[str, Any]) -> None:
     global MASTER_SNAPSHOT
     # Consume the full render's small-file context once. Local interactions

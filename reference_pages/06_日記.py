@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+from web_demo.runtime import fragment as demo_fragment
 from app_core.json_store import record_json_files
 
 from datetime import date, datetime
@@ -19,7 +21,9 @@ from app_core.settings_service import load_user_settings
 from app_core.substance_service import format_mg, substance_profile_map
 
 
-ROOT = Path(__file__).resolve().parents[1]
+from config import get_data_root
+
+ROOT = get_data_root()
 DIARY_DIR = ROOT / "diary_entries"
 
 
@@ -129,7 +133,7 @@ def exercise_summary(target: date, *, log: dict[str, Any] | None = None) -> dict
     }
 
 
-@st.fragment
+@demo_fragment
 def render_diary_editor(
     target: date, *, initial_context: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
@@ -176,7 +180,7 @@ def render_diary_editor(
     with summary_cols[3]:
         ab.metric_block("運動", exercise.get("運動時間", "未記録"), exercise.get("距離", "専用ページで詳細記録"))
 
-    st.page_link("pages/18_カフェイン記録.py", label="服薬ログを開く")
+    ab.product_page_link("pages/18_カフェイン記録.py", label="服薬ログを開く")
 
     with st.form(f"diary_form_{widget_prefix}"):
         title = st.text_input("タイトル", value=existing.get("title", ""), key=f"{widget_prefix}_title")

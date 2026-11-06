@@ -46,14 +46,6 @@ NAV_GROUPS = [
         ],
     },
     {
-        "title": "Hobby & Tools",
-        "items": [
-            {"title": "メディア変換", "path": "pages/20_メディア変換.py"},
-            {"title": "音声・動画の文字起こし", "path": "pages/21_音声・動画の文字起こし.py"},
-            {"title": "画像・PDFの文字読み取り", "path": "pages/22_画像・PDFの文字読み取り.py"},
-        ],
-    },
-    {
         "title": "Administration",
         "items": [
             {"title": "使い方ガイド", "path": "pages/95_使い方ガイド.py"},

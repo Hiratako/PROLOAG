@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from web_demo.runtime import fragment as demo_fragment
+
 import pandas as pd
 import streamlit as st
 
@@ -71,7 +73,7 @@ if error_count:
 elif notice_count:
     st.warning(f"エラーはありません。確認推奨の注意項目が {notice_count} 件あります。")
 
-@st.fragment
+@demo_fragment
 def render_issue_results(issue_frame: pd.DataFrame) -> None:
     st.subheader("検出結果")
     filter_cols = st.columns(2)

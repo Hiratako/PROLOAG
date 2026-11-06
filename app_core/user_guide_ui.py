@@ -85,7 +85,8 @@ def _links(*names: str) -> None:
     columns = st.columns(min(len(names), 3))
     for index, name in enumerate(names):
         with columns[index % len(columns)]:
-            st.page_link(PAGE_LINKS[name], label=f"{name}を開く")
+            from web_demo.navigation import product_page_link
+            product_page_link(PAGE_LINKS[name], label=f"{name}を開く")
 
 
 def _step(number: int, title: str, body: str) -> None:

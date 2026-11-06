@@ -45,7 +45,9 @@ from app_core.plot_style import (
 from data_utils import load_study_sessions_file
 
 
-ROOT = Path(__file__).resolve().parents[1]
+from config import get_data_root
+
+ROOT = get_data_root()
 STUDY_DIR = ROOT / "study_logs"
 THEME = ab.theme_palette(settings=PAGE_SETTINGS)
 ACCENT = THEME["accent"]

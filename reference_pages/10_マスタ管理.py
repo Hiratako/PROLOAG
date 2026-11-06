@@ -24,7 +24,9 @@ from data_utils import (
 from app_core.settings_service import load_user_settings as _load_page_settings
 PAGE_SETTINGS = _load_page_settings()
 
-ROOT = Path(__file__).resolve().parents[1]
+from config import get_data_root
+
+ROOT = get_data_root()
 RAW_MASTER = load_json_safe(master_path(ROOT), default_master_data())
 MASTER_SNAPSHOT = MasterSnapshot(normalize_master_data(deepcopy(RAW_MASTER))[0])
 MATERIAL_TYPES = ["講義", "問題集", "過去問", "論文", "参考書", "自作資料", "その他"]
@@ -261,4 +263,4 @@ with tabs[6]:
     render_study_category_management(ROOT)
 
 with st.expander("保存情報", expanded=False):
-    st.write({"保存先": str(master_path(ROOT))})
+    st.caption("分類の変更は、このブラウザの体験用データに保存されます。")

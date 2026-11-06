@@ -8,6 +8,7 @@ from uuid import NAMESPACE_URL, uuid5
 
 import pandas as pd
 import streamlit as st
+from web_demo.runtime import fragment as demo_fragment
 
 import prolog_ui.components as ab
 from app_core.app_clock import app_today
@@ -486,7 +487,8 @@ def _allocation(root, data, actuals, scope):
                 else "この工程には既に関連付いています。"
             )
             st.rerun()
-    st.page_link("pages/09_今日の学習プラン.py", label="今日の記録・計画を開く")
+    from web_demo.navigation import product_page_link
+    product_page_link("pages/09_今日の学習プラン.py", label="今日の記録・計画を開く")
     allocations = [
         row
         for row in data["allocations"]
@@ -581,7 +583,7 @@ def _render_plotly(
 
 
 
-@st.fragment
+@demo_fragment
 def _content(root: Path, actuals: dict, scope: str):
     try:
         _render_content(root, actuals, scope)

@@ -402,9 +402,8 @@ with st.expander("成分を追加", expanded=False):
             ab.queue_success(f"{created['name']}を追加しました。")
             page_rerun_requested = True
 
-with st.expander("保存先", expanded=False):
-    st.caption(f"一般設定: {USER_SETTINGS_PATH}")
-    st.caption(f"成分設定: {SUBSTANCE_PROFILES_PATH}")
+with st.expander("設定の保存について", expanded=False):
+    st.caption("一般設定・成分設定の変更は、このブラウザの体験用データにだけ保存されます。体験をリセットすると初期状態へ戻ります。")
 
 if page_rerun_requested:
     st.rerun()

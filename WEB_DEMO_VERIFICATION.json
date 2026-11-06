@@ -1,31 +1,101 @@
 {
-  "schema_version": 1,
-  "checked_at_utc": "2026-11-06T08:20:25+00:00",
+  "schema_version": 2,
+  "generated_at_utc": "2026-11-06T16:18:52+00:00",
+  "status": "passed",
   "scope": {
-    "kind": "local_web_demo_verification",
+    "kind": "composite_local_web_experience_verification",
     "platform": "Windows",
     "python": "3.11.4",
+    "streamlit": "1.57.0",
+    "product_pages": 25,
+    "total_routes": 27,
+    "hobby_pages_excluded": true,
+    "visitor_storage": "isolated disposable server-side sandbox",
     "linux_runtime": false,
-    "community_cloud_deployed": false,
-    "browser_navigation": "not included in this command",
-    "test_pattern": "test_web_demo_*.py"
+    "browser_navigation": "recorded separately",
+    "community_cloud_updated_version_checked": false
   },
-  "status": "passed",
-  "data_unchanged": true,
   "dataset": {
     "records": 715,
     "days": 180,
     "synthetic": true,
     "reference_date": "2026-11-05"
   },
-  "streamlit": "1.57.0",
+  "seed_unchanged": true,
   "record_hash_before": "ee55dc85e14324470a2eba05fc518a425d01fcbfb7517cdd20d19f1805e36bcf",
   "record_hash_after": "ee55dc85e14324470a2eba05fc518a425d01fcbfb7517cdd20d19f1805e36bcf",
   "tests": {
-    "run": 37,
-    "failures": [],
-    "errors": [],
-    "skipped": []
+    "distinct": 63,
+    "passed_distinct": 62,
+    "failures": 0,
+    "errors": 0,
+    "skipped_distinct": 1,
+    "executions_across_runs": 75,
+    "overlap_between_runs": 12,
+    "skipped": [
+      {
+        "test": "tests.test_web_experience_storage.ExperienceStorageTests.test_symlink_cannot_select_a_different_visitor",
+        "reason": "The Windows test account lacks permission to create symbolic links. The live symlink case was skipped; traversal and cross-visitor fences were tested."
+      }
+    ]
   },
-  "elapsed_seconds": 78.032
+  "runs": [
+    {
+      "name": "broad-ui-and-storage",
+      "checked_at_utc": "2026-11-06T16:04:24+00:00",
+      "tests_run": 57,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "elapsed_seconds": 226.703,
+      "coverage": "37 fixture/rendering regressions + 12 storage tests + 8 workflow tests; workflow smoke test rendered all 25 non-Hobby product pages"
+    },
+    {
+      "name": "post-review-security",
+      "checked_at_utc": "2026-11-06T16:09:04+00:00",
+      "tests_run": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "elapsed_seconds": 34.437,
+      "coverage": "13 storage tests + 4 external Google-service boundary tests; 12 tests overlap the broad run"
+    },
+    {
+      "name": "main-reset-confirmation-regression",
+      "checked_at_utc": "2026-11-06T16:18:52+00:00",
+      "tests_run": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "elapsed_seconds": 4.342,
+      "coverage": "Real main-page reset replaced visitor data, restored seed settings, and rendered an unchecked confirmation with a disabled button."
+    }
+  ],
+  "coverage": [
+    "All 25 registered non-Hobby product pages rendered with Streamlit AppTest; home and about were also checked.",
+    "Manual study entry, duplicate submission, previewed edit and delete, timer start/pause/save, fixed demo-day timestamps.",
+    "Today plan, note creation, flashcard creation, diary, sleep/condition and exercise forms saved into visitor A only.",
+    "Roadmap JSON preview/import, settings and full CSV/ZIP export used the active visitor store.",
+    "Parallel visitor defaults, cross-visitor and shared-seed access fences, reset, TTL, forged handles, quotas and lock-cache lifecycle.",
+    "Google client construction, credential-vault access, authorized transport and disconnect were blocked before external access.",
+    "The real main-page reset was rechecked after changing confirmation widget identities; the checkbox and button returned to their initial visible states."
+  ],
+  "checked_guard_sha256": {
+    "config.py": "68373c1ef941d66acd671d1661a9b28c466098645842941e0ace7ab136943234",
+    "web_demo/sandbox.py": "2a9030a8baacb5e421ced98ad75b0972d6e1534850abd59b24c0fb07d1ec40eb",
+    "app_core/json_store.py": "e92d6c61b7a52eead5495b3a0d1254d0562698cb1d5e3f3c5d997cb8d7c2896f",
+    "app_core/json_operations.py": "109a4632ce69cba603854b66c46aae0090d1251f10e57008f6f57a932eaf3092",
+    "app_core/google_sheets_client.py": "fb647da946cb7f061d8c84959c83276adf12060156e13df6fbb8b80b09ff037d",
+    "app_core/google_docs_client.py": "2999a66a0bf0e45eeb107d7c6193023dd0ada79e5280652037d628ce2ee0ca92"
+  },
+  "checked_guard_sources_unchanged_since_security_run": true,
+  "limitations": [
+    "Local runtime verification was performed on Windows with Python 3.11.4 and Streamlit 1.57.0; it is not a Linux execution test.",
+    "The live symbolic-link test was skipped because the Windows account lacks creation privilege.",
+    "This report does not verify deployment of the updated Web experience to Community Cloud; browser and Cloud checks are recorded separately.",
+    "Hobby media conversion/transcription/OCR and real Google authentication or transmission are outside this Web experience."
+  ],
+  "checked_app_reset_sha256": {
+    "web_demo/app.py": "961a3fbdc83dc97929a9a8740f0a3252039ba7a5e0fbed7a834be9e29753ad04"
+  }
 }

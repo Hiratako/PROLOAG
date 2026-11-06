@@ -2,7 +2,9 @@ import streamlit as st
 import prolog_ui.components as ab
 from app_core.settings_service import load_user_settings
 from app_core.roadmap_ui import render_roadmap
-from config import PROJECT_ROOT
+from config import get_data_root
+
+PROJECT_ROOT = get_data_root()
 
 settings = load_user_settings()
 st.set_page_config(page_title="学習ロードマップ", layout="wide")

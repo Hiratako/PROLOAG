@@ -132,6 +132,7 @@ class JsonOperation:
         self.changed_files: list[str] = []
         self._reads: dict[str, tuple[Any, bytes | None, str | None]] = {}
         self._writes: dict[str, Any] = {}
+        self._staged_bytes: dict[str, int] = {}
         self._expected = {_relative(root, path): revision for path, revision in (expected_revisions or {}).items()}
         self._inventories: dict[str, set[str]] = {}
 
@@ -161,7 +162,13 @@ class JsonOperation:
             expected_revision = store.observed_json_revision(path)
         if expected_revision is not store._UNSET and expected_revision != revision:
             raise store.JsonConflictError("編集開始時の記録と保存済み記録が異なります。再読込してください。")
-        json.dumps(data, allow_nan=False)
+        encoded = json.dumps(data, ensure_ascii=False, indent=2, allow_nan=False).encode("utf-8")
+        total = sum(self._staged_bytes.values()) - self._staged_bytes.get(relative, 0) + len(encoded)
+        # Bound a multi-document upload while staging, before allocating an
+        # arbitrarily large journal or acquiring document locks. The shared
+        # store's guard is a no-op for the original non-Web core tests.
+        store.require_writable(path, additional_bytes=total)
+        self._staged_bytes[relative] = len(encoded)
         self._writes[relative] = deepcopy(data)
 
     def watch_inventory(self, folder: Path, expected_paths: Iterable[Path | str] | None = None) -> None:

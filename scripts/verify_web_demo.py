@@ -1,4 +1,4 @@
-"""Run exhibition-only checks and record their actual local verification scope."""
+"""Run Web experience checks and record their actual local verification scope."""
 from __future__ import annotations
 
 import argparse
@@ -44,7 +44,9 @@ def main(argv=None) -> int:
                        "statistics_practice", "backups")
     guarded_files = {ROOT / "flashcards.json", ROOT / "reminders.json",
                      ROOT / "WEB_DEMO_DATA_MANIFEST.json",
-                     ROOT / "UPSTREAM_SOURCE_MANIFEST.json", ROOT / "WEB_DEMO_MANIFEST.json"}
+                     ROOT / "UPSTREAM_SOURCE_MANIFEST.json", ROOT / "WEB_DEMO_MANIFEST.json",
+                     ROOT / "WEB_DEMO_PACKAGE_MANIFEST.json",
+                     ROOT / "web_demo" / "dataset_manifest.json"}
     if (output.suffix.lower() != ".json" or output in guarded_files or
             any(output.is_relative_to((ROOT / name).resolve())
                 for name in guarded_folders)):
@@ -56,13 +58,13 @@ def main(argv=None) -> int:
         "schema_version": 1,
         "checked_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "scope": {
-            "kind": "local_web_demo_verification",
+            "kind": "local_web_experience_verification",
             "platform": platform.system(),
             "python": platform.python_version(),
             "linux_runtime": sys.platform.startswith("linux"),
             "community_cloud_deployed": False,
             "browser_navigation": "not included in this command",
-            "test_pattern": "test_web_demo_*.py",
+            "test_pattern": "test_web_*.py",
         },
         "status": "failed",
         "data_unchanged": False,
@@ -70,16 +72,24 @@ def main(argv=None) -> int:
     exit_code = 2
     try:
         from config import WEB_DEMO_READ_ONLY
+        from web_demo.catalog import PRODUCT_VIEWS
         from web_demo.data import data_fingerprint, verify_demo_dataset
 
         if WEB_DEMO_READ_ONLY is not True:
-            raise ValueError("This command requires the read-only exhibition configuration.")
+            raise ValueError("The shared demonstration fixtures must remain write protected.")
         report["dataset"] = verify_demo_dataset()
+        report["experience"] = {
+            "product_pages": len(PRODUCT_VIEWS),
+            "hobby_pages_excluded": not any(
+                name.startswith(("20_", "21_", "22_"))
+                for name in PRODUCT_VIEWS.values()),
+            "visitor_storage": "private disposable sandbox",
+        }
         report["streamlit"] = importlib.metadata.version("streamlit")
         before = data_fingerprint()
         report["record_hash_before"] = _fingerprint_digest(before)
         suite = unittest.defaultTestLoader.discover(
-            start_dir=str(ROOT / "tests"), pattern="test_web_demo_*.py",
+            start_dir=str(ROOT / "tests"), pattern="test_web_*.py",
             top_level_dir=str(ROOT))
         count = suite.countTestCases()
         if count == 0:

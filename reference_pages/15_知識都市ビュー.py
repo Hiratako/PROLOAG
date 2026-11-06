@@ -17,7 +17,9 @@ from app_core.master_snapshot import MasterSnapshot
 from app_core.note_service import load_all_notes
 from app_core.reminder_service import load_reminders
 from app_core.study_log_service import load_all_study_sessions
-from config import PROJECT_ROOT
+from config import get_data_root
+
+PROJECT_ROOT = get_data_root()
 
 
 from app_core.settings_service import load_user_settings as _load_page_settings

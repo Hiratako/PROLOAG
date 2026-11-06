@@ -27,7 +27,9 @@ from app_core.performance_analysis_service import (
 from app_core.plot_style import configure_japanese_font, plot_rounded_category_bars, style_chart_axis
 from app_core.performance_result_cache import PerformanceResultCache
 from app_core.settings_service import should_show_task_metrics, should_treat_missing_caffeine_as_zero
-from config import PROJECT_ROOT
+from config import get_data_root
+
+PROJECT_ROOT = get_data_root()
 from app_core.study_category_service import load_study_category_catalog, study_category_names, other_category_name
 
 
@@ -716,7 +718,7 @@ with st.expander("日別明細・CSV", expanded=False):
 st.divider()
 st.markdown("#### 要因別の詳細分析")
 st.caption("このページでカフェインとの観察差が気になった場合は、専門ページで成分残存量、タイムライン、散布図、相関行列、ランニングとの詳細を確認できます。")
-st.page_link("pages/16_カフェイン・運動分析.py", label="成分リズム・コンディション分析を詳しく見る")
+ab.product_page_link("pages/16_カフェイン・運動分析.py", label="成分リズム・コンディション分析を詳しく見る")
 
 st.caption(
     "翌日コンディションバランス = 標準化した翌日集中しやすさ、−翌日疲労感、−翌朝眠気、−翌日ストレスの平均（2項目以上がある日）。"

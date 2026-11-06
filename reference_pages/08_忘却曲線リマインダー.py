@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from web_demo.runtime import fragment as demo_fragment
+
 from collections import Counter
 from datetime import date, timedelta
 from pathlib import Path
@@ -39,7 +41,9 @@ from data_utils import (
 )
 
 
-ROOT = Path(__file__).resolve().parents[1]
+from config import get_data_root
+
+ROOT = get_data_root()
 TODAY = app_today()
 MASTER_SNAPSHOT = MasterSnapshot.load(ROOT)
 
@@ -341,7 +345,7 @@ def render_reminder_table(items: list[dict[str, Any]]) -> None:
     )
 
 
-@st.fragment
+@demo_fragment
 def render_selected_review(selected: dict[str, Any], context: str, initial_context: dict[str, Any]) -> None:
     global MASTER_SNAPSHOT, SOURCE_TITLES, REMINDER_ID_COUNTS, TODAY
     shared = initial_context.pop("context", None)

@@ -103,7 +103,14 @@ def _project_key(root: Path) -> str:
     return hashlib.sha256(os.path.normcase(str(Path(root).resolve())).encode("utf-8")).hexdigest()
 
 
+def _require_local_google() -> None:
+    import config as app_config
+    if getattr(app_config, "WEB_DEMO_EXPERIENCE", False):
+        raise GoogleShareError("Web体験版ではGoogleへの接続・送信は利用できません。", code="web_demo_disabled")
+
+
 def _private_directory(root: Path) -> Path:
+    _require_local_google()
     base = os.environ.get("LOCALAPPDATA")
     if os.name != "nt" or not base:
         raise GoogleShareError("この接続の安全な保存にはWindows DPAPIが必要です。", code="unsupported_platform")
@@ -148,6 +155,7 @@ def _dpapi(data: bytes, *, decrypt: bool = False) -> bytes:
 
 class _PrivateVault:
     def __init__(self, root: Path):
+        _require_local_google()
         self.directory = _private_directory(root)
         self.path = self.directory / "connection.dpapi"
 
@@ -269,6 +277,7 @@ def _credentials_payload(credentials: Any) -> dict[str, Any]:
 
 
 def _authorized_transport(payload: dict[str, Any]):
+    _require_local_google()
     try:
         from google.oauth2.credentials import Credentials
         from google.auth.transport.requests import AuthorizedSession
@@ -292,6 +301,11 @@ def _valid_saved_state(state: Any, root: Path) -> bool:
 
 
 def connection_status(root: Path) -> dict[str, Any]:
+    import config as app_config
+    if getattr(app_config, "WEB_DEMO_EXPERIENCE", False):
+        return {"connected": False, "dependencies_available": False, "supported": False,
+                "spreadsheet_id": None, "url": None, "creation_pending": False,
+                "docs": {}, "docs_creation_pending": {}, "error_code": "web_demo_disabled"}
     result = {"connected": False, "dependencies_available": dependencies_available(), "supported": os.name == "nt",
               "spreadsheet_id": None, "url": None, "creation_pending": False,
               "docs": {}, "docs_creation_pending": {}}
@@ -325,6 +339,7 @@ def disconnect(root: Path) -> None:
 
 class GoogleSheetsClient:
     def __init__(self, *, root: Path, transport: Any, vault: Any, state: dict[str, Any]):
+        _require_local_google()
         if not _valid_saved_state(state, root):
             raise GoogleShareError("接続情報がこのプロジェクトと一致しません。", code="connection_mismatch")
         self.root, self._transport, self._vault = Path(root).resolve(), transport, vault

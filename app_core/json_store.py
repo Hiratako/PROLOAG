@@ -7,6 +7,7 @@ import shutil
 import tempfile
 import threading
 import time
+import weakref
 from contextlib import contextmanager
 from contextvars import ContextVar
 from datetime import datetime
@@ -21,7 +22,7 @@ from config import PROJECT_ROOT
 
 def record_json_files(folder: Path) -> list[Path]:
     """List live JSON records in traversal order, excluding backup artifacts."""
-    folder = Path(folder)
+    folder = _sandbox_path(folder)
     return [
         path for path in folder.rglob("*.json")
         if path.is_file()
@@ -51,14 +52,33 @@ class JsonReadOnlyError(JsonStoreError):
     """The Web exhibition accepts view changes, never record mutations."""
 
 
-def require_writable() -> None:
-    """Fail closed; the exhibition flag cannot be changed by a visitor.
+def _sandbox_path(path: Path, *, write: bool = False, additional_bytes: int = 0) -> Path:
+    from web_demo.sandbox import SandboxAccessError, current_root, guard_path
+    try:
+        if current_root() is not None:
+            return guard_path(path, write=write, additional_bytes=additional_bytes)
+    except SandboxAccessError as exc:
+        raise JsonReadOnlyError(str(exc)) from exc
+    return Path(path)
 
-    This is a source-code policy, not a query parameter, widget or environment
-    switch. A missing flag also rejects writes.
+
+def require_writable(path: Path | None = None, *, additional_bytes: int = 0) -> None:
+    """Writes require the caller's registered, bounded visitor store.
+
+    The immutable shared seed stays read-only. The old flag also remains a
+    fail-closed fallback for calls without a visitor context.
     """
+    from web_demo.sandbox import SandboxAccessError, current_root
+    try:
+        root = current_root()
+    except SandboxAccessError as exc:
+        raise JsonReadOnlyError(str(exc)) from exc
+    if root is not None:
+        if path is not None:
+            _sandbox_path(path, write=True, additional_bytes=additional_bytes)
+        return
     if getattr(_app_config, "WEB_DEMO_READ_ONLY", True) is not False:
-        raise JsonReadOnlyError("Web展示版では記録の保存・削除・復旧は行えません。")
+        raise JsonReadOnlyError("体験データが準備されていません。ページを開き直してください。")
 
 
 _UNSET = object()
@@ -66,13 +86,15 @@ _observations: ContextVar[dict[str, str | None]] = ContextVar("json_observations
 _active_operation: ContextVar[Any] = ContextVar("json_active_operation", default=None)
 _committing_operation: ContextVar[Any] = ContextVar("json_committing_operation", default=None)
 _registry_guard = threading.Lock()
-_locks: dict[str, threading.RLock] = {}
+# Transactions retain a strong local reference while owning/waiting for a
+# lock. Finished visitors must not leave an unbounded process-wide lock cache.
+_locks: weakref.WeakValueDictionary[str, Any] = weakref.WeakValueDictionary()
 _held = threading.local()
 
 
 def resolved_json_path(path: Path) -> Path:
     """Resolve symlinks while normalizing equivalent Windows path prefixes."""
-    resolved = str(Path(path).resolve())
+    resolved = str(_sandbox_path(path).resolve())
     # Windows resolve() may retain the extended prefix transiently while an
     # atomic replacement is in progress. Both spellings name the same file.
     if os.name == "nt":
@@ -115,6 +137,7 @@ def _unique_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
 
 
 def _read(path: Path) -> tuple[Any, bytes | None, str | None]:
+    path = _sandbox_path(path)
     try:
         raw = path.read_bytes()
     except FileNotFoundError:
@@ -160,7 +183,7 @@ def json_transaction(path: Path, timeout: float = 10.0):
     its final reference check and commit. This does not automatically authorize
     stale form data or perform recovery.
     """
-    require_writable()
+    require_writable(path)
     path = resolved_json_path(path)
     root = record_project_root(path)
     if root is None:
@@ -179,7 +202,7 @@ def json_transaction(path: Path, timeout: float = 10.0):
 @contextmanager
 def _file_transaction(path: Path, timeout: float = 10.0):
     """Serialize a complete read/modify/write operation; reentrant per thread."""
-    require_writable()
+    require_writable(path)
     path = resolved_json_path(path)
     key = _key(path)
     if timeout < 0:
@@ -198,7 +221,10 @@ def _file_transaction(path: Path, timeout: float = 10.0):
     try:
         if not nested:
             ensure_dir(path.parent)
-            handle = path.with_name(f".{path.name}.lock").open("a+b")
+            lock_path = path.with_name(f".{path.name}.lock")
+            if not lock_path.exists() or lock_path.stat().st_size == 0:
+                require_writable(lock_path, additional_bytes=1)
+            handle = lock_path.open("a+b")
             handle.seek(0, os.SEEK_END)
             if handle.tell() == 0:
                 handle.write(b"\0")
@@ -252,16 +278,16 @@ def json_transaction_for(path_getter, *, timeout: float = 10.0):
 
 
 def ensure_dir(path: Path) -> Path:
-    path = Path(path)
+    path = _sandbox_path(path)
     if path.is_dir():
         return path
-    require_writable()
+    require_writable(path)
     path.mkdir(parents=True, exist_ok=True)
     return path
 
 
 def load_json_safe(path: Path, default: Any) -> Any:
-    path = Path(path)
+    path = _sandbox_path(path)
     operation = _active_operation.get()
     if operation is not None:
         return operation.read(path, default)
@@ -271,9 +297,10 @@ def load_json_safe(path: Path, default: Any) -> Any:
 
 
 def save_json_safe(path: Path, data: Any, *, expected_revision: Any = _UNSET) -> None:
-    require_writable()
+    require_writable(path)
     # Serialize before touching any file, including lock and backup files.
     encoded = json.dumps(data, ensure_ascii=False, indent=2, allow_nan=False).encode("utf-8")
+    require_writable(path, additional_bytes=len(encoded))
     canonical = json.dumps(json.loads(encoded, object_pairs_hook=_unique_pairs),
                            sort_keys=True, allow_nan=False)
     operation = _active_operation.get()
@@ -283,6 +310,7 @@ def save_json_safe(path: Path, data: Any, *, expected_revision: Any = _UNSET) ->
     path = resolved_json_path(path)
     key = _key(path)
     with json_transaction(path):
+        require_writable(path, additional_bytes=len(encoded))
         existing, raw, revision = _read(path)
         observed = _observations.get().get(key, _UNSET) if expected_revision is _UNSET else expected_revision
         if observed is not _UNSET and observed != revision:
@@ -318,7 +346,7 @@ def save_json_safe(path: Path, data: Any, *, expected_revision: Any = _UNSET) ->
 
 
 def _save_generation(path: Path, raw: bytes) -> None:
-    require_writable()
+    require_writable(path)
     try:
         relative = Path(_key(path)).relative_to(Path(_key(PROJECT_ROOT)))
     except ValueError:
@@ -326,6 +354,7 @@ def _save_generation(path: Path, raw: bytes) -> None:
     else:
         folder = PROJECT_ROOT / "backups" / "auto_save" / relative.parent / relative.name
     ensure_dir(folder)
+    require_writable(folder / "generation.json", additional_bytes=len(raw))
     name = f"{datetime.now():%Y%m%d_%H%M%S_%f}_{uuid4().hex}.json"
     temporary = None
     try:
@@ -343,7 +372,8 @@ def _save_generation(path: Path, raw: bytes) -> None:
 
 
 def backup_json(path: Path, backup_root: Path | None = None, relative_to: Path | None = None) -> Path | None:
-    require_writable()
+    require_writable(path)
+    path = _sandbox_path(path)
     if not path.exists():
         return None
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
@@ -358,5 +388,6 @@ def backup_json(path: Path, backup_root: Path | None = None, relative_to: Path |
                 pass
         backup_path = backup_root / timestamp / relative_path
         ensure_dir(backup_path.parent)
+    require_writable(backup_path, additional_bytes=path.stat().st_size)
     shutil.copy2(path, backup_path)
     return backup_path

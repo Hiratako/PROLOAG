@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from web_demo.runtime import fragment as demo_fragment
+
 from datetime import date, datetime, time as dt_time, timedelta
 from hashlib import sha256
 from typing import Any
@@ -132,7 +134,7 @@ def recent_summary(
     ).reset_index(drop=True)
 
 
-@st.fragment
+@demo_fragment
 def render_substance_editor(
     target: date, selected_id: str, fallback_profile: dict[str, Any], *,
     initial_context: dict[str, Any] | None = None,

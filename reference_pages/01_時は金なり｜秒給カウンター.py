@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+from web_demo.runtime import fragment as demo_fragment
+
 import time
 from datetime import date, datetime
-from app_core.app_clock import app_today
+from app_core.app_clock import app_now, app_today
 from pathlib import Path
 from typing import Any
 
@@ -29,7 +31,9 @@ from data_utils import (
 )
 
 
-ROOT = Path(__file__).resolve().parents[1]
+from config import get_data_root
+
+ROOT = get_data_root()
 
 
 def sec_to_hms(seconds: int | float) -> str:
@@ -63,7 +67,7 @@ def calc_money(
     *,
     sessions: list[dict[str, Any]] | None = None,
 ) -> tuple[float, float, float]:
-    session_start = start_at or datetime.now()
+    session_start = start_at or app_now()
     session = {
         "start_at": session_start.isoformat(timespec="seconds"),
         "duration_sec": seconds,
@@ -265,7 +269,7 @@ def freeze_pending() -> None:
     duration = int(current_elapsed())
     if duration <= 0 and not st.session_state.pending_session:
         return
-    now = datetime.now()
+    now = app_now()
     start_at = st.session_state.start_at or now
     total_money, normal_money, overtime_money = calc_money(
         duration,
@@ -332,7 +336,7 @@ def adjust_elapsed(delta: int) -> None:
 
 def render_realtime() -> None:
     elapsed = int(current_elapsed())
-    start_at = st.session_state.start_at or datetime.combine(app_today(), datetime.now().time())
+    start_at = st.session_state.start_at or datetime.combine(app_today(), app_now().time())
     # Share only within this tick; the next tick and saving still read afresh.
     saved_sessions = load_sessions(daily_path(start_at))
     current_money, normal_money, overtime_money = calc_money(
@@ -376,7 +380,7 @@ def render_realtime() -> None:
     st.progress(progress)
 
 
-@st.fragment(run_every="1s")
+@demo_fragment(run_every="1s")
 def ticking_realtime() -> None:
     render_realtime()
     # Keep one component identity across start/pause and refresh paused prices too.
@@ -518,7 +522,7 @@ def start_timer() -> None:
         return
     st.session_state.running = True
     st.session_state.start_perf = time.perf_counter()
-    st.session_state.start_at = st.session_state.start_at or datetime.now()
+    st.session_state.start_at = st.session_state.start_at or app_now()
     advance_timer_control_revision()
 
 
@@ -675,7 +679,7 @@ def render_pending_save(master_values: dict[str, str], condition: dict[str, Any]
             st.rerun()
 
 
-@st.fragment
+@demo_fragment
 def render_session_entry() -> None:
     # Load once per fragment run, including selection changes; never cache JSON.
     # Saving lives in this fragment so it uses the current selection values,

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from web_demo.runtime import fragment as demo_fragment
+
 from datetime import date, datetime, timedelta
 from html import escape
 from pathlib import Path
@@ -53,7 +55,9 @@ from app_core.study_category_service import load_study_category_catalog, study_c
 from app_core.settings_service import load_user_settings as _load_page_settings
 PAGE_SETTINGS = _load_page_settings()
 
-ROOT = Path(__file__).resolve().parents[1]
+from config import get_data_root
+
+ROOT = get_data_root()
 THEME = ab.theme_palette(settings=PAGE_SETTINGS)
 BG = THEME["background"]
 PANEL = THEME["panel"]
@@ -412,7 +416,7 @@ def dark_axes(ax: Any) -> None:
         spine.set_color(THEME["line"])
 
 
-@st.fragment
+@demo_fragment
 def render_substance_residual(analysis_day: date) -> None:
     # Re-read time and profiles on every local interaction; never freeze the
     # current-time marker in the arguments of a fragment rerun.

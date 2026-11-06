@@ -1,48 +1,21 @@
 {
-  "routes": [
-    "welcome",
-    "roadmap",
-    "study",
-    "growth",
-    "city",
-    "health",
-    "about"
-  ],
-  "all_routes_opened": true,
-  "roadmap_overview_search": {
-    "all_items": 9,
-    "financial_search_results": 3,
-    "selected_detail_verified": true,
-    "save_controls_visible": false
+  "checked_at_utc": "2026-11-06T16:20:53+00:00",
+  "scope": "local Windows browser plus separate final AppTest reset checkpoint",
+  "browser": {
+    "home_navigation_routes": 27,
+    "hobby_navigation_items": 0,
+    "manual_log_add_saved": true,
+    "visitor_a_after_add": {
+      "sessions": 300,
+      "hours": 321.2
+    },
+    "visitor_b_unmodified": {
+      "sessions": 299,
+      "hours": 320.2
+    },
+    "visitor_a_navigation_retained_changes": true,
+    "browser_console_initial_views_errors": 0
   },
-  "two_visitors": {
-    "A_period_days": 7,
-    "A_start": "2026-10-30",
-    "B_period_days": 30,
-    "B_start": "2026-10-07",
-    "independent": true
-  },
-  "unregistered_route": {
-    "route": "media_conversion",
-    "returned_to_home": true,
-    "page_not_found_notice": true
-  },
-  "csv": {
-    "rows": 180,
-    "start": "2026-05-10",
-    "end": "2026-11-05",
-    "duration_sec": 1152600.0,
-    "matches_synthetic_sessions": true
-  },
-  "dataset_after_browser": {
-    "records": 715,
-    "days": 180,
-    "synthetic": true,
-    "reference_date": "2026-11-05"
-  },
-  "browser_console_checks": {
-    "roadmap_errors": 0,
-    "city_errors": 0
-  },
-  "cloud_runtime_checked": false
+  "final_reset_widget_regression": "See WEB_DEMO_VERIFICATION.json reset-ui checkpoint; current widget keys reset confirmation and button state.",
+  "cloud_updated_build_checked": false
 }

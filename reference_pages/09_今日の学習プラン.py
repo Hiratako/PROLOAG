@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from web_demo.runtime import fragment as demo_fragment
+
 from copy import deepcopy
 from datetime import date, datetime, time, timedelta
 from app_core.app_clock import app_today
@@ -37,7 +39,9 @@ from data_utils import (
 )
 
 
-ROOT = Path(__file__).resolve().parents[1]
+from config import get_data_root
+
+ROOT = get_data_root()
 MASTER_SNAPSHOT = MasterSnapshot.load(ROOT)
 STATUS_LABELS = {
     "not_started": "未着手",
@@ -310,7 +314,7 @@ def render_daily_quick_log(target: date, *, settings: dict[str, Any] | None = No
         with summary_cols[3]:
             ab.metric_block("集中しやすさ", f"{health.get('condition', {}).get('focus_score', 0) if health_exists else 0} / 5", "体調ログの簡易指標")
 
-        st.page_link("pages/18_カフェイン記録.py", label="服薬ログを開く")
+        ab.product_page_link("pages/18_カフェイン記録.py", label="服薬ログを開く")
 
         record_exercise = st.checkbox(
             "運動の簡易記録を保存する",
@@ -464,7 +468,7 @@ def render_daily_quick_log(target: date, *, settings: dict[str, Any] | None = No
     return rerun_requested
 
 
-@st.fragment
+@demo_fragment
 def render_daily_inputs(target_date: date, initial_context: dict[str, Any],
                         session_display_rows: dict[str, dict[str, Any]]) -> None:
     global MASTER_SNAPSHOT
@@ -758,7 +762,8 @@ def render_daily_inputs(target_date: date, initial_context: dict[str, Any],
         st.info("今日復習すべきカードはまだ設定されていません。")
 
     with st.expander("保存情報", expanded=False):
-        st.write({"plan_id": plan.get("plan_id"), "保存先": str(daily_plan_path(ROOT, target_date))})
+        st.write({"plan_id": plan.get("plan_id")})
+        st.caption("変更は、このブラウザの体験用データに保存されます。")
 
     if task_list_rerun or plan_action_rerun:
         # Render every sibling form, including quick log and master tabs, before

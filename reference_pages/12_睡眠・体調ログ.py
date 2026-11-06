@@ -37,7 +37,9 @@ from app_core.health_service import (
 from app_core.settings_service import load_user_settings as _load_page_settings
 PAGE_SETTINGS = _load_page_settings()
 
-ROOT = Path(__file__).resolve().parents[1]
+from config import get_data_root
+
+ROOT = get_data_root()
 THEME = ab.theme_palette(settings=PAGE_SETTINGS)
 
 configure_japanese_font()

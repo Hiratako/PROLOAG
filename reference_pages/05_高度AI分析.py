@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from web_demo.runtime import fragment as demo_fragment
+
 from datetime import date, timedelta
 from pathlib import Path
 from secrets import randbelow
@@ -30,7 +32,9 @@ from app_core.plot_style import configure_japanese_font, style_chart_axis
 from app_core.settings_service import load_user_settings as _load_page_settings
 PAGE_SETTINGS = _load_page_settings()
 
-ROOT = Path(__file__).resolve().parents[1]
+from config import get_data_root
+
+ROOT = get_data_root()
 
 CURRENT_PROBLEM_KEY = "statistics_practice_current_problem"
 CURRENT_GRADE_KEY = "statistics_practice_current_grade"
@@ -441,7 +445,7 @@ def render_available_summary() -> None:
                 st.markdown(f"- {message}")
 
 
-@st.fragment
+@demo_fragment
 def render_exercise_answers(problem: dict[str, Any]) -> None:
     """Commit drafts promptly without reloading the surrounding page on edits."""
     render_answer_form(problem)

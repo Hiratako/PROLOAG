@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+from web_demo.runtime import fragment as demo_fragment
 from app_core.json_store import record_json_files
 
 from datetime import date, datetime, time, timedelta
@@ -27,7 +29,9 @@ from data_utils import (
 )
 
 
-ROOT = Path(__file__).resolve().parents[1]
+from config import get_data_root
+
+ROOT = get_data_root()
 STUDY_DIR = ROOT / "study_logs"
 DIARY_DIR = ROOT / "diary_entries"
 USER_SETTINGS = load_user_settings()
@@ -317,7 +321,7 @@ def to_csv_bytes(df: pd.DataFrame) -> bytes:
     return df.to_csv(index=False).encode("utf-8-sig")
 
 
-@st.fragment
+@demo_fragment
 def render_manual_log_add() -> None:
     from app_core.study_entry_service import MANUAL_SUBMISSION_KEY, save_manual_entry
 

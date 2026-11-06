@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from web_demo.runtime import fragment as demo_fragment
+
 from copy import deepcopy
 import json
 from app_core.app_clock import app_today
@@ -30,7 +32,9 @@ from data_utils import (
 )
 
 
-ROOT = Path(__file__).resolve().parents[1]
+from config import get_data_root
+
+ROOT = get_data_root()
 MASTER_SNAPSHOT = None
 IMPORTANCE_OPTIONS = ["low", "normal", "high"]
 PRIORITY_OPTIONS = ["low", "normal", "high"]
@@ -484,7 +488,7 @@ def render_note_linked_forms(snapshot: dict[str, Any], master_snapshot: MasterSn
                     st.session_state["note_page_refresh_requested"] = True
 
 
-@st.fragment
+@demo_fragment
 def render_note_editor(note_id: str) -> None:
     """Refresh only this editor and preview; writes retain the original guards."""
     global MASTER_SNAPSHOT
@@ -589,7 +593,7 @@ def render_note_editor(note_id: str) -> None:
             st.caption(f"note_id: {page.get('note_id', '')}")
             st.caption(f"作成: {page.get('created_at', '')}")
             st.caption(f"更新: {page.get('updated_at', '')}")
-            st.caption(f"保存先: {notes_path(ROOT)}")
+            st.caption("変更は、このブラウザの体験用データに保存されます。")
 
     preserve_active_note_inputs()
     if refresh_requested:

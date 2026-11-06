@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 import streamlit as st
+from web_demo.runtime import fragment as demo_fragment
 
 import prolog_ui.components as ab
 from app_core.json_store import JsonStoreError
@@ -490,7 +491,7 @@ def _render_pending_changes(root: Path, state: dict[str, Any]) -> bool:
     return True
 
 
-@st.fragment
+@demo_fragment
 def render_study_log_management(
     records: list[dict[str, Any]], *, root: Path, fallback_policy: dict[str, Any],
 ) -> None:

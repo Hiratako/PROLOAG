@@ -388,9 +388,16 @@ def sidebar_page_link(path: str, label: str, *, settings: dict[str, Any]) -> Non
     """Apply the shared sidebar preference to a page-specific shortcut."""
     from config import WEB_DEMO_READ_ONLY
     if WEB_DEMO_READ_ONLY:
+        product_page_link(path, label=label)
         return
     if path not in hidden_sidebar_pages(settings):
         st.page_link(path, label=label)
+
+
+def product_page_link(path, *, label: str, **kwargs) -> None:
+    """Open a product shortcut without exposing unregistered source files."""
+    from web_demo.navigation import product_page_link as link
+    link(path, label=label, **kwargs)
 
 
 def card(title: str, body: str = "", *, icon: str = "", class_name: str = "") -> None:

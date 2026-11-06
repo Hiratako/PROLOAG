@@ -218,7 +218,8 @@ def _troubleshooting() -> None:
 
 def render_google_guide() -> None:
     st.caption("読むだけで使えるガイドです。Googleへの接続・送信や、保存データの変更は行いません。")
-    st.page_link("pages/97_データエクスポート.py", label="実際の操作画面：データエクスポートを開く")
+    from web_demo.navigation import product_page_link
+    product_page_link("pages/97_データエクスポート.py", label="実際の操作画面：データエクスポートを開く")
     topic = st.radio("知りたいこと", TOPICS, horizontal=True, key="google_guide_topic")
     st.divider()
     renderers = dict(zip(TOPICS, (_overview, _setup, _sheets, _docs, _consultation, _troubleshooting)))
