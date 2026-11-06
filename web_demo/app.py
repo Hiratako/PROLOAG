@@ -103,7 +103,7 @@ def _summary():
 
 
 def welcome() -> None:
-    ui.topbar("PROLOAG", "計画して、勉強して、記録して、振り返る。ひとつながりの使い方を体験。", eyebrow="WEB EXPERIENCE")
+    ui.topbar("PROLOAG", "今日の記録を、次の物語へ。", eyebrow="PROGRESS & REFLECTION OS FOR LEARNING, ORGANIZATION, AND GROWTH")
     st.info("元のDemo版に近い機能を、あなた専用の一時データで試せます。追加・編集・削除した内容は、他の人や元のサンプルには反映されません。")
     summary = _summary()
     values = [

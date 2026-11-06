@@ -1153,7 +1153,7 @@
     "tests/test_web_experience_storage.py": "31d5ade65ba0d22db70cd57aa62e73387a5625313a7f44493d0bf4314bad9245",
     "tests/test_web_experience_workflows.py": "170fc74c5fabc1cef5a3ce1aa7ea14ff27a71562674cdbc3f6690343d409484a",
     "web_demo/__init__.py": "87cfc2a91333bfb7116ce7376b01c637fb77179483de1986056c8f2071148180",
-    "web_demo/app.py": "ddea4f66423a26a703cd2388ea212eff1de79a6cb18b2a1898bb0be1997655ae",
+    "web_demo/app.py": "a9cf1b1afcc1aa71b712ddbb4ce5ae07974d336e3b4bfaaff63297a97f4c21a3",
     "web_demo/catalog.py": "8c6dc685d3c7169fb3febcc7cfdae01e5cd45b72ea87658eddf38b774bdac3e6",
     "web_demo/data.py": "ffd1e1dfab1a8fe55695f58a0dacdc4e97cf3009b65d1a92e59cb075436ccd96",
     "web_demo/dataset_manifest.json": "d8c287a8e9c2f727b10c370c4e454486285a6c825da61f545112575b58adccb4",
@@ -1164,5 +1164,5 @@
     "web_demo/substances.py": "543a62347eed5e256c81c902b2c98e24182980da3a1858e97d9b0c4db91419c2"
   },
   "sample_variant": "web-caffeine-acetaminophen-v1",
-  "previous_web_update_commit": "1a0a28c888273157d31d963277cfaf4e2d4be9ad"
+  "previous_web_update_commit": "0c0fb3d446bac683dccd9ebe35c86642f5bfa5bf"
 }
