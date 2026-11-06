@@ -87,66 +87,6 @@
       "substance_record_id": "caffeine_demo_consultant_20261019_02",
       "substance_id": "caffeine",
       "unit": "mg"
-    },
-    {
-      "substance_record_id": "eszopiclone_demo_20261019",
-      "substance_id": "eszopiclone",
-      "taken_at": "2026-10-19T22:10:00",
-      "amount_mg": 2.0,
-      "unit": "mg",
-      "source": "demo_generator",
-      "label": "タブレット",
-      "memo": "完全に架空の表示テスト用記録。実際の服薬・併用例ではありません。",
-      "model_snapshot": {
-        "schema_version": 1,
-        "profile_revision": 1,
-        "unit": "mg",
-        "half_life_hours": 6.0,
-        "peak_delay_minutes": 60,
-        "residual_cutoff_hours": 48.0
-      },
-      "created_at": "2026-10-19 23:40:00",
-      "updated_at": "2026-10-19 23:40:00"
-    },
-    {
-      "substance_record_id": "trazodone_demo_20261019",
-      "substance_id": "trazodone",
-      "taken_at": "2026-10-19T22:20:00",
-      "amount_mg": 25.0,
-      "unit": "mg",
-      "source": "demo_generator",
-      "label": "タブレット",
-      "memo": "完全に架空の表示テスト用記録。実際の服薬・併用例ではありません。",
-      "model_snapshot": {
-        "schema_version": 1,
-        "profile_revision": 1,
-        "unit": "mg",
-        "half_life_hours": 7.0,
-        "peak_delay_minutes": 60,
-        "residual_cutoff_hours": 56.0
-      },
-      "created_at": "2026-10-19 23:40:00",
-      "updated_at": "2026-10-19 23:40:00"
-    },
-    {
-      "substance_record_id": "melatonin_demo_20261019",
-      "substance_id": "melatonin",
-      "taken_at": "2026-10-19T22:30:00",
-      "amount_mg": 3.0,
-      "unit": "mg",
-      "source": "demo_generator",
-      "label": "タブレット",
-      "memo": "完全に架空の表示テスト用記録。実際の服薬・併用例ではありません。",
-      "model_snapshot": {
-        "schema_version": 1,
-        "profile_revision": 1,
-        "unit": "mg",
-        "half_life_hours": 0.75,
-        "peak_delay_minutes": 50,
-        "residual_cutoff_hours": 8.0
-      },
-      "created_at": "2026-10-19 23:40:00",
-      "updated_at": "2026-10-19 23:40:00"
     }
   ],
   "running_distance_km": 0,

@@ -139,6 +139,12 @@ def render_substance_editor(
     target: date, selected_id: str, fallback_profile: dict[str, Any], *,
     initial_context: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
+    import config as app_config
+    from web_demo.substances import LEGACY_DEMO_SUBSTANCE_IDS
+    if getattr(app_config, "WEB_DEMO_EXPERIENCE", False) and selected_id in LEGACY_DEMO_SUBSTANCE_IDS:
+        # An already-open tab may send a fragment event with an old argument.
+        # Rebuild the parent selector rather than restoring a retired profile.
+        st.rerun()
     # Refresh the selected day and settings on every partial run. Form baselines
     # remain fixed until save/discard, independently of these display reads.
     # The outer render and 14-day table share this list on the initial call only.
@@ -385,6 +391,10 @@ profile_lookup = {str(item["substance_id"]): item for item in all_profiles}
 profile_ids = [str(item["substance_id"]) for item in all_profiles]
 active_ids = [str(item["substance_id"]) for item in all_profiles if item.get("is_active", True)]
 default_id = CAFFEINE_SUBSTANCE_ID if CAFFEINE_SUBSTANCE_ID in profile_ids else profile_ids[0]
+from web_demo.substances import sanitize_substance_selection
+sanitize_substance_selection(
+    st.session_state, "substance_record_selected_id", profile_ids, default=default_id,
+)
 selected_id = st.selectbox(
     "記録・編集する項目",
     options=profile_ids,

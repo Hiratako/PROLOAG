@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-07",
+  "scope": "Web-only two-substance synthetic sample",
+  "variant": "web-caffeine-acetaminophen-v1",
+  "environment": {
+    "platform": "Windows",
+    "python": "3.11.4",
+    "streamlit": "1.57.0"
+  },
+  "tests": {
+    "distinct_unittest_cases": 27,
+    "unittest_executions": 28,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runs": [
+      {
+        "scope": "two-substance regressions",
+        "tests": 8,
+        "passed": 8,
+        "elapsed_seconds": 51.198
+      },
+      {
+        "scope": "existing data policy and startup logging",
+        "tests": 19,
+        "passed": 19,
+        "elapsed_seconds": 2.41
+      },
+      {
+        "scope": "stale visitor selection after UI warning fix",
+        "tests": 1,
+        "passed": 1,
+        "overlaps_first_run": 1,
+        "elapsed_seconds": 8.288
+      }
+    ]
+  },
+  "cold_start": {
+    "entrypoint": "main.py",
+    "runner": "AppTest.from_file",
+    "preloaded_repository_modules": [],
+    "exceptions": 0,
+    "errors": 0,
+    "elapsed_seconds": 2.682
+  },
+  "data": {
+    "records": 715,
+    "source_seed_unchanged_in_all_runs": true,
+    "initial_substance_ids": [
+      "caffeine",
+      "acetaminophen"
+    ],
+    "acetaminophen_records": 13,
+    "unchanged_caffeine_records": 239,
+    "non_substance_canonical_sha256": "88a3f3d8734f41ba65784a927bf70121d379adb010b93a708beba12474aa9609",
+    "record_set_sha256": "d6319d66c9f738ecbca99efd5eae757b2b17fe81f87dcc20f30f49696513220a"
+  },
+  "test_storage": {
+    "new_os_temp_only": true,
+    "generated_files_retained": true,
+    "onedrive_cleanup_performed": false,
+    "actual_user_records_used": false
+  },
+  "cloud_verification": "Separate deployment step; not claimed by this report.",
+  "historical_63_case_report": "docs/web-demo-verification.md",
+  "checked_source_sha256": {
+    "app_core/substance_service.py": "f67122967c94ba17ab9b1a54dcaae3b934e53b97c281f4a12228772f14d0650b",
+    "reference_pages/16_カフェイン・運動分析.py": "5cb5506230f06bc55344a40a5425d5c6e2afae5d2c1c046989824a2f849abeb2",
+    "reference_pages/18_カフェイン記録.py": "6caecd9f2c7236c900fb738d048fb31aa738b2220888f178ac178fb00a288c89",
+    "scripts/prepare_web_substance_demo.py": "17e937c97cf318b1a8690f7b4711ae46120345fa2565e9879c7476b1751e0f8a",
+    "settings/substance_profiles.json": "cbf436e09f1e10349012391df13eeeb1668fa679096adfeb3b9a9d85dbfe21e1",
+    "tests/test_web_demo_data_policy.py": "b9c0d571139c34dec41bde1c135d83434cabee6b5fc69f1b32af6a86f15e7b56",
+    "tests/test_web_demo_substances.py": "9cfb35ce55c71efd34741c38412535a13c1cf18c1d8a224eae2528a8763b3761",
+    "tests/test_web_experience_startup_logging.py": "5daf24b09111a9650d6a2d5e1c90afc3c9f9f826c9c1b2c1db9ba4002430fef1",
+    "web_demo/data.py": "ffd1e1dfab1a8fe55695f58a0dacdc4e97cf3009b65d1a92e59cb075436ccd96",
+    "web_demo/dataset_manifest.json": "d8c287a8e9c2f727b10c370c4e454486285a6c825da61f545112575b58adccb4",
+    "web_demo/substances.py": "543a62347eed5e256c81c902b2c98e24182980da3a1858e97d9b0c4db91419c2"
+  }
+}

@@ -434,10 +434,15 @@ def render_substance_residual(analysis_day: date) -> None:
     )
 
     control_cols = st.columns([2.1, 1.2, 1, 1])
+    from web_demo.substances import sanitize_substance_selection
+    sanitize_substance_selection(
+        st.session_state, "substance_residual_selected_ids", list(profile_lookup),
+        default=active_ids, multiple=True,
+    )
     selected_ids = control_cols[0].multiselect(
         "表示成分",
         options=[str(item["substance_id"]) for item in all_profiles],
-        default=active_ids,
+        default=None if "substance_residual_selected_ids" in st.session_state else active_ids,
         format_func=lambda item_id: (
             str(profile_lookup[item_id]["name"])
             if profile_lookup[item_id].get("is_active", True)

@@ -7,6 +7,8 @@ import re
 from typing import Any, Iterable
 from uuid import uuid4
 
+import config as _app_config
+
 from app_core.app_clock import app_now, app_today
 from app_core.json_store import _UNSET, JsonConflictError, json_transaction, json_transaction_for, load_json_safe, observed_json_revision, save_json_safe
 from config import SUBSTANCE_PROFILES_PATH
@@ -141,12 +143,15 @@ def parse_substance_datetime(
 
 
 def default_substance_profiles() -> list[dict[str, Any]]:
+    if getattr(_app_config, "WEB_DEMO_EXPERIENCE", False):
+        from web_demo.substances import default_web_substance_profiles
+        return default_web_substance_profiles()
     return deepcopy(list(DEFAULT_SUBSTANCE_PROFILES))
 
 
 def _fallback_profile(substance_id: str) -> dict[str, Any] | None:
     return next(
-        (deepcopy(item) for item in DEFAULT_SUBSTANCE_PROFILES if item["substance_id"] == substance_id),
+        (item for item in default_substance_profiles() if item["substance_id"] == substance_id),
         None,
     )
 
@@ -212,6 +217,9 @@ def _raw_profile_rows() -> list[Any]:
 
 def load_substance_profiles(*, include_inactive: bool = True) -> list[dict[str, Any]]:
     rows = _raw_profile_rows()
+    if getattr(_app_config, "WEB_DEMO_EXPERIENCE", False):
+        from web_demo.substances import web_profile_rows
+        rows = web_profile_rows(rows)
     if not rows:
         profiles = default_substance_profiles()
     else:
@@ -224,7 +232,7 @@ def load_substance_profiles(*, include_inactive: bool = True) -> list[dict[str, 
                 continue
             profiles.append(profile)
             seen.add(profile["substance_id"])
-        for default in DEFAULT_SUBSTANCE_PROFILES:
+        for default in default_substance_profiles():
             if default["substance_id"] not in seen:
                 profiles.append(deepcopy(default))
     profiles.sort(key=lambda item: (int(item.get("sort_order", 0)), str(item.get("name") or "")))
@@ -411,13 +419,17 @@ def normalize_substance_records(
         return []
     target_date = _parse_date(target)
     profile_lookup = profiles or substance_profile_map(include_inactive=True)
+    retired_examples = frozenset()
+    if getattr(_app_config, "WEB_DEMO_EXPERIENCE", False):
+        from web_demo.substances import LEGACY_DEMO_SUBSTANCE_IDS
+        retired_examples = LEGACY_DEMO_SUBSTANCE_IDS
     caffeine_fallback = profile_lookup.get(CAFFEINE_SUBSTANCE_ID) or _fallback_profile(CAFFEINE_SUBSTANCE_ID) or {}
     rows: list[dict[str, Any]] = []
     for index, item in enumerate(value):
         if not isinstance(item, dict):
             continue
         substance_id = str(item.get("substance_id") or "").strip().lower()
-        if not substance_id:
+        if not substance_id or substance_id in retired_examples:
             continue
         amount_mg = round(max(_number(item.get("amount_mg"), 0.0), 0.0), 6)
         taken_at = parse_substance_datetime(item.get("taken_at"), target_date)

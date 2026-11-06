@@ -17,6 +17,7 @@ import stat
 from typing import Any
 
 from app_core.study_record_reader import unpack_study_document
+from web_demo.substances import WEB_SUBSTANCE_VARIANT
 
 
 DATA_ROOT = Path(__file__).resolve().parents[1]
@@ -28,7 +29,10 @@ DATA_FOLDERS = frozenset({
     "health_logs", "exercise_logs", "settings", "statistics_practice",
 })
 DATA_FILES = frozenset({"flashcards.json", "reminders.json"})
+# This archive is the base, not a claim that the derived Web fixture remains
+# byte-identical to the Windows Demo. Its two-substance overlay is explicit.
 SOURCE_ARCHIVE_SHA256 = "678d4c4850bdb3458d69d5431faf05bae1089312f08699556253c45a62c2202c"
+BASE_RECORD_SET_SHA256 = "ee55dc85e14324470a2eba05fc518a425d01fcbfb7517cdd20d19f1805e36bcf"
 
 
 def _read(relative: str, default: Any) -> Any:
@@ -152,8 +156,18 @@ def verify_demo_dataset() -> dict[str, Any]:
         raise ValueError("The exhibition manifest must be an object.")
     if (manifest.get("synthetic") is not True or manifest.get("reference_date") != REFERENCE_DATE.isoformat()
             or manifest.get("period_start") != PERIOD_START.isoformat() or manifest.get("days") != 180
-            or manifest.get("seed") != 20261105 or manifest.get("source_sha256") != SOURCE_ARCHIVE_SHA256):
+            or manifest.get("seed") != 20261105 or manifest.get("schema_version") != 2
+            or manifest.get("variant") != WEB_SUBSTANCE_VARIANT
+            or manifest.get("source_kind") != "derived_synthetic_web_variant"
+            or manifest.get("base_source_sha256") != SOURCE_ARCHIVE_SHA256
+            or manifest.get("base_record_set_sha256") != BASE_RECORD_SET_SHA256):
         raise ValueError("The exhibition data metadata is inconsistent.")
+    base = manifest.get("base_record_sha256")
+    if (not isinstance(base, dict) or len(base) != 715
+            or set(base) != set(manifest.get("record_sha256", {}))
+            or hashlib.sha256(json.dumps(base, ensure_ascii=False, sort_keys=True,
+                separators=(",", ":")).encode("utf-8")).hexdigest() != BASE_RECORD_SET_SHA256):
+        raise ValueError("The derived exhibition data provenance is inconsistent.")
     if data_fingerprint() != manifest["record_sha256"]:
         raise ValueError("The fixed exhibition data has changed.")
     mode = _read("settings/demo_mode.json", {})
@@ -162,7 +176,7 @@ def verify_demo_dataset() -> dict[str, Any]:
     if len(_bundle()["health"]) != 180 or not _bundle()["roadmap"].get("items"):
         raise ValueError("The exhibition records are incomplete.")
     return {"records": len(manifest["record_sha256"]), "days": 180, "synthetic": True,
-            "reference_date": REFERENCE_DATE.isoformat()}
+            "reference_date": REFERENCE_DATE.isoformat(), "variant": WEB_SUBSTANCE_VARIANT}
 
 
 def verify_demo_data() -> dict[str, Any]:
