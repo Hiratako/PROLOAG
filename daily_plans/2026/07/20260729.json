@@ -1,0 +1,58 @@
+{
+  "plan_id": "plan_20260729",
+  "date": "2026-07-29",
+  "target_total_minutes": 150,
+  "focus_subjects": [
+    "二次試験 事例III",
+    "経営情報システム"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例III",
+    "情報システム 頻出論点集"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260729_001",
+      "title": "経営情報システム：データベース 復習",
+      "subject": "経営情報システム",
+      "material": "情報システム 頻出論点集",
+      "planned_minutes": 60,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260729_001",
+        "session_20260729_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_information",
+      "material_id": "material_demo_information_text",
+      "unit_id": "unit_demo_information_database"
+    },
+    {
+      "task_id": "task_20260729_002",
+      "title": "二次試験 事例III：標準化 答案骨子作成",
+      "subject": "二次試験 事例III",
+      "material": "ふぞろいな合格答案 事例III",
+      "planned_minutes": 60,
+      "status": "pending",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case3",
+      "material_id": "material_demo_case3_answers",
+      "unit_id": "unit_demo_case3_standardization"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260722_035",
+    "note_20260728_038"
+  ],
+  "review_card_ids": [
+    "card_20260722_107",
+    "card_20260722_108",
+    "card_20260728_115",
+    "card_20260728_116"
+  ],
+  "created_at": "2026-07-29 07:30:00",
+  "updated_at": "2026-07-29 07:30:00"
+}

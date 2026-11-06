@@ -1,0 +1,77 @@
+{
+  "plan_id": "plan_20260726",
+  "date": "2026-07-26",
+  "target_total_minutes": 240,
+  "focus_subjects": [
+    "二次試験 事例I",
+    "企業経営理論",
+    "運営管理"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例I",
+    "企業経営理論 スピードテキスト",
+    "運営管理 論点整理ノート"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260726_001",
+      "title": "企業経営理論：経営戦略 論点整理",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 30,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_strategy"
+    },
+    {
+      "task_id": "task_20260726_002",
+      "title": "二次試験 事例I：権限委譲 過去問演習",
+      "subject": "二次試験 事例I",
+      "material": "ふぞろいな合格答案 事例I",
+      "planned_minutes": 90,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case1",
+      "material_id": "material_demo_case1_answers",
+      "unit_id": "unit_demo_case1_delegation"
+    },
+    {
+      "task_id": "task_20260726_003",
+      "title": "運営管理：IE 答案骨子作成",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 30,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "unit_demo_operations_ie"
+    },
+    {
+      "task_id": "task_20260726_004",
+      "title": "企業経営理論：経営戦略 答案骨子作成",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 30,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_strategy"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-07-26 07:30:00",
+  "updated_at": "2026-07-26 07:30:00"
+}

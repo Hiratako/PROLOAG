@@ -1,0 +1,52 @@
+{
+  "plan_id": "plan_20260902",
+  "date": "2026-09-02",
+  "target_total_minutes": 180,
+  "focus_subjects": [
+    "中小企業経営・政策",
+    "企業経営理論"
+  ],
+  "materials": [
+    "中小企業白書・施策整理",
+    "企業経営理論 スピードテキスト"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260902_001",
+      "title": "中小企業経営・政策：事業承継 復習",
+      "subject": "中小企業経営・政策",
+      "material": "中小企業白書・施策整理",
+      "planned_minutes": 90,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_policy",
+      "material_id": "material_demo_policy_whitepaper",
+      "unit_id": "unit_demo_policy_succession"
+    },
+    {
+      "task_id": "task_20260902_002",
+      "title": "企業経営理論：組織論 答案骨子作成",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_organization"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260830_052"
+  ],
+  "review_card_ids": [
+    "card_20260830_155",
+    "card_20260830_156"
+  ],
+  "created_at": "2026-09-02 07:30:00",
+  "updated_at": "2026-09-02 07:30:00"
+}

@@ -1,0 +1,68 @@
+{
+  "plan_id": "plan_20261101",
+  "date": "2026-11-01",
+  "target_total_minutes": 180,
+  "focus_subjects": [
+    "企業経営理論",
+    "経営法務",
+    "運営管理"
+  ],
+  "materials": [
+    "企業経営理論 スピードテキスト",
+    "経営法務 一問一答",
+    "運営管理 論点整理ノート"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20261101_001",
+      "title": "運営管理：生産管理 過去問演習",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 60,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "unit_demo_operations_production"
+    },
+    {
+      "task_id": "task_20261101_002",
+      "title": "経営法務：組織再編 答案骨子作成",
+      "subject": "経営法務",
+      "material": "経営法務 一問一答",
+      "planned_minutes": 90,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_legal",
+      "material_id": "material_demo_legal_workbook",
+      "unit_id": "unit_demo_legal_reorganization"
+    },
+    {
+      "task_id": "task_20261101_003",
+      "title": "企業経営理論：経営戦略 論点整理",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 45,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261101_001",
+        "session_20261101_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_strategy",
+      "roadmap_item_id": "rm_13cb73ed8df358b986f46d2d3b277ec1",
+      "roadmap_allocation_id": "ra_64af1eef3bcd526cadf1f2a43403fd11"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-11-01 07:30:00",
+  "updated_at": "2026-11-01 07:30:00"
+}

@@ -1,0 +1,73 @@
+{
+  "plan_id": "plan_20260528",
+  "date": "2026-05-28",
+  "target_total_minutes": 240,
+  "focus_subjects": [
+    "中小企業経営・政策",
+    "企業経営理論",
+    "財務・会計"
+  ],
+  "materials": [
+    "中小企業白書・施策整理",
+    "企業経営理論 スピードテキスト",
+    "財務・会計 過去問完全マスター"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260528_001",
+      "title": "中小企業経営・政策：小規模企業政策 論点整理",
+      "subject": "中小企業経営・政策",
+      "material": "中小企業白書・施策整理",
+      "planned_minutes": 30,
+      "status": "pending",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_policy",
+      "material_id": "material_demo_policy_whitepaper",
+      "unit_id": "unit_demo_policy_small_business_policy"
+    },
+    {
+      "task_id": "task_20260528_002",
+      "title": "財務・会計：キャッシュフロー 一問一答",
+      "subject": "財務・会計",
+      "material": "財務・会計 過去問完全マスター",
+      "planned_minutes": 60,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_finance",
+      "material_id": "material_demo_finance_workbook",
+      "unit_id": "unit_demo_finance_cashflow"
+    },
+    {
+      "task_id": "task_20260528_003",
+      "title": "企業経営理論：マーケティング 復習",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 45,
+      "status": "in_progress",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260528_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_marketing"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260521_005",
+    "note_20260525_007"
+  ],
+  "review_card_ids": [
+    "card_20260521_012",
+    "card_20260521_013",
+    "card_20260525_016",
+    "card_20260525_017"
+  ],
+  "created_at": "2026-05-28 07:30:00",
+  "updated_at": "2026-05-28 07:30:00"
+}

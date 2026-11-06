@@ -1,0 +1,67 @@
+{
+  "plan_id": "plan_20261007",
+  "date": "2026-10-07",
+  "target_total_minutes": 210,
+  "focus_subjects": [
+    "中小企業経営・政策",
+    "二次試験 事例II",
+    "運営管理"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例II",
+    "中小企業白書・施策整理",
+    "運営管理 論点整理ノート"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20261007_001",
+      "title": "中小企業経営・政策：小規模企業政策 答案骨子作成",
+      "subject": "中小企業経営・政策",
+      "material": "中小企業白書・施策整理",
+      "planned_minutes": 90,
+      "status": "in_progress",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261007_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_policy",
+      "material_id": "material_demo_policy_whitepaper",
+      "unit_id": "unit_demo_policy_small_business_policy"
+    },
+    {
+      "task_id": "task_20261007_002",
+      "title": "二次試験 事例II：差別化戦略 一問一答",
+      "subject": "二次試験 事例II",
+      "material": "ふぞろいな合格答案 事例II",
+      "planned_minutes": 60,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case2",
+      "material_id": "material_demo_case2_answers",
+      "unit_id": "unit_demo_case2_differentiation"
+    },
+    {
+      "task_id": "task_20261007_003",
+      "title": "運営管理：IE 過去問演習",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 60,
+      "status": "in_progress",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261007_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "unit_demo_operations_ie"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-10-07 07:30:00",
+  "updated_at": "2026-10-07 07:30:00"
+}

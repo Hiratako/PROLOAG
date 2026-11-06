@@ -1,0 +1,40 @@
+[
+  {
+    "session_id": "session_20260908_001",
+    "start_at": "2026-09-08T05:00:00",
+    "end_at": "2026-09-08T06:45:00",
+    "duration_sec": 6300,
+    "money": 3850,
+    "normal_money": 3850,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "財務・会計：財務諸表の弱点補強",
+    "category": "資格",
+    "environment": "通勤中",
+    "effort": 10,
+    "sleep_hours": 6.5,
+    "alcohol_yesterday": "あり",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "インプット",
+    "linked_note_ids": [
+      "note_20260908_055"
+    ],
+    "linked_task_id": "task_20260908_002",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_statements",
+    "io_type": "インプット",
+    "condition": {
+      "effort": 10,
+      "environment": "通勤中",
+      "sleep_hours": 6.5,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "インプット",
+      "io_type": "インプット",
+      "alcohol_yesterday": "あり"
+    }
+  }
+]

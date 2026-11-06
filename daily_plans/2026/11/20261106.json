@@ -1,0 +1,33 @@
+{
+  "plan_id": "plan_20261106",
+  "date": "2026-11-06",
+  "target_total_minutes": 180,
+  "focus_subjects": [
+    "運営管理"
+  ],
+  "materials": [
+    "運営管理 論点整理ノート"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_demo_roadmap_20261106_operations",
+      "title": "運営管理：過去問を5問解く（デモ工程）",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 45,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "",
+      "roadmap_item_id": "rm_22cfebef07fe5ab985514ae294f88d10",
+      "roadmap_allocation_id": "ra_bec2c200cb0e5375afd6b6d897994643"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-11-06T07:30:00",
+  "updated_at": "2026-11-06T07:30:00"
+}

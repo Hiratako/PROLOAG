@@ -1,0 +1,40 @@
+[
+  {
+    "session_id": "session_20260901_001",
+    "start_at": "2026-09-01T06:10:00",
+    "end_at": "2026-09-01T07:25:00",
+    "duration_sec": 4500,
+    "money": 2750,
+    "normal_money": 2750,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "二次試験 事例III：在庫管理の答案構成練習",
+    "category": "資格",
+    "environment": "自宅",
+    "effort": 5,
+    "sleep_hours": 5.6,
+    "alcohol_yesterday": "なし",
+    "mood": "4",
+    "study_category": "資格",
+    "input_output": "両方",
+    "linked_note_ids": [
+      "note_20260901_053"
+    ],
+    "linked_task_id": "task_20260901_002",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_inventory",
+    "io_type": "両方",
+    "condition": {
+      "effort": 5,
+      "environment": "自宅",
+      "sleep_hours": 5.6,
+      "mood": "4",
+      "category": "資格",
+      "input_output": "両方",
+      "io_type": "両方",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

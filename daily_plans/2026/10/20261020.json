@@ -1,0 +1,52 @@
+{
+  "plan_id": "plan_20261020",
+  "date": "2026-10-20",
+  "target_total_minutes": 180,
+  "focus_subjects": [
+    "二次試験 事例IV",
+    "経済学・経済政策"
+  ],
+  "materials": [
+    "事例IV 計算問題集",
+    "経済学 計算問題トレーニング"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20261020_001",
+      "title": "経済学・経済政策：IS-LM分析 過去問演習",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 60,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_islm"
+    },
+    {
+      "task_id": "task_20261020_002",
+      "title": "二次試験 事例IV：意思決定会計 答案骨子作成",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 90,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_decision_accounting"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260920_062"
+  ],
+  "review_card_ids": [
+    "card_20260920_182",
+    "card_20260920_183"
+  ],
+  "created_at": "2026-10-20 07:30:00",
+  "updated_at": "2026-10-20 07:30:00"
+}

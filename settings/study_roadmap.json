@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "rm_9df6650265785ebe8d0e7a429618655d",
+      "title": "経営戦略・組織論の基礎整理",
+      "start_date": "2026-10-22",
+      "end_date": "2026-10-28",
+      "baseline_start_date": "2026-10-22",
+      "baseline_end_date": "2026-10-28",
+      "schedule_history": [],
+      "deadline": "2026-10-28",
+      "planned_minutes": 240,
+      "status": "done",
+      "progress_kind": "quantity",
+      "completed": 8,
+      "total": 8,
+      "unit": "章",
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "",
+      "memo": "架空の表示確認用計画です。進捗はサンプル値で、学習時間から計算していません。",
+      "is_archived": false,
+      "predecessor_ids": [],
+      "created_at": "2026-11-05T07:00:00",
+      "updated_at": "2026-11-05T07:00:00"
+    },
+    {
+      "id": "rm_13cb73ed8df358b986f46d2d3b277ec1",
+      "title": "経営理論の過去問演習",
+      "start_date": "2026-10-29",
+      "end_date": "2026-11-07",
+      "baseline_start_date": "2026-10-29",
+      "baseline_end_date": "2026-11-07",
+      "schedule_history": [],
+      "deadline": "2026-11-07",
+      "planned_minutes": 480,
+      "status": "in_progress",
+      "progress_kind": "quantity",
+      "completed": 18,
+      "total": 40,
+      "unit": "問",
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "",
+      "memo": "架空の表示確認用計画です。進捗はサンプル値で、学習時間から計算していません。",
+      "is_archived": false,
+      "predecessor_ids": [
+        "rm_9df6650265785ebe8d0e7a429618655d"
+      ],
+      "created_at": "2026-11-05T07:00:00",
+      "updated_at": "2026-11-05T07:00:00"
+    },
+    {
+      "id": "rm_7efa85347e435e4783d98d1d2571e3f1",
+      "title": "弱点の復習・模試準備",
+      "start_date": "2026-11-08",
+      "end_date": "2026-11-15",
+      "baseline_start_date": "2026-11-08",
+      "baseline_end_date": "2026-11-15",
+      "schedule_history": [],
+      "deadline": "2026-11-15",
+      "planned_minutes": 240,
+      "status": "not_started",
+      "progress_kind": "quantity",
+      "completed": 0,
+      "total": 20,
+      "unit": "問",
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "",
+      "memo": "架空の表示確認用計画です。進捗はサンプル値で、学習時間から計算していません。",
+      "is_archived": false,
+      "predecessor_ids": [
+        "rm_13cb73ed8df358b986f46d2d3b277ec1"
+      ],
+      "created_at": "2026-11-05T07:00:00",
+      "updated_at": "2026-11-05T07:00:00"
+    },
+    {
+      "id": "rm_0f9ca341e79650eaa26afbef0541452c",
+      "title": "財務諸表・会計の基礎整理",
+      "start_date": "2026-10-24",
+      "end_date": "2026-10-29",
+      "baseline_start_date": "2026-10-24",
+      "baseline_end_date": "2026-10-29",
+      "schedule_history": [],
+      "deadline": "2026-10-29",
+      "planned_minutes": 240,
+      "status": "done",
+      "progress_kind": "quantity",
+      "completed": 5,
+      "total": 5,
+      "unit": "章",
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_finance",
+      "material_id": "material_demo_finance_workbook",
+      "unit_id": "",
+      "memo": "架空の表示確認用計画です。進捗はサンプル値で、学習時間から計算していません。",
+      "is_archived": false,
+      "predecessor_ids": [],
+      "created_at": "2026-11-05T07:00:00",
+      "updated_at": "2026-11-05T07:00:00"
+    },
+    {
+      "id": "rm_31ccb75c21005a05bbe7842dcc413b8c",
+      "title": "財務会計の過去問演習",
+      "start_date": "2026-10-30",
+      "end_date": "2026-11-08",
+      "baseline_start_date": "2026-10-30",
+      "baseline_end_date": "2026-11-08",
+      "schedule_history": [],
+      "deadline": "2026-11-08",
+      "planned_minutes": 480,
+      "status": "in_progress",
+      "progress_kind": "quantity",
+      "completed": 12,
+      "total": 30,
+      "unit": "問",
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_finance",
+      "material_id": "material_demo_finance_workbook",
+      "unit_id": "",
+      "memo": "架空の表示確認用計画です。進捗はサンプル値で、学習時間から計算していません。",
+      "is_archived": false,
+      "predecessor_ids": [
+        "rm_0f9ca341e79650eaa26afbef0541452c"
+      ],
+      "created_at": "2026-11-05T07:00:00",
+      "updated_at": "2026-11-05T07:00:00"
+    },
+    {
+      "id": "rm_cb1a53c50ca55ef3a64a598c7ccc50cc",
+      "title": "投資評価の復習・模試準備",
+      "start_date": "2026-11-09",
+      "end_date": "2026-11-17",
+      "baseline_start_date": "2026-11-09",
+      "baseline_end_date": "2026-11-17",
+      "schedule_history": [],
+      "deadline": "2026-11-17",
+      "planned_minutes": 300,
+      "status": "not_started",
+      "progress_kind": "quantity",
+      "completed": 0,
+      "total": 20,
+      "unit": "問",
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_finance",
+      "material_id": "material_demo_finance_workbook",
+      "unit_id": "",
+      "memo": "架空の表示確認用計画です。進捗はサンプル値で、学習時間から計算していません。",
+      "is_archived": false,
+      "predecessor_ids": [
+        "rm_31ccb75c21005a05bbe7842dcc413b8c"
+      ],
+      "created_at": "2026-11-05T07:00:00",
+      "updated_at": "2026-11-05T07:00:00"
+    },
+    {
+      "id": "rm_40af960c1fd6572db8ddd98a263c2902",
+      "title": "生産管理の基礎整理",
+      "start_date": "2026-10-26",
+      "end_date": "2026-11-01",
+      "baseline_start_date": "2026-10-26",
+      "baseline_end_date": "2026-11-01",
+      "schedule_history": [],
+      "deadline": "2026-11-01",
+      "planned_minutes": 240,
+      "status": "done",
+      "progress_kind": "quantity",
+      "completed": 5,
+      "total": 5,
+      "unit": "章",
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "",
+      "memo": "架空の表示確認用計画です。進捗はサンプル値で、学習時間から計算していません。",
+      "is_archived": false,
+      "predecessor_ids": [],
+      "created_at": "2026-11-05T07:00:00",
+      "updated_at": "2026-11-05T07:00:00"
+    },
+    {
+      "id": "rm_22cfebef07fe5ab985514ae294f88d10",
+      "title": "運営管理の過去問演習",
+      "start_date": "2026-11-02",
+      "end_date": "2026-11-10",
+      "baseline_start_date": "2026-11-02",
+      "baseline_end_date": "2026-11-10",
+      "schedule_history": [],
+      "deadline": "2026-11-10",
+      "planned_minutes": 420,
+      "status": "in_progress",
+      "progress_kind": "quantity",
+      "completed": 8,
+      "total": 25,
+      "unit": "問",
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "",
+      "memo": "架空の表示確認用計画です。進捗はサンプル値で、学習時間から計算していません。",
+      "is_archived": false,
+      "predecessor_ids": [
+        "rm_40af960c1fd6572db8ddd98a263c2902"
+      ],
+      "created_at": "2026-11-05T07:00:00",
+      "updated_at": "2026-11-05T07:00:00"
+    },
+    {
+      "id": "rm_e4ac60134e675fae9660e4431e555dbe",
+      "title": "店舗・物流管理の復習",
+      "start_date": "2026-11-11",
+      "end_date": "2026-11-21",
+      "baseline_start_date": "2026-11-11",
+      "baseline_end_date": "2026-11-21",
+      "schedule_history": [],
+      "deadline": "2026-11-21",
+      "planned_minutes": 240,
+      "status": "not_started",
+      "progress_kind": "quantity",
+      "completed": 0,
+      "total": 20,
+      "unit": "問",
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "",
+      "memo": "架空の表示確認用計画です。進捗はサンプル値で、学習時間から計算していません。",
+      "is_archived": false,
+      "predecessor_ids": [
+        "rm_22cfebef07fe5ab985514ae294f88d10"
+      ],
+      "created_at": "2026-11-05T07:00:00",
+      "updated_at": "2026-11-05T07:00:00"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms_cfcf17a25d5859ff9385d662e627106c",
+      "title": "科目別ミニ模試（架空デモ）",
+      "date": "2026-11-23",
+      "project_id": "project_demo_consultant",
+      "memo": "実際の試験日程ではない、表示確認用の架空の節目です。",
+      "is_archived": false,
+      "created_at": "2026-11-05T07:00:00",
+      "updated_at": "2026-11-05T07:00:00"
+    },
+    {
+      "id": "ms_eab13964fa0556b6b133aee4c80246dd",
+      "title": "模擬試験（デモ）",
+      "date": "2026-12-05",
+      "project_id": "project_demo_consultant",
+      "memo": "実際の試験日程ではない、表示確認用の架空の節目です。",
+      "is_archived": false,
+      "created_at": "2026-11-05T07:00:00",
+      "updated_at": "2026-11-05T07:00:00"
+    }
+  ],
+  "allocations": [
+    {
+      "id": "ra_64af1eef3bcd526cadf1f2a43403fd11",
+      "item_id": "rm_13cb73ed8df358b986f46d2d3b277ec1",
+      "task_date": "2026-11-01",
+      "task_id": "task_20261101_003",
+      "is_active": true,
+      "task_keys": [
+        {
+          "date": "2026-11-01",
+          "task_id": "task_20261101_003"
+        }
+      ],
+      "created_at": "2026-11-05T07:00:00"
+    },
+    {
+      "id": "ra_7db9dbae98aa5b7cb102fbc50974f2ff",
+      "item_id": "rm_31ccb75c21005a05bbe7842dcc413b8c",
+      "task_date": "2026-10-31",
+      "task_id": "task_20261031_001",
+      "is_active": true,
+      "task_keys": [
+        {
+          "date": "2026-10-31",
+          "task_id": "task_20261031_001"
+        }
+      ],
+      "created_at": "2026-11-05T07:00:00"
+    },
+    {
+      "id": "ra_db4ca05b0357586cb0f142beb042151a",
+      "item_id": "rm_31ccb75c21005a05bbe7842dcc413b8c",
+      "task_date": "2026-11-05",
+      "task_id": "task_demo_roadmap_20261105_finance",
+      "is_active": true,
+      "task_keys": [
+        {
+          "date": "2026-11-05",
+          "task_id": "task_demo_roadmap_20261105_finance"
+        }
+      ],
+      "created_at": "2026-11-05T07:00:00"
+    },
+    {
+      "id": "ra_7fe77cb26fee5005bd3db0e31ab40133",
+      "item_id": "rm_13cb73ed8df358b986f46d2d3b277ec1",
+      "task_date": "2026-11-05",
+      "task_id": "task_demo_roadmap_20261105_strategy",
+      "is_active": true,
+      "task_keys": [
+        {
+          "date": "2026-11-05",
+          "task_id": "task_demo_roadmap_20261105_strategy"
+        }
+      ],
+      "created_at": "2026-11-05T07:00:00"
+    },
+    {
+      "id": "ra_bec2c200cb0e5375afd6b6d897994643",
+      "item_id": "rm_22cfebef07fe5ab985514ae294f88d10",
+      "task_date": "2026-11-06",
+      "task_id": "task_demo_roadmap_20261106_operations",
+      "is_active": true,
+      "task_keys": [
+        {
+          "date": "2026-11-06",
+          "task_id": "task_demo_roadmap_20261106_operations"
+        }
+      ],
+      "created_at": "2026-11-05T07:00:00"
+    }
+  ],
+  "calendar": {
+    "weekly_minutes": [
+      240,
+      240,
+      240,
+      240,
+      240,
+      360,
+      360
+    ],
+    "overrides": {}
+  }
+}

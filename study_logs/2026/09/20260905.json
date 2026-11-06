@@ -1,0 +1,40 @@
+[
+  {
+    "session_id": "session_20260905_001",
+    "start_at": "2026-09-05T08:00:00",
+    "end_at": "2026-09-05T09:15:00",
+    "duration_sec": 4500,
+    "money": 2750,
+    "normal_money": 2750,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "経営情報システム：システム開発の弱点補強",
+    "category": "資格",
+    "environment": "図書館",
+    "effort": 10,
+    "sleep_hours": 7.6,
+    "alcohol_yesterday": "なし",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "両方",
+    "linked_note_ids": [
+      "note_20260905_054"
+    ],
+    "linked_task_id": "task_20260905_002",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_development",
+    "io_type": "両方",
+    "condition": {
+      "effort": 10,
+      "environment": "図書館",
+      "sleep_hours": 7.6,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "両方",
+      "io_type": "両方",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

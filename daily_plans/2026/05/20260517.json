@@ -1,0 +1,50 @@
+{
+  "plan_id": "plan_20260517",
+  "date": "2026-05-17",
+  "target_total_minutes": 240,
+  "focus_subjects": [
+    "中小企業経営・政策",
+    "経済学・経済政策"
+  ],
+  "materials": [
+    "中小企業白書・施策整理",
+    "経済学 計算問題トレーニング"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260517_001",
+      "title": "経済学・経済政策：IS-LM分析 過去問演習",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 75,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260517_001",
+        "session_20260517_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_islm"
+    },
+    {
+      "task_id": "task_20260517_002",
+      "title": "中小企業経営・政策：白書統計 答案骨子作成",
+      "subject": "中小企業経営・政策",
+      "material": "中小企業白書・施策整理",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_policy",
+      "material_id": "material_demo_policy_whitepaper",
+      "unit_id": "unit_demo_policy_whitepaper_stats"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-05-17 07:30:00",
+  "updated_at": "2026-05-17 07:30:00"
+}

@@ -1,0 +1,95 @@
+{
+  "plan_id": "plan_20260901",
+  "date": "2026-09-01",
+  "target_total_minutes": 150,
+  "focus_subjects": [
+    "二次試験 事例II",
+    "二次試験 事例III",
+    "経済学・経済政策",
+    "財務・会計"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例II",
+    "ふぞろいな合格答案 事例III",
+    "経済学 計算問題トレーニング",
+    "財務・会計 過去問完全マスター"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260901_001",
+      "title": "運営管理：品質管理 論点整理",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 60,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "unit_demo_operations_quality"
+    },
+    {
+      "task_id": "task_20260901_002",
+      "title": "二次試験 事例III：在庫管理 過去問演習",
+      "subject": "二次試験 事例III",
+      "material": "ふぞろいな合格答案 事例III",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260901_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case3",
+      "material_id": "material_demo_case3_answers",
+      "unit_id": "unit_demo_case3_inventory"
+    },
+    {
+      "task_id": "task_20260901_003",
+      "title": "二次試験 事例II：販促施策 答案骨子作成",
+      "subject": "二次試験 事例II",
+      "material": "ふぞろいな合格答案 事例II",
+      "planned_minutes": 45,
+      "status": "pending",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case2",
+      "material_id": "material_demo_case2_answers",
+      "unit_id": "unit_demo_case2_promotion"
+    },
+    {
+      "task_id": "task_20260901_004",
+      "title": "財務・会計：原価計算 一問一答",
+      "subject": "財務・会計",
+      "material": "財務・会計 過去問完全マスター",
+      "planned_minutes": 30,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_finance",
+      "material_id": "material_demo_finance_workbook",
+      "unit_id": "unit_demo_finance_costing"
+    },
+    {
+      "task_id": "task_20260901_005",
+      "title": "経済学・経済政策：外部性 一問一答",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 45,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_externality"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-09-01 07:30:00",
+  "updated_at": "2026-09-01 07:30:00"
+}

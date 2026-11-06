@@ -1,0 +1,70 @@
+{
+  "plan_id": "plan_20260909",
+  "date": "2026-09-09",
+  "target_total_minutes": 210,
+  "focus_subjects": [
+    "二次試験 事例IV",
+    "企業経営理論",
+    "運営管理"
+  ],
+  "materials": [
+    "事例IV 計算問題集",
+    "企業経営理論 スピードテキスト",
+    "運営管理 論点整理ノート"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260909_001",
+      "title": "運営管理：物流管理 答案骨子作成",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 60,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260909_003"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "unit_demo_operations_logistics"
+    },
+    {
+      "task_id": "task_20260909_002",
+      "title": "二次試験 事例IV：CVP分析 復習",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260909_004"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_cvp"
+    },
+    {
+      "task_id": "task_20260909_003",
+      "title": "企業経営理論：競争戦略 答案骨子作成",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 60,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260909_001",
+        "session_20260909_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_competition"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-09-09 07:30:00",
+  "updated_at": "2026-09-09 07:30:00"
+}

@@ -1,0 +1,68 @@
+{
+  "plan_id": "plan_20260706",
+  "date": "2026-07-06",
+  "target_total_minutes": 210,
+  "focus_subjects": [
+    "二次試験 事例III",
+    "企業経営理論",
+    "経済学・経済政策"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例III",
+    "企業経営理論 スピードテキスト",
+    "経済学 計算問題トレーニング"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260706_001",
+      "title": "二次試験 事例III：標準化 論点整理",
+      "subject": "二次試験 事例III",
+      "material": "ふぞろいな合格答案 事例III",
+      "planned_minutes": 45,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case3",
+      "material_id": "material_demo_case3_answers",
+      "unit_id": "unit_demo_case3_standardization"
+    },
+    {
+      "task_id": "task_20260706_002",
+      "title": "経済学・経済政策：需要供給 過去問演習",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 90,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260706_003"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_supply_demand"
+    },
+    {
+      "task_id": "task_20260706_003",
+      "title": "企業経営理論：経営戦略 一問一答",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260706_001",
+        "session_20260706_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_strategy"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-07-06 07:30:00",
+  "updated_at": "2026-07-06 07:30:00"
+}

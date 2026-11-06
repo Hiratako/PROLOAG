@@ -1,0 +1,97 @@
+{
+  "date": "2026-09-28",
+  "title": "2026-09-28 学習メモ",
+  "body": "中小企業診断士学習のデモ日記です。学習時間は約100分。主要論点の定着状況と生活リズムを後から確認できるように記録しています。",
+  "content": "中小企業診断士学習のデモ日記です。学習時間は約100分。主要論点の定着状況と生活リズムを後から確認できるように記録しています。",
+  "mood": "普通",
+  "weather": "雪",
+  "good_seat_status": "yes",
+  "caffeine_mg": 200,
+  "caffeine_untimed_mg": 0,
+  "caffeine_records": [
+    {
+      "caffeine_id": "caffeine_demo_consultant_20260928_01",
+      "taken_at": "2026-09-28T07:30:00",
+      "amount_mg": 100,
+      "source": "demo_generator",
+      "label": "お茶",
+      "memo": "デモ用の時刻付き摂取記録",
+      "created_at": "2026-09-28 22:10:00",
+      "updated_at": "2026-09-28 22:10:00",
+      "model_snapshot": {
+        "schema_version": 1,
+        "profile_revision": 1,
+        "unit": "mg",
+        "half_life_hours": 5.0,
+        "peak_delay_minutes": 30,
+        "residual_cutoff_hours": 36.0
+      }
+    },
+    {
+      "caffeine_id": "caffeine_demo_consultant_20260928_02",
+      "taken_at": "2026-09-28T15:00:00",
+      "amount_mg": 100,
+      "source": "demo_generator",
+      "label": "お茶",
+      "memo": "デモ用の時刻付き摂取記録",
+      "created_at": "2026-09-28 22:10:00",
+      "updated_at": "2026-09-28 22:10:00",
+      "model_snapshot": {
+        "schema_version": 1,
+        "profile_revision": 1,
+        "unit": "mg",
+        "half_life_hours": 5.0,
+        "peak_delay_minutes": 30,
+        "residual_cutoff_hours": 36.0
+      }
+    }
+  ],
+  "substance_records_schema_version": 1,
+  "substance_records": [
+    {
+      "taken_at": "2026-09-28T07:30:00",
+      "amount_mg": 100,
+      "source": "demo_generator",
+      "label": "お茶",
+      "memo": "デモ用の時刻付き摂取記録",
+      "created_at": "2026-09-28 22:10:00",
+      "updated_at": "2026-09-28 22:10:00",
+      "model_snapshot": {
+        "schema_version": 1,
+        "profile_revision": 1,
+        "unit": "mg",
+        "half_life_hours": 5.0,
+        "peak_delay_minutes": 30,
+        "residual_cutoff_hours": 36.0
+      },
+      "substance_record_id": "caffeine_demo_consultant_20260928_01",
+      "substance_id": "caffeine",
+      "unit": "mg"
+    },
+    {
+      "taken_at": "2026-09-28T15:00:00",
+      "amount_mg": 100,
+      "source": "demo_generator",
+      "label": "お茶",
+      "memo": "デモ用の時刻付き摂取記録",
+      "created_at": "2026-09-28 22:10:00",
+      "updated_at": "2026-09-28 22:10:00",
+      "model_snapshot": {
+        "schema_version": 1,
+        "profile_revision": 1,
+        "unit": "mg",
+        "half_life_hours": 5.0,
+        "peak_delay_minutes": 30,
+        "residual_cutoff_hours": 36.0
+      },
+      "substance_record_id": "caffeine_demo_consultant_20260928_02",
+      "substance_id": "caffeine",
+      "unit": "mg"
+    }
+  ],
+  "running_distance_km": 0,
+  "running_time_min": 0,
+  "cost_records": [],
+  "created_at": "2026-09-28 22:10:00",
+  "updated_at": "2026-09-28 22:10:00"
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "session_id": "session_20260824_001",
+    "start_at": "2026-08-24T05:10:00",
+    "end_at": "2026-08-24T05:40:00",
+    "duration_sec": 1800,
+    "money": 1100,
+    "normal_money": 1100,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "経済学・経済政策：AD-AS分析の論点整理",
+    "category": "資格",
+    "environment": "カフェ",
+    "effort": 6,
+    "sleep_hours": 6.0,
+    "alcohol_yesterday": "なし",
+    "mood": "4",
+    "study_category": "資格",
+    "input_output": "アウトプット",
+    "linked_note_ids": [],
+    "linked_task_id": "task_20260824_003",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_economics",
+    "material_id": "material_demo_economics_workbook",
+    "unit_id": "unit_demo_economics_adas",
+    "io_type": "アウトプット",
+    "condition": {
+      "effort": 6,
+      "environment": "カフェ",
+      "sleep_hours": 6.0,
+      "mood": "4",
+      "category": "資格",
+      "input_output": "アウトプット",
+      "io_type": "アウトプット",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

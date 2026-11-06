@@ -1,0 +1,91 @@
+{
+  "plan_id": "plan_20260630",
+  "date": "2026-06-30",
+  "target_total_minutes": 240,
+  "focus_subjects": [
+    "二次試験 事例II",
+    "二次試験 事例III",
+    "企業経営理論",
+    "経済学・経済政策"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例II",
+    "ふぞろいな合格答案 事例III",
+    "企業経営理論 スピードテキスト",
+    "経済学 計算問題トレーニング"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260630_001",
+      "title": "二次試験 事例III：標準化 論点整理",
+      "subject": "二次試験 事例III",
+      "material": "ふぞろいな合格答案 事例III",
+      "planned_minutes": 90,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case3",
+      "material_id": "material_demo_case3_answers",
+      "unit_id": "unit_demo_case3_standardization"
+    },
+    {
+      "task_id": "task_20260630_002",
+      "title": "二次試験 事例II：ブランド設計 一問一答",
+      "subject": "二次試験 事例II",
+      "material": "ふぞろいな合格答案 事例II",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260630_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case2",
+      "material_id": "material_demo_case2_answers",
+      "unit_id": "unit_demo_case2_brand"
+    },
+    {
+      "task_id": "task_20260630_003",
+      "title": "企業経営理論：経営戦略 過去問演習",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 45,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260630_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_strategy"
+    },
+    {
+      "task_id": "task_20260630_004",
+      "title": "経済学・経済政策：需要供給 論点整理",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_supply_demand"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260531_010",
+    "note_20260629_021"
+  ],
+  "review_card_ids": [
+    "card_20260531_025",
+    "card_20260531_026",
+    "card_20260629_064",
+    "card_20260629_065"
+  ],
+  "created_at": "2026-06-30 07:30:00",
+  "updated_at": "2026-06-30 07:30:00"
+}

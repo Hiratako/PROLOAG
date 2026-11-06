@@ -345,6 +345,11 @@ def topbar(title: str, subtitle: str = "", *, eyebrow: str | None = None) -> Non
 
 
 def sidemenu(help_text: str = "", *, settings: dict[str, Any] | None = None) -> dict[str, Any]:
+    from config import WEB_DEMO_READ_ONLY
+    if WEB_DEMO_READ_ONLY:
+        # The exhibition entrypoint owns the explicit, read-only navigation.
+        # Do not expose local administration, recovery or persisted theme UI.
+        return load_user_settings() if settings is None else settings
     settings = load_user_settings() if settings is None else settings
     if THEME_MODE_STATE_KEY not in st.session_state:
         display = settings.get("display", {}) if isinstance(settings, dict) else {}
@@ -381,6 +386,9 @@ def sidemenu(help_text: str = "", *, settings: dict[str, Any] | None = None) -> 
 
 def sidebar_page_link(path: str, label: str, *, settings: dict[str, Any]) -> None:
     """Apply the shared sidebar preference to a page-specific shortcut."""
+    from config import WEB_DEMO_READ_ONLY
+    if WEB_DEMO_READ_ONLY:
+        return
     if path not in hidden_sidebar_pages(settings):
         st.page_link(path, label=label)
 

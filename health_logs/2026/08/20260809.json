@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-09",
+  "sleep": {
+    "bed_time": "22:24",
+    "wake_time": "05:37",
+    "sleep_duration_min": 433,
+    "sleep_quality": 3,
+    "morning_sleepiness": 1,
+    "midnight_awakenings": 1,
+    "nap_minutes": 20
+  },
+  "condition": {
+    "physical_score": 4,
+    "fatigue": 2,
+    "stress": 3,
+    "focus_score": 4,
+    "mood_score": 3,
+    "memo": "デモデータ: 学習負荷とコンディションの推移確認用です。"
+  },
+  "created_at": "2026-08-09 22:00:00",
+  "updated_at": "2026-08-09 22:00:00"
+}

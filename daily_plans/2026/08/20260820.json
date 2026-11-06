@@ -1,0 +1,71 @@
+{
+  "plan_id": "plan_20260820",
+  "date": "2026-08-20",
+  "target_total_minutes": 150,
+  "focus_subjects": [
+    "二次試験 事例I",
+    "運営管理"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例I",
+    "運営管理 論点整理ノート"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260820_001",
+      "title": "運営管理：店舗管理 復習",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "unit_demo_operations_store"
+    },
+    {
+      "task_id": "task_20260820_002",
+      "title": "運営管理：店舗管理 過去問演習",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 45,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260820_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "unit_demo_operations_store"
+    },
+    {
+      "task_id": "task_20260820_003",
+      "title": "二次試験 事例I：強み弱み分析 論点整理",
+      "subject": "二次試験 事例I",
+      "material": "ふぞろいな合格答案 事例I",
+      "planned_minutes": 75,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260820_001",
+        "session_20260820_003"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case1",
+      "material_id": "material_demo_case1_answers",
+      "unit_id": "unit_demo_case1_swot"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260806_042"
+  ],
+  "review_card_ids": [
+    "card_20260806_126",
+    "card_20260806_127"
+  ],
+  "created_at": "2026-08-20 07:30:00",
+  "updated_at": "2026-08-20 07:30:00"
+}

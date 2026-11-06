@@ -1,0 +1,40 @@
+[
+  {
+    "session_id": "session_20260623_001",
+    "start_at": "2026-06-23T05:30:00",
+    "end_at": "2026-06-23T06:25:00",
+    "duration_sec": 3300,
+    "money": 2017,
+    "normal_money": 2017,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "企業経営理論：人的資源管理の答案構成練習",
+    "category": "資格",
+    "environment": "カフェ",
+    "effort": 10,
+    "sleep_hours": 7.0,
+    "alcohol_yesterday": "なし",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "両方",
+    "linked_note_ids": [
+      "note_20260623_019"
+    ],
+    "linked_task_id": "task_20260623_002",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_hrm",
+    "io_type": "両方",
+    "condition": {
+      "effort": 10,
+      "environment": "カフェ",
+      "sleep_hours": 7.0,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "両方",
+      "io_type": "両方",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

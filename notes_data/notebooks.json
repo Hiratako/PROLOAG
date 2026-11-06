@@ -1,0 +1,1904 @@
+{
+  "notebooks": [
+    {
+      "id": "notebook_demo_consultant",
+      "name": "診断士学習ノート",
+      "sections": [
+        {
+          "id": "section_subject_demo_case4",
+          "name": "二次試験 事例IV",
+          "pages": [
+            {
+              "id": "note_20260510_001",
+              "note_id": "note_20260510_001",
+              "title": "二次試験 事例IV：NPVの整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / NPV\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / NPV\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "白書確認",
+                "ケース演習",
+                "要復習"
+              ],
+              "created_at": "2026-05-10 22:00:00",
+              "updated_at": "2026-05-10 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260510_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260510_001",
+                "card_20260510_002"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260524_001",
+                "reminder_20260513_002"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case4",
+              "material_id": "material_demo_case4_workbook",
+              "unit_id": "unit_demo_case4_npv"
+            },
+            {
+              "id": "note_20260521_005",
+              "note_id": "note_20260521_005",
+              "title": "二次試験 事例IV：経営分析の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / 経営分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / 経営分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "二次試験",
+                "白書確認"
+              ],
+              "created_at": "2026-05-21 20:30:00",
+              "updated_at": "2026-05-21 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260521_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260521_012",
+                "card_20260521_013"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260620_011",
+                "reminder_20260528_012",
+                "reminder_20260522_013"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case4",
+              "material_id": "material_demo_case4_workbook",
+              "unit_id": "unit_demo_case4_financial_analysis"
+            },
+            {
+              "id": "note_20260602_011",
+              "note_id": "note_20260602_011",
+              "title": "二次試験 事例IV：キャッシュフローの整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / キャッシュフロー\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / キャッシュフロー\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "白書確認",
+                "頻出",
+                "暗記"
+              ],
+              "created_at": "2026-06-02 22:30:00",
+              "updated_at": "2026-06-02 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260602_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260602_028",
+                "card_20260602_029",
+                "card_20260602_030",
+                "card_20260602_031"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260702_024",
+                "reminder_20260605_025"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case4",
+              "material_id": "material_demo_case4_workbook",
+              "unit_id": "unit_demo_case4_cashflow"
+            },
+            {
+              "id": "note_20260705_024",
+              "note_id": "note_20260705_024",
+              "title": "二次試験 事例IV：NPVの整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / NPV\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / NPV\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "頻出",
+                "ケース演習",
+                "二次試験"
+              ],
+              "created_at": "2026-07-05 22:00:00",
+              "updated_at": "2026-07-05 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260705_003"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260705_075",
+                "card_20260705_076"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260719_054",
+                "reminder_20260804_055",
+                "reminder_20260712_056"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case4",
+              "material_id": "material_demo_case4_workbook",
+              "unit_id": "unit_demo_case4_npv"
+            },
+            {
+              "id": "note_20260716_030",
+              "note_id": "note_20260716_030",
+              "title": "二次試験 事例IV：CVP分析の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / CVP分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / CVP分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "理解不十分",
+                "要復習"
+              ],
+              "created_at": "2026-07-16 20:30:00",
+              "updated_at": "2026-07-16 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260716_001",
+                "session_20260716_003"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260716_092",
+                "card_20260716_093",
+                "card_20260716_094",
+                "card_20260716_095"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260723_069",
+                "reminder_20260815_070"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case4",
+              "material_id": "material_demo_case4_workbook",
+              "unit_id": "unit_demo_case4_cvp"
+            },
+            {
+              "id": "note_20260717_031",
+              "note_id": "note_20260717_031",
+              "title": "二次試験 事例IV：経営分析の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / 経営分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / 経営分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "暗記",
+                "頻出"
+              ],
+              "created_at": "2026-07-17 21:00:00",
+              "updated_at": "2026-07-17 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260717_003"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260717_096",
+                "card_20260717_097",
+                "card_20260717_098",
+                "card_20260717_099"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260724_071",
+                "reminder_20260816_072",
+                "reminder_20260731_073"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case4",
+              "material_id": "material_demo_case4_workbook",
+              "unit_id": "unit_demo_case4_financial_analysis"
+            },
+            {
+              "id": "note_20260724_036",
+              "note_id": "note_20260724_036",
+              "title": "二次試験 事例IV：意思決定会計の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / 意思決定会計\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / 意思決定会計\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "暗記",
+                "財務強化"
+              ],
+              "created_at": "2026-07-24 21:00:00",
+              "updated_at": "2026-07-24 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260724_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260724_109",
+                "card_20260724_110"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260725_082"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case4",
+              "material_id": "material_demo_case4_workbook",
+              "unit_id": "unit_demo_case4_decision_accounting"
+            },
+            {
+              "id": "note_20260909_056",
+              "note_id": "note_20260909_056",
+              "title": "二次試験 事例IV：CVP分析の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / CVP分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例IV / CVP分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "ケース演習",
+                "要復習",
+                "白書確認"
+              ],
+              "created_at": "2026-09-09 21:00:00",
+              "updated_at": "2026-09-09 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260909_004"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260909_169",
+                "card_20260909_170"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20261009_121"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case4",
+              "material_id": "material_demo_case4_workbook",
+              "unit_id": "unit_demo_case4_cvp"
+            }
+          ]
+        },
+        {
+          "id": "section_subject_demo_strategy",
+          "name": "企業経営理論",
+          "pages": [
+            {
+              "id": "note_20260512_002",
+              "note_id": "note_20260512_002",
+              "title": "企業経営理論：競争戦略の整理",
+              "body": "# 学習メモ\n\n## テーマ\n企業経営理論 / 競争戦略\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n企業経営理論 / 競争戦略\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "暗記",
+                "ケース演習"
+              ],
+              "created_at": "2026-05-12 21:00:00",
+              "updated_at": "2026-05-12 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260512_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260512_003",
+                "card_20260512_004"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260526_003",
+                "reminder_20260519_004",
+                "reminder_20260513_005"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_strategy",
+              "material_id": "material_demo_strategy_text",
+              "unit_id": "unit_demo_strategy_competition"
+            },
+            {
+              "id": "note_20260516_003",
+              "note_id": "note_20260516_003",
+              "title": "企業経営理論：マーケティングの整理",
+              "body": "# 学習メモ\n\n## テーマ\n企業経営理論 / マーケティング\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n企業経営理論 / マーケティング\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "ケース演習",
+                "白書確認"
+              ],
+              "created_at": "2026-05-16 21:00:00",
+              "updated_at": "2026-05-16 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260516_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260516_005",
+                "card_20260516_006",
+                "card_20260516_007"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260530_006",
+                "reminder_20260523_007"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_strategy",
+              "material_id": "material_demo_strategy_text",
+              "unit_id": "unit_demo_strategy_marketing"
+            },
+            {
+              "id": "note_20260529_009",
+              "note_id": "note_20260529_009",
+              "title": "企業経営理論：組織論の整理",
+              "body": "# 学習メモ\n\n## テーマ\n企業経営理論 / 組織論\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n企業経営理論 / 組織論\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "ケース演習"
+              ],
+              "created_at": "2026-05-29 22:30:00",
+              "updated_at": "2026-05-29 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260529_001",
+                "session_20260529_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260529_022",
+                "card_20260529_023",
+                "card_20260529_024"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260605_020"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_strategy",
+              "material_id": "material_demo_strategy_text",
+              "unit_id": "unit_demo_strategy_organization"
+            },
+            {
+              "id": "note_20260604_012",
+              "note_id": "note_20260604_012",
+              "title": "企業経営理論：組織論の整理",
+              "body": "# 学習メモ\n\n## テーマ\n企業経営理論 / 組織論\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n企業経営理論 / 組織論\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "頻出",
+                "理解不十分",
+                "ケース演習"
+              ],
+              "created_at": "2026-06-04 20:00:00",
+              "updated_at": "2026-06-04 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260604_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260604_032",
+                "card_20260604_033"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260618_026",
+                "reminder_20260607_027"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_strategy",
+              "material_id": "material_demo_strategy_text",
+              "unit_id": "unit_demo_strategy_organization"
+            },
+            {
+              "id": "note_20260610_014",
+              "note_id": "note_20260610_014",
+              "title": "企業経営理論：経営戦略の整理",
+              "body": "# 学習メモ\n\n## テーマ\n企業経営理論 / 経営戦略\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n企業経営理論 / 経営戦略\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "ケース演習",
+                "理解不十分"
+              ],
+              "created_at": "2026-06-10 21:30:00",
+              "updated_at": "2026-06-10 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260610_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260610_037",
+                "card_20260610_038",
+                "card_20260610_039",
+                "card_20260610_040"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260710_029",
+                "reminder_20260611_030",
+                "reminder_20260613_031"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_strategy",
+              "material_id": "material_demo_strategy_text",
+              "unit_id": "unit_demo_strategy_strategy"
+            },
+            {
+              "id": "note_20260623_019",
+              "note_id": "note_20260623_019",
+              "title": "企業経営理論：人的資源管理の整理",
+              "body": "# 学習メモ\n\n## テーマ\n企業経営理論 / 人的資源管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n企業経営理論 / 人的資源管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "白書確認",
+                "ケース演習"
+              ],
+              "created_at": "2026-06-23 22:15:00",
+              "updated_at": "2026-06-23 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260623_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260623_056",
+                "card_20260623_057",
+                "card_20260623_058",
+                "card_20260623_059"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260624_043",
+                "reminder_20260723_044"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_strategy",
+              "material_id": "material_demo_strategy_text",
+              "unit_id": "unit_demo_strategy_hrm"
+            },
+            {
+              "id": "note_20260626_020",
+              "note_id": "note_20260626_020",
+              "title": "企業経営理論：競争戦略の整理",
+              "body": "# 学習メモ\n\n## テーマ\n企業経営理論 / 競争戦略\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n企業経営理論 / 競争戦略\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "二次試験"
+              ],
+              "created_at": "2026-06-26 22:15:00",
+              "updated_at": "2026-06-26 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260626_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260626_060",
+                "card_20260626_061",
+                "card_20260626_062",
+                "card_20260626_063"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260627_045",
+                "reminder_20260629_046",
+                "reminder_20260710_047"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_strategy",
+              "material_id": "material_demo_strategy_text",
+              "unit_id": "unit_demo_strategy_competition"
+            },
+            {
+              "id": "note_20260727_037",
+              "note_id": "note_20260727_037",
+              "title": "企業経営理論：経営戦略の整理",
+              "body": "# 学習メモ\n\n## テーマ\n企業経営理論 / 経営戦略\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n企業経営理論 / 経営戦略\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "財務強化",
+                "白書確認"
+              ],
+              "created_at": "2026-07-27 20:00:00",
+              "updated_at": "2026-07-27 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260727_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260727_111",
+                "card_20260727_112",
+                "card_20260727_113",
+                "card_20260727_114"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260803_083",
+                "reminder_20260730_084",
+                "reminder_20260826_085"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_strategy",
+              "material_id": "material_demo_strategy_text",
+              "unit_id": "unit_demo_strategy_strategy"
+            },
+            {
+              "id": "note_20260806_042",
+              "note_id": "note_20260806_042",
+              "title": "企業経営理論：マーケティングの整理",
+              "body": "# 学習メモ\n\n## テーマ\n企業経営理論 / マーケティング\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n企業経営理論 / マーケティング\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "理解不十分"
+              ],
+              "created_at": "2026-08-06 22:30:00",
+              "updated_at": "2026-08-06 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260806_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260806_126",
+                "card_20260806_127"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260820_095",
+                "reminder_20260905_096",
+                "reminder_20260809_097"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_strategy",
+              "material_id": "material_demo_strategy_text",
+              "unit_id": "unit_demo_strategy_marketing"
+            },
+            {
+              "id": "note_20260809_045",
+              "note_id": "note_20260809_045",
+              "title": "企業経営理論：人的資源管理の整理",
+              "body": "# 学習メモ\n\n## テーマ\n企業経営理論 / 人的資源管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n企業経営理論 / 人的資源管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "理解不十分",
+                "ケース演習"
+              ],
+              "created_at": "2026-08-09 22:15:00",
+              "updated_at": "2026-08-09 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260809_003",
+                "session_20260809_004"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260809_133",
+                "card_20260809_134",
+                "card_20260809_135",
+                "card_20260809_136"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260810_101",
+                "reminder_20260812_102"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_strategy",
+              "material_id": "material_demo_strategy_text",
+              "unit_id": "unit_demo_strategy_hrm"
+            },
+            {
+              "id": "note_20260813_046",
+              "note_id": "note_20260813_046",
+              "title": "企業経営理論：組織論の整理",
+              "body": "# 学習メモ\n\n## テーマ\n企業経営理論 / 組織論\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n企業経営理論 / 組織論\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "ケース演習",
+                "財務強化",
+                "理解不十分"
+              ],
+              "created_at": "2026-08-13 22:15:00",
+              "updated_at": "2026-08-13 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260813_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260813_137",
+                "card_20260813_138",
+                "card_20260813_139"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260827_103",
+                "reminder_20260814_104"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_strategy",
+              "material_id": "material_demo_strategy_text",
+              "unit_id": "unit_demo_strategy_organization"
+            },
+            {
+              "id": "note_20260830_052",
+              "note_id": "note_20260830_052",
+              "title": "企業経営理論：マーケティングの整理",
+              "body": "# 学習メモ\n\n## テーマ\n企業経営理論 / マーケティング\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n企業経営理論 / マーケティング\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "暗記",
+                "頻出"
+              ],
+              "created_at": "2026-08-30 21:00:00",
+              "updated_at": "2026-08-30 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260830_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260830_155",
+                "card_20260830_156"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260913_112",
+                "reminder_20260902_113",
+                "reminder_20260929_114"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_strategy",
+              "material_id": "material_demo_strategy_text",
+              "unit_id": "unit_demo_strategy_marketing"
+            },
+            {
+              "id": "note_20260920_062",
+              "note_id": "note_20260920_062",
+              "title": "企業経営理論：競争戦略の整理",
+              "body": "# 学習メモ\n\n## テーマ\n企業経営理論 / 競争戦略\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n企業経営理論 / 競争戦略\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "頻出"
+              ],
+              "created_at": "2026-09-20 22:30:00",
+              "updated_at": "2026-09-20 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260920_001",
+                "session_20260920_002",
+                "session_20260920_004"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260920_182",
+                "card_20260920_183",
+                "card_20260920_184",
+                "card_20260920_185"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20261004_132",
+                "reminder_20260923_133",
+                "reminder_20261020_134"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_strategy",
+              "material_id": "material_demo_strategy_text",
+              "unit_id": "unit_demo_strategy_competition"
+            }
+          ]
+        },
+        {
+          "id": "section_subject_demo_legal",
+          "name": "経営法務",
+          "pages": [
+            {
+              "id": "note_20260518_004",
+              "note_id": "note_20260518_004",
+              "title": "経営法務：知的財産権の整理",
+              "body": "# 学習メモ\n\n## テーマ\n経営法務 / 知的財産権\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n経営法務 / 知的財産権\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "頻出"
+              ],
+              "created_at": "2026-05-18 21:15:00",
+              "updated_at": "2026-05-18 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260518_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260518_008",
+                "card_20260518_009",
+                "card_20260518_010",
+                "card_20260518_011"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260617_008",
+                "reminder_20260525_009",
+                "reminder_20260521_010"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_legal",
+              "material_id": "material_demo_legal_workbook",
+              "unit_id": "unit_demo_legal_ip"
+            },
+            {
+              "id": "note_20260629_021",
+              "note_id": "note_20260629_021",
+              "title": "経営法務：組織再編の整理",
+              "body": "# 学習メモ\n\n## テーマ\n経営法務 / 組織再編\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n経営法務 / 組織再編\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "白書確認"
+              ],
+              "created_at": "2026-06-29 20:30:00",
+              "updated_at": "2026-06-29 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260629_001",
+                "session_20260629_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260629_064",
+                "card_20260629_065",
+                "card_20260629_066",
+                "card_20260629_067"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260630_048"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_legal",
+              "material_id": "material_demo_legal_workbook",
+              "unit_id": "unit_demo_legal_reorganization"
+            },
+            {
+              "id": "note_20260720_033",
+              "note_id": "note_20260720_033",
+              "title": "経営法務：会社法の整理",
+              "body": "# 学習メモ\n\n## テーマ\n経営法務 / 会社法\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n経営法務 / 会社法\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "理解不十分",
+                "財務強化",
+                "暗記"
+              ],
+              "created_at": "2026-07-20 20:30:00",
+              "updated_at": "2026-07-20 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260720_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260720_103",
+                "card_20260720_104"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260721_076"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_legal",
+              "material_id": "material_demo_legal_workbook",
+              "unit_id": "unit_demo_legal_company_law"
+            },
+            {
+              "id": "note_20260721_034",
+              "note_id": "note_20260721_034",
+              "title": "経営法務：会社法の整理",
+              "body": "# 学習メモ\n\n## テーマ\n経営法務 / 会社法\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n経営法務 / 会社法\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "頻出"
+              ],
+              "created_at": "2026-07-21 20:00:00",
+              "updated_at": "2026-07-21 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260721_001",
+                "session_20260721_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260721_105",
+                "card_20260721_106"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260728_077",
+                "reminder_20260804_078"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_legal",
+              "material_id": "material_demo_legal_workbook",
+              "unit_id": "unit_demo_legal_company_law"
+            },
+            {
+              "id": "note_20260803_040",
+              "note_id": "note_20260803_040",
+              "title": "経営法務：英文契約の整理",
+              "body": "# 学習メモ\n\n## テーマ\n経営法務 / 英文契約\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n経営法務 / 英文契約\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "暗記"
+              ],
+              "created_at": "2026-08-03 20:00:00",
+              "updated_at": "2026-08-03 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260803_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260803_120",
+                "card_20260803_121"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260804_090",
+                "reminder_20260810_091",
+                "reminder_20260817_092"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_legal",
+              "material_id": "material_demo_legal_workbook",
+              "unit_id": "unit_demo_legal_english_contract"
+            },
+            {
+              "id": "note_20260916_059",
+              "note_id": "note_20260916_059",
+              "title": "経営法務：知的財産権の整理",
+              "body": "# 学習メモ\n\n## テーマ\n経営法務 / 知的財産権\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n経営法務 / 知的財産権\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "理解不十分",
+                "頻出"
+              ],
+              "created_at": "2026-09-16 21:00:00",
+              "updated_at": "2026-09-16 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260916_001",
+                "session_20260916_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260916_176",
+                "card_20260916_177"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260923_125",
+                "reminder_20260917_126",
+                "reminder_20260930_127"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_legal",
+              "material_id": "material_demo_legal_workbook",
+              "unit_id": "unit_demo_legal_ip"
+            }
+          ]
+        },
+        {
+          "id": "section_subject_demo_case3",
+          "name": "二次試験 事例III",
+          "pages": [
+            {
+              "id": "note_20260523_006",
+              "note_id": "note_20260523_006",
+              "title": "二次試験 事例III：ボトルネックの整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例III / ボトルネック\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例III / ボトルネック\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "ケース演習"
+              ],
+              "created_at": "2026-05-23 21:30:00",
+              "updated_at": "2026-05-23 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260523_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260523_014",
+                "card_20260523_015"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260524_014",
+                "reminder_20260526_015",
+                "reminder_20260530_016"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case3",
+              "material_id": "material_demo_case3_answers",
+              "unit_id": "unit_demo_case3_bottleneck"
+            },
+            {
+              "id": "note_20260531_010",
+              "note_id": "note_20260531_010",
+              "title": "二次試験 事例III：外注管理の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例III / 外注管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例III / 外注管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "理解不十分",
+                "二次試験"
+              ],
+              "created_at": "2026-05-31 22:00:00",
+              "updated_at": "2026-05-31 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260531_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260531_025",
+                "card_20260531_026",
+                "card_20260531_027"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260607_021",
+                "reminder_20260630_022",
+                "reminder_20260601_023"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case3",
+              "material_id": "material_demo_case3_answers",
+              "unit_id": "unit_demo_case3_outsourcing"
+            },
+            {
+              "id": "note_20260702_023",
+              "note_id": "note_20260702_023",
+              "title": "二次試験 事例III：外注管理の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例III / 外注管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例III / 外注管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "頻出",
+                "二次試験",
+                "理解不十分"
+              ],
+              "created_at": "2026-07-02 21:15:00",
+              "updated_at": "2026-07-02 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260702_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260702_072",
+                "card_20260702_073",
+                "card_20260702_074"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260801_051",
+                "reminder_20260705_052",
+                "reminder_20260703_053"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case3",
+              "material_id": "material_demo_case3_answers",
+              "unit_id": "unit_demo_case3_outsourcing"
+            },
+            {
+              "id": "note_20260713_028",
+              "note_id": "note_20260713_028",
+              "title": "二次試験 事例III：在庫管理の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例III / 在庫管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例III / 在庫管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "暗記",
+                "頻出"
+              ],
+              "created_at": "2026-07-13 21:30:00",
+              "updated_at": "2026-07-13 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260713_001",
+                "session_20260713_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260713_088",
+                "card_20260713_089"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260812_065",
+                "reminder_20260714_066"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case3",
+              "material_id": "material_demo_case3_answers",
+              "unit_id": "unit_demo_case3_inventory"
+            },
+            {
+              "id": "note_20260728_038",
+              "note_id": "note_20260728_038",
+              "title": "二次試験 事例III：標準化の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例III / 標準化\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例III / 標準化\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "暗記",
+                "要復習"
+              ],
+              "created_at": "2026-07-28 22:30:00",
+              "updated_at": "2026-07-28 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260728_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260728_115",
+                "card_20260728_116"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260729_086"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case3",
+              "material_id": "material_demo_case3_answers",
+              "unit_id": "unit_demo_case3_standardization"
+            },
+            {
+              "id": "note_20260731_039",
+              "note_id": "note_20260731_039",
+              "title": "二次試験 事例III：外注管理の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例III / 外注管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例III / 外注管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "二次試験",
+                "頻出",
+                "ケース演習"
+              ],
+              "created_at": "2026-07-31 20:15:00",
+              "updated_at": "2026-07-31 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260731_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260731_117",
+                "card_20260731_118",
+                "card_20260731_119"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260803_087",
+                "reminder_20260830_088",
+                "reminder_20260801_089"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case3",
+              "material_id": "material_demo_case3_answers",
+              "unit_id": "unit_demo_case3_outsourcing"
+            },
+            {
+              "id": "note_20260901_053",
+              "note_id": "note_20260901_053",
+              "title": "二次試験 事例III：在庫管理の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例III / 在庫管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例III / 在庫管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "財務強化",
+                "二次試験",
+                "理解不十分"
+              ],
+              "created_at": "2026-09-01 22:15:00",
+              "updated_at": "2026-09-01 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260901_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260901_157",
+                "card_20260901_158",
+                "card_20260901_159",
+                "card_20260901_160"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260908_115"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case3",
+              "material_id": "material_demo_case3_answers",
+              "unit_id": "unit_demo_case3_inventory"
+            }
+          ]
+        },
+        {
+          "id": "section_subject_demo_finance",
+          "name": "財務・会計",
+          "pages": [
+            {
+              "id": "note_20260525_007",
+              "note_id": "note_20260525_007",
+              "title": "財務・会計：財務諸表の整理",
+              "body": "# 学習メモ\n\n## テーマ\n財務・会計 / 財務諸表\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n財務・会計 / 財務諸表\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "財務強化"
+              ],
+              "created_at": "2026-05-25 20:00:00",
+              "updated_at": "2026-05-25 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260525_001",
+                "session_20260525_002",
+                "session_20260525_003"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260525_016",
+                "card_20260525_017",
+                "card_20260525_018"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260608_017",
+                "reminder_20260528_018"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_finance",
+              "material_id": "material_demo_finance_workbook",
+              "unit_id": "unit_demo_finance_statements"
+            },
+            {
+              "id": "note_20260708_025",
+              "note_id": "note_20260708_025",
+              "title": "財務・会計：投資評価の整理",
+              "body": "# 学習メモ\n\n## テーマ\n財務・会計 / 投資評価\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n財務・会計 / 投資評価\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "白書確認",
+                "暗記"
+              ],
+              "created_at": "2026-07-08 22:30:00",
+              "updated_at": "2026-07-08 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260708_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260708_077",
+                "card_20260708_078",
+                "card_20260708_079",
+                "card_20260708_080"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260715_057",
+                "reminder_20260807_058",
+                "reminder_20260722_059"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_finance",
+              "material_id": "material_demo_finance_workbook",
+              "unit_id": "unit_demo_finance_investment"
+            },
+            {
+              "id": "note_20260710_026",
+              "note_id": "note_20260710_026",
+              "title": "財務・会計：投資評価の整理",
+              "body": "# 学習メモ\n\n## テーマ\n財務・会計 / 投資評価\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n財務・会計 / 投資評価\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "暗記",
+                "二次試験"
+              ],
+              "created_at": "2026-07-10 21:30:00",
+              "updated_at": "2026-07-10 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260710_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260710_081",
+                "card_20260710_082",
+                "card_20260710_083"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260711_060",
+                "reminder_20260713_061"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_finance",
+              "material_id": "material_demo_finance_workbook",
+              "unit_id": "unit_demo_finance_investment"
+            },
+            {
+              "id": "note_20260722_035",
+              "note_id": "note_20260722_035",
+              "title": "財務・会計：キャッシュフローの整理",
+              "body": "# 学習メモ\n\n## テーマ\n財務・会計 / キャッシュフロー\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n財務・会計 / キャッシュフロー\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "財務強化",
+                "暗記",
+                "理解不十分"
+              ],
+              "created_at": "2026-07-22 22:00:00",
+              "updated_at": "2026-07-22 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260722_002",
+                "session_20260722_003"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260722_107",
+                "card_20260722_108"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260729_079",
+                "reminder_20260723_080",
+                "reminder_20260805_081"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_finance",
+              "material_id": "material_demo_finance_workbook",
+              "unit_id": "unit_demo_finance_cashflow"
+            },
+            {
+              "id": "note_20260908_055",
+              "note_id": "note_20260908_055",
+              "title": "財務・会計：財務諸表の整理",
+              "body": "# 学習メモ\n\n## テーマ\n財務・会計 / 財務諸表\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n財務・会計 / 財務諸表\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "頻出"
+              ],
+              "created_at": "2026-09-08 22:00:00",
+              "updated_at": "2026-09-08 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260908_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260908_165",
+                "card_20260908_166",
+                "card_20260908_167",
+                "card_20260908_168"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260911_118",
+                "reminder_20261008_119",
+                "reminder_20260922_120"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_finance",
+              "material_id": "material_demo_finance_workbook",
+              "unit_id": "unit_demo_finance_statements"
+            }
+          ]
+        },
+        {
+          "id": "section_subject_demo_case1",
+          "name": "二次試験 事例I",
+          "pages": [
+            {
+              "id": "note_20260527_008",
+              "note_id": "note_20260527_008",
+              "title": "二次試験 事例I：強み弱み分析の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 強み弱み分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 強み弱み分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "要復習",
+                "理解不十分"
+              ],
+              "created_at": "2026-05-27 22:00:00",
+              "updated_at": "2026-05-27 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260527_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260527_019",
+                "card_20260527_020",
+                "card_20260527_021"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260603_019"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case1",
+              "material_id": "material_demo_case1_answers",
+              "unit_id": "unit_demo_case1_swot"
+            },
+            {
+              "id": "note_20260618_017",
+              "note_id": "note_20260618_017",
+              "title": "二次試験 事例I：権限委譲の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 権限委譲\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 権限委譲\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "ケース演習"
+              ],
+              "created_at": "2026-06-18 21:00:00",
+              "updated_at": "2026-06-18 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260618_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260618_048",
+                "card_20260618_049",
+                "card_20260618_050",
+                "card_20260618_051"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260718_038",
+                "reminder_20260625_039"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case1",
+              "material_id": "material_demo_case1_answers",
+              "unit_id": "unit_demo_case1_delegation"
+            },
+            {
+              "id": "note_20260714_029",
+              "note_id": "note_20260714_029",
+              "title": "二次試験 事例I：組織構造の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 組織構造\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 組織構造\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "暗記",
+                "要復習"
+              ],
+              "created_at": "2026-07-14 20:00:00",
+              "updated_at": "2026-07-14 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260714_001",
+                "session_20260714_002",
+                "session_20260714_003"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260714_090",
+                "card_20260714_091"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260717_067",
+                "reminder_20260721_068"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case1",
+              "material_id": "material_demo_case1_answers",
+              "unit_id": "unit_demo_case1_org_structure"
+            },
+            {
+              "id": "note_20260805_041",
+              "note_id": "note_20260805_041",
+              "title": "二次試験 事例I：強み弱み分析の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 強み弱み分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 強み弱み分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "財務強化",
+                "白書確認",
+                "要復習"
+              ],
+              "created_at": "2026-08-05 20:00:00",
+              "updated_at": "2026-08-05 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260805_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260805_122",
+                "card_20260805_123",
+                "card_20260805_124",
+                "card_20260805_125"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260808_093",
+                "reminder_20260806_094"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case1",
+              "material_id": "material_demo_case1_answers",
+              "unit_id": "unit_demo_case1_swot"
+            },
+            {
+              "id": "note_20260809_044",
+              "note_id": "note_20260809_044",
+              "title": "二次試験 事例I：後継者育成の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 後継者育成\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 後継者育成\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "白書確認"
+              ],
+              "created_at": "2026-08-09 20:30:00",
+              "updated_at": "2026-08-09 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260809_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260809_130",
+                "card_20260809_131",
+                "card_20260809_132"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260823_100"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case1",
+              "material_id": "material_demo_case1_answers",
+              "unit_id": "unit_demo_case1_successor"
+            },
+            {
+              "id": "note_20260817_048",
+              "note_id": "note_20260817_048",
+              "title": "二次試験 事例I：後継者育成の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 後継者育成\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 後継者育成\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "二次試験"
+              ],
+              "created_at": "2026-08-17 22:00:00",
+              "updated_at": "2026-08-17 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260817_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260817_144",
+                "card_20260817_145",
+                "card_20260817_146"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260818_108"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case1",
+              "material_id": "material_demo_case1_answers",
+              "unit_id": "unit_demo_case1_successor"
+            },
+            {
+              "id": "note_20260820_049",
+              "note_id": "note_20260820_049",
+              "title": "二次試験 事例I：強み弱み分析の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 強み弱み分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 強み弱み分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "財務強化",
+                "ケース演習"
+              ],
+              "created_at": "2026-08-20 20:00:00",
+              "updated_at": "2026-08-20 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260820_001",
+                "session_20260820_003"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260820_147",
+                "card_20260820_148",
+                "card_20260820_149",
+                "card_20260820_150"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260821_109"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case1",
+              "material_id": "material_demo_case1_answers",
+              "unit_id": "unit_demo_case1_swot"
+            },
+            {
+              "id": "note_20260914_058",
+              "note_id": "note_20260914_058",
+              "title": "二次試験 事例I：後継者育成の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 後継者育成\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例I / 後継者育成\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "白書確認",
+                "ケース演習",
+                "二次試験"
+              ],
+              "created_at": "2026-09-14 20:30:00",
+              "updated_at": "2026-09-14 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260914_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260914_173",
+                "card_20260914_174",
+                "card_20260914_175"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260917_123",
+                "reminder_20260915_124"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case1",
+              "material_id": "material_demo_case1_answers",
+              "unit_id": "unit_demo_case1_successor"
+            }
+          ]
+        },
+        {
+          "id": "section_subject_demo_economics",
+          "name": "経済学・経済政策",
+          "pages": [
+            {
+              "id": "note_20260606_013",
+              "note_id": "note_20260606_013",
+              "title": "経済学・経済政策：需要供給の整理",
+              "body": "# 学習メモ\n\n## テーマ\n経済学・経済政策 / 需要供給\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n経済学・経済政策 / 需要供給\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "頻出"
+              ],
+              "created_at": "2026-06-06 21:15:00",
+              "updated_at": "2026-06-06 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260606_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260606_034",
+                "card_20260606_035",
+                "card_20260606_036"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260620_028"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_economics",
+              "material_id": "material_demo_economics_workbook",
+              "unit_id": "unit_demo_economics_supply_demand"
+            },
+            {
+              "id": "note_20260613_015",
+              "note_id": "note_20260613_015",
+              "title": "経済学・経済政策：AD-AS分析の整理",
+              "body": "# 学習メモ\n\n## テーマ\n経済学・経済政策 / AD-AS分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n経済学・経済政策 / AD-AS分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "暗記",
+                "要復習"
+              ],
+              "created_at": "2026-06-13 22:00:00",
+              "updated_at": "2026-06-13 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260613_001",
+                "session_20260613_002",
+                "session_20260613_004"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260613_041",
+                "card_20260613_042",
+                "card_20260613_043",
+                "card_20260613_044"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260627_032",
+                "reminder_20260620_033",
+                "reminder_20260616_034"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_economics",
+              "material_id": "material_demo_economics_workbook",
+              "unit_id": "unit_demo_economics_adas"
+            },
+            {
+              "id": "note_20260823_051",
+              "note_id": "note_20260823_051",
+              "title": "経済学・経済政策：ゲーム理論の整理",
+              "body": "# 学習メモ\n\n## テーマ\n経済学・経済政策 / ゲーム理論\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n経済学・経済政策 / ゲーム理論\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "要復習"
+              ],
+              "created_at": "2026-08-23 20:15:00",
+              "updated_at": "2026-08-23 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260823_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260823_153",
+                "card_20260823_154"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260906_111"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_economics",
+              "material_id": "material_demo_economics_workbook",
+              "unit_id": "unit_demo_economics_game_theory"
+            },
+            {
+              "id": "note_20260917_060",
+              "note_id": "note_20260917_060",
+              "title": "経済学・経済政策：AD-AS分析の整理",
+              "body": "# 学習メモ\n\n## テーマ\n経済学・経済政策 / AD-AS分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n経済学・経済政策 / AD-AS分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "白書確認",
+                "財務強化"
+              ],
+              "created_at": "2026-09-17 22:00:00",
+              "updated_at": "2026-09-17 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260917_001",
+                "session_20260917_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260917_178",
+                "card_20260917_179"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260918_128"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_economics",
+              "material_id": "material_demo_economics_workbook",
+              "unit_id": "unit_demo_economics_adas"
+            }
+          ]
+        },
+        {
+          "id": "section_subject_demo_information",
+          "name": "経営情報システム",
+          "pages": [
+            {
+              "id": "note_20260615_016",
+              "note_id": "note_20260615_016",
+              "title": "経営情報システム：ネットワークの整理",
+              "body": "# 学習メモ\n\n## テーマ\n経営情報システム / ネットワーク\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n経営情報システム / ネットワーク\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "理解不十分"
+              ],
+              "created_at": "2026-06-15 21:15:00",
+              "updated_at": "2026-06-15 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260615_001",
+                "session_20260615_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260615_045",
+                "card_20260615_046",
+                "card_20260615_047"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260618_035",
+                "reminder_20260715_036",
+                "reminder_20260622_037"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_information",
+              "material_id": "material_demo_information_text",
+              "unit_id": "unit_demo_information_network"
+            },
+            {
+              "id": "note_20260711_027",
+              "note_id": "note_20260711_027",
+              "title": "経営情報システム：IT経営の整理",
+              "body": "# 学習メモ\n\n## テーマ\n経営情報システム / IT経営\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n経営情報システム / IT経営\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "要復習",
+                "暗記",
+                "理解不十分"
+              ],
+              "created_at": "2026-07-11 21:30:00",
+              "updated_at": "2026-07-11 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260711_001",
+                "session_20260711_002",
+                "session_20260711_003"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260711_084",
+                "card_20260711_085",
+                "card_20260711_086",
+                "card_20260711_087"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260714_062",
+                "reminder_20260810_063",
+                "reminder_20260725_064"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_information",
+              "material_id": "material_demo_information_text",
+              "unit_id": "unit_demo_information_it_management"
+            },
+            {
+              "id": "note_20260905_054",
+              "note_id": "note_20260905_054",
+              "title": "経営情報システム：システム開発の整理",
+              "body": "# 学習メモ\n\n## テーマ\n経営情報システム / システム開発\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n経営情報システム / システム開発\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "ケース演習",
+                "財務強化",
+                "頻出"
+              ],
+              "created_at": "2026-09-05 22:00:00",
+              "updated_at": "2026-09-05 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260905_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260905_161",
+                "card_20260905_162",
+                "card_20260905_163",
+                "card_20260905_164"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260906_116",
+                "reminder_20261005_117"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_information",
+              "material_id": "material_demo_information_text",
+              "unit_id": "unit_demo_information_development"
+            }
+          ]
+        },
+        {
+          "id": "section_subject_demo_business_english",
+          "name": "ビジネス英語",
+          "pages": [
+            {
+              "id": "note_20260621_018",
+              "note_id": "note_20260621_018",
+              "title": "ビジネス英語：要約練習の整理",
+              "body": "# 学習メモ\n\n## テーマ\nビジネス英語 / 要約練習\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\nビジネス英語 / 要約練習\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "暗記"
+              ],
+              "created_at": "2026-06-21 21:15:00",
+              "updated_at": "2026-06-21 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260621_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260621_052",
+                "card_20260621_053",
+                "card_20260621_054",
+                "card_20260621_055"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260624_040",
+                "reminder_20260705_041",
+                "reminder_20260721_042"
+              ],
+              "project_id": "project_demo_business_english",
+              "subject_id": "subject_demo_business_english",
+              "material_id": "material_demo_business_article",
+              "unit_id": "unit_demo_business_english_summary"
+            }
+          ]
+        },
+        {
+          "id": "section_subject_demo_case2",
+          "name": "二次試験 事例II",
+          "pages": [
+            {
+              "id": "note_20260630_022",
+              "note_id": "note_20260630_022",
+              "title": "二次試験 事例II：ブランド設計の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例II / ブランド設計\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例II / ブランド設計\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "白書確認"
+              ],
+              "created_at": "2026-06-30 22:00:00",
+              "updated_at": "2026-06-30 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260630_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260630_068",
+                "card_20260630_069",
+                "card_20260630_070",
+                "card_20260630_071"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260703_049",
+                "reminder_20260701_050"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case2",
+              "material_id": "material_demo_case2_answers",
+              "unit_id": "unit_demo_case2_brand"
+            },
+            {
+              "id": "note_20260807_043",
+              "note_id": "note_20260807_043",
+              "title": "二次試験 事例II：ブランド設計の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例II / ブランド設計\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例II / ブランド設計\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "二次試験",
+                "白書確認"
+              ],
+              "created_at": "2026-08-07 21:30:00",
+              "updated_at": "2026-08-07 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260807_001",
+                "session_20260807_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260807_128",
+                "card_20260807_129"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260808_098",
+                "reminder_20260810_099"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case2",
+              "material_id": "material_demo_case2_answers",
+              "unit_id": "unit_demo_case2_brand"
+            },
+            {
+              "id": "note_20260821_050",
+              "note_id": "note_20260821_050",
+              "title": "二次試験 事例II：販促施策の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例II / 販促施策\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例II / 販促施策\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "理解不十分",
+                "頻出",
+                "財務強化"
+              ],
+              "created_at": "2026-08-21 20:00:00",
+              "updated_at": "2026-08-21 23:20:00",
+              "linked_study_session_ids": [
+                "session_20260821_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260821_151",
+                "card_20260821_152"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260824_110"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case2",
+              "material_id": "material_demo_case2_answers",
+              "unit_id": "unit_demo_case2_promotion"
+            },
+            {
+              "id": "note_20260913_057",
+              "note_id": "note_20260913_057",
+              "title": "二次試験 事例II：顧客分析の整理",
+              "body": "# 学習メモ\n\n## テーマ\n二次試験 事例II / 顧客分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n二次試験 事例II / 顧客分析\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "頻出",
+                "二次試験",
+                "財務強化"
+              ],
+              "created_at": "2026-09-13 22:30:00",
+              "updated_at": "2026-09-13 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260913_001"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260913_171",
+                "card_20260913_172"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260920_122"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_case2",
+              "material_id": "material_demo_case2_answers",
+              "unit_id": "unit_demo_case2_customer"
+            }
+          ]
+        },
+        {
+          "id": "section_subject_demo_operations",
+          "name": "運営管理",
+          "pages": [
+            {
+              "id": "note_20260718_032",
+              "note_id": "note_20260718_032",
+              "title": "運営管理：品質管理の整理",
+              "body": "# 学習メモ\n\n## テーマ\n運営管理 / 品質管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n運営管理 / 品質管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "財務強化",
+                "頻出"
+              ],
+              "created_at": "2026-07-18 20:00:00",
+              "updated_at": "2026-07-18 23:00:00",
+              "linked_study_session_ids": [
+                "session_20260718_002",
+                "session_20260718_003"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260718_100",
+                "card_20260718_101",
+                "card_20260718_102"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260801_074",
+                "reminder_20260817_075"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_operations",
+              "material_id": "material_demo_operations_text",
+              "unit_id": "unit_demo_operations_quality"
+            },
+            {
+              "id": "note_20260814_047",
+              "note_id": "note_20260814_047",
+              "title": "運営管理：生産管理の整理",
+              "body": "# 学習メモ\n\n## テーマ\n運営管理 / 生産管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n運営管理 / 生産管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "暗記"
+              ],
+              "created_at": "2026-08-14 20:15:00",
+              "updated_at": "2026-08-14 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260814_002"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260814_140",
+                "card_20260814_141",
+                "card_20260814_142",
+                "card_20260814_143"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260821_105",
+                "reminder_20260817_106",
+                "reminder_20260815_107"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_operations",
+              "material_id": "material_demo_operations_text",
+              "unit_id": "unit_demo_operations_production"
+            },
+            {
+              "id": "note_20260919_061",
+              "note_id": "note_20260919_061",
+              "title": "運営管理：店舗管理の整理",
+              "body": "# 学習メモ\n\n## テーマ\n運営管理 / 店舗管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "content": "# 学習メモ\n\n## テーマ\n運営管理 / 店舗管理\n\n## 理解できたこと\n- 問われやすい論点と判断基準を整理した。\n- 過去問で使えるキーワードをカード化する候補として抽出した。\n\n## 不明点\n- 似た選択肢で迷いやすいポイントは次回復習で確認する。\n\n## 次回復習したいこと\n- 事例問題や計算問題で説明できるか確認する。\n",
+              "tags": [
+                "ケース演習",
+                "二次試験",
+                "財務強化"
+              ],
+              "created_at": "2026-09-19 20:15:00",
+              "updated_at": "2026-09-19 23:40:00",
+              "linked_study_session_ids": [
+                "session_20260919_003"
+              ],
+              "linked_flashcard_ids": [
+                "card_20260919_180",
+                "card_20260919_181"
+              ],
+              "linked_reminder_ids": [
+                "reminder_20260920_129",
+                "reminder_20261003_130",
+                "reminder_20260926_131"
+              ],
+              "project_id": "project_demo_consultant",
+              "subject_id": "subject_demo_operations",
+              "material_id": "material_demo_operations_text",
+              "unit_id": "unit_demo_operations_store"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

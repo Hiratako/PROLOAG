@@ -1,0 +1,40 @@
+[
+  {
+    "session_id": "session_20260606_001",
+    "start_at": "2026-06-06T14:00:00",
+    "end_at": "2026-06-06T15:45:00",
+    "duration_sec": 6300,
+    "money": 3850,
+    "normal_money": 3850,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "経済学・経済政策：需要供給の論点整理",
+    "category": "資格",
+    "environment": "カフェ",
+    "effort": 7,
+    "sleep_hours": 6.8,
+    "alcohol_yesterday": "なし",
+    "mood": "4",
+    "study_category": "資格",
+    "input_output": "両方",
+    "linked_note_ids": [
+      "note_20260606_013"
+    ],
+    "linked_task_id": "task_20260606_001",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_economics",
+    "material_id": "material_demo_economics_workbook",
+    "unit_id": "unit_demo_economics_supply_demand",
+    "io_type": "両方",
+    "condition": {
+      "effort": 7,
+      "environment": "カフェ",
+      "sleep_hours": 6.8,
+      "mood": "4",
+      "category": "資格",
+      "input_output": "両方",
+      "io_type": "両方",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

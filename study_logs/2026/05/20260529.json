@@ -1,0 +1,78 @@
+[
+  {
+    "session_id": "session_20260529_001",
+    "start_at": "2026-05-29T18:30:00",
+    "end_at": "2026-05-29T20:15:00",
+    "duration_sec": 6300,
+    "money": 3850,
+    "normal_money": 3850,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "企業経営理論：組織論の過去問演習",
+    "category": "資格",
+    "environment": "カフェ",
+    "effort": 8,
+    "sleep_hours": 6.6,
+    "alcohol_yesterday": "なし",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "アウトプット",
+    "linked_note_ids": [
+      "note_20260529_009"
+    ],
+    "linked_task_id": "task_20260529_001",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_organization",
+    "io_type": "アウトプット",
+    "condition": {
+      "effort": 8,
+      "environment": "カフェ",
+      "sleep_hours": 6.6,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "アウトプット",
+      "io_type": "アウトプット",
+      "alcohol_yesterday": "なし"
+    }
+  },
+  {
+    "session_id": "session_20260529_002",
+    "start_at": "2026-05-29T20:35:00",
+    "end_at": "2026-05-29T21:50:00",
+    "duration_sec": 4500,
+    "money": 2750,
+    "normal_money": 2750,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "企業経営理論：組織論の弱点補強",
+    "category": "資格",
+    "environment": "通勤中",
+    "effort": 6,
+    "sleep_hours": 6.6,
+    "alcohol_yesterday": "あり",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "アウトプット",
+    "linked_note_ids": [
+      "note_20260529_009"
+    ],
+    "linked_task_id": "task_20260529_001",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_organization",
+    "io_type": "アウトプット",
+    "condition": {
+      "effort": 6,
+      "environment": "通勤中",
+      "sleep_hours": 6.6,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "アウトプット",
+      "io_type": "アウトプット",
+      "alcohol_yesterday": "あり"
+    }
+  }
+]

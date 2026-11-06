@@ -1,0 +1,38 @@
+[
+  {
+    "session_id": "session_20260815_001",
+    "start_at": "2026-08-15T20:00:00",
+    "end_at": "2026-08-15T21:30:00",
+    "duration_sec": 5400,
+    "money": 3300,
+    "normal_money": 3300,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "企業経営理論：マーケティングの弱点補強",
+    "category": "資格",
+    "environment": "カフェ",
+    "effort": 9,
+    "sleep_hours": 8.1,
+    "alcohol_yesterday": "なし",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "アウトプット",
+    "linked_note_ids": [],
+    "linked_task_id": "task_20260815_002",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_marketing",
+    "io_type": "アウトプット",
+    "condition": {
+      "effort": 9,
+      "environment": "カフェ",
+      "sleep_hours": 8.1,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "アウトプット",
+      "io_type": "アウトプット",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

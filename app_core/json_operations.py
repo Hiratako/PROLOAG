@@ -109,6 +109,7 @@ def assert_no_pending_operations(root: Path | None = None) -> None:
 
 @contextmanager
 def operation_guard(root: Path | None = None, *, allow_pending: bool = False):
+    store.require_writable()
     root = _root(root)
     relative = "backups/json_operations/operations"
     if _relative(root, relative) != relative:
@@ -151,6 +152,7 @@ class JsonOperation:
         return deepcopy(default if raw is None else data)
 
     def stage(self, path: Path, data: Any, *, expected_revision: Any = store._UNSET) -> None:
+        store.require_writable()
         if self.already_committed:
             raise store.JsonStoreError("この保存操作は完了済みです。再送による変更は行いません。")
         _record_path(self.root, _relative(self.root, path))
@@ -182,6 +184,7 @@ class JsonOperation:
                 raise store.JsonConflictError("確認後に関連記録が追加・削除されました。再読込してください。")
 
     def commit(self) -> None:
+        store.require_writable()
         from app_core.note_reference_guard import validate_note_references
 
         # Validate against the complete staged final state, before acquiring the
@@ -262,6 +265,7 @@ def _validated_documents(root: Path, documents: Any) -> list[dict[str, Any]]:
 
 
 def _rollback(root: Path, documents: list[dict[str, Any]]) -> None:
+    store.require_writable()
     documents = _validated_documents(root, documents)
     # Verify every target before restoring anything; never overwrite a later edit.
     for doc in documents:
@@ -300,6 +304,7 @@ def atomic_json_operation(*, root: Path | None = None, kind: str,
     A rolled-back operation may be corrected and retried. A committed request
     cannot be relabeled as a different update or deletion after an ACK is lost.
     """
+    store.require_writable()
     if store._active_operation.get() is not None:
         raise store.JsonStoreError("保存操作は入れ子にできません。最外側でまとめてください。")
     root = _root(root)
@@ -332,6 +337,7 @@ def atomic_json_operation(*, root: Path | None = None, kind: str,
 
 
 def rollback_json_operation(operation_id: str, root: Path | None = None) -> None:
+    store.require_writable()
     root = _root(root)
     path = _journal_path(root, operation_id)
     with operation_guard(root, allow_pending=True):

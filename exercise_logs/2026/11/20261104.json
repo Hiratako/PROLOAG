@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-04",
+  "records": [
+    {
+      "exercise_id": "exercise_20261104_001",
+      "type": "running",
+      "title": "ランニング 記録",
+      "start_time": "06:45",
+      "duration_min": 40,
+      "distance_km": 5.64,
+      "pace_min_per_km": 7.09,
+      "intensity": 3,
+      "fatigue_after": 4,
+      "memo": "デモデータ: 生活リズム確認用の運動記録です。",
+      "created_at": "2026-11-04 21:30:00",
+      "updated_at": "2026-11-04 21:30:00"
+    }
+  ],
+  "created_at": "2026-11-04 21:30:00",
+  "updated_at": "2026-11-04 21:30:00"
+}

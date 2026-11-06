@@ -1,0 +1,50 @@
+{
+  "plan_id": "plan_20261024",
+  "date": "2026-10-24",
+  "target_total_minutes": 210,
+  "focus_subjects": [
+    "ビジネス英語",
+    "二次試験 事例I"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例I",
+    "海外ビジネス記事読解"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20261024_001",
+      "title": "ビジネス英語：要約練習 復習",
+      "subject": "ビジネス英語",
+      "material": "海外ビジネス記事読解",
+      "planned_minutes": 75,
+      "status": "pending",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_business_english",
+      "subject_id": "subject_demo_business_english",
+      "material_id": "material_demo_business_article",
+      "unit_id": "unit_demo_business_english_summary"
+    },
+    {
+      "task_id": "task_20261024_002",
+      "title": "二次試験 事例I：後継者育成 論点整理",
+      "subject": "二次試験 事例I",
+      "material": "ふぞろいな合格答案 事例I",
+      "planned_minutes": 45,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261024_001",
+        "session_20261024_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case1",
+      "material_id": "material_demo_case1_answers",
+      "unit_id": "unit_demo_case1_successor"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-10-24 07:30:00",
+  "updated_at": "2026-10-24 07:30:00"
+}

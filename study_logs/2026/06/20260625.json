@@ -1,0 +1,38 @@
+[
+  {
+    "session_id": "session_20260625_001",
+    "start_at": "2026-06-25T06:20:00",
+    "end_at": "2026-06-25T07:00:00",
+    "duration_sec": 2400,
+    "money": 1467,
+    "normal_money": 1467,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "経営法務：民法の弱点補強",
+    "category": "資格",
+    "environment": "自宅",
+    "effort": 10,
+    "sleep_hours": 6.4,
+    "alcohol_yesterday": "あり",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "両方",
+    "linked_note_ids": [],
+    "linked_task_id": "task_20260625_001",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_civil_law",
+    "io_type": "両方",
+    "condition": {
+      "effort": 10,
+      "environment": "自宅",
+      "sleep_hours": 6.4,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "両方",
+      "io_type": "両方",
+      "alcohol_yesterday": "あり"
+    }
+  }
+]

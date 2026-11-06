@@ -1,0 +1,78 @@
+[
+  {
+    "session_id": "session_20260916_001",
+    "start_at": "2026-09-16T05:00:00",
+    "end_at": "2026-09-16T06:45:00",
+    "duration_sec": 6300,
+    "money": 3850,
+    "normal_money": 3850,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "経営法務：知的財産権の論点整理",
+    "category": "資格",
+    "environment": "図書館",
+    "effort": 6,
+    "sleep_hours": 7.5,
+    "alcohol_yesterday": "なし",
+    "mood": "4",
+    "study_category": "資格",
+    "input_output": "両方",
+    "linked_note_ids": [
+      "note_20260916_059"
+    ],
+    "linked_task_id": "task_20260916_002",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_ip",
+    "io_type": "両方",
+    "condition": {
+      "effort": 6,
+      "environment": "図書館",
+      "sleep_hours": 7.5,
+      "mood": "4",
+      "category": "資格",
+      "input_output": "両方",
+      "io_type": "両方",
+      "alcohol_yesterday": "なし"
+    }
+  },
+  {
+    "session_id": "session_20260916_002",
+    "start_at": "2026-09-16T07:15:00",
+    "end_at": "2026-09-16T08:00:00",
+    "duration_sec": 2700,
+    "money": 1650,
+    "normal_money": 1650,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "経営法務：知的財産権の弱点補強",
+    "category": "資格",
+    "environment": "カフェ",
+    "effort": 10,
+    "sleep_hours": 7.5,
+    "alcohol_yesterday": "なし",
+    "mood": "4",
+    "study_category": "資格",
+    "input_output": "両方",
+    "linked_note_ids": [
+      "note_20260916_059"
+    ],
+    "linked_task_id": "task_20260916_002",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_ip",
+    "io_type": "両方",
+    "condition": {
+      "effort": 10,
+      "environment": "カフェ",
+      "sleep_hours": 7.5,
+      "mood": "4",
+      "category": "資格",
+      "input_output": "両方",
+      "io_type": "両方",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

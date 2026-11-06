@@ -1,0 +1,91 @@
+{
+  "plan_id": "plan_20260920",
+  "date": "2026-09-20",
+  "target_total_minutes": 150,
+  "focus_subjects": [
+    "二次試験 事例III",
+    "企業経営理論",
+    "財務・会計"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例III",
+    "企業経営理論 スピードテキスト",
+    "財務・会計 過去問完全マスター"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260920_001",
+      "title": "財務・会計：CVP分析 過去問演習",
+      "subject": "財務・会計",
+      "material": "財務・会計 過去問完全マスター",
+      "planned_minutes": 45,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_finance",
+      "material_id": "material_demo_finance_workbook",
+      "unit_id": "unit_demo_finance_cvp"
+    },
+    {
+      "task_id": "task_20260920_002",
+      "title": "企業経営理論：競争戦略 復習",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260920_001",
+        "session_20260920_002",
+        "session_20260920_004"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_competition"
+    },
+    {
+      "task_id": "task_20260920_003",
+      "title": "二次試験 事例III：標準化 答案骨子作成",
+      "subject": "二次試験 事例III",
+      "material": "ふぞろいな合格答案 事例III",
+      "planned_minutes": 75,
+      "status": "in_progress",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260920_003"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case3",
+      "material_id": "material_demo_case3_answers",
+      "unit_id": "unit_demo_case3_standardization"
+    },
+    {
+      "task_id": "task_20260920_004",
+      "title": "二次試験 事例III：標準化 一問一答",
+      "subject": "二次試験 事例III",
+      "material": "ふぞろいな合格答案 事例III",
+      "planned_minutes": 45,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case3",
+      "material_id": "material_demo_case3_answers",
+      "unit_id": "unit_demo_case3_standardization"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260913_057",
+    "note_20260919_061"
+  ],
+  "review_card_ids": [
+    "card_20260913_171",
+    "card_20260913_172",
+    "card_20260919_180",
+    "card_20260919_181"
+  ],
+  "created_at": "2026-09-20 07:30:00",
+  "updated_at": "2026-09-20 07:30:00"
+}

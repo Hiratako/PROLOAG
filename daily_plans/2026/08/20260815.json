@@ -1,0 +1,57 @@
+{
+  "plan_id": "plan_20260815",
+  "date": "2026-08-15",
+  "target_total_minutes": 270,
+  "focus_subjects": [
+    "二次試験 事例IV",
+    "企業経営理論"
+  ],
+  "materials": [
+    "事例IV 計算問題集",
+    "企業経営理論 スピードテキスト"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260815_001",
+      "title": "二次試験 事例IV：CVP分析 論点整理",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 90,
+      "status": "pending",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_cvp"
+    },
+    {
+      "task_id": "task_20260815_002",
+      "title": "企業経営理論：マーケティング 論点整理",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 75,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260815_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_marketing"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260716_030",
+    "note_20260814_047"
+  ],
+  "review_card_ids": [
+    "card_20260716_092",
+    "card_20260716_093",
+    "card_20260814_140",
+    "card_20260814_141"
+  ],
+  "created_at": "2026-08-15 07:30:00",
+  "updated_at": "2026-08-15 07:30:00"
+}

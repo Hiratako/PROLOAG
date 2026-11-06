@@ -1,0 +1,56 @@
+{
+  "plan_id": "plan_20260711",
+  "date": "2026-07-11",
+  "target_total_minutes": 210,
+  "focus_subjects": [
+    "二次試験 事例I",
+    "経営情報システム"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例I",
+    "情報システム 頻出論点集"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260711_001",
+      "title": "経営情報システム：IT経営 一問一答",
+      "subject": "経営情報システム",
+      "material": "情報システム 頻出論点集",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260711_001",
+        "session_20260711_002",
+        "session_20260711_003"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_information",
+      "material_id": "material_demo_information_text",
+      "unit_id": "unit_demo_information_it_management"
+    },
+    {
+      "task_id": "task_20260711_002",
+      "title": "二次試験 事例I：権限委譲 答案骨子作成",
+      "subject": "二次試験 事例I",
+      "material": "ふぞろいな合格答案 事例I",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case1",
+      "material_id": "material_demo_case1_answers",
+      "unit_id": "unit_demo_case1_delegation"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260710_026"
+  ],
+  "review_card_ids": [
+    "card_20260710_081",
+    "card_20260710_082"
+  ],
+  "created_at": "2026-07-11 07:30:00",
+  "updated_at": "2026-07-11 07:30:00"
+}

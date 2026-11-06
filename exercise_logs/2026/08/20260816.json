@@ -1,0 +1,21 @@
+{
+  "date": "2026-08-16",
+  "records": [
+    {
+      "exercise_id": "exercise_20260816_001",
+      "type": "stretch",
+      "title": "ストレッチ 記録",
+      "start_time": "18:30",
+      "duration_min": 71,
+      "distance_km": 0.0,
+      "pace_min_per_km": 0.0,
+      "intensity": 3,
+      "fatigue_after": 4,
+      "memo": "デモデータ: 生活リズム確認用の運動記録です。",
+      "created_at": "2026-08-16 21:30:00",
+      "updated_at": "2026-08-16 21:30:00"
+    }
+  ],
+  "created_at": "2026-08-16 21:30:00",
+  "updated_at": "2026-08-16 21:30:00"
+}

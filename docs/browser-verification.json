@@ -1,0 +1,48 @@
+{
+  "routes": [
+    "welcome",
+    "roadmap",
+    "study",
+    "growth",
+    "city",
+    "health",
+    "about"
+  ],
+  "all_routes_opened": true,
+  "roadmap_overview_search": {
+    "all_items": 9,
+    "financial_search_results": 3,
+    "selected_detail_verified": true,
+    "save_controls_visible": false
+  },
+  "two_visitors": {
+    "A_period_days": 7,
+    "A_start": "2026-10-30",
+    "B_period_days": 30,
+    "B_start": "2026-10-07",
+    "independent": true
+  },
+  "unregistered_route": {
+    "route": "media_conversion",
+    "returned_to_home": true,
+    "page_not_found_notice": true
+  },
+  "csv": {
+    "rows": 180,
+    "start": "2026-05-10",
+    "end": "2026-11-05",
+    "duration_sec": 1152600.0,
+    "matches_synthetic_sessions": true
+  },
+  "dataset_after_browser": {
+    "records": 715,
+    "days": 180,
+    "synthetic": true,
+    "reference_date": "2026-11-05"
+  },
+  "browser_console_checks": {
+    "roadmap_errors": 0,
+    "city_errors": 0
+  },
+  "cloud_runtime_checked": false
+}

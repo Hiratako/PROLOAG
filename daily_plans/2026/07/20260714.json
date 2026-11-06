@@ -1,0 +1,89 @@
+{
+  "plan_id": "plan_20260714",
+  "date": "2026-07-14",
+  "target_total_minutes": 120,
+  "focus_subjects": [
+    "二次試験 事例I",
+    "二次試験 事例III",
+    "二次試験 事例IV"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例I",
+    "ふぞろいな合格答案 事例III",
+    "事例IV 計算問題集"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260714_001",
+      "title": "二次試験 事例IV：意思決定会計 過去問演習",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_decision_accounting"
+    },
+    {
+      "task_id": "task_20260714_002",
+      "title": "二次試験 事例I：組織構造 答案骨子作成",
+      "subject": "二次試験 事例I",
+      "material": "ふぞろいな合格答案 事例I",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260714_001",
+        "session_20260714_002",
+        "session_20260714_003"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case1",
+      "material_id": "material_demo_case1_answers",
+      "unit_id": "unit_demo_case1_org_structure"
+    },
+    {
+      "task_id": "task_20260714_003",
+      "title": "二次試験 事例IV：キャッシュフロー 答案骨子作成",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 45,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_cashflow"
+    },
+    {
+      "task_id": "task_20260714_004",
+      "title": "二次試験 事例III：生産計画 過去問演習",
+      "subject": "二次試験 事例III",
+      "material": "ふぞろいな合格答案 事例III",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case3",
+      "material_id": "material_demo_case3_answers",
+      "unit_id": "unit_demo_case3_production_plan"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260711_027",
+    "note_20260713_028"
+  ],
+  "review_card_ids": [
+    "card_20260711_084",
+    "card_20260711_085",
+    "card_20260713_088",
+    "card_20260713_089"
+  ],
+  "created_at": "2026-07-14 07:30:00",
+  "updated_at": "2026-07-14 07:30:00"
+}

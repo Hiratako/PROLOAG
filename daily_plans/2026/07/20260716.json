@@ -1,0 +1,67 @@
+{
+  "plan_id": "plan_20260716",
+  "date": "2026-07-16",
+  "target_total_minutes": 180,
+  "focus_subjects": [
+    "二次試験 事例IV",
+    "企業経営理論"
+  ],
+  "materials": [
+    "事例IV 計算問題集",
+    "企業経営理論 スピードテキスト"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260716_001",
+      "title": "二次試験 事例IV：CVP分析 答案骨子作成",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260716_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_cvp"
+    },
+    {
+      "task_id": "task_20260716_002",
+      "title": "二次試験 事例IV：CVP分析 論点整理",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 45,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260716_003"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_cvp"
+    },
+    {
+      "task_id": "task_20260716_003",
+      "title": "企業経営理論：経営戦略 一問一答",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 60,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260716_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_strategy"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-07-16 07:30:00",
+  "updated_at": "2026-07-16 07:30:00"
+}

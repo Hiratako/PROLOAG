@@ -1,0 +1,60 @@
+{
+  "plan_id": "plan_20260605",
+  "date": "2026-06-05",
+  "target_total_minutes": 150,
+  "focus_subjects": [
+    "二次試験 事例IV",
+    "経営情報システム"
+  ],
+  "materials": [
+    "事例IV 計算問題集",
+    "情報システム 頻出論点集"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260605_001",
+      "title": "経営情報システム：システム開発 過去問演習",
+      "subject": "経営情報システム",
+      "material": "情報システム 頻出論点集",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260605_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_information",
+      "material_id": "material_demo_information_text",
+      "unit_id": "unit_demo_information_development"
+    },
+    {
+      "task_id": "task_20260605_002",
+      "title": "二次試験 事例IV：NPV 復習",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 45,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260605_002",
+        "session_20260605_003"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_npv"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260529_009",
+    "note_20260602_011"
+  ],
+  "review_card_ids": [
+    "card_20260529_022",
+    "card_20260529_023",
+    "card_20260602_028",
+    "card_20260602_029"
+  ],
+  "created_at": "2026-06-05 07:30:00",
+  "updated_at": "2026-06-05 07:30:00"
+}

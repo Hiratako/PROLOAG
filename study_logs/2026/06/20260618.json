@@ -1,0 +1,40 @@
+[
+  {
+    "session_id": "session_20260618_001",
+    "start_at": "2026-06-18T06:10:00",
+    "end_at": "2026-06-18T07:00:00",
+    "duration_sec": 3000,
+    "money": 1833,
+    "normal_money": 1833,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "二次試験 事例I：権限委譲の過去問演習",
+    "category": "資格",
+    "environment": "カフェ",
+    "effort": 10,
+    "sleep_hours": 7.3,
+    "alcohol_yesterday": "なし",
+    "mood": "4",
+    "study_category": "資格",
+    "input_output": "アウトプット",
+    "linked_note_ids": [
+      "note_20260618_017"
+    ],
+    "linked_task_id": "task_20260618_002",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_delegation",
+    "io_type": "アウトプット",
+    "condition": {
+      "effort": 10,
+      "environment": "カフェ",
+      "sleep_hours": 7.3,
+      "mood": "4",
+      "category": "資格",
+      "input_output": "アウトプット",
+      "io_type": "アウトプット",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

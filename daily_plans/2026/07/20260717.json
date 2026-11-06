@@ -1,0 +1,71 @@
+{
+  "plan_id": "plan_20260717",
+  "date": "2026-07-17",
+  "target_total_minutes": 150,
+  "focus_subjects": [
+    "二次試験 事例IV",
+    "財務・会計"
+  ],
+  "materials": [
+    "事例IV 計算問題集",
+    "財務・会計 過去問完全マスター"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260717_001",
+      "title": "二次試験 事例IV：経営分析 復習",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 75,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260717_003"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_financial_analysis"
+    },
+    {
+      "task_id": "task_20260717_002",
+      "title": "財務・会計：財務諸表 論点整理",
+      "subject": "財務・会計",
+      "material": "財務・会計 過去問完全マスター",
+      "planned_minutes": 30,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_finance",
+      "material_id": "material_demo_finance_workbook",
+      "unit_id": "unit_demo_finance_statements"
+    },
+    {
+      "task_id": "task_20260717_003",
+      "title": "財務・会計：財務諸表 論点整理",
+      "subject": "財務・会計",
+      "material": "財務・会計 過去問完全マスター",
+      "planned_minutes": 60,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260717_001",
+        "session_20260717_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_finance",
+      "material_id": "material_demo_finance_workbook",
+      "unit_id": "unit_demo_finance_statements"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260714_029"
+  ],
+  "review_card_ids": [
+    "card_20260714_090",
+    "card_20260714_091"
+  ],
+  "created_at": "2026-07-17 07:30:00",
+  "updated_at": "2026-07-17 07:30:00"
+}

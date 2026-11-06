@@ -1,0 +1,58 @@
+{
+  "plan_id": "plan_20260725",
+  "date": "2026-07-25",
+  "target_total_minutes": 270,
+  "focus_subjects": [
+    "経済学・経済政策",
+    "財務・会計"
+  ],
+  "materials": [
+    "経済学 計算問題トレーニング",
+    "財務・会計 過去問完全マスター"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260725_001",
+      "title": "財務・会計：投資評価 論点整理",
+      "subject": "財務・会計",
+      "material": "財務・会計 過去問完全マスター",
+      "planned_minutes": 75,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260725_001",
+        "session_20260725_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_finance",
+      "material_id": "material_demo_finance_workbook",
+      "unit_id": "unit_demo_finance_investment"
+    },
+    {
+      "task_id": "task_20260725_002",
+      "title": "経済学・経済政策：IS-LM分析 一問一答",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 60,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_islm"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260711_027",
+    "note_20260724_036"
+  ],
+  "review_card_ids": [
+    "card_20260711_084",
+    "card_20260711_085",
+    "card_20260724_109",
+    "card_20260724_110"
+  ],
+  "created_at": "2026-07-25 07:30:00",
+  "updated_at": "2026-07-25 07:30:00"
+}

@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-31",
+  "records": [
+    {
+      "exercise_id": "exercise_20260531_001",
+      "type": "strength",
+      "title": "筋トレ 記録",
+      "start_time": "06:45",
+      "duration_min": 68,
+      "distance_km": 0.0,
+      "pace_min_per_km": 0.0,
+      "intensity": 5,
+      "fatigue_after": 4,
+      "memo": "デモデータ: 生活リズム確認用の運動記録です。",
+      "created_at": "2026-05-31 21:30:00",
+      "updated_at": "2026-05-31 21:30:00"
+    }
+  ],
+  "created_at": "2026-05-31 21:30:00",
+  "updated_at": "2026-05-31 21:30:00"
+}

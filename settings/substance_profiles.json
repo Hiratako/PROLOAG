@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "profiles": [
+    {
+      "substance_id": "caffeine",
+      "name": "カフェイン",
+      "unit": "mg",
+      "default_amount_mg": 200.0,
+      "default_label": "タブレット",
+      "amount_step_mg": 25.0,
+      "half_life_hours": 5.0,
+      "peak_delay_minutes": 30,
+      "residual_cutoff_hours": 36.0,
+      "color": "#25A9D6",
+      "fill_enabled": true,
+      "is_active": true,
+      "sort_order": 10,
+      "model_revision": 1
+    },
+    {
+      "substance_id": "eszopiclone",
+      "name": "エスゾピクロン",
+      "unit": "mg",
+      "default_amount_mg": 2.0,
+      "default_label": "タブレット",
+      "amount_step_mg": 0.5,
+      "half_life_hours": 6.0,
+      "peak_delay_minutes": 60,
+      "residual_cutoff_hours": 48.0,
+      "color": "#7C6CE7",
+      "fill_enabled": true,
+      "is_active": true,
+      "sort_order": 20,
+      "model_revision": 1
+    },
+    {
+      "substance_id": "trazodone",
+      "name": "トラゾドン",
+      "unit": "mg",
+      "default_amount_mg": 25.0,
+      "default_label": "タブレット",
+      "amount_step_mg": 5.0,
+      "half_life_hours": 7.0,
+      "peak_delay_minutes": 60,
+      "residual_cutoff_hours": 56.0,
+      "color": "#EF7D57",
+      "fill_enabled": true,
+      "is_active": true,
+      "sort_order": 30,
+      "model_revision": 1
+    },
+    {
+      "substance_id": "melatonin",
+      "name": "メラトニン",
+      "unit": "mg",
+      "default_amount_mg": 3.0,
+      "default_label": "タブレット",
+      "amount_step_mg": 0.5,
+      "half_life_hours": 0.75,
+      "peak_delay_minutes": 50,
+      "residual_cutoff_hours": 8.0,
+      "color": "#35A77A",
+      "fill_enabled": true,
+      "is_active": true,
+      "sort_order": 40,
+      "model_revision": 1
+    }
+  ]
+}

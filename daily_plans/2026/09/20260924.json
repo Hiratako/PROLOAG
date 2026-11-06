@@ -1,0 +1,64 @@
+{
+  "plan_id": "plan_20260924",
+  "date": "2026-09-24",
+  "target_total_minutes": 210,
+  "focus_subjects": [
+    "企業経営理論",
+    "運営管理"
+  ],
+  "materials": [
+    "企業経営理論 スピードテキスト",
+    "運営管理 論点整理ノート"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260924_001",
+      "title": "運営管理：IE 答案骨子作成",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260924_001",
+        "session_20260924_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "unit_demo_operations_ie"
+    },
+    {
+      "task_id": "task_20260924_002",
+      "title": "企業経営理論：経営戦略 一問一答",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 60,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_strategy"
+    },
+    {
+      "task_id": "task_20260924_003",
+      "title": "運営管理：品質管理 答案骨子作成",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 30,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "unit_demo_operations_quality"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-09-24 07:30:00",
+  "updated_at": "2026-09-24 07:30:00"
+}

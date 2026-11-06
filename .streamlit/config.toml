@@ -18,13 +18,11 @@ borderColor = "#D0D7E2"
 showWidgetBorder = true
 
 [client]
-showSidebarNavigation = false
+showSidebarNavigation = true
 showErrorDetails = "none"
 toolbarMode = "viewer"
 
 [server]
-address = "localhost"
-port = 8502
 headless = true
 enableCORS = true
 enableXsrfProtection = true

@@ -1,0 +1,38 @@
+[
+  {
+    "session_id": "session_20260912_001",
+    "start_at": "2026-09-12T10:00:00",
+    "end_at": "2026-09-12T10:40:00",
+    "duration_sec": 2400,
+    "money": 1467,
+    "normal_money": 1467,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "二次試験 事例II：地域連携の論点整理",
+    "category": "資格",
+    "environment": "自宅",
+    "effort": 5,
+    "sleep_hours": 8.1,
+    "alcohol_yesterday": "なし",
+    "mood": "4",
+    "study_category": "資格",
+    "input_output": "両方",
+    "linked_note_ids": [],
+    "linked_task_id": "task_20260912_001",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case2",
+    "material_id": "material_demo_case2_answers",
+    "unit_id": "unit_demo_case2_local_collab",
+    "io_type": "両方",
+    "condition": {
+      "effort": 5,
+      "environment": "自宅",
+      "sleep_hours": 8.1,
+      "mood": "4",
+      "category": "資格",
+      "input_output": "両方",
+      "io_type": "両方",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

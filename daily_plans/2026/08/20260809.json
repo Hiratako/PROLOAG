@@ -1,0 +1,91 @@
+{
+  "plan_id": "plan_20260809",
+  "date": "2026-08-09",
+  "target_total_minutes": 150,
+  "focus_subjects": [
+    "二次試験 事例I",
+    "二次試験 事例II",
+    "企業経営理論",
+    "運営管理"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例I",
+    "ふぞろいな合格答案 事例II",
+    "企業経営理論 スピードテキスト",
+    "運営管理 論点整理ノート"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260809_001",
+      "title": "企業経営理論：人的資源管理 復習",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260809_003",
+        "session_20260809_004"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_hrm"
+    },
+    {
+      "task_id": "task_20260809_002",
+      "title": "運営管理：品質管理 論点整理",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "unit_demo_operations_quality"
+    },
+    {
+      "task_id": "task_20260809_003",
+      "title": "二次試験 事例I：後継者育成 復習",
+      "subject": "二次試験 事例I",
+      "material": "ふぞろいな合格答案 事例I",
+      "planned_minutes": 75,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260809_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case1",
+      "material_id": "material_demo_case1_answers",
+      "unit_id": "unit_demo_case1_successor"
+    },
+    {
+      "task_id": "task_20260809_004",
+      "title": "二次試験 事例II：ブランド設計 復習",
+      "subject": "二次試験 事例II",
+      "material": "ふぞろいな合格答案 事例II",
+      "planned_minutes": 75,
+      "status": "in_progress",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260809_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case2",
+      "material_id": "material_demo_case2_answers",
+      "unit_id": "unit_demo_case2_brand"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260806_042"
+  ],
+  "review_card_ids": [
+    "card_20260806_126",
+    "card_20260806_127"
+  ],
+  "created_at": "2026-08-09 07:30:00",
+  "updated_at": "2026-08-09 07:30:00"
+}

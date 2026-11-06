@@ -1,0 +1,65 @@
+{
+  "plan_id": "plan_20260619",
+  "date": "2026-06-19",
+  "target_total_minutes": 180,
+  "focus_subjects": [
+    "二次試験 事例IV",
+    "企業経営理論"
+  ],
+  "materials": [
+    "事例IV 計算問題集",
+    "企業経営理論 スピードテキスト"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260619_001",
+      "title": "企業経営理論：人的資源管理 答案骨子作成",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 45,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260619_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_hrm"
+    },
+    {
+      "task_id": "task_20260619_002",
+      "title": "企業経営理論：組織論 一問一答",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 30,
+      "status": "pending",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_organization"
+    },
+    {
+      "task_id": "task_20260619_003",
+      "title": "二次試験 事例IV：意思決定会計 復習",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260619_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_decision_accounting"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-06-19 07:30:00",
+  "updated_at": "2026-06-19 07:30:00"
+}

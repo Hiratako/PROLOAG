@@ -1,0 +1,66 @@
+{
+  "plan_id": "plan_20260529",
+  "date": "2026-05-29",
+  "target_total_minutes": 150,
+  "focus_subjects": [
+    "二次試験 事例II",
+    "二次試験 事例IV",
+    "企業経営理論"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例II",
+    "事例IV 計算問題集",
+    "企業経営理論 スピードテキスト"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260529_001",
+      "title": "企業経営理論：組織論 過去問演習",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 60,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260529_001",
+        "session_20260529_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_organization"
+    },
+    {
+      "task_id": "task_20260529_002",
+      "title": "二次試験 事例II：顧客分析 一問一答",
+      "subject": "二次試験 事例II",
+      "material": "ふぞろいな合格答案 事例II",
+      "planned_minutes": 30,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case2",
+      "material_id": "material_demo_case2_answers",
+      "unit_id": "unit_demo_case2_customer"
+    },
+    {
+      "task_id": "task_20260529_003",
+      "title": "二次試験 事例IV：経営分析 一問一答",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 30,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_financial_analysis"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-05-29 07:30:00",
+  "updated_at": "2026-05-29 07:30:00"
+}

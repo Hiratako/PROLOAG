@@ -1,0 +1,72 @@
+{
+  "plan_id": "plan_20260702",
+  "date": "2026-07-02",
+  "target_total_minutes": 150,
+  "focus_subjects": [
+    "二次試験 事例III",
+    "財務・会計",
+    "運営管理"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例III",
+    "財務・会計 過去問完全マスター",
+    "運営管理 論点整理ノート"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260702_001",
+      "title": "二次試験 事例III：外注管理 復習",
+      "subject": "二次試験 事例III",
+      "material": "ふぞろいな合格答案 事例III",
+      "planned_minutes": 90,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260702_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case3",
+      "material_id": "material_demo_case3_answers",
+      "unit_id": "unit_demo_case3_outsourcing"
+    },
+    {
+      "task_id": "task_20260702_002",
+      "title": "運営管理：物流管理 一問一答",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "unit_demo_operations_logistics"
+    },
+    {
+      "task_id": "task_20260702_003",
+      "title": "財務・会計：投資評価 論点整理",
+      "subject": "財務・会計",
+      "material": "財務・会計 過去問完全マスター",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260702_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_finance",
+      "material_id": "material_demo_finance_workbook",
+      "unit_id": "unit_demo_finance_investment"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260602_011"
+  ],
+  "review_card_ids": [
+    "card_20260602_028",
+    "card_20260602_029"
+  ],
+  "created_at": "2026-07-02 07:30:00",
+  "updated_at": "2026-07-02 07:30:00"
+}

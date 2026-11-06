@@ -1,0 +1,77 @@
+{
+  "plan_id": "plan_20260810",
+  "date": "2026-08-10",
+  "target_total_minutes": 180,
+  "focus_subjects": [
+    "企業経営理論",
+    "経営情報システム",
+    "経済学・経済政策"
+  ],
+  "materials": [
+    "企業経営理論 スピードテキスト",
+    "情報システム 頻出論点集",
+    "経済学 計算問題トレーニング"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260810_001",
+      "title": "経済学・経済政策：ゲーム理論 答案骨子作成",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_game_theory"
+    },
+    {
+      "task_id": "task_20260810_002",
+      "title": "経営情報システム：セキュリティ 答案骨子作成",
+      "subject": "経営情報システム",
+      "material": "情報システム 頻出論点集",
+      "planned_minutes": 60,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_information",
+      "material_id": "material_demo_information_text",
+      "unit_id": "unit_demo_information_security"
+    },
+    {
+      "task_id": "task_20260810_003",
+      "title": "企業経営理論：競争戦略 一問一答",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 60,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_competition"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260711_027",
+    "note_20260803_040",
+    "note_20260807_043",
+    "note_20260809_045"
+  ],
+  "review_card_ids": [
+    "card_20260711_084",
+    "card_20260711_085",
+    "card_20260803_120",
+    "card_20260803_121",
+    "card_20260807_128",
+    "card_20260807_129",
+    "card_20260809_133",
+    "card_20260809_134"
+  ],
+  "created_at": "2026-08-10 07:30:00",
+  "updated_at": "2026-08-10 07:30:00"
+}

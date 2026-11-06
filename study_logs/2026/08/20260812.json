@@ -1,0 +1,38 @@
+[
+  {
+    "session_id": "session_20260812_001",
+    "start_at": "2026-08-12T06:30:00",
+    "end_at": "2026-08-12T07:00:00",
+    "duration_sec": 1800,
+    "money": 1100,
+    "normal_money": 1100,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "二次試験 事例IV：意思決定会計の弱点補強",
+    "category": "資格",
+    "environment": "図書館",
+    "effort": 8,
+    "sleep_hours": 6.8,
+    "alcohol_yesterday": "なし",
+    "mood": "4",
+    "study_category": "資格",
+    "input_output": "インプット",
+    "linked_note_ids": [],
+    "linked_task_id": "task_20260812_002",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_decision_accounting",
+    "io_type": "インプット",
+    "condition": {
+      "effort": 8,
+      "environment": "図書館",
+      "sleep_hours": 6.8,
+      "mood": "4",
+      "category": "資格",
+      "input_output": "インプット",
+      "io_type": "インプット",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

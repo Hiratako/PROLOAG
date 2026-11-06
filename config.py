@@ -5,6 +5,10 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 
+# This separate distribution is an exhibition, never a personal data store.
+# No environment variable, query parameter or session option disables this.
+WEB_DEMO_READ_ONLY = True
+
 # Reserved for a future migration. Existing data remains in the current
 # top-level folders for now to avoid moving or breaking local records.
 DATA_DIR = PROJECT_ROOT / "data"

@@ -1,0 +1,70 @@
+{
+  "plan_id": "plan_20260523",
+  "date": "2026-05-23",
+  "target_total_minutes": 180,
+  "focus_subjects": [
+    "中小企業経営・政策",
+    "二次試験 事例III",
+    "経済学・経済政策"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例III",
+    "中小企業白書・施策整理",
+    "経済学 計算問題トレーニング"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260523_001",
+      "title": "経済学・経済政策：AD-AS分析 過去問演習",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 45,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_adas"
+    },
+    {
+      "task_id": "task_20260523_002",
+      "title": "中小企業経営・政策：白書統計 復習",
+      "subject": "中小企業経営・政策",
+      "material": "中小企業白書・施策整理",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_policy",
+      "material_id": "material_demo_policy_whitepaper",
+      "unit_id": "unit_demo_policy_whitepaper_stats"
+    },
+    {
+      "task_id": "task_20260523_003",
+      "title": "二次試験 事例III：ボトルネック 一問一答",
+      "subject": "二次試験 事例III",
+      "material": "ふぞろいな合格答案 事例III",
+      "planned_minutes": 60,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260523_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case3",
+      "material_id": "material_demo_case3_answers",
+      "unit_id": "unit_demo_case3_bottleneck"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260516_003"
+  ],
+  "review_card_ids": [
+    "card_20260516_005",
+    "card_20260516_006"
+  ],
+  "created_at": "2026-05-23 07:30:00",
+  "updated_at": "2026-05-23 07:30:00"
+}

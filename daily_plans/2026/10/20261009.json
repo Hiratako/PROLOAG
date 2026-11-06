@@ -1,0 +1,70 @@
+{
+  "plan_id": "plan_20261009",
+  "date": "2026-10-09",
+  "target_total_minutes": 210,
+  "focus_subjects": [
+    "企業経営理論",
+    "経済学・経済政策"
+  ],
+  "materials": [
+    "企業経営理論 スピードテキスト",
+    "経済学 計算問題トレーニング"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20261009_001",
+      "title": "企業経営理論：人的資源管理 一問一答",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 45,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_hrm"
+    },
+    {
+      "task_id": "task_20261009_002",
+      "title": "企業経営理論：組織論 論点整理",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 45,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261009_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_organization"
+    },
+    {
+      "task_id": "task_20261009_003",
+      "title": "経済学・経済政策：外部性 復習",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 45,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261009_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_externality"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260909_056"
+  ],
+  "review_card_ids": [
+    "card_20260909_169",
+    "card_20260909_170"
+  ],
+  "created_at": "2026-10-09 07:30:00",
+  "updated_at": "2026-10-09 07:30:00"
+}

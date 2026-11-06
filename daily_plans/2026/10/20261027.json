@@ -1,0 +1,99 @@
+{
+  "plan_id": "plan_20261027",
+  "date": "2026-10-27",
+  "target_total_minutes": 240,
+  "focus_subjects": [
+    "ビジネス英語",
+    "二次試験 事例I",
+    "二次試験 事例IV",
+    "経営情報システム"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例I",
+    "事例IV 計算問題集",
+    "情報システム 頻出論点集",
+    "海外ビジネス記事読解"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20261027_001",
+      "title": "二次試験 事例IV：キャッシュフロー 一問一答",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 30,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_cashflow"
+    },
+    {
+      "task_id": "task_20261027_002",
+      "title": "経済学・経済政策：AD-AS分析 一問一答",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 45,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261027_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_adas"
+    },
+    {
+      "task_id": "task_20261027_003",
+      "title": "二次試験 事例I：権限委譲 一問一答",
+      "subject": "二次試験 事例I",
+      "material": "ふぞろいな合格答案 事例I",
+      "planned_minutes": 60,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261027_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case1",
+      "material_id": "material_demo_case1_answers",
+      "unit_id": "unit_demo_case1_delegation"
+    },
+    {
+      "task_id": "task_20261027_004",
+      "title": "経営情報システム：セキュリティ 一問一答",
+      "subject": "経営情報システム",
+      "material": "情報システム 頻出論点集",
+      "planned_minutes": 90,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261027_003"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_information",
+      "material_id": "material_demo_information_text",
+      "unit_id": "unit_demo_information_security"
+    },
+    {
+      "task_id": "task_20261027_005",
+      "title": "ビジネス英語：財務表現 一問一答",
+      "subject": "ビジネス英語",
+      "material": "海外ビジネス記事読解",
+      "planned_minutes": 90,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_business_english",
+      "subject_id": "subject_demo_business_english",
+      "material_id": "material_demo_business_article",
+      "unit_id": "unit_demo_business_english_finance_terms"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-10-27 07:30:00",
+  "updated_at": "2026-10-27 07:30:00"
+}

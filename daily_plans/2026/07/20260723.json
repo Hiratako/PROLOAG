@@ -1,0 +1,92 @@
+{
+  "plan_id": "plan_20260723",
+  "date": "2026-07-23",
+  "target_total_minutes": 150,
+  "focus_subjects": [
+    "中小企業経営・政策",
+    "二次試験 事例III",
+    "経済学・経済政策"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例III",
+    "中小企業白書・施策整理",
+    "経済学 計算問題トレーニング"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260723_001",
+      "title": "経済学・経済政策：IS-LM分析 答案骨子作成",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 60,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_islm"
+    },
+    {
+      "task_id": "task_20260723_002",
+      "title": "中小企業経営・政策：創業支援 一問一答",
+      "subject": "中小企業経営・政策",
+      "material": "中小企業白書・施策整理",
+      "planned_minutes": 90,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_policy",
+      "material_id": "material_demo_policy_whitepaper",
+      "unit_id": "unit_demo_policy_startup_support"
+    },
+    {
+      "task_id": "task_20260723_003",
+      "title": "二次試験 事例III：ボトルネック 論点整理",
+      "subject": "二次試験 事例III",
+      "material": "ふぞろいな合格答案 事例III",
+      "planned_minutes": 90,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260723_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case3",
+      "material_id": "material_demo_case3_answers",
+      "unit_id": "unit_demo_case3_bottleneck"
+    },
+    {
+      "task_id": "task_20260723_004",
+      "title": "中小企業経営・政策：補助金制度 答案骨子作成",
+      "subject": "中小企業経営・政策",
+      "material": "中小企業白書・施策整理",
+      "planned_minutes": 60,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260723_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_policy",
+      "material_id": "material_demo_policy_whitepaper",
+      "unit_id": "unit_demo_policy_subsidy"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260623_019",
+    "note_20260716_030",
+    "note_20260722_035"
+  ],
+  "review_card_ids": [
+    "card_20260623_056",
+    "card_20260623_057",
+    "card_20260716_092",
+    "card_20260716_093",
+    "card_20260722_107",
+    "card_20260722_108"
+  ],
+  "created_at": "2026-07-23 07:30:00",
+  "updated_at": "2026-07-23 07:30:00"
+}

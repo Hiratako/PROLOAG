@@ -1,0 +1,40 @@
+[
+  {
+    "session_id": "session_20260523_001",
+    "start_at": "2026-05-23T08:30:00",
+    "end_at": "2026-05-23T10:15:00",
+    "duration_sec": 6300,
+    "money": 3850,
+    "normal_money": 3850,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "二次試験 事例III：ボトルネックの論点整理",
+    "category": "資格",
+    "environment": "通勤中",
+    "effort": 6,
+    "sleep_hours": 6.8,
+    "alcohol_yesterday": "なし",
+    "mood": "4",
+    "study_category": "資格",
+    "input_output": "アウトプット",
+    "linked_note_ids": [
+      "note_20260523_006"
+    ],
+    "linked_task_id": "task_20260523_003",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_bottleneck",
+    "io_type": "アウトプット",
+    "condition": {
+      "effort": 6,
+      "environment": "通勤中",
+      "sleep_hours": 6.8,
+      "mood": "4",
+      "category": "資格",
+      "input_output": "アウトプット",
+      "io_type": "アウトプット",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

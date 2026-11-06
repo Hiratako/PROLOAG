@@ -1,0 +1,38 @@
+[
+  {
+    "session_id": "session_20261010_001",
+    "start_at": "2026-10-10T10:30:00",
+    "end_at": "2026-10-10T12:00:00",
+    "duration_sec": 5400,
+    "money": 3300,
+    "normal_money": 3300,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "二次試験 事例I：組織構造の答案構成練習",
+    "category": "資格",
+    "environment": "カフェ",
+    "effort": 10,
+    "sleep_hours": 6.8,
+    "alcohol_yesterday": "なし",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "両方",
+    "linked_note_ids": [],
+    "linked_task_id": "task_20261010_002",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_org_structure",
+    "io_type": "両方",
+    "condition": {
+      "effort": 10,
+      "environment": "カフェ",
+      "sleep_hours": 6.8,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "両方",
+      "io_type": "両方",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

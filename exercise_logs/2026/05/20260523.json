@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-23",
+  "records": [
+    {
+      "exercise_id": "exercise_20260523_001",
+      "type": "walking",
+      "title": "ウォーキング 記録",
+      "start_time": "07:00",
+      "duration_min": 59,
+      "distance_km": 5.55,
+      "pace_min_per_km": 10.63,
+      "intensity": 6,
+      "fatigue_after": 3,
+      "memo": "デモデータ: 生活リズム確認用の運動記録です。",
+      "created_at": "2026-05-23 21:30:00",
+      "updated_at": "2026-05-23 21:30:00"
+    }
+  ],
+  "created_at": "2026-05-23 21:30:00",
+  "updated_at": "2026-05-23 21:30:00"
+}

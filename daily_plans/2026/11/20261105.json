@@ -1,0 +1,81 @@
+{
+  "plan_id": "plan_20261105",
+  "date": "2026-11-05",
+  "target_total_minutes": 195,
+  "focus_subjects": [
+    "二次試験 事例IV",
+    "企業経営理論",
+    "財務・会計"
+  ],
+  "materials": [
+    "事例IV 計算問題集",
+    "企業経営理論 スピードテキスト",
+    "財務・会計 過去問完全マスター"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20261105_001",
+      "title": "二次試験 事例IV：意思決定会計 復習",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 30,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_decision_accounting"
+    },
+    {
+      "task_id": "task_20261105_002",
+      "title": "二次試験 事例IV：NPV 一問一答",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 90,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_npv"
+    },
+    {
+      "task_id": "task_demo_roadmap_20261105_finance",
+      "title": "財務会計：過去問を5問解く（デモ工程）",
+      "subject": "財務・会計",
+      "material": "財務・会計 過去問完全マスター",
+      "planned_minutes": 45,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_finance",
+      "material_id": "material_demo_finance_workbook",
+      "unit_id": "",
+      "roadmap_item_id": "rm_31ccb75c21005a05bbe7842dcc413b8c",
+      "roadmap_allocation_id": "ra_db4ca05b0357586cb0f142beb042151a"
+    },
+    {
+      "task_id": "task_demo_roadmap_20261105_strategy",
+      "title": "企業経営理論：間違えた論点を復習（デモ工程）",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 30,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "",
+      "roadmap_item_id": "rm_13cb73ed8df358b986f46d2d3b277ec1",
+      "roadmap_allocation_id": "ra_7fe77cb26fee5005bd3db0e31ab40133"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-11-05 07:30:00",
+  "updated_at": "2026-11-05 07:30:00"
+}

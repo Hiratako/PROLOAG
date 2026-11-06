@@ -1,0 +1,38 @@
+[
+  {
+    "session_id": "session_20260926_001",
+    "start_at": "2026-09-26T08:10:00",
+    "end_at": "2026-09-26T10:05:00",
+    "duration_sec": 6900,
+    "money": 4217,
+    "normal_money": 4217,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "企業経営理論：競争戦略の答案構成練習",
+    "category": "資格",
+    "environment": "図書館",
+    "effort": 7,
+    "sleep_hours": 7.5,
+    "alcohol_yesterday": "なし",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "インプット",
+    "linked_note_ids": [],
+    "linked_task_id": "task_20260926_003",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_competition",
+    "io_type": "インプット",
+    "condition": {
+      "effort": 7,
+      "environment": "図書館",
+      "sleep_hours": 7.5,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "インプット",
+      "io_type": "インプット",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

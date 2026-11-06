@@ -1,0 +1,65 @@
+{
+  "plan_id": "plan_20261022",
+  "date": "2026-10-22",
+  "target_total_minutes": 210,
+  "focus_subjects": [
+    "二次試験 事例IV",
+    "経営情報システム",
+    "運営管理"
+  ],
+  "materials": [
+    "事例IV 計算問題集",
+    "情報システム 頻出論点集",
+    "運営管理 論点整理ノート"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20261022_001",
+      "title": "運営管理：店舗管理 過去問演習",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 45,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "unit_demo_operations_store"
+    },
+    {
+      "task_id": "task_20261022_002",
+      "title": "経営情報システム：ネットワーク 復習",
+      "subject": "経営情報システム",
+      "material": "情報システム 頻出論点集",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261022_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_information",
+      "material_id": "material_demo_information_text",
+      "unit_id": "unit_demo_information_network"
+    },
+    {
+      "task_id": "task_20261022_003",
+      "title": "二次試験 事例IV：CVP分析 復習",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_cvp"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-10-22 07:30:00",
+  "updated_at": "2026-10-22 07:30:00"
+}

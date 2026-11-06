@@ -1,0 +1,38 @@
+[
+  {
+    "session_id": "session_20260730_001",
+    "start_at": "2026-07-30T06:20:00",
+    "end_at": "2026-07-30T07:35:00",
+    "duration_sec": 4500,
+    "money": 2750,
+    "normal_money": 2750,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "財務・会計：CVP分析の答案構成練習",
+    "category": "資格",
+    "environment": "自宅",
+    "effort": 9,
+    "sleep_hours": 7.2,
+    "alcohol_yesterday": "なし",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "両方",
+    "linked_note_ids": [],
+    "linked_task_id": "task_20260730_001",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_cvp",
+    "io_type": "両方",
+    "condition": {
+      "effort": 9,
+      "environment": "自宅",
+      "sleep_hours": 7.2,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "両方",
+      "io_type": "両方",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

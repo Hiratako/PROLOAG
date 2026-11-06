@@ -1,0 +1,38 @@
+[
+  {
+    "session_id": "session_20260628_001",
+    "start_at": "2026-06-28T14:20:00",
+    "end_at": "2026-06-28T15:05:00",
+    "duration_sec": 2700,
+    "money": 1650,
+    "normal_money": 1650,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "財務・会計：財務諸表の過去問演習",
+    "category": "資格",
+    "environment": "カフェ",
+    "effort": 8,
+    "sleep_hours": 6.7,
+    "alcohol_yesterday": "なし",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "両方",
+    "linked_note_ids": [],
+    "linked_task_id": "task_20260628_002",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_statements",
+    "io_type": "両方",
+    "condition": {
+      "effort": 8,
+      "environment": "カフェ",
+      "sleep_hours": 6.7,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "両方",
+      "io_type": "両方",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "session_id": "session_20260704_001",
+    "start_at": "2026-07-04T10:30:00",
+    "end_at": "2026-07-04T11:00:00",
+    "duration_sec": 1800,
+    "money": 1100,
+    "normal_money": 1100,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "経営情報システム：システム開発の答案構成練習",
+    "category": "資格",
+    "environment": "図書館",
+    "effort": 5,
+    "sleep_hours": 6.8,
+    "alcohol_yesterday": "あり",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "アウトプット",
+    "linked_note_ids": [],
+    "linked_task_id": "task_20260704_003",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_development",
+    "io_type": "アウトプット",
+    "condition": {
+      "effort": 5,
+      "environment": "図書館",
+      "sleep_hours": 6.8,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "アウトプット",
+      "io_type": "アウトプット",
+      "alcohol_yesterday": "あり"
+    }
+  }
+]

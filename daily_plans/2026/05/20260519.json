@@ -1,0 +1,52 @@
+{
+  "plan_id": "plan_20260519",
+  "date": "2026-05-19",
+  "target_total_minutes": 210,
+  "focus_subjects": [
+    "二次試験 事例II",
+    "経営情報システム"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例II",
+    "情報システム 頻出論点集"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260519_001",
+      "title": "経営情報システム：ネットワーク 復習",
+      "subject": "経営情報システム",
+      "material": "情報システム 頻出論点集",
+      "planned_minutes": 45,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_information",
+      "material_id": "material_demo_information_text",
+      "unit_id": "unit_demo_information_network"
+    },
+    {
+      "task_id": "task_20260519_002",
+      "title": "二次試験 事例II：ブランド設計 答案骨子作成",
+      "subject": "二次試験 事例II",
+      "material": "ふぞろいな合格答案 事例II",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case2",
+      "material_id": "material_demo_case2_answers",
+      "unit_id": "unit_demo_case2_brand"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260512_002"
+  ],
+  "review_card_ids": [
+    "card_20260512_003",
+    "card_20260512_004"
+  ],
+  "created_at": "2026-05-19 07:30:00",
+  "updated_at": "2026-05-19 07:30:00"
+}

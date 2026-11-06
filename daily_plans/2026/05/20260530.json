@@ -1,0 +1,73 @@
+{
+  "plan_id": "plan_20260530",
+  "date": "2026-05-30",
+  "target_total_minutes": 270,
+  "focus_subjects": [
+    "中小企業経営・政策",
+    "二次試験 事例I",
+    "企業経営理論"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例I",
+    "中小企業白書・施策整理",
+    "企業経営理論 スピードテキスト"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260530_001",
+      "title": "企業経営理論：マーケティング 論点整理",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 90,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_marketing"
+    },
+    {
+      "task_id": "task_20260530_002",
+      "title": "中小企業経営・政策：補助金制度 復習",
+      "subject": "中小企業経営・政策",
+      "material": "中小企業白書・施策整理",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260530_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_policy",
+      "material_id": "material_demo_policy_whitepaper",
+      "unit_id": "unit_demo_policy_subsidy"
+    },
+    {
+      "task_id": "task_20260530_003",
+      "title": "二次試験 事例I：権限委譲 復習",
+      "subject": "二次試験 事例I",
+      "material": "ふぞろいな合格答案 事例I",
+      "planned_minutes": 60,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case1",
+      "material_id": "material_demo_case1_answers",
+      "unit_id": "unit_demo_case1_delegation"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260516_003",
+    "note_20260523_006"
+  ],
+  "review_card_ids": [
+    "card_20260516_005",
+    "card_20260516_006",
+    "card_20260523_014",
+    "card_20260523_015"
+  ],
+  "created_at": "2026-05-30 07:30:00",
+  "updated_at": "2026-05-30 07:30:00"
+}

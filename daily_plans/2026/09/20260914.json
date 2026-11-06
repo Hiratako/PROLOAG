@@ -1,0 +1,81 @@
+{
+  "plan_id": "plan_20260914",
+  "date": "2026-09-14",
+  "target_total_minutes": 210,
+  "focus_subjects": [
+    "中小企業経営・政策",
+    "二次試験 事例I",
+    "企業経営理論"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例I",
+    "中小企業白書・施策整理",
+    "企業経営理論 スピードテキスト"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260914_001",
+      "title": "中小企業経営・政策：事業承継 答案骨子作成",
+      "subject": "中小企業経営・政策",
+      "material": "中小企業白書・施策整理",
+      "planned_minutes": 30,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_policy",
+      "material_id": "material_demo_policy_whitepaper",
+      "unit_id": "unit_demo_policy_succession"
+    },
+    {
+      "task_id": "task_20260914_002",
+      "title": "二次試験 事例I：後継者育成 復習",
+      "subject": "二次試験 事例I",
+      "material": "ふぞろいな合格答案 事例I",
+      "planned_minutes": 45,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260914_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case1",
+      "material_id": "material_demo_case1_answers",
+      "unit_id": "unit_demo_case1_successor"
+    },
+    {
+      "task_id": "task_20260914_003",
+      "title": "企業経営理論：組織論 一問一答",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 90,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_organization"
+    },
+    {
+      "task_id": "task_20260914_004",
+      "title": "二次試験 事例I：組織構造 論点整理",
+      "subject": "二次試験 事例I",
+      "material": "ふぞろいな合格答案 事例I",
+      "planned_minutes": 30,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260914_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case1",
+      "material_id": "material_demo_case1_answers",
+      "unit_id": "unit_demo_case1_org_structure"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-09-14 07:30:00",
+  "updated_at": "2026-09-14 07:30:00"
+}

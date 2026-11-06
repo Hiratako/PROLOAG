@@ -1,0 +1,72 @@
+{
+  "plan_id": "plan_20261003",
+  "date": "2026-10-03",
+  "target_total_minutes": 150,
+  "focus_subjects": [
+    "二次試験 事例II",
+    "企業経営理論",
+    "経済学・経済政策"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例II",
+    "企業経営理論 スピードテキスト",
+    "経済学 計算問題トレーニング"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20261003_001",
+      "title": "経済学・経済政策：IS-LM分析 答案骨子作成",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 60,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261003_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_islm"
+    },
+    {
+      "task_id": "task_20261003_002",
+      "title": "企業経営理論：競争戦略 答案骨子作成",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 60,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261003_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_competition"
+    },
+    {
+      "task_id": "task_20261003_003",
+      "title": "二次試験 事例II：地域連携 論点整理",
+      "subject": "二次試験 事例II",
+      "material": "ふぞろいな合格答案 事例II",
+      "planned_minutes": 60,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case2",
+      "material_id": "material_demo_case2_answers",
+      "unit_id": "unit_demo_case2_local_collab"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260919_061"
+  ],
+  "review_card_ids": [
+    "card_20260919_180",
+    "card_20260919_181"
+  ],
+  "created_at": "2026-10-03 07:30:00",
+  "updated_at": "2026-10-03 07:30:00"
+}

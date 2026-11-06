@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
+import config as _app_config
 from config import PROJECT_ROOT
 
 
@@ -44,6 +45,20 @@ class JsonConflictError(JsonStoreError):
 
 class JsonLockTimeoutError(JsonStoreError):
     pass
+
+
+class JsonReadOnlyError(JsonStoreError):
+    """The Web exhibition accepts view changes, never record mutations."""
+
+
+def require_writable() -> None:
+    """Fail closed; the exhibition flag cannot be changed by a visitor.
+
+    This is a source-code policy, not a query parameter, widget or environment
+    switch. A missing flag also rejects writes.
+    """
+    if getattr(_app_config, "WEB_DEMO_READ_ONLY", True) is not False:
+        raise JsonReadOnlyError("Web展示版では記録の保存・削除・復旧は行えません。")
 
 
 _UNSET = object()
@@ -145,6 +160,7 @@ def json_transaction(path: Path, timeout: float = 10.0):
     its final reference check and commit. This does not automatically authorize
     stale form data or perform recovery.
     """
+    require_writable()
     path = resolved_json_path(path)
     root = record_project_root(path)
     if root is None:
@@ -163,6 +179,7 @@ def json_transaction(path: Path, timeout: float = 10.0):
 @contextmanager
 def _file_transaction(path: Path, timeout: float = 10.0):
     """Serialize a complete read/modify/write operation; reentrant per thread."""
+    require_writable()
     path = resolved_json_path(path)
     key = _key(path)
     if timeout < 0:
@@ -235,6 +252,10 @@ def json_transaction_for(path_getter, *, timeout: float = 10.0):
 
 
 def ensure_dir(path: Path) -> Path:
+    path = Path(path)
+    if path.is_dir():
+        return path
+    require_writable()
     path.mkdir(parents=True, exist_ok=True)
     return path
 
@@ -250,6 +271,7 @@ def load_json_safe(path: Path, default: Any) -> Any:
 
 
 def save_json_safe(path: Path, data: Any, *, expected_revision: Any = _UNSET) -> None:
+    require_writable()
     # Serialize before touching any file, including lock and backup files.
     encoded = json.dumps(data, ensure_ascii=False, indent=2, allow_nan=False).encode("utf-8")
     canonical = json.dumps(json.loads(encoded, object_pairs_hook=_unique_pairs),
@@ -296,6 +318,7 @@ def save_json_safe(path: Path, data: Any, *, expected_revision: Any = _UNSET) ->
 
 
 def _save_generation(path: Path, raw: bytes) -> None:
+    require_writable()
     try:
         relative = Path(_key(path)).relative_to(Path(_key(PROJECT_ROOT)))
     except ValueError:
@@ -320,6 +343,7 @@ def _save_generation(path: Path, raw: bytes) -> None:
 
 
 def backup_json(path: Path, backup_root: Path | None = None, relative_to: Path | None = None) -> Path | None:
+    require_writable()
     if not path.exists():
         return None
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")

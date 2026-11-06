@@ -1,4 +1,4 @@
-param([ValidateRange(1,65535)][int]$Port=8502)
+﻿param([ValidateRange(1,65535)][int]$Port=61970)
 $ErrorActionPreference='Stop'
 $ProjectDir=Split-Path -Parent $MyInvocation.MyCommand.Path
 $PythonExe=Join-Path $ProjectDir '.venv\Scripts\python.exe'
@@ -27,9 +27,9 @@ try {
     }
     Set-Location -LiteralPath $ProjectDir
     & $PythonExe -c 'import streamlit,pandas,matplotlib,scipy,plotly; print("Dependencies ready")'
-    if ($LASTEXITCODE -ne 0) { throw 'Install requirements-release.lock.txt into .venv as described in README.md.' }
-    & $PythonExe (Join-Path $ProjectDir 'scripts\init_local_data.py')
-    if ($LASTEXITCODE -ne 0) { throw 'Local scaffold preparation failed; existing records were not overwritten.' }
+    if ($LASTEXITCODE -ne 0) { throw 'Install requirements.txt into .venv as described in README.md.' }
+    & $PythonExe -c 'from web_demo.data import verify_demo_dataset; print(verify_demo_dataset())'
+    if ($LASTEXITCODE -ne 0) { throw 'Fixed exhibition data verification failed.' }
     & $PythonExe (Join-Path $ProjectDir 'app_core\startup_launcher.py') --app (Join-Path $ProjectDir 'main.py') --url "http://localhost:$Port/" --timeout 90
     $resultCode=$LASTEXITCODE
 } catch {

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-11-06T08:20:25+00:00",
+  "scope": {
+    "kind": "local_web_demo_verification",
+    "platform": "Windows",
+    "python": "3.11.4",
+    "linux_runtime": false,
+    "community_cloud_deployed": false,
+    "browser_navigation": "not included in this command",
+    "test_pattern": "test_web_demo_*.py"
+  },
+  "status": "passed",
+  "data_unchanged": true,
+  "dataset": {
+    "records": 715,
+    "days": 180,
+    "synthetic": true,
+    "reference_date": "2026-11-05"
+  },
+  "streamlit": "1.57.0",
+  "record_hash_before": "ee55dc85e14324470a2eba05fc518a425d01fcbfb7517cdd20d19f1805e36bcf",
+  "record_hash_after": "ee55dc85e14324470a2eba05fc518a425d01fcbfb7517cdd20d19f1805e36bcf",
+  "tests": {
+    "run": 37,
+    "failures": [],
+    "errors": [],
+    "skipped": []
+  },
+  "elapsed_seconds": 78.032
+}

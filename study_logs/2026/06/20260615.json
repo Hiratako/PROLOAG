@@ -1,0 +1,78 @@
+[
+  {
+    "session_id": "session_20260615_001",
+    "start_at": "2026-06-15T06:00:00",
+    "end_at": "2026-06-15T06:55:00",
+    "duration_sec": 3300,
+    "money": 2017,
+    "normal_money": 2017,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "経営情報システム：ネットワークの論点整理",
+    "category": "資格",
+    "environment": "カフェ",
+    "effort": 9,
+    "sleep_hours": 7.4,
+    "alcohol_yesterday": "なし",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "アウトプット",
+    "linked_note_ids": [
+      "note_20260615_016"
+    ],
+    "linked_task_id": "task_20260615_003",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_network",
+    "io_type": "アウトプット",
+    "condition": {
+      "effort": 9,
+      "environment": "カフェ",
+      "sleep_hours": 7.4,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "アウトプット",
+      "io_type": "アウトプット",
+      "alcohol_yesterday": "なし"
+    }
+  },
+  {
+    "session_id": "session_20260615_002",
+    "start_at": "2026-06-15T07:15:00",
+    "end_at": "2026-06-15T08:30:00",
+    "duration_sec": 4500,
+    "money": 2750,
+    "normal_money": 2750,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "経営情報システム：ネットワークの答案構成練習",
+    "category": "資格",
+    "environment": "カフェ",
+    "effort": 10,
+    "sleep_hours": 7.4,
+    "alcohol_yesterday": "なし",
+    "mood": "3",
+    "study_category": "資格",
+    "input_output": "両方",
+    "linked_note_ids": [
+      "note_20260615_016"
+    ],
+    "linked_task_id": "task_20260615_003",
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_network",
+    "io_type": "両方",
+    "condition": {
+      "effort": 10,
+      "environment": "カフェ",
+      "sleep_hours": 7.4,
+      "mood": "3",
+      "category": "資格",
+      "input_output": "両方",
+      "io_type": "両方",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

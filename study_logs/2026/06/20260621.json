@@ -1,0 +1,40 @@
+[
+  {
+    "session_id": "session_20260621_001",
+    "start_at": "2026-06-21T08:00:00",
+    "end_at": "2026-06-21T09:55:00",
+    "duration_sec": 6900,
+    "money": 4217,
+    "normal_money": 4217,
+    "overtime_money": 0,
+    "hourly_rate": 2200,
+    "memo": "ビジネス英語：要約練習の弱点補強",
+    "category": "英語",
+    "environment": "自宅",
+    "effort": 5,
+    "sleep_hours": 8.0,
+    "alcohol_yesterday": "なし",
+    "mood": "3",
+    "study_category": "英語",
+    "input_output": "インプット",
+    "linked_note_ids": [
+      "note_20260621_018"
+    ],
+    "linked_task_id": "task_20260621_002",
+    "project_id": "project_demo_business_english",
+    "subject_id": "subject_demo_business_english",
+    "material_id": "material_demo_business_article",
+    "unit_id": "unit_demo_business_english_summary",
+    "io_type": "インプット",
+    "condition": {
+      "effort": 5,
+      "environment": "自宅",
+      "sleep_hours": 8.0,
+      "mood": "3",
+      "category": "英語",
+      "input_output": "インプット",
+      "io_type": "インプット",
+      "alcohol_yesterday": "なし"
+    }
+  }
+]

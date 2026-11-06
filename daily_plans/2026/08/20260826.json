@@ -1,0 +1,68 @@
+{
+  "plan_id": "plan_20260826",
+  "date": "2026-08-26",
+  "target_total_minutes": 210,
+  "focus_subjects": [
+    "企業経営理論",
+    "経済学・経済政策",
+    "運営管理"
+  ],
+  "materials": [
+    "企業経営理論 スピードテキスト",
+    "経済学 計算問題トレーニング",
+    "運営管理 論点整理ノート"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260826_001",
+      "title": "企業経営理論：競争戦略 過去問演習",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_competition"
+    },
+    {
+      "task_id": "task_20260826_002",
+      "title": "運営管理：生産管理 復習",
+      "subject": "運営管理",
+      "material": "運営管理 論点整理ノート",
+      "planned_minutes": 90,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_operations",
+      "material_id": "material_demo_operations_text",
+      "unit_id": "unit_demo_operations_production"
+    },
+    {
+      "task_id": "task_20260826_003",
+      "title": "経済学・経済政策：AD-AS分析 答案骨子作成",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 75,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_adas"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260727_037"
+  ],
+  "review_card_ids": [
+    "card_20260727_111",
+    "card_20260727_112"
+  ],
+  "created_at": "2026-08-26 07:30:00",
+  "updated_at": "2026-08-26 07:30:00"
+}

@@ -1,0 +1,5168 @@
+[
+  {
+    "card_id": "card_20260510_001",
+    "flashcard_id": "card_20260510_001",
+    "question": "NPVで押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、NPVは設問要求と制約条件を結びつけて整理する。",
+    "front": "NPVで押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、NPVは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "白書確認",
+      "ケース演習",
+      "要復習",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260510_001",
+    "linked_note_ids": [
+      "note_20260510_001"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_npv",
+    "created_at": "2026-05-10 22:00:00",
+    "updated_at": "2026-05-10 23:40:00"
+  },
+  {
+    "card_id": "card_20260510_002",
+    "flashcard_id": "card_20260510_002",
+    "question": "NPVで押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、NPVは設問要求と制約条件を結びつけて整理する。",
+    "front": "NPVで押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、NPVは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "白書確認",
+      "ケース演習",
+      "要復習",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260510_001",
+    "linked_note_ids": [
+      "note_20260510_001"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_npv",
+    "created_at": "2026-05-10 22:00:00",
+    "updated_at": "2026-05-10 23:40:00"
+  },
+  {
+    "card_id": "card_20260512_003",
+    "flashcard_id": "card_20260512_003",
+    "question": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "暗記",
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260512_002",
+    "linked_note_ids": [
+      "note_20260512_002"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_competition",
+    "created_at": "2026-05-12 21:00:00",
+    "updated_at": "2026-05-12 23:20:00"
+  },
+  {
+    "card_id": "card_20260512_004",
+    "flashcard_id": "card_20260512_004",
+    "question": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "暗記",
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260512_002",
+    "linked_note_ids": [
+      "note_20260512_002"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_competition",
+    "created_at": "2026-05-12 21:00:00",
+    "updated_at": "2026-05-12 23:20:00"
+  },
+  {
+    "card_id": "card_20260516_005",
+    "flashcard_id": "card_20260516_005",
+    "question": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "front": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "ケース演習",
+      "白書確認",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260516_003",
+    "linked_note_ids": [
+      "note_20260516_003"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_marketing",
+    "created_at": "2026-05-16 21:00:00",
+    "updated_at": "2026-05-16 23:40:00"
+  },
+  {
+    "card_id": "card_20260516_006",
+    "flashcard_id": "card_20260516_006",
+    "question": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "front": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "ケース演習",
+      "白書確認",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260516_003",
+    "linked_note_ids": [
+      "note_20260516_003"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_marketing",
+    "created_at": "2026-05-16 21:00:00",
+    "updated_at": "2026-05-16 23:40:00"
+  },
+  {
+    "card_id": "card_20260516_007",
+    "flashcard_id": "card_20260516_007",
+    "question": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "front": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "ケース演習",
+      "白書確認",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260516_003",
+    "linked_note_ids": [
+      "note_20260516_003"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_marketing",
+    "created_at": "2026-05-16 21:00:00",
+    "updated_at": "2026-05-16 23:40:00"
+  },
+  {
+    "card_id": "card_20260518_008",
+    "flashcard_id": "card_20260518_008",
+    "question": "知的財産権で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、知的財産権は設問要求と制約条件を結びつけて整理する。",
+    "front": "知的財産権で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、知的財産権は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "頻出",
+      "経営法務"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260518_004",
+    "linked_note_ids": [
+      "note_20260518_004"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_ip",
+    "created_at": "2026-05-18 21:15:00",
+    "updated_at": "2026-05-18 23:00:00"
+  },
+  {
+    "card_id": "card_20260518_009",
+    "flashcard_id": "card_20260518_009",
+    "question": "知的財産権で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、知的財産権は設問要求と制約条件を結びつけて整理する。",
+    "front": "知的財産権で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、知的財産権は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "頻出",
+      "経営法務"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260518_004",
+    "linked_note_ids": [
+      "note_20260518_004"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_ip",
+    "created_at": "2026-05-18 21:15:00",
+    "updated_at": "2026-05-18 23:00:00"
+  },
+  {
+    "card_id": "card_20260518_010",
+    "flashcard_id": "card_20260518_010",
+    "question": "知的財産権で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、知的財産権は設問要求と制約条件を結びつけて整理する。",
+    "front": "知的財産権で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、知的財産権は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "頻出",
+      "経営法務"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260518_004",
+    "linked_note_ids": [
+      "note_20260518_004"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_ip",
+    "created_at": "2026-05-18 21:15:00",
+    "updated_at": "2026-05-18 23:00:00"
+  },
+  {
+    "card_id": "card_20260518_011",
+    "flashcard_id": "card_20260518_011",
+    "question": "知的財産権で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、知的財産権は設問要求と制約条件を結びつけて整理する。",
+    "front": "知的財産権で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、知的財産権は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "頻出",
+      "経営法務"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260518_004",
+    "linked_note_ids": [
+      "note_20260518_004"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_ip",
+    "created_at": "2026-05-18 21:15:00",
+    "updated_at": "2026-05-18 23:00:00"
+  },
+  {
+    "card_id": "card_20260521_012",
+    "flashcard_id": "card_20260521_012",
+    "question": "経営分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、経営分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、経営分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "二次試験",
+      "白書確認",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260521_005",
+    "linked_note_ids": [
+      "note_20260521_005"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_financial_analysis",
+    "created_at": "2026-05-21 20:30:00",
+    "updated_at": "2026-05-21 23:00:00"
+  },
+  {
+    "card_id": "card_20260521_013",
+    "flashcard_id": "card_20260521_013",
+    "question": "経営分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、経営分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、経営分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "二次試験",
+      "白書確認",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260521_005",
+    "linked_note_ids": [
+      "note_20260521_005"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_financial_analysis",
+    "created_at": "2026-05-21 20:30:00",
+    "updated_at": "2026-05-21 23:00:00"
+  },
+  {
+    "card_id": "card_20260523_014",
+    "flashcard_id": "card_20260523_014",
+    "question": "ボトルネックで押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、ボトルネックは設問要求と制約条件を結びつけて整理する。",
+    "front": "ボトルネックで押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、ボトルネックは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "ケース演習",
+      "二次試験 事例III"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260523_006",
+    "linked_note_ids": [
+      "note_20260523_006"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_bottleneck",
+    "created_at": "2026-05-23 21:30:00",
+    "updated_at": "2026-05-23 23:40:00"
+  },
+  {
+    "card_id": "card_20260523_015",
+    "flashcard_id": "card_20260523_015",
+    "question": "ボトルネックで押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、ボトルネックは設問要求と制約条件を結びつけて整理する。",
+    "front": "ボトルネックで押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、ボトルネックは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "ケース演習",
+      "二次試験 事例III"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260523_006",
+    "linked_note_ids": [
+      "note_20260523_006"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_bottleneck",
+    "created_at": "2026-05-23 21:30:00",
+    "updated_at": "2026-05-23 23:40:00"
+  },
+  {
+    "card_id": "card_20260525_016",
+    "flashcard_id": "card_20260525_016",
+    "question": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "front": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "財務強化",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260525_007",
+    "linked_note_ids": [
+      "note_20260525_007"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_statements",
+    "created_at": "2026-05-25 20:00:00",
+    "updated_at": "2026-05-25 23:40:00"
+  },
+  {
+    "card_id": "card_20260525_017",
+    "flashcard_id": "card_20260525_017",
+    "question": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "front": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "財務強化",
+      "財務・会計"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260525_007",
+    "linked_note_ids": [
+      "note_20260525_007"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_statements",
+    "created_at": "2026-05-25 20:00:00",
+    "updated_at": "2026-05-25 23:40:00"
+  },
+  {
+    "card_id": "card_20260525_018",
+    "flashcard_id": "card_20260525_018",
+    "question": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "front": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "財務強化",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260525_007",
+    "linked_note_ids": [
+      "note_20260525_007"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_statements",
+    "created_at": "2026-05-25 20:00:00",
+    "updated_at": "2026-05-25 23:40:00"
+  },
+  {
+    "card_id": "card_20260527_019",
+    "flashcard_id": "card_20260527_019",
+    "question": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "要復習",
+      "理解不十分",
+      "二次試験 事例I"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260527_008",
+    "linked_note_ids": [
+      "note_20260527_008"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_swot",
+    "created_at": "2026-05-27 22:00:00",
+    "updated_at": "2026-05-27 23:20:00"
+  },
+  {
+    "card_id": "card_20260527_020",
+    "flashcard_id": "card_20260527_020",
+    "question": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "要復習",
+      "理解不十分",
+      "二次試験 事例I"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260527_008",
+    "linked_note_ids": [
+      "note_20260527_008"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_swot",
+    "created_at": "2026-05-27 22:00:00",
+    "updated_at": "2026-05-27 23:20:00"
+  },
+  {
+    "card_id": "card_20260527_021",
+    "flashcard_id": "card_20260527_021",
+    "question": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "要復習",
+      "理解不十分",
+      "二次試験 事例I"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260527_008",
+    "linked_note_ids": [
+      "note_20260527_008"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_swot",
+    "created_at": "2026-05-27 22:00:00",
+    "updated_at": "2026-05-27 23:20:00"
+  },
+  {
+    "card_id": "card_20260529_022",
+    "flashcard_id": "card_20260529_022",
+    "question": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260529_009",
+    "linked_note_ids": [
+      "note_20260529_009"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_organization",
+    "created_at": "2026-05-29 22:30:00",
+    "updated_at": "2026-05-29 23:40:00"
+  },
+  {
+    "card_id": "card_20260529_023",
+    "flashcard_id": "card_20260529_023",
+    "question": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260529_009",
+    "linked_note_ids": [
+      "note_20260529_009"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_organization",
+    "created_at": "2026-05-29 22:30:00",
+    "updated_at": "2026-05-29 23:40:00"
+  },
+  {
+    "card_id": "card_20260529_024",
+    "flashcard_id": "card_20260529_024",
+    "question": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260529_009",
+    "linked_note_ids": [
+      "note_20260529_009"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_organization",
+    "created_at": "2026-05-29 22:30:00",
+    "updated_at": "2026-05-29 23:40:00"
+  },
+  {
+    "card_id": "card_20260531_025",
+    "flashcard_id": "card_20260531_025",
+    "question": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "理解不十分",
+      "二次試験",
+      "二次試験 事例III"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260531_010",
+    "linked_note_ids": [
+      "note_20260531_010"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_outsourcing",
+    "created_at": "2026-05-31 22:00:00",
+    "updated_at": "2026-05-31 23:20:00"
+  },
+  {
+    "card_id": "card_20260531_026",
+    "flashcard_id": "card_20260531_026",
+    "question": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "理解不十分",
+      "二次試験",
+      "二次試験 事例III"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260531_010",
+    "linked_note_ids": [
+      "note_20260531_010"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_outsourcing",
+    "created_at": "2026-05-31 22:00:00",
+    "updated_at": "2026-05-31 23:20:00"
+  },
+  {
+    "card_id": "card_20260531_027",
+    "flashcard_id": "card_20260531_027",
+    "question": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "理解不十分",
+      "二次試験",
+      "二次試験 事例III"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260531_010",
+    "linked_note_ids": [
+      "note_20260531_010"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_outsourcing",
+    "created_at": "2026-05-31 22:00:00",
+    "updated_at": "2026-05-31 23:20:00"
+  },
+  {
+    "card_id": "card_20260602_028",
+    "flashcard_id": "card_20260602_028",
+    "question": "キャッシュフローで押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、キャッシュフローは設問要求と制約条件を結びつけて整理する。",
+    "front": "キャッシュフローで押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、キャッシュフローは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "白書確認",
+      "頻出",
+      "暗記",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260602_011",
+    "linked_note_ids": [
+      "note_20260602_011"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_cashflow",
+    "created_at": "2026-06-02 22:30:00",
+    "updated_at": "2026-06-02 23:40:00"
+  },
+  {
+    "card_id": "card_20260602_029",
+    "flashcard_id": "card_20260602_029",
+    "question": "キャッシュフローで押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、キャッシュフローは設問要求と制約条件を結びつけて整理する。",
+    "front": "キャッシュフローで押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、キャッシュフローは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "白書確認",
+      "頻出",
+      "暗記",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260602_011",
+    "linked_note_ids": [
+      "note_20260602_011"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_cashflow",
+    "created_at": "2026-06-02 22:30:00",
+    "updated_at": "2026-06-02 23:40:00"
+  },
+  {
+    "card_id": "card_20260602_030",
+    "flashcard_id": "card_20260602_030",
+    "question": "キャッシュフローで押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、キャッシュフローは設問要求と制約条件を結びつけて整理する。",
+    "front": "キャッシュフローで押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、キャッシュフローは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "白書確認",
+      "頻出",
+      "暗記",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260602_011",
+    "linked_note_ids": [
+      "note_20260602_011"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_cashflow",
+    "created_at": "2026-06-02 22:30:00",
+    "updated_at": "2026-06-02 23:40:00"
+  },
+  {
+    "card_id": "card_20260602_031",
+    "flashcard_id": "card_20260602_031",
+    "question": "キャッシュフローで押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、キャッシュフローは設問要求と制約条件を結びつけて整理する。",
+    "front": "キャッシュフローで押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、キャッシュフローは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "白書確認",
+      "頻出",
+      "暗記",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260602_011",
+    "linked_note_ids": [
+      "note_20260602_011"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_cashflow",
+    "created_at": "2026-06-02 22:30:00",
+    "updated_at": "2026-06-02 23:40:00"
+  },
+  {
+    "card_id": "card_20260604_032",
+    "flashcard_id": "card_20260604_032",
+    "question": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "頻出",
+      "理解不十分",
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "low",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260604_012",
+    "linked_note_ids": [
+      "note_20260604_012"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_organization",
+    "created_at": "2026-06-04 20:00:00",
+    "updated_at": "2026-06-04 23:40:00"
+  },
+  {
+    "card_id": "card_20260604_033",
+    "flashcard_id": "card_20260604_033",
+    "question": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "頻出",
+      "理解不十分",
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "low",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260604_012",
+    "linked_note_ids": [
+      "note_20260604_012"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_organization",
+    "created_at": "2026-06-04 20:00:00",
+    "updated_at": "2026-06-04 23:40:00"
+  },
+  {
+    "card_id": "card_20260606_034",
+    "flashcard_id": "card_20260606_034",
+    "question": "需要供給で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経済学・経済政策の論点として、需要供給は設問要求と制約条件を結びつけて整理する。",
+    "front": "需要供給で押さえるべき判断基準を1つ説明してください。",
+    "back": "経済学・経済政策の論点として、需要供給は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経済学・経済政策",
+    "tags": [
+      "頻出",
+      "経済学・経済政策"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260606_013",
+    "linked_note_ids": [
+      "note_20260606_013"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_economics",
+    "material_id": "material_demo_economics_workbook",
+    "unit_id": "unit_demo_economics_supply_demand",
+    "created_at": "2026-06-06 21:15:00",
+    "updated_at": "2026-06-06 23:00:00"
+  },
+  {
+    "card_id": "card_20260606_035",
+    "flashcard_id": "card_20260606_035",
+    "question": "需要供給で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経済学・経済政策の論点として、需要供給は設問要求と制約条件を結びつけて整理する。",
+    "front": "需要供給で押さえるべき判断基準を1つ説明してください。",
+    "back": "経済学・経済政策の論点として、需要供給は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経済学・経済政策",
+    "tags": [
+      "頻出",
+      "経済学・経済政策"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260606_013",
+    "linked_note_ids": [
+      "note_20260606_013"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_economics",
+    "material_id": "material_demo_economics_workbook",
+    "unit_id": "unit_demo_economics_supply_demand",
+    "created_at": "2026-06-06 21:15:00",
+    "updated_at": "2026-06-06 23:00:00"
+  },
+  {
+    "card_id": "card_20260606_036",
+    "flashcard_id": "card_20260606_036",
+    "question": "需要供給で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経済学・経済政策の論点として、需要供給は設問要求と制約条件を結びつけて整理する。",
+    "front": "需要供給で押さえるべき判断基準を1つ説明してください。",
+    "back": "経済学・経済政策の論点として、需要供給は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経済学・経済政策",
+    "tags": [
+      "頻出",
+      "経済学・経済政策"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260606_013",
+    "linked_note_ids": [
+      "note_20260606_013"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_economics",
+    "material_id": "material_demo_economics_workbook",
+    "unit_id": "unit_demo_economics_supply_demand",
+    "created_at": "2026-06-06 21:15:00",
+    "updated_at": "2026-06-06 23:00:00"
+  },
+  {
+    "card_id": "card_20260610_037",
+    "flashcard_id": "card_20260610_037",
+    "question": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "ケース演習",
+      "理解不十分",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260610_014",
+    "linked_note_ids": [
+      "note_20260610_014"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_strategy",
+    "created_at": "2026-06-10 21:30:00",
+    "updated_at": "2026-06-10 23:20:00"
+  },
+  {
+    "card_id": "card_20260610_038",
+    "flashcard_id": "card_20260610_038",
+    "question": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "ケース演習",
+      "理解不十分",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260610_014",
+    "linked_note_ids": [
+      "note_20260610_014"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_strategy",
+    "created_at": "2026-06-10 21:30:00",
+    "updated_at": "2026-06-10 23:20:00"
+  },
+  {
+    "card_id": "card_20260610_039",
+    "flashcard_id": "card_20260610_039",
+    "question": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "ケース演習",
+      "理解不十分",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260610_014",
+    "linked_note_ids": [
+      "note_20260610_014"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_strategy",
+    "created_at": "2026-06-10 21:30:00",
+    "updated_at": "2026-06-10 23:20:00"
+  },
+  {
+    "card_id": "card_20260610_040",
+    "flashcard_id": "card_20260610_040",
+    "question": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "ケース演習",
+      "理解不十分",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260610_014",
+    "linked_note_ids": [
+      "note_20260610_014"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_strategy",
+    "created_at": "2026-06-10 21:30:00",
+    "updated_at": "2026-06-10 23:20:00"
+  },
+  {
+    "card_id": "card_20260613_041",
+    "flashcard_id": "card_20260613_041",
+    "question": "AD-AS分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経済学・経済政策の論点として、AD-AS分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "AD-AS分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "経済学・経済政策の論点として、AD-AS分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経済学・経済政策",
+    "tags": [
+      "暗記",
+      "要復習",
+      "経済学・経済政策"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260613_015",
+    "linked_note_ids": [
+      "note_20260613_015"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_economics",
+    "material_id": "material_demo_economics_workbook",
+    "unit_id": "unit_demo_economics_adas",
+    "created_at": "2026-06-13 22:00:00",
+    "updated_at": "2026-06-13 23:00:00"
+  },
+  {
+    "card_id": "card_20260613_042",
+    "flashcard_id": "card_20260613_042",
+    "question": "AD-AS分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経済学・経済政策の論点として、AD-AS分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "AD-AS分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "経済学・経済政策の論点として、AD-AS分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経済学・経済政策",
+    "tags": [
+      "暗記",
+      "要復習",
+      "経済学・経済政策"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260613_015",
+    "linked_note_ids": [
+      "note_20260613_015"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_economics",
+    "material_id": "material_demo_economics_workbook",
+    "unit_id": "unit_demo_economics_adas",
+    "created_at": "2026-06-13 22:00:00",
+    "updated_at": "2026-06-13 23:00:00"
+  },
+  {
+    "card_id": "card_20260613_043",
+    "flashcard_id": "card_20260613_043",
+    "question": "AD-AS分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経済学・経済政策の論点として、AD-AS分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "AD-AS分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "経済学・経済政策の論点として、AD-AS分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経済学・経済政策",
+    "tags": [
+      "暗記",
+      "要復習",
+      "経済学・経済政策"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260613_015",
+    "linked_note_ids": [
+      "note_20260613_015"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_economics",
+    "material_id": "material_demo_economics_workbook",
+    "unit_id": "unit_demo_economics_adas",
+    "created_at": "2026-06-13 22:00:00",
+    "updated_at": "2026-06-13 23:00:00"
+  },
+  {
+    "card_id": "card_20260613_044",
+    "flashcard_id": "card_20260613_044",
+    "question": "AD-AS分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経済学・経済政策の論点として、AD-AS分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "AD-AS分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "経済学・経済政策の論点として、AD-AS分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経済学・経済政策",
+    "tags": [
+      "暗記",
+      "要復習",
+      "経済学・経済政策"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260613_015",
+    "linked_note_ids": [
+      "note_20260613_015"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_economics",
+    "material_id": "material_demo_economics_workbook",
+    "unit_id": "unit_demo_economics_adas",
+    "created_at": "2026-06-13 22:00:00",
+    "updated_at": "2026-06-13 23:00:00"
+  },
+  {
+    "card_id": "card_20260615_045",
+    "flashcard_id": "card_20260615_045",
+    "question": "ネットワークで押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営情報システムの論点として、ネットワークは設問要求と制約条件を結びつけて整理する。",
+    "front": "ネットワークで押さえるべき判断基準を1つ説明してください。",
+    "back": "経営情報システムの論点として、ネットワークは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営情報システム",
+    "tags": [
+      "理解不十分",
+      "経営情報システム"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260615_016",
+    "linked_note_ids": [
+      "note_20260615_016"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_network",
+    "created_at": "2026-06-15 21:15:00",
+    "updated_at": "2026-06-15 23:40:00"
+  },
+  {
+    "card_id": "card_20260615_046",
+    "flashcard_id": "card_20260615_046",
+    "question": "ネットワークで押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営情報システムの論点として、ネットワークは設問要求と制約条件を結びつけて整理する。",
+    "front": "ネットワークで押さえるべき判断基準を1つ説明してください。",
+    "back": "経営情報システムの論点として、ネットワークは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営情報システム",
+    "tags": [
+      "理解不十分",
+      "経営情報システム"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260615_016",
+    "linked_note_ids": [
+      "note_20260615_016"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_network",
+    "created_at": "2026-06-15 21:15:00",
+    "updated_at": "2026-06-15 23:40:00"
+  },
+  {
+    "card_id": "card_20260615_047",
+    "flashcard_id": "card_20260615_047",
+    "question": "ネットワークで押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営情報システムの論点として、ネットワークは設問要求と制約条件を結びつけて整理する。",
+    "front": "ネットワークで押さえるべき判断基準を1つ説明してください。",
+    "back": "経営情報システムの論点として、ネットワークは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営情報システム",
+    "tags": [
+      "理解不十分",
+      "経営情報システム"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260615_016",
+    "linked_note_ids": [
+      "note_20260615_016"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_network",
+    "created_at": "2026-06-15 21:15:00",
+    "updated_at": "2026-06-15 23:40:00"
+  },
+  {
+    "card_id": "card_20260618_048",
+    "flashcard_id": "card_20260618_048",
+    "question": "権限委譲で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、権限委譲は設問要求と制約条件を結びつけて整理する。",
+    "front": "権限委譲で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、権限委譲は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "ケース演習",
+      "二次試験 事例I"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260618_017",
+    "linked_note_ids": [
+      "note_20260618_017"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_delegation",
+    "created_at": "2026-06-18 21:00:00",
+    "updated_at": "2026-06-18 23:00:00"
+  },
+  {
+    "card_id": "card_20260618_049",
+    "flashcard_id": "card_20260618_049",
+    "question": "権限委譲で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、権限委譲は設問要求と制約条件を結びつけて整理する。",
+    "front": "権限委譲で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、権限委譲は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "ケース演習",
+      "二次試験 事例I"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260618_017",
+    "linked_note_ids": [
+      "note_20260618_017"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_delegation",
+    "created_at": "2026-06-18 21:00:00",
+    "updated_at": "2026-06-18 23:00:00"
+  },
+  {
+    "card_id": "card_20260618_050",
+    "flashcard_id": "card_20260618_050",
+    "question": "権限委譲で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、権限委譲は設問要求と制約条件を結びつけて整理する。",
+    "front": "権限委譲で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、権限委譲は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "ケース演習",
+      "二次試験 事例I"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260618_017",
+    "linked_note_ids": [
+      "note_20260618_017"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_delegation",
+    "created_at": "2026-06-18 21:00:00",
+    "updated_at": "2026-06-18 23:00:00"
+  },
+  {
+    "card_id": "card_20260618_051",
+    "flashcard_id": "card_20260618_051",
+    "question": "権限委譲で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、権限委譲は設問要求と制約条件を結びつけて整理する。",
+    "front": "権限委譲で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、権限委譲は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "ケース演習",
+      "二次試験 事例I"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260618_017",
+    "linked_note_ids": [
+      "note_20260618_017"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_delegation",
+    "created_at": "2026-06-18 21:00:00",
+    "updated_at": "2026-06-18 23:00:00"
+  },
+  {
+    "card_id": "card_20260621_052",
+    "flashcard_id": "card_20260621_052",
+    "question": "要約練習で押さえるべき判断基準を1つ説明してください。",
+    "answer": "ビジネス英語の論点として、要約練習は設問要求と制約条件を結びつけて整理する。",
+    "front": "要約練習で押さえるべき判断基準を1つ説明してください。",
+    "back": "ビジネス英語の論点として、要約練習は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "ビジネス英語",
+    "tags": [
+      "暗記",
+      "ビジネス英語"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260621_018",
+    "linked_note_ids": [
+      "note_20260621_018"
+    ],
+    "project_id": "project_demo_business_english",
+    "subject_id": "subject_demo_business_english",
+    "material_id": "material_demo_business_article",
+    "unit_id": "unit_demo_business_english_summary",
+    "created_at": "2026-06-21 21:15:00",
+    "updated_at": "2026-06-21 23:20:00"
+  },
+  {
+    "card_id": "card_20260621_053",
+    "flashcard_id": "card_20260621_053",
+    "question": "要約練習で押さえるべき判断基準を1つ説明してください。",
+    "answer": "ビジネス英語の論点として、要約練習は設問要求と制約条件を結びつけて整理する。",
+    "front": "要約練習で押さえるべき判断基準を1つ説明してください。",
+    "back": "ビジネス英語の論点として、要約練習は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "ビジネス英語",
+    "tags": [
+      "暗記",
+      "ビジネス英語"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260621_018",
+    "linked_note_ids": [
+      "note_20260621_018"
+    ],
+    "project_id": "project_demo_business_english",
+    "subject_id": "subject_demo_business_english",
+    "material_id": "material_demo_business_article",
+    "unit_id": "unit_demo_business_english_summary",
+    "created_at": "2026-06-21 21:15:00",
+    "updated_at": "2026-06-21 23:20:00"
+  },
+  {
+    "card_id": "card_20260621_054",
+    "flashcard_id": "card_20260621_054",
+    "question": "要約練習で押さえるべき判断基準を1つ説明してください。",
+    "answer": "ビジネス英語の論点として、要約練習は設問要求と制約条件を結びつけて整理する。",
+    "front": "要約練習で押さえるべき判断基準を1つ説明してください。",
+    "back": "ビジネス英語の論点として、要約練習は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "ビジネス英語",
+    "tags": [
+      "暗記",
+      "ビジネス英語"
+    ],
+    "importance": "low",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260621_018",
+    "linked_note_ids": [
+      "note_20260621_018"
+    ],
+    "project_id": "project_demo_business_english",
+    "subject_id": "subject_demo_business_english",
+    "material_id": "material_demo_business_article",
+    "unit_id": "unit_demo_business_english_summary",
+    "created_at": "2026-06-21 21:15:00",
+    "updated_at": "2026-06-21 23:20:00"
+  },
+  {
+    "card_id": "card_20260621_055",
+    "flashcard_id": "card_20260621_055",
+    "question": "要約練習で押さえるべき判断基準を1つ説明してください。",
+    "answer": "ビジネス英語の論点として、要約練習は設問要求と制約条件を結びつけて整理する。",
+    "front": "要約練習で押さえるべき判断基準を1つ説明してください。",
+    "back": "ビジネス英語の論点として、要約練習は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "ビジネス英語",
+    "tags": [
+      "暗記",
+      "ビジネス英語"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260621_018",
+    "linked_note_ids": [
+      "note_20260621_018"
+    ],
+    "project_id": "project_demo_business_english",
+    "subject_id": "subject_demo_business_english",
+    "material_id": "material_demo_business_article",
+    "unit_id": "unit_demo_business_english_summary",
+    "created_at": "2026-06-21 21:15:00",
+    "updated_at": "2026-06-21 23:20:00"
+  },
+  {
+    "card_id": "card_20260623_056",
+    "flashcard_id": "card_20260623_056",
+    "question": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "白書確認",
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260623_019",
+    "linked_note_ids": [
+      "note_20260623_019"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_hrm",
+    "created_at": "2026-06-23 22:15:00",
+    "updated_at": "2026-06-23 23:40:00"
+  },
+  {
+    "card_id": "card_20260623_057",
+    "flashcard_id": "card_20260623_057",
+    "question": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "白書確認",
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260623_019",
+    "linked_note_ids": [
+      "note_20260623_019"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_hrm",
+    "created_at": "2026-06-23 22:15:00",
+    "updated_at": "2026-06-23 23:40:00"
+  },
+  {
+    "card_id": "card_20260623_058",
+    "flashcard_id": "card_20260623_058",
+    "question": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "白書確認",
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260623_019",
+    "linked_note_ids": [
+      "note_20260623_019"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_hrm",
+    "created_at": "2026-06-23 22:15:00",
+    "updated_at": "2026-06-23 23:40:00"
+  },
+  {
+    "card_id": "card_20260623_059",
+    "flashcard_id": "card_20260623_059",
+    "question": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "白書確認",
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "low",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260623_019",
+    "linked_note_ids": [
+      "note_20260623_019"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_hrm",
+    "created_at": "2026-06-23 22:15:00",
+    "updated_at": "2026-06-23 23:40:00"
+  },
+  {
+    "card_id": "card_20260626_060",
+    "flashcard_id": "card_20260626_060",
+    "question": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "二次試験",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260626_020",
+    "linked_note_ids": [
+      "note_20260626_020"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_competition",
+    "created_at": "2026-06-26 22:15:00",
+    "updated_at": "2026-06-26 23:20:00"
+  },
+  {
+    "card_id": "card_20260626_061",
+    "flashcard_id": "card_20260626_061",
+    "question": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "二次試験",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260626_020",
+    "linked_note_ids": [
+      "note_20260626_020"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_competition",
+    "created_at": "2026-06-26 22:15:00",
+    "updated_at": "2026-06-26 23:20:00"
+  },
+  {
+    "card_id": "card_20260626_062",
+    "flashcard_id": "card_20260626_062",
+    "question": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "二次試験",
+      "企業経営理論"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260626_020",
+    "linked_note_ids": [
+      "note_20260626_020"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_competition",
+    "created_at": "2026-06-26 22:15:00",
+    "updated_at": "2026-06-26 23:20:00"
+  },
+  {
+    "card_id": "card_20260626_063",
+    "flashcard_id": "card_20260626_063",
+    "question": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "二次試験",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260626_020",
+    "linked_note_ids": [
+      "note_20260626_020"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_competition",
+    "created_at": "2026-06-26 22:15:00",
+    "updated_at": "2026-06-26 23:20:00"
+  },
+  {
+    "card_id": "card_20260629_064",
+    "flashcard_id": "card_20260629_064",
+    "question": "組織再編で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、組織再編は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織再編で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、組織再編は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "白書確認",
+      "経営法務"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260629_021",
+    "linked_note_ids": [
+      "note_20260629_021"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_reorganization",
+    "created_at": "2026-06-29 20:30:00",
+    "updated_at": "2026-06-29 23:20:00"
+  },
+  {
+    "card_id": "card_20260629_065",
+    "flashcard_id": "card_20260629_065",
+    "question": "組織再編で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、組織再編は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織再編で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、組織再編は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "白書確認",
+      "経営法務"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260629_021",
+    "linked_note_ids": [
+      "note_20260629_021"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_reorganization",
+    "created_at": "2026-06-29 20:30:00",
+    "updated_at": "2026-06-29 23:20:00"
+  },
+  {
+    "card_id": "card_20260629_066",
+    "flashcard_id": "card_20260629_066",
+    "question": "組織再編で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、組織再編は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織再編で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、組織再編は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "白書確認",
+      "経営法務"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260629_021",
+    "linked_note_ids": [
+      "note_20260629_021"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_reorganization",
+    "created_at": "2026-06-29 20:30:00",
+    "updated_at": "2026-06-29 23:20:00"
+  },
+  {
+    "card_id": "card_20260629_067",
+    "flashcard_id": "card_20260629_067",
+    "question": "組織再編で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、組織再編は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織再編で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、組織再編は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "白書確認",
+      "経営法務"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260629_021",
+    "linked_note_ids": [
+      "note_20260629_021"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_reorganization",
+    "created_at": "2026-06-29 20:30:00",
+    "updated_at": "2026-06-29 23:20:00"
+  },
+  {
+    "card_id": "card_20260630_068",
+    "flashcard_id": "card_20260630_068",
+    "question": "ブランド設計で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIの論点として、ブランド設計は設問要求と制約条件を結びつけて整理する。",
+    "front": "ブランド設計で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIの論点として、ブランド設計は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例II",
+    "tags": [
+      "白書確認",
+      "二次試験 事例II"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260630_022",
+    "linked_note_ids": [
+      "note_20260630_022"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case2",
+    "material_id": "material_demo_case2_answers",
+    "unit_id": "unit_demo_case2_brand",
+    "created_at": "2026-06-30 22:00:00",
+    "updated_at": "2026-06-30 23:20:00"
+  },
+  {
+    "card_id": "card_20260630_069",
+    "flashcard_id": "card_20260630_069",
+    "question": "ブランド設計で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIの論点として、ブランド設計は設問要求と制約条件を結びつけて整理する。",
+    "front": "ブランド設計で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIの論点として、ブランド設計は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例II",
+    "tags": [
+      "白書確認",
+      "二次試験 事例II"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260630_022",
+    "linked_note_ids": [
+      "note_20260630_022"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case2",
+    "material_id": "material_demo_case2_answers",
+    "unit_id": "unit_demo_case2_brand",
+    "created_at": "2026-06-30 22:00:00",
+    "updated_at": "2026-06-30 23:20:00"
+  },
+  {
+    "card_id": "card_20260630_070",
+    "flashcard_id": "card_20260630_070",
+    "question": "ブランド設計で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIの論点として、ブランド設計は設問要求と制約条件を結びつけて整理する。",
+    "front": "ブランド設計で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIの論点として、ブランド設計は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例II",
+    "tags": [
+      "白書確認",
+      "二次試験 事例II"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260630_022",
+    "linked_note_ids": [
+      "note_20260630_022"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case2",
+    "material_id": "material_demo_case2_answers",
+    "unit_id": "unit_demo_case2_brand",
+    "created_at": "2026-06-30 22:00:00",
+    "updated_at": "2026-06-30 23:20:00"
+  },
+  {
+    "card_id": "card_20260630_071",
+    "flashcard_id": "card_20260630_071",
+    "question": "ブランド設計で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIの論点として、ブランド設計は設問要求と制約条件を結びつけて整理する。",
+    "front": "ブランド設計で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIの論点として、ブランド設計は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例II",
+    "tags": [
+      "白書確認",
+      "二次試験 事例II"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260630_022",
+    "linked_note_ids": [
+      "note_20260630_022"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case2",
+    "material_id": "material_demo_case2_answers",
+    "unit_id": "unit_demo_case2_brand",
+    "created_at": "2026-06-30 22:00:00",
+    "updated_at": "2026-06-30 23:20:00"
+  },
+  {
+    "card_id": "card_20260702_072",
+    "flashcard_id": "card_20260702_072",
+    "question": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "頻出",
+      "二次試験",
+      "理解不十分",
+      "二次試験 事例III"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260702_023",
+    "linked_note_ids": [
+      "note_20260702_023"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_outsourcing",
+    "created_at": "2026-07-02 21:15:00",
+    "updated_at": "2026-07-02 23:40:00"
+  },
+  {
+    "card_id": "card_20260702_073",
+    "flashcard_id": "card_20260702_073",
+    "question": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "頻出",
+      "二次試験",
+      "理解不十分",
+      "二次試験 事例III"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260702_023",
+    "linked_note_ids": [
+      "note_20260702_023"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_outsourcing",
+    "created_at": "2026-07-02 21:15:00",
+    "updated_at": "2026-07-02 23:40:00"
+  },
+  {
+    "card_id": "card_20260702_074",
+    "flashcard_id": "card_20260702_074",
+    "question": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "頻出",
+      "二次試験",
+      "理解不十分",
+      "二次試験 事例III"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260702_023",
+    "linked_note_ids": [
+      "note_20260702_023"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_outsourcing",
+    "created_at": "2026-07-02 21:15:00",
+    "updated_at": "2026-07-02 23:40:00"
+  },
+  {
+    "card_id": "card_20260705_075",
+    "flashcard_id": "card_20260705_075",
+    "question": "NPVで押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、NPVは設問要求と制約条件を結びつけて整理する。",
+    "front": "NPVで押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、NPVは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "頻出",
+      "ケース演習",
+      "二次試験",
+      "二次試験 事例IV"
+    ],
+    "importance": "low",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260705_024",
+    "linked_note_ids": [
+      "note_20260705_024"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_npv",
+    "created_at": "2026-07-05 22:00:00",
+    "updated_at": "2026-07-05 23:20:00"
+  },
+  {
+    "card_id": "card_20260705_076",
+    "flashcard_id": "card_20260705_076",
+    "question": "NPVで押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、NPVは設問要求と制約条件を結びつけて整理する。",
+    "front": "NPVで押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、NPVは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "頻出",
+      "ケース演習",
+      "二次試験",
+      "二次試験 事例IV"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260705_024",
+    "linked_note_ids": [
+      "note_20260705_024"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_npv",
+    "created_at": "2026-07-05 22:00:00",
+    "updated_at": "2026-07-05 23:20:00"
+  },
+  {
+    "card_id": "card_20260708_077",
+    "flashcard_id": "card_20260708_077",
+    "question": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "front": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "白書確認",
+      "暗記",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260708_025",
+    "linked_note_ids": [
+      "note_20260708_025"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_investment",
+    "created_at": "2026-07-08 22:30:00",
+    "updated_at": "2026-07-08 23:40:00"
+  },
+  {
+    "card_id": "card_20260708_078",
+    "flashcard_id": "card_20260708_078",
+    "question": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "front": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "白書確認",
+      "暗記",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260708_025",
+    "linked_note_ids": [
+      "note_20260708_025"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_investment",
+    "created_at": "2026-07-08 22:30:00",
+    "updated_at": "2026-07-08 23:40:00"
+  },
+  {
+    "card_id": "card_20260708_079",
+    "flashcard_id": "card_20260708_079",
+    "question": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "front": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "白書確認",
+      "暗記",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260708_025",
+    "linked_note_ids": [
+      "note_20260708_025"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_investment",
+    "created_at": "2026-07-08 22:30:00",
+    "updated_at": "2026-07-08 23:40:00"
+  },
+  {
+    "card_id": "card_20260708_080",
+    "flashcard_id": "card_20260708_080",
+    "question": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "front": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "白書確認",
+      "暗記",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260708_025",
+    "linked_note_ids": [
+      "note_20260708_025"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_investment",
+    "created_at": "2026-07-08 22:30:00",
+    "updated_at": "2026-07-08 23:40:00"
+  },
+  {
+    "card_id": "card_20260710_081",
+    "flashcard_id": "card_20260710_081",
+    "question": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "front": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "暗記",
+      "二次試験",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260710_026",
+    "linked_note_ids": [
+      "note_20260710_026"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_investment",
+    "created_at": "2026-07-10 21:30:00",
+    "updated_at": "2026-07-10 23:40:00"
+  },
+  {
+    "card_id": "card_20260710_082",
+    "flashcard_id": "card_20260710_082",
+    "question": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "front": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "暗記",
+      "二次試験",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260710_026",
+    "linked_note_ids": [
+      "note_20260710_026"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_investment",
+    "created_at": "2026-07-10 21:30:00",
+    "updated_at": "2026-07-10 23:40:00"
+  },
+  {
+    "card_id": "card_20260710_083",
+    "flashcard_id": "card_20260710_083",
+    "question": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "front": "投資評価で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、投資評価は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "暗記",
+      "二次試験",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260710_026",
+    "linked_note_ids": [
+      "note_20260710_026"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_investment",
+    "created_at": "2026-07-10 21:30:00",
+    "updated_at": "2026-07-10 23:40:00"
+  },
+  {
+    "card_id": "card_20260711_084",
+    "flashcard_id": "card_20260711_084",
+    "question": "IT経営で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営情報システムの論点として、IT経営は設問要求と制約条件を結びつけて整理する。",
+    "front": "IT経営で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営情報システムの論点として、IT経営は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営情報システム",
+    "tags": [
+      "要復習",
+      "暗記",
+      "理解不十分",
+      "経営情報システム"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260711_027",
+    "linked_note_ids": [
+      "note_20260711_027"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_it_management",
+    "created_at": "2026-07-11 21:30:00",
+    "updated_at": "2026-07-11 23:40:00"
+  },
+  {
+    "card_id": "card_20260711_085",
+    "flashcard_id": "card_20260711_085",
+    "question": "IT経営で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営情報システムの論点として、IT経営は設問要求と制約条件を結びつけて整理する。",
+    "front": "IT経営で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営情報システムの論点として、IT経営は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営情報システム",
+    "tags": [
+      "要復習",
+      "暗記",
+      "理解不十分",
+      "経営情報システム"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260711_027",
+    "linked_note_ids": [
+      "note_20260711_027"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_it_management",
+    "created_at": "2026-07-11 21:30:00",
+    "updated_at": "2026-07-11 23:40:00"
+  },
+  {
+    "card_id": "card_20260711_086",
+    "flashcard_id": "card_20260711_086",
+    "question": "IT経営で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営情報システムの論点として、IT経営は設問要求と制約条件を結びつけて整理する。",
+    "front": "IT経営で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営情報システムの論点として、IT経営は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営情報システム",
+    "tags": [
+      "要復習",
+      "暗記",
+      "理解不十分",
+      "経営情報システム"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260711_027",
+    "linked_note_ids": [
+      "note_20260711_027"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_it_management",
+    "created_at": "2026-07-11 21:30:00",
+    "updated_at": "2026-07-11 23:40:00"
+  },
+  {
+    "card_id": "card_20260711_087",
+    "flashcard_id": "card_20260711_087",
+    "question": "IT経営で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営情報システムの論点として、IT経営は設問要求と制約条件を結びつけて整理する。",
+    "front": "IT経営で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営情報システムの論点として、IT経営は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営情報システム",
+    "tags": [
+      "要復習",
+      "暗記",
+      "理解不十分",
+      "経営情報システム"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260711_027",
+    "linked_note_ids": [
+      "note_20260711_027"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_it_management",
+    "created_at": "2026-07-11 21:30:00",
+    "updated_at": "2026-07-11 23:40:00"
+  },
+  {
+    "card_id": "card_20260713_088",
+    "flashcard_id": "card_20260713_088",
+    "question": "在庫管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、在庫管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "在庫管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、在庫管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "暗記",
+      "頻出",
+      "二次試験 事例III"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260713_028",
+    "linked_note_ids": [
+      "note_20260713_028"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_inventory",
+    "created_at": "2026-07-13 21:30:00",
+    "updated_at": "2026-07-13 23:00:00"
+  },
+  {
+    "card_id": "card_20260713_089",
+    "flashcard_id": "card_20260713_089",
+    "question": "在庫管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、在庫管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "在庫管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、在庫管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "暗記",
+      "頻出",
+      "二次試験 事例III"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260713_028",
+    "linked_note_ids": [
+      "note_20260713_028"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_inventory",
+    "created_at": "2026-07-13 21:30:00",
+    "updated_at": "2026-07-13 23:00:00"
+  },
+  {
+    "card_id": "card_20260714_090",
+    "flashcard_id": "card_20260714_090",
+    "question": "組織構造で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、組織構造は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織構造で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、組織構造は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "暗記",
+      "要復習",
+      "二次試験 事例I"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260714_029",
+    "linked_note_ids": [
+      "note_20260714_029"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_org_structure",
+    "created_at": "2026-07-14 20:00:00",
+    "updated_at": "2026-07-14 23:20:00"
+  },
+  {
+    "card_id": "card_20260714_091",
+    "flashcard_id": "card_20260714_091",
+    "question": "組織構造で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、組織構造は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織構造で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、組織構造は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "暗記",
+      "要復習",
+      "二次試験 事例I"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260714_029",
+    "linked_note_ids": [
+      "note_20260714_029"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_org_structure",
+    "created_at": "2026-07-14 20:00:00",
+    "updated_at": "2026-07-14 23:20:00"
+  },
+  {
+    "card_id": "card_20260716_092",
+    "flashcard_id": "card_20260716_092",
+    "question": "CVP分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、CVP分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "CVP分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、CVP分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "理解不十分",
+      "要復習",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260716_030",
+    "linked_note_ids": [
+      "note_20260716_030"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_cvp",
+    "created_at": "2026-07-16 20:30:00",
+    "updated_at": "2026-07-16 23:40:00"
+  },
+  {
+    "card_id": "card_20260716_093",
+    "flashcard_id": "card_20260716_093",
+    "question": "CVP分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、CVP分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "CVP分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、CVP分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "理解不十分",
+      "要復習",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260716_030",
+    "linked_note_ids": [
+      "note_20260716_030"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_cvp",
+    "created_at": "2026-07-16 20:30:00",
+    "updated_at": "2026-07-16 23:40:00"
+  },
+  {
+    "card_id": "card_20260716_094",
+    "flashcard_id": "card_20260716_094",
+    "question": "CVP分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、CVP分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "CVP分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、CVP分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "理解不十分",
+      "要復習",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260716_030",
+    "linked_note_ids": [
+      "note_20260716_030"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_cvp",
+    "created_at": "2026-07-16 20:30:00",
+    "updated_at": "2026-07-16 23:40:00"
+  },
+  {
+    "card_id": "card_20260716_095",
+    "flashcard_id": "card_20260716_095",
+    "question": "CVP分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、CVP分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "CVP分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、CVP分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "理解不十分",
+      "要復習",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260716_030",
+    "linked_note_ids": [
+      "note_20260716_030"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_cvp",
+    "created_at": "2026-07-16 20:30:00",
+    "updated_at": "2026-07-16 23:40:00"
+  },
+  {
+    "card_id": "card_20260717_096",
+    "flashcard_id": "card_20260717_096",
+    "question": "経営分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、経営分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、経営分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "暗記",
+      "頻出",
+      "二次試験 事例IV"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260717_031",
+    "linked_note_ids": [
+      "note_20260717_031"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_financial_analysis",
+    "created_at": "2026-07-17 21:00:00",
+    "updated_at": "2026-07-17 23:20:00"
+  },
+  {
+    "card_id": "card_20260717_097",
+    "flashcard_id": "card_20260717_097",
+    "question": "経営分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、経営分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、経営分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "暗記",
+      "頻出",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260717_031",
+    "linked_note_ids": [
+      "note_20260717_031"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_financial_analysis",
+    "created_at": "2026-07-17 21:00:00",
+    "updated_at": "2026-07-17 23:20:00"
+  },
+  {
+    "card_id": "card_20260717_098",
+    "flashcard_id": "card_20260717_098",
+    "question": "経営分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、経営分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、経営分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "暗記",
+      "頻出",
+      "二次試験 事例IV"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260717_031",
+    "linked_note_ids": [
+      "note_20260717_031"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_financial_analysis",
+    "created_at": "2026-07-17 21:00:00",
+    "updated_at": "2026-07-17 23:20:00"
+  },
+  {
+    "card_id": "card_20260717_099",
+    "flashcard_id": "card_20260717_099",
+    "question": "経営分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、経営分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、経営分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "暗記",
+      "頻出",
+      "二次試験 事例IV"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260717_031",
+    "linked_note_ids": [
+      "note_20260717_031"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_financial_analysis",
+    "created_at": "2026-07-17 21:00:00",
+    "updated_at": "2026-07-17 23:20:00"
+  },
+  {
+    "card_id": "card_20260718_100",
+    "flashcard_id": "card_20260718_100",
+    "question": "品質管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "運営管理の論点として、品質管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "品質管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "運営管理の論点として、品質管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "運営管理",
+    "tags": [
+      "財務強化",
+      "頻出",
+      "運営管理"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260718_032",
+    "linked_note_ids": [
+      "note_20260718_032"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_operations",
+    "material_id": "material_demo_operations_text",
+    "unit_id": "unit_demo_operations_quality",
+    "created_at": "2026-07-18 20:00:00",
+    "updated_at": "2026-07-18 23:00:00"
+  },
+  {
+    "card_id": "card_20260718_101",
+    "flashcard_id": "card_20260718_101",
+    "question": "品質管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "運営管理の論点として、品質管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "品質管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "運営管理の論点として、品質管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "運営管理",
+    "tags": [
+      "財務強化",
+      "頻出",
+      "運営管理"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260718_032",
+    "linked_note_ids": [
+      "note_20260718_032"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_operations",
+    "material_id": "material_demo_operations_text",
+    "unit_id": "unit_demo_operations_quality",
+    "created_at": "2026-07-18 20:00:00",
+    "updated_at": "2026-07-18 23:00:00"
+  },
+  {
+    "card_id": "card_20260718_102",
+    "flashcard_id": "card_20260718_102",
+    "question": "品質管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "運営管理の論点として、品質管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "品質管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "運営管理の論点として、品質管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "運営管理",
+    "tags": [
+      "財務強化",
+      "頻出",
+      "運営管理"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260718_032",
+    "linked_note_ids": [
+      "note_20260718_032"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_operations",
+    "material_id": "material_demo_operations_text",
+    "unit_id": "unit_demo_operations_quality",
+    "created_at": "2026-07-18 20:00:00",
+    "updated_at": "2026-07-18 23:00:00"
+  },
+  {
+    "card_id": "card_20260720_103",
+    "flashcard_id": "card_20260720_103",
+    "question": "会社法で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、会社法は設問要求と制約条件を結びつけて整理する。",
+    "front": "会社法で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、会社法は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "理解不十分",
+      "財務強化",
+      "暗記",
+      "経営法務"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260720_033",
+    "linked_note_ids": [
+      "note_20260720_033"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_company_law",
+    "created_at": "2026-07-20 20:30:00",
+    "updated_at": "2026-07-20 23:40:00"
+  },
+  {
+    "card_id": "card_20260720_104",
+    "flashcard_id": "card_20260720_104",
+    "question": "会社法で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、会社法は設問要求と制約条件を結びつけて整理する。",
+    "front": "会社法で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、会社法は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "理解不十分",
+      "財務強化",
+      "暗記",
+      "経営法務"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260720_033",
+    "linked_note_ids": [
+      "note_20260720_033"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_company_law",
+    "created_at": "2026-07-20 20:30:00",
+    "updated_at": "2026-07-20 23:40:00"
+  },
+  {
+    "card_id": "card_20260721_105",
+    "flashcard_id": "card_20260721_105",
+    "question": "会社法で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、会社法は設問要求と制約条件を結びつけて整理する。",
+    "front": "会社法で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、会社法は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "頻出",
+      "経営法務"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260721_034",
+    "linked_note_ids": [
+      "note_20260721_034"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_company_law",
+    "created_at": "2026-07-21 20:00:00",
+    "updated_at": "2026-07-21 23:00:00"
+  },
+  {
+    "card_id": "card_20260721_106",
+    "flashcard_id": "card_20260721_106",
+    "question": "会社法で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、会社法は設問要求と制約条件を結びつけて整理する。",
+    "front": "会社法で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、会社法は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "頻出",
+      "経営法務"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260721_034",
+    "linked_note_ids": [
+      "note_20260721_034"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_company_law",
+    "created_at": "2026-07-21 20:00:00",
+    "updated_at": "2026-07-21 23:00:00"
+  },
+  {
+    "card_id": "card_20260722_107",
+    "flashcard_id": "card_20260722_107",
+    "question": "キャッシュフローで押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、キャッシュフローは設問要求と制約条件を結びつけて整理する。",
+    "front": "キャッシュフローで押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、キャッシュフローは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "財務強化",
+      "暗記",
+      "理解不十分",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260722_035",
+    "linked_note_ids": [
+      "note_20260722_035"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_cashflow",
+    "created_at": "2026-07-22 22:00:00",
+    "updated_at": "2026-07-22 23:40:00"
+  },
+  {
+    "card_id": "card_20260722_108",
+    "flashcard_id": "card_20260722_108",
+    "question": "キャッシュフローで押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、キャッシュフローは設問要求と制約条件を結びつけて整理する。",
+    "front": "キャッシュフローで押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、キャッシュフローは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "財務強化",
+      "暗記",
+      "理解不十分",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260722_035",
+    "linked_note_ids": [
+      "note_20260722_035"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_cashflow",
+    "created_at": "2026-07-22 22:00:00",
+    "updated_at": "2026-07-22 23:40:00"
+  },
+  {
+    "card_id": "card_20260724_109",
+    "flashcard_id": "card_20260724_109",
+    "question": "意思決定会計で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、意思決定会計は設問要求と制約条件を結びつけて整理する。",
+    "front": "意思決定会計で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、意思決定会計は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "暗記",
+      "財務強化",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260724_036",
+    "linked_note_ids": [
+      "note_20260724_036"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_decision_accounting",
+    "created_at": "2026-07-24 21:00:00",
+    "updated_at": "2026-07-24 23:40:00"
+  },
+  {
+    "card_id": "card_20260724_110",
+    "flashcard_id": "card_20260724_110",
+    "question": "意思決定会計で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、意思決定会計は設問要求と制約条件を結びつけて整理する。",
+    "front": "意思決定会計で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、意思決定会計は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "暗記",
+      "財務強化",
+      "二次試験 事例IV"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260724_036",
+    "linked_note_ids": [
+      "note_20260724_036"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_decision_accounting",
+    "created_at": "2026-07-24 21:00:00",
+    "updated_at": "2026-07-24 23:40:00"
+  },
+  {
+    "card_id": "card_20260727_111",
+    "flashcard_id": "card_20260727_111",
+    "question": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "財務強化",
+      "白書確認",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260727_037",
+    "linked_note_ids": [
+      "note_20260727_037"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_strategy",
+    "created_at": "2026-07-27 20:00:00",
+    "updated_at": "2026-07-27 23:00:00"
+  },
+  {
+    "card_id": "card_20260727_112",
+    "flashcard_id": "card_20260727_112",
+    "question": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "財務強化",
+      "白書確認",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260727_037",
+    "linked_note_ids": [
+      "note_20260727_037"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_strategy",
+    "created_at": "2026-07-27 20:00:00",
+    "updated_at": "2026-07-27 23:00:00"
+  },
+  {
+    "card_id": "card_20260727_113",
+    "flashcard_id": "card_20260727_113",
+    "question": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "財務強化",
+      "白書確認",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260727_037",
+    "linked_note_ids": [
+      "note_20260727_037"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_strategy",
+    "created_at": "2026-07-27 20:00:00",
+    "updated_at": "2026-07-27 23:00:00"
+  },
+  {
+    "card_id": "card_20260727_114",
+    "flashcard_id": "card_20260727_114",
+    "question": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "経営戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、経営戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "財務強化",
+      "白書確認",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260727_037",
+    "linked_note_ids": [
+      "note_20260727_037"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_strategy",
+    "created_at": "2026-07-27 20:00:00",
+    "updated_at": "2026-07-27 23:00:00"
+  },
+  {
+    "card_id": "card_20260728_115",
+    "flashcard_id": "card_20260728_115",
+    "question": "標準化で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、標準化は設問要求と制約条件を結びつけて整理する。",
+    "front": "標準化で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、標準化は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "暗記",
+      "要復習",
+      "二次試験 事例III"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260728_038",
+    "linked_note_ids": [
+      "note_20260728_038"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_standardization",
+    "created_at": "2026-07-28 22:30:00",
+    "updated_at": "2026-07-28 23:40:00"
+  },
+  {
+    "card_id": "card_20260728_116",
+    "flashcard_id": "card_20260728_116",
+    "question": "標準化で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、標準化は設問要求と制約条件を結びつけて整理する。",
+    "front": "標準化で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、標準化は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "暗記",
+      "要復習",
+      "二次試験 事例III"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260728_038",
+    "linked_note_ids": [
+      "note_20260728_038"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_standardization",
+    "created_at": "2026-07-28 22:30:00",
+    "updated_at": "2026-07-28 23:40:00"
+  },
+  {
+    "card_id": "card_20260731_117",
+    "flashcard_id": "card_20260731_117",
+    "question": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "二次試験",
+      "頻出",
+      "ケース演習",
+      "二次試験 事例III"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260731_039",
+    "linked_note_ids": [
+      "note_20260731_039"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_outsourcing",
+    "created_at": "2026-07-31 20:15:00",
+    "updated_at": "2026-07-31 23:40:00"
+  },
+  {
+    "card_id": "card_20260731_118",
+    "flashcard_id": "card_20260731_118",
+    "question": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "二次試験",
+      "頻出",
+      "ケース演習",
+      "二次試験 事例III"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260731_039",
+    "linked_note_ids": [
+      "note_20260731_039"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_outsourcing",
+    "created_at": "2026-07-31 20:15:00",
+    "updated_at": "2026-07-31 23:40:00"
+  },
+  {
+    "card_id": "card_20260731_119",
+    "flashcard_id": "card_20260731_119",
+    "question": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "外注管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、外注管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "二次試験",
+      "頻出",
+      "ケース演習",
+      "二次試験 事例III"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260731_039",
+    "linked_note_ids": [
+      "note_20260731_039"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_outsourcing",
+    "created_at": "2026-07-31 20:15:00",
+    "updated_at": "2026-07-31 23:40:00"
+  },
+  {
+    "card_id": "card_20260803_120",
+    "flashcard_id": "card_20260803_120",
+    "question": "英文契約で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、英文契約は設問要求と制約条件を結びつけて整理する。",
+    "front": "英文契約で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、英文契約は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "暗記",
+      "経営法務"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260803_040",
+    "linked_note_ids": [
+      "note_20260803_040"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_english_contract",
+    "created_at": "2026-08-03 20:00:00",
+    "updated_at": "2026-08-03 23:40:00"
+  },
+  {
+    "card_id": "card_20260803_121",
+    "flashcard_id": "card_20260803_121",
+    "question": "英文契約で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、英文契約は設問要求と制約条件を結びつけて整理する。",
+    "front": "英文契約で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、英文契約は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "暗記",
+      "経営法務"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260803_040",
+    "linked_note_ids": [
+      "note_20260803_040"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_english_contract",
+    "created_at": "2026-08-03 20:00:00",
+    "updated_at": "2026-08-03 23:40:00"
+  },
+  {
+    "card_id": "card_20260805_122",
+    "flashcard_id": "card_20260805_122",
+    "question": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "財務強化",
+      "白書確認",
+      "要復習",
+      "二次試験 事例I"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260805_041",
+    "linked_note_ids": [
+      "note_20260805_041"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_swot",
+    "created_at": "2026-08-05 20:00:00",
+    "updated_at": "2026-08-05 23:40:00"
+  },
+  {
+    "card_id": "card_20260805_123",
+    "flashcard_id": "card_20260805_123",
+    "question": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "財務強化",
+      "白書確認",
+      "要復習",
+      "二次試験 事例I"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260805_041",
+    "linked_note_ids": [
+      "note_20260805_041"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_swot",
+    "created_at": "2026-08-05 20:00:00",
+    "updated_at": "2026-08-05 23:40:00"
+  },
+  {
+    "card_id": "card_20260805_124",
+    "flashcard_id": "card_20260805_124",
+    "question": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "財務強化",
+      "白書確認",
+      "要復習",
+      "二次試験 事例I"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260805_041",
+    "linked_note_ids": [
+      "note_20260805_041"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_swot",
+    "created_at": "2026-08-05 20:00:00",
+    "updated_at": "2026-08-05 23:40:00"
+  },
+  {
+    "card_id": "card_20260805_125",
+    "flashcard_id": "card_20260805_125",
+    "question": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "財務強化",
+      "白書確認",
+      "要復習",
+      "二次試験 事例I"
+    ],
+    "importance": "low",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260805_041",
+    "linked_note_ids": [
+      "note_20260805_041"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_swot",
+    "created_at": "2026-08-05 20:00:00",
+    "updated_at": "2026-08-05 23:40:00"
+  },
+  {
+    "card_id": "card_20260806_126",
+    "flashcard_id": "card_20260806_126",
+    "question": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "front": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "理解不十分",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260806_042",
+    "linked_note_ids": [
+      "note_20260806_042"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_marketing",
+    "created_at": "2026-08-06 22:30:00",
+    "updated_at": "2026-08-06 23:20:00"
+  },
+  {
+    "card_id": "card_20260806_127",
+    "flashcard_id": "card_20260806_127",
+    "question": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "front": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "理解不十分",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260806_042",
+    "linked_note_ids": [
+      "note_20260806_042"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_marketing",
+    "created_at": "2026-08-06 22:30:00",
+    "updated_at": "2026-08-06 23:20:00"
+  },
+  {
+    "card_id": "card_20260807_128",
+    "flashcard_id": "card_20260807_128",
+    "question": "ブランド設計で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIの論点として、ブランド設計は設問要求と制約条件を結びつけて整理する。",
+    "front": "ブランド設計で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIの論点として、ブランド設計は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例II",
+    "tags": [
+      "二次試験",
+      "白書確認",
+      "二次試験 事例II"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260807_043",
+    "linked_note_ids": [
+      "note_20260807_043"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case2",
+    "material_id": "material_demo_case2_answers",
+    "unit_id": "unit_demo_case2_brand",
+    "created_at": "2026-08-07 21:30:00",
+    "updated_at": "2026-08-07 23:00:00"
+  },
+  {
+    "card_id": "card_20260807_129",
+    "flashcard_id": "card_20260807_129",
+    "question": "ブランド設計で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIの論点として、ブランド設計は設問要求と制約条件を結びつけて整理する。",
+    "front": "ブランド設計で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIの論点として、ブランド設計は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例II",
+    "tags": [
+      "二次試験",
+      "白書確認",
+      "二次試験 事例II"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260807_043",
+    "linked_note_ids": [
+      "note_20260807_043"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case2",
+    "material_id": "material_demo_case2_answers",
+    "unit_id": "unit_demo_case2_brand",
+    "created_at": "2026-08-07 21:30:00",
+    "updated_at": "2026-08-07 23:00:00"
+  },
+  {
+    "card_id": "card_20260809_130",
+    "flashcard_id": "card_20260809_130",
+    "question": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "front": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "白書確認",
+      "二次試験 事例I"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260809_044",
+    "linked_note_ids": [
+      "note_20260809_044"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_successor",
+    "created_at": "2026-08-09 20:30:00",
+    "updated_at": "2026-08-09 23:20:00"
+  },
+  {
+    "card_id": "card_20260809_131",
+    "flashcard_id": "card_20260809_131",
+    "question": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "front": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "白書確認",
+      "二次試験 事例I"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260809_044",
+    "linked_note_ids": [
+      "note_20260809_044"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_successor",
+    "created_at": "2026-08-09 20:30:00",
+    "updated_at": "2026-08-09 23:20:00"
+  },
+  {
+    "card_id": "card_20260809_132",
+    "flashcard_id": "card_20260809_132",
+    "question": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "front": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "白書確認",
+      "二次試験 事例I"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260809_044",
+    "linked_note_ids": [
+      "note_20260809_044"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_successor",
+    "created_at": "2026-08-09 20:30:00",
+    "updated_at": "2026-08-09 23:20:00"
+  },
+  {
+    "card_id": "card_20260809_133",
+    "flashcard_id": "card_20260809_133",
+    "question": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "理解不十分",
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260809_045",
+    "linked_note_ids": [
+      "note_20260809_045"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_hrm",
+    "created_at": "2026-08-09 22:15:00",
+    "updated_at": "2026-08-09 23:20:00"
+  },
+  {
+    "card_id": "card_20260809_134",
+    "flashcard_id": "card_20260809_134",
+    "question": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "理解不十分",
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260809_045",
+    "linked_note_ids": [
+      "note_20260809_045"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_hrm",
+    "created_at": "2026-08-09 22:15:00",
+    "updated_at": "2026-08-09 23:20:00"
+  },
+  {
+    "card_id": "card_20260809_135",
+    "flashcard_id": "card_20260809_135",
+    "question": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "理解不十分",
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260809_045",
+    "linked_note_ids": [
+      "note_20260809_045"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_hrm",
+    "created_at": "2026-08-09 22:15:00",
+    "updated_at": "2026-08-09 23:20:00"
+  },
+  {
+    "card_id": "card_20260809_136",
+    "flashcard_id": "card_20260809_136",
+    "question": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "人的資源管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、人的資源管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "理解不十分",
+      "ケース演習",
+      "企業経営理論"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260809_045",
+    "linked_note_ids": [
+      "note_20260809_045"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_hrm",
+    "created_at": "2026-08-09 22:15:00",
+    "updated_at": "2026-08-09 23:20:00"
+  },
+  {
+    "card_id": "card_20260813_137",
+    "flashcard_id": "card_20260813_137",
+    "question": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "ケース演習",
+      "財務強化",
+      "理解不十分",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260813_046",
+    "linked_note_ids": [
+      "note_20260813_046"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_organization",
+    "created_at": "2026-08-13 22:15:00",
+    "updated_at": "2026-08-13 23:00:00"
+  },
+  {
+    "card_id": "card_20260813_138",
+    "flashcard_id": "card_20260813_138",
+    "question": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "ケース演習",
+      "財務強化",
+      "理解不十分",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260813_046",
+    "linked_note_ids": [
+      "note_20260813_046"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_organization",
+    "created_at": "2026-08-13 22:15:00",
+    "updated_at": "2026-08-13 23:00:00"
+  },
+  {
+    "card_id": "card_20260813_139",
+    "flashcard_id": "card_20260813_139",
+    "question": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "front": "組織論で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、組織論は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "ケース演習",
+      "財務強化",
+      "理解不十分",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260813_046",
+    "linked_note_ids": [
+      "note_20260813_046"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_organization",
+    "created_at": "2026-08-13 22:15:00",
+    "updated_at": "2026-08-13 23:00:00"
+  },
+  {
+    "card_id": "card_20260814_140",
+    "flashcard_id": "card_20260814_140",
+    "question": "生産管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "運営管理の論点として、生産管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "生産管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "運営管理の論点として、生産管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "運営管理",
+    "tags": [
+      "暗記",
+      "運営管理"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260814_047",
+    "linked_note_ids": [
+      "note_20260814_047"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_operations",
+    "material_id": "material_demo_operations_text",
+    "unit_id": "unit_demo_operations_production",
+    "created_at": "2026-08-14 20:15:00",
+    "updated_at": "2026-08-14 23:40:00"
+  },
+  {
+    "card_id": "card_20260814_141",
+    "flashcard_id": "card_20260814_141",
+    "question": "生産管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "運営管理の論点として、生産管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "生産管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "運営管理の論点として、生産管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "運営管理",
+    "tags": [
+      "暗記",
+      "運営管理"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260814_047",
+    "linked_note_ids": [
+      "note_20260814_047"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_operations",
+    "material_id": "material_demo_operations_text",
+    "unit_id": "unit_demo_operations_production",
+    "created_at": "2026-08-14 20:15:00",
+    "updated_at": "2026-08-14 23:40:00"
+  },
+  {
+    "card_id": "card_20260814_142",
+    "flashcard_id": "card_20260814_142",
+    "question": "生産管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "運営管理の論点として、生産管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "生産管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "運営管理の論点として、生産管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "運営管理",
+    "tags": [
+      "暗記",
+      "運営管理"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260814_047",
+    "linked_note_ids": [
+      "note_20260814_047"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_operations",
+    "material_id": "material_demo_operations_text",
+    "unit_id": "unit_demo_operations_production",
+    "created_at": "2026-08-14 20:15:00",
+    "updated_at": "2026-08-14 23:40:00"
+  },
+  {
+    "card_id": "card_20260814_143",
+    "flashcard_id": "card_20260814_143",
+    "question": "生産管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "運営管理の論点として、生産管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "生産管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "運営管理の論点として、生産管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "運営管理",
+    "tags": [
+      "暗記",
+      "運営管理"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260814_047",
+    "linked_note_ids": [
+      "note_20260814_047"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_operations",
+    "material_id": "material_demo_operations_text",
+    "unit_id": "unit_demo_operations_production",
+    "created_at": "2026-08-14 20:15:00",
+    "updated_at": "2026-08-14 23:40:00"
+  },
+  {
+    "card_id": "card_20260817_144",
+    "flashcard_id": "card_20260817_144",
+    "question": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "front": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "二次試験",
+      "二次試験 事例I"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260817_048",
+    "linked_note_ids": [
+      "note_20260817_048"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_successor",
+    "created_at": "2026-08-17 22:00:00",
+    "updated_at": "2026-08-17 23:00:00"
+  },
+  {
+    "card_id": "card_20260817_145",
+    "flashcard_id": "card_20260817_145",
+    "question": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "front": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "二次試験",
+      "二次試験 事例I"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260817_048",
+    "linked_note_ids": [
+      "note_20260817_048"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_successor",
+    "created_at": "2026-08-17 22:00:00",
+    "updated_at": "2026-08-17 23:00:00"
+  },
+  {
+    "card_id": "card_20260817_146",
+    "flashcard_id": "card_20260817_146",
+    "question": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "front": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "二次試験",
+      "二次試験 事例I"
+    ],
+    "importance": "low",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260817_048",
+    "linked_note_ids": [
+      "note_20260817_048"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_successor",
+    "created_at": "2026-08-17 22:00:00",
+    "updated_at": "2026-08-17 23:00:00"
+  },
+  {
+    "card_id": "card_20260820_147",
+    "flashcard_id": "card_20260820_147",
+    "question": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "財務強化",
+      "ケース演習",
+      "二次試験 事例I"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260820_049",
+    "linked_note_ids": [
+      "note_20260820_049"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_swot",
+    "created_at": "2026-08-20 20:00:00",
+    "updated_at": "2026-08-20 23:00:00"
+  },
+  {
+    "card_id": "card_20260820_148",
+    "flashcard_id": "card_20260820_148",
+    "question": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "財務強化",
+      "ケース演習",
+      "二次試験 事例I"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260820_049",
+    "linked_note_ids": [
+      "note_20260820_049"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_swot",
+    "created_at": "2026-08-20 20:00:00",
+    "updated_at": "2026-08-20 23:00:00"
+  },
+  {
+    "card_id": "card_20260820_149",
+    "flashcard_id": "card_20260820_149",
+    "question": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "財務強化",
+      "ケース演習",
+      "二次試験 事例I"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260820_049",
+    "linked_note_ids": [
+      "note_20260820_049"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_swot",
+    "created_at": "2026-08-20 20:00:00",
+    "updated_at": "2026-08-20 23:00:00"
+  },
+  {
+    "card_id": "card_20260820_150",
+    "flashcard_id": "card_20260820_150",
+    "question": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "強み弱み分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、強み弱み分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "財務強化",
+      "ケース演習",
+      "二次試験 事例I"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260820_049",
+    "linked_note_ids": [
+      "note_20260820_049"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_swot",
+    "created_at": "2026-08-20 20:00:00",
+    "updated_at": "2026-08-20 23:00:00"
+  },
+  {
+    "card_id": "card_20260821_151",
+    "flashcard_id": "card_20260821_151",
+    "question": "販促施策で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIの論点として、販促施策は設問要求と制約条件を結びつけて整理する。",
+    "front": "販促施策で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIの論点として、販促施策は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例II",
+    "tags": [
+      "理解不十分",
+      "頻出",
+      "財務強化",
+      "二次試験 事例II"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260821_050",
+    "linked_note_ids": [
+      "note_20260821_050"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case2",
+    "material_id": "material_demo_case2_answers",
+    "unit_id": "unit_demo_case2_promotion",
+    "created_at": "2026-08-21 20:00:00",
+    "updated_at": "2026-08-21 23:20:00"
+  },
+  {
+    "card_id": "card_20260821_152",
+    "flashcard_id": "card_20260821_152",
+    "question": "販促施策で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIの論点として、販促施策は設問要求と制約条件を結びつけて整理する。",
+    "front": "販促施策で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIの論点として、販促施策は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例II",
+    "tags": [
+      "理解不十分",
+      "頻出",
+      "財務強化",
+      "二次試験 事例II"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260821_050",
+    "linked_note_ids": [
+      "note_20260821_050"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case2",
+    "material_id": "material_demo_case2_answers",
+    "unit_id": "unit_demo_case2_promotion",
+    "created_at": "2026-08-21 20:00:00",
+    "updated_at": "2026-08-21 23:20:00"
+  },
+  {
+    "card_id": "card_20260823_153",
+    "flashcard_id": "card_20260823_153",
+    "question": "ゲーム理論で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経済学・経済政策の論点として、ゲーム理論は設問要求と制約条件を結びつけて整理する。",
+    "front": "ゲーム理論で押さえるべき判断基準を1つ説明してください。",
+    "back": "経済学・経済政策の論点として、ゲーム理論は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経済学・経済政策",
+    "tags": [
+      "要復習",
+      "経済学・経済政策"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260823_051",
+    "linked_note_ids": [
+      "note_20260823_051"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_economics",
+    "material_id": "material_demo_economics_workbook",
+    "unit_id": "unit_demo_economics_game_theory",
+    "created_at": "2026-08-23 20:15:00",
+    "updated_at": "2026-08-23 23:00:00"
+  },
+  {
+    "card_id": "card_20260823_154",
+    "flashcard_id": "card_20260823_154",
+    "question": "ゲーム理論で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経済学・経済政策の論点として、ゲーム理論は設問要求と制約条件を結びつけて整理する。",
+    "front": "ゲーム理論で押さえるべき判断基準を1つ説明してください。",
+    "back": "経済学・経済政策の論点として、ゲーム理論は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経済学・経済政策",
+    "tags": [
+      "要復習",
+      "経済学・経済政策"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260823_051",
+    "linked_note_ids": [
+      "note_20260823_051"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_economics",
+    "material_id": "material_demo_economics_workbook",
+    "unit_id": "unit_demo_economics_game_theory",
+    "created_at": "2026-08-23 20:15:00",
+    "updated_at": "2026-08-23 23:00:00"
+  },
+  {
+    "card_id": "card_20260830_155",
+    "flashcard_id": "card_20260830_155",
+    "question": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "front": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "暗記",
+      "頻出",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260830_052",
+    "linked_note_ids": [
+      "note_20260830_052"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_marketing",
+    "created_at": "2026-08-30 21:00:00",
+    "updated_at": "2026-08-30 23:40:00"
+  },
+  {
+    "card_id": "card_20260830_156",
+    "flashcard_id": "card_20260830_156",
+    "question": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "front": "マーケティングで押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、マーケティングは設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "暗記",
+      "頻出",
+      "企業経営理論"
+    ],
+    "importance": "low",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260830_052",
+    "linked_note_ids": [
+      "note_20260830_052"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_marketing",
+    "created_at": "2026-08-30 21:00:00",
+    "updated_at": "2026-08-30 23:40:00"
+  },
+  {
+    "card_id": "card_20260901_157",
+    "flashcard_id": "card_20260901_157",
+    "question": "在庫管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、在庫管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "在庫管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、在庫管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "財務強化",
+      "二次試験",
+      "理解不十分",
+      "二次試験 事例III"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260901_053",
+    "linked_note_ids": [
+      "note_20260901_053"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_inventory",
+    "created_at": "2026-09-01 22:15:00",
+    "updated_at": "2026-09-01 23:00:00"
+  },
+  {
+    "card_id": "card_20260901_158",
+    "flashcard_id": "card_20260901_158",
+    "question": "在庫管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、在庫管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "在庫管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、在庫管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "財務強化",
+      "二次試験",
+      "理解不十分",
+      "二次試験 事例III"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260901_053",
+    "linked_note_ids": [
+      "note_20260901_053"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_inventory",
+    "created_at": "2026-09-01 22:15:00",
+    "updated_at": "2026-09-01 23:00:00"
+  },
+  {
+    "card_id": "card_20260901_159",
+    "flashcard_id": "card_20260901_159",
+    "question": "在庫管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、在庫管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "在庫管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、在庫管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "財務強化",
+      "二次試験",
+      "理解不十分",
+      "二次試験 事例III"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260901_053",
+    "linked_note_ids": [
+      "note_20260901_053"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_inventory",
+    "created_at": "2026-09-01 22:15:00",
+    "updated_at": "2026-09-01 23:00:00"
+  },
+  {
+    "card_id": "card_20260901_160",
+    "flashcard_id": "card_20260901_160",
+    "question": "在庫管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIIの論点として、在庫管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "在庫管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIIの論点として、在庫管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例III",
+    "tags": [
+      "財務強化",
+      "二次試験",
+      "理解不十分",
+      "二次試験 事例III"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260901_053",
+    "linked_note_ids": [
+      "note_20260901_053"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case3",
+    "material_id": "material_demo_case3_answers",
+    "unit_id": "unit_demo_case3_inventory",
+    "created_at": "2026-09-01 22:15:00",
+    "updated_at": "2026-09-01 23:00:00"
+  },
+  {
+    "card_id": "card_20260905_161",
+    "flashcard_id": "card_20260905_161",
+    "question": "システム開発で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営情報システムの論点として、システム開発は設問要求と制約条件を結びつけて整理する。",
+    "front": "システム開発で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営情報システムの論点として、システム開発は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営情報システム",
+    "tags": [
+      "ケース演習",
+      "財務強化",
+      "頻出",
+      "経営情報システム"
+    ],
+    "importance": "low",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260905_054",
+    "linked_note_ids": [
+      "note_20260905_054"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_development",
+    "created_at": "2026-09-05 22:00:00",
+    "updated_at": "2026-09-05 23:20:00"
+  },
+  {
+    "card_id": "card_20260905_162",
+    "flashcard_id": "card_20260905_162",
+    "question": "システム開発で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営情報システムの論点として、システム開発は設問要求と制約条件を結びつけて整理する。",
+    "front": "システム開発で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営情報システムの論点として、システム開発は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営情報システム",
+    "tags": [
+      "ケース演習",
+      "財務強化",
+      "頻出",
+      "経営情報システム"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260905_054",
+    "linked_note_ids": [
+      "note_20260905_054"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_development",
+    "created_at": "2026-09-05 22:00:00",
+    "updated_at": "2026-09-05 23:20:00"
+  },
+  {
+    "card_id": "card_20260905_163",
+    "flashcard_id": "card_20260905_163",
+    "question": "システム開発で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営情報システムの論点として、システム開発は設問要求と制約条件を結びつけて整理する。",
+    "front": "システム開発で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営情報システムの論点として、システム開発は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営情報システム",
+    "tags": [
+      "ケース演習",
+      "財務強化",
+      "頻出",
+      "経営情報システム"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260905_054",
+    "linked_note_ids": [
+      "note_20260905_054"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_development",
+    "created_at": "2026-09-05 22:00:00",
+    "updated_at": "2026-09-05 23:20:00"
+  },
+  {
+    "card_id": "card_20260905_164",
+    "flashcard_id": "card_20260905_164",
+    "question": "システム開発で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営情報システムの論点として、システム開発は設問要求と制約条件を結びつけて整理する。",
+    "front": "システム開発で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営情報システムの論点として、システム開発は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営情報システム",
+    "tags": [
+      "ケース演習",
+      "財務強化",
+      "頻出",
+      "経営情報システム"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260905_054",
+    "linked_note_ids": [
+      "note_20260905_054"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_information",
+    "material_id": "material_demo_information_text",
+    "unit_id": "unit_demo_information_development",
+    "created_at": "2026-09-05 22:00:00",
+    "updated_at": "2026-09-05 23:20:00"
+  },
+  {
+    "card_id": "card_20260908_165",
+    "flashcard_id": "card_20260908_165",
+    "question": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "front": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "頻出",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260908_055",
+    "linked_note_ids": [
+      "note_20260908_055"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_statements",
+    "created_at": "2026-09-08 22:00:00",
+    "updated_at": "2026-09-08 23:20:00"
+  },
+  {
+    "card_id": "card_20260908_166",
+    "flashcard_id": "card_20260908_166",
+    "question": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "front": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "頻出",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260908_055",
+    "linked_note_ids": [
+      "note_20260908_055"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_statements",
+    "created_at": "2026-09-08 22:00:00",
+    "updated_at": "2026-09-08 23:20:00"
+  },
+  {
+    "card_id": "card_20260908_167",
+    "flashcard_id": "card_20260908_167",
+    "question": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "front": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "頻出",
+      "財務・会計"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260908_055",
+    "linked_note_ids": [
+      "note_20260908_055"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_statements",
+    "created_at": "2026-09-08 22:00:00",
+    "updated_at": "2026-09-08 23:20:00"
+  },
+  {
+    "card_id": "card_20260908_168",
+    "flashcard_id": "card_20260908_168",
+    "question": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "answer": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "front": "財務諸表で押さえるべき判断基準を1つ説明してください。",
+    "back": "財務・会計の論点として、財務諸表は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "財務・会計",
+    "tags": [
+      "頻出",
+      "財務・会計"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260908_055",
+    "linked_note_ids": [
+      "note_20260908_055"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_finance",
+    "material_id": "material_demo_finance_workbook",
+    "unit_id": "unit_demo_finance_statements",
+    "created_at": "2026-09-08 22:00:00",
+    "updated_at": "2026-09-08 23:20:00"
+  },
+  {
+    "card_id": "card_20260909_169",
+    "flashcard_id": "card_20260909_169",
+    "question": "CVP分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、CVP分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "CVP分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、CVP分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "ケース演習",
+      "要復習",
+      "白書確認",
+      "二次試験 事例IV"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260909_056",
+    "linked_note_ids": [
+      "note_20260909_056"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_cvp",
+    "created_at": "2026-09-09 21:00:00",
+    "updated_at": "2026-09-09 23:20:00"
+  },
+  {
+    "card_id": "card_20260909_170",
+    "flashcard_id": "card_20260909_170",
+    "question": "CVP分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IVの論点として、CVP分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "CVP分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IVの論点として、CVP分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例IV",
+    "tags": [
+      "ケース演習",
+      "要復習",
+      "白書確認",
+      "二次試験 事例IV"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260909_056",
+    "linked_note_ids": [
+      "note_20260909_056"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case4",
+    "material_id": "material_demo_case4_workbook",
+    "unit_id": "unit_demo_case4_cvp",
+    "created_at": "2026-09-09 21:00:00",
+    "updated_at": "2026-09-09 23:20:00"
+  },
+  {
+    "card_id": "card_20260913_171",
+    "flashcard_id": "card_20260913_171",
+    "question": "顧客分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIの論点として、顧客分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "顧客分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIの論点として、顧客分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例II",
+    "tags": [
+      "頻出",
+      "二次試験",
+      "財務強化",
+      "二次試験 事例II"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260913_057",
+    "linked_note_ids": [
+      "note_20260913_057"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case2",
+    "material_id": "material_demo_case2_answers",
+    "unit_id": "unit_demo_case2_customer",
+    "created_at": "2026-09-13 22:30:00",
+    "updated_at": "2026-09-13 23:00:00"
+  },
+  {
+    "card_id": "card_20260913_172",
+    "flashcard_id": "card_20260913_172",
+    "question": "顧客分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例IIの論点として、顧客分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "顧客分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例IIの論点として、顧客分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例II",
+    "tags": [
+      "頻出",
+      "二次試験",
+      "財務強化",
+      "二次試験 事例II"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260913_057",
+    "linked_note_ids": [
+      "note_20260913_057"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case2",
+    "material_id": "material_demo_case2_answers",
+    "unit_id": "unit_demo_case2_customer",
+    "created_at": "2026-09-13 22:30:00",
+    "updated_at": "2026-09-13 23:00:00"
+  },
+  {
+    "card_id": "card_20260914_173",
+    "flashcard_id": "card_20260914_173",
+    "question": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "front": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "白書確認",
+      "ケース演習",
+      "二次試験",
+      "二次試験 事例I"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260914_058",
+    "linked_note_ids": [
+      "note_20260914_058"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_successor",
+    "created_at": "2026-09-14 20:30:00",
+    "updated_at": "2026-09-14 23:00:00"
+  },
+  {
+    "card_id": "card_20260914_174",
+    "flashcard_id": "card_20260914_174",
+    "question": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "front": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "白書確認",
+      "ケース演習",
+      "二次試験",
+      "二次試験 事例I"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260914_058",
+    "linked_note_ids": [
+      "note_20260914_058"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_successor",
+    "created_at": "2026-09-14 20:30:00",
+    "updated_at": "2026-09-14 23:00:00"
+  },
+  {
+    "card_id": "card_20260914_175",
+    "flashcard_id": "card_20260914_175",
+    "question": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "answer": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "front": "後継者育成で押さえるべき判断基準を1つ説明してください。",
+    "back": "二次試験 事例Iの論点として、後継者育成は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "二次試験 事例I",
+    "tags": [
+      "白書確認",
+      "ケース演習",
+      "二次試験",
+      "二次試験 事例I"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260914_058",
+    "linked_note_ids": [
+      "note_20260914_058"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_case1",
+    "material_id": "material_demo_case1_answers",
+    "unit_id": "unit_demo_case1_successor",
+    "created_at": "2026-09-14 20:30:00",
+    "updated_at": "2026-09-14 23:00:00"
+  },
+  {
+    "card_id": "card_20260916_176",
+    "flashcard_id": "card_20260916_176",
+    "question": "知的財産権で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、知的財産権は設問要求と制約条件を結びつけて整理する。",
+    "front": "知的財産権で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、知的財産権は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "理解不十分",
+      "頻出",
+      "経営法務"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260916_059",
+    "linked_note_ids": [
+      "note_20260916_059"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_ip",
+    "created_at": "2026-09-16 21:00:00",
+    "updated_at": "2026-09-16 23:20:00"
+  },
+  {
+    "card_id": "card_20260916_177",
+    "flashcard_id": "card_20260916_177",
+    "question": "知的財産権で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経営法務の論点として、知的財産権は設問要求と制約条件を結びつけて整理する。",
+    "front": "知的財産権で押さえるべき判断基準を1つ説明してください。",
+    "back": "経営法務の論点として、知的財産権は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経営法務",
+    "tags": [
+      "理解不十分",
+      "頻出",
+      "経営法務"
+    ],
+    "importance": "normal",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260916_059",
+    "linked_note_ids": [
+      "note_20260916_059"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_legal",
+    "material_id": "material_demo_legal_workbook",
+    "unit_id": "unit_demo_legal_ip",
+    "created_at": "2026-09-16 21:00:00",
+    "updated_at": "2026-09-16 23:20:00"
+  },
+  {
+    "card_id": "card_20260917_178",
+    "flashcard_id": "card_20260917_178",
+    "question": "AD-AS分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経済学・経済政策の論点として、AD-AS分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "AD-AS分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "経済学・経済政策の論点として、AD-AS分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経済学・経済政策",
+    "tags": [
+      "白書確認",
+      "財務強化",
+      "経済学・経済政策"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260917_060",
+    "linked_note_ids": [
+      "note_20260917_060"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_economics",
+    "material_id": "material_demo_economics_workbook",
+    "unit_id": "unit_demo_economics_adas",
+    "created_at": "2026-09-17 22:00:00",
+    "updated_at": "2026-09-17 23:20:00"
+  },
+  {
+    "card_id": "card_20260917_179",
+    "flashcard_id": "card_20260917_179",
+    "question": "AD-AS分析で押さえるべき判断基準を1つ説明してください。",
+    "answer": "経済学・経済政策の論点として、AD-AS分析は設問要求と制約条件を結びつけて整理する。",
+    "front": "AD-AS分析で押さえるべき判断基準を1つ説明してください。",
+    "back": "経済学・経済政策の論点として、AD-AS分析は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "経済学・経済政策",
+    "tags": [
+      "白書確認",
+      "財務強化",
+      "経済学・経済政策"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260917_060",
+    "linked_note_ids": [
+      "note_20260917_060"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_economics",
+    "material_id": "material_demo_economics_workbook",
+    "unit_id": "unit_demo_economics_adas",
+    "created_at": "2026-09-17 22:00:00",
+    "updated_at": "2026-09-17 23:20:00"
+  },
+  {
+    "card_id": "card_20260919_180",
+    "flashcard_id": "card_20260919_180",
+    "question": "店舗管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "運営管理の論点として、店舗管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "店舗管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "運営管理の論点として、店舗管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "運営管理",
+    "tags": [
+      "ケース演習",
+      "二次試験",
+      "財務強化",
+      "運営管理"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260919_061",
+    "linked_note_ids": [
+      "note_20260919_061"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_operations",
+    "material_id": "material_demo_operations_text",
+    "unit_id": "unit_demo_operations_store",
+    "created_at": "2026-09-19 20:15:00",
+    "updated_at": "2026-09-19 23:40:00"
+  },
+  {
+    "card_id": "card_20260919_181",
+    "flashcard_id": "card_20260919_181",
+    "question": "店舗管理で押さえるべき判断基準を1つ説明してください。",
+    "answer": "運営管理の論点として、店舗管理は設問要求と制約条件を結びつけて整理する。",
+    "front": "店舗管理で押さえるべき判断基準を1つ説明してください。",
+    "back": "運営管理の論点として、店舗管理は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "運営管理",
+    "tags": [
+      "ケース演習",
+      "二次試験",
+      "財務強化",
+      "運営管理"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260919_061",
+    "linked_note_ids": [
+      "note_20260919_061"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_operations",
+    "material_id": "material_demo_operations_text",
+    "unit_id": "unit_demo_operations_store",
+    "created_at": "2026-09-19 20:15:00",
+    "updated_at": "2026-09-19 23:40:00"
+  },
+  {
+    "card_id": "card_20260920_182",
+    "flashcard_id": "card_20260920_182",
+    "question": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "頻出",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260920_062",
+    "linked_note_ids": [
+      "note_20260920_062"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_competition",
+    "created_at": "2026-09-20 22:30:00",
+    "updated_at": "2026-09-20 23:00:00"
+  },
+  {
+    "card_id": "card_20260920_183",
+    "flashcard_id": "card_20260920_183",
+    "question": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "頻出",
+      "企業経営理論"
+    ],
+    "importance": "high",
+    "need_review": false,
+    "important": false,
+    "source_note_id": "note_20260920_062",
+    "linked_note_ids": [
+      "note_20260920_062"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_competition",
+    "created_at": "2026-09-20 22:30:00",
+    "updated_at": "2026-09-20 23:00:00"
+  },
+  {
+    "card_id": "card_20260920_184",
+    "flashcard_id": "card_20260920_184",
+    "question": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "頻出",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260920_062",
+    "linked_note_ids": [
+      "note_20260920_062"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_competition",
+    "created_at": "2026-09-20 22:30:00",
+    "updated_at": "2026-09-20 23:00:00"
+  },
+  {
+    "card_id": "card_20260920_185",
+    "flashcard_id": "card_20260920_185",
+    "question": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "answer": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "front": "競争戦略で押さえるべき判断基準を1つ説明してください。",
+    "back": "企業経営理論の論点として、競争戦略は設問要求と制約条件を結びつけて整理する。",
+    "explanation": "デモデータ: ノートから作成された復習カードです。",
+    "genre": "企業経営理論",
+    "tags": [
+      "頻出",
+      "企業経営理論"
+    ],
+    "importance": "normal",
+    "need_review": true,
+    "important": true,
+    "source_note_id": "note_20260920_062",
+    "linked_note_ids": [
+      "note_20260920_062"
+    ],
+    "project_id": "project_demo_consultant",
+    "subject_id": "subject_demo_strategy",
+    "material_id": "material_demo_strategy_text",
+    "unit_id": "unit_demo_strategy_competition",
+    "created_at": "2026-09-20 22:30:00",
+    "updated_at": "2026-09-20 23:00:00"
+  }
+]

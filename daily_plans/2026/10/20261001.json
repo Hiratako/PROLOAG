@@ -1,0 +1,63 @@
+{
+  "plan_id": "plan_20261001",
+  "date": "2026-10-01",
+  "target_total_minutes": 240,
+  "focus_subjects": [
+    "二次試験 事例I",
+    "経済学・経済政策",
+    "財務・会計"
+  ],
+  "materials": [
+    "ふぞろいな合格答案 事例I",
+    "経済学 計算問題トレーニング",
+    "財務・会計 過去問完全マスター"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20261001_001",
+      "title": "二次試験 事例I：組織構造 過去問演習",
+      "subject": "二次試験 事例I",
+      "material": "ふぞろいな合格答案 事例I",
+      "planned_minutes": 60,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case1",
+      "material_id": "material_demo_case1_answers",
+      "unit_id": "unit_demo_case1_org_structure"
+    },
+    {
+      "task_id": "task_20261001_002",
+      "title": "財務・会計：投資評価 一問一答",
+      "subject": "財務・会計",
+      "material": "財務・会計 過去問完全マスター",
+      "planned_minutes": 90,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_finance",
+      "material_id": "material_demo_finance_workbook",
+      "unit_id": "unit_demo_finance_investment"
+    },
+    {
+      "task_id": "task_20261001_003",
+      "title": "経済学・経済政策：ゲーム理論 答案骨子作成",
+      "subject": "経済学・経済政策",
+      "material": "経済学 計算問題トレーニング",
+      "planned_minutes": 30,
+      "status": "not_started",
+      "linked_note_ids": [],
+      "linked_session_ids": [],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_economics",
+      "material_id": "material_demo_economics_workbook",
+      "unit_id": "unit_demo_economics_game_theory"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-10-01 07:30:00",
+  "updated_at": "2026-10-01 07:30:00"
+}

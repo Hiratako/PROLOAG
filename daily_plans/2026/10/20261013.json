@@ -1,0 +1,51 @@
+{
+  "plan_id": "plan_20261013",
+  "date": "2026-10-13",
+  "target_total_minutes": 210,
+  "focus_subjects": [
+    "ビジネス英語",
+    "企業経営理論"
+  ],
+  "materials": [
+    "企業経営理論 スピードテキスト",
+    "海外ビジネス記事読解"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20261013_001",
+      "title": "ビジネス英語：交渉表現 復習",
+      "subject": "ビジネス英語",
+      "material": "海外ビジネス記事読解",
+      "planned_minutes": 60,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261013_001"
+      ],
+      "project_id": "project_demo_business_english",
+      "subject_id": "subject_demo_business_english",
+      "material_id": "material_demo_business_article",
+      "unit_id": "unit_demo_business_english_negotiation"
+    },
+    {
+      "task_id": "task_20261013_002",
+      "title": "企業経営理論：競争戦略 一問一答",
+      "subject": "企業経営理論",
+      "material": "企業経営理論 スピードテキスト",
+      "planned_minutes": 90,
+      "status": "in_progress",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20261013_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_strategy",
+      "material_id": "material_demo_strategy_text",
+      "unit_id": "unit_demo_strategy_competition"
+    }
+  ],
+  "review_note_ids": [],
+  "review_card_ids": [],
+  "created_at": "2026-10-13 07:30:00",
+  "updated_at": "2026-10-13 07:30:00"
+}

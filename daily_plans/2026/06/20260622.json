@@ -1,0 +1,56 @@
+{
+  "plan_id": "plan_20260622",
+  "date": "2026-06-22",
+  "target_total_minutes": 150,
+  "focus_subjects": [
+    "中小企業経営・政策",
+    "二次試験 事例IV"
+  ],
+  "materials": [
+    "中小企業白書・施策整理",
+    "事例IV 計算問題集"
+  ],
+  "tasks": [
+    {
+      "task_id": "task_20260622_001",
+      "title": "二次試験 事例IV：経営分析 答案骨子作成",
+      "subject": "二次試験 事例IV",
+      "material": "事例IV 計算問題集",
+      "planned_minutes": 90,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260622_002"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_case4",
+      "material_id": "material_demo_case4_workbook",
+      "unit_id": "unit_demo_case4_financial_analysis"
+    },
+    {
+      "task_id": "task_20260622_002",
+      "title": "中小企業経営・政策：白書統計 一問一答",
+      "subject": "中小企業経営・政策",
+      "material": "中小企業白書・施策整理",
+      "planned_minutes": 45,
+      "status": "done",
+      "linked_note_ids": [],
+      "linked_session_ids": [
+        "session_20260622_001"
+      ],
+      "project_id": "project_demo_consultant",
+      "subject_id": "subject_demo_policy",
+      "material_id": "material_demo_policy_whitepaper",
+      "unit_id": "unit_demo_policy_whitepaper_stats"
+    }
+  ],
+  "review_note_ids": [
+    "note_20260615_016"
+  ],
+  "review_card_ids": [
+    "card_20260615_045",
+    "card_20260615_046"
+  ],
+  "created_at": "2026-06-22 07:30:00",
+  "updated_at": "2026-06-22 07:30:00"
+}

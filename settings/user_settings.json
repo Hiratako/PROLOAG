@@ -1,0 +1,40 @@
+{
+  "timer": {
+    "hourly_rate": 2200,
+    "goal_minutes": 180,
+    "overtime_enabled": true,
+    "overtime_multiplier": 1.25,
+    "overtime_threshold_hours": 8.0
+  },
+  "diary": {
+    "caffeine_mg": 120,
+    "investment_row_count": 3
+  },
+  "health": {
+    "bed_time": "23:30",
+    "wake_time": "06:30",
+    "sleep_quality": 3,
+    "fatigue": 3,
+    "stress": 3,
+    "focus_score": 3,
+    "physical_score": 3
+  },
+  "exercise": {
+    "type": "running",
+    "duration_min": 0,
+    "distance_km": 0.0,
+    "intensity": 5,
+    "fatigue_after": 3
+  },
+  "display": {
+    "hidden_sidebar_pages": [],
+    "show_task_metrics": true,
+    "theme_mode": "standard",
+    "period_label": "直近30日"
+  },
+  "countdown": {
+    "enabled": true,
+    "title": "模擬試験（デモ）",
+    "target_date": "2026-12-05"
+  }
+}
