@@ -1,11 +1,16 @@
 from __future__ import annotations
 
+import logging
+
 import streamlit as st
 
 from prolog_ui import components as ui
 from web_demo.catalog import PRODUCT_VIEWS, VIEW_RENDER_LOCK, render_product_view
 from web_demo.data import PERIOD_START, REFERENCE_DATE
 from web_demo.navigation import PAGES_STATE_KEY
+
+
+LOGGER = logging.getLogger(__name__)
 
 
 NAV_SECTIONS = {
@@ -174,6 +179,7 @@ def run() -> None:
         from web_demo.sandbox import ensure_session_sandbox, sandbox_context
         handle = ensure_session_sandbox()
     except (OSError, ValueError, RuntimeError):
+        LOGGER.exception("Web experience sandbox preparation failed")
         st.error("体験データを準備できませんでした。少し待ってから開き直してください。")
         st.stop()
     with sandbox_context(handle):
