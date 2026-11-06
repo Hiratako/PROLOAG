@@ -1,0 +1,292 @@
+:root {
+  --ab-primary: #003B71;
+  --ab-primary-2: #075c9f;
+  --ab-accent: #00a3e0;
+  --ab-ink: #152238;
+  --ab-muted: #667085;
+  --ab-line: #d9e2ec;
+  --ab-bg: #f4f7fb;
+  --ab-card: #ffffff;
+  --ab-panel: #ffffff;
+  --ab-panel-2: #e8eef5;
+  --ab-input: #ffffff;
+  --ab-primary-soft: rgba(0, 59, 113, 0.12);
+  --ab-focus-ring: rgba(0, 59, 113, 0.24);
+  --ab-shadow: rgba(15, 35, 55, 0.08);
+  --ab-app-background: linear-gradient(180deg, #f7fbff 0%, #f4f7fb 42%, #eef4f8 100%);
+  --ab-sidebar-background: #ffffff;
+  --ab-button-bg: #003b71;
+  --ab-button-hover: #075c9f;
+  --ab-button-active: #002d57;
+  --ab-button-disabled: #60758a;
+  --ab-button-text: #ffffff;
+  accent-color: var(--ab-primary);
+}
+
+/* Streamlit 1.57: hide recording only; keep print and theme controls. */
+[data-testid="stMainMenuItem-recordScreencast"] {
+  display: none !important;
+}
+
+.stApp {
+  background: var(--ab-app-background);
+  color: var(--ab-ink);
+  --primary-color: var(--ab-primary);
+  --primary-color-light: rgba(0, 58, 112, 0.12);
+}
+
+[data-testid="stSidebar"] {
+  background: var(--ab-sidebar-background);
+  border-right: 1px solid var(--ab-line);
+}
+
+.ab-topbar {
+  background: linear-gradient(135deg, var(--ab-primary) 0%, #0d4f87 62%, var(--ab-accent) 100%);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin: 4px 0 22px;
+  box-shadow: 0 16px 40px var(--ab-shadow);
+}
+
+.ab-topbar h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 2.4vw, 2.6rem);
+  letter-spacing: 0;
+}
+
+.ab-topbar p {
+  margin: 8px 0 0;
+  opacity: 0.9;
+}
+
+.ab-eyebrow {
+  margin: 0 0 8px !important;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.78 !important;
+}
+
+.ab-sidebar-title {
+  color: var(--ab-primary);
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin: 8px 0 2px;
+}
+
+.ab-sidebar-group {
+  color: var(--ab-ink);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin: 10px 0 4px;
+}
+
+.ab-card,
+.ab-metric {
+  background: var(--ab-card);
+  border: 1px solid var(--ab-line);
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 22px var(--ab-shadow);
+}
+
+.ab-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ab-primary);
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.ab-card-icon,
+.ab-metric-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+}
+
+.ab-card-body {
+  color: var(--ab-muted);
+  line-height: 1.7;
+}
+
+.ab-metric {
+  min-height: 138px;
+}
+
+.ab-metric-label {
+  color: var(--ab-muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+  min-height: 1.5rem;
+}
+
+.ab-metric-value {
+  color: var(--ab-primary);
+  font-weight: 900;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  margin-top: 12px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.ab-metric-caption {
+  color: var(--ab-muted);
+  font-size: 0.82rem;
+  margin-top: 6px;
+}
+
+.stButton > button,
+.stDownloadButton > button,
+[data-testid="stFormSubmitButton"] > button,
+.stLinkButton > a,
+[data-testid="stPageLink"] a {
+  border-radius: 6px !important;
+  border-color: var(--ab-primary) !important;
+}
+
+.stButton > button,
+.stDownloadButton > button,
+[data-testid="stFormSubmitButton"] > button,
+.stLinkButton > a {
+  background: var(--ab-button-bg) !important;
+  border-color: var(--ab-button-bg) !important;
+  color: var(--ab-button-text) !important;
+}
+
+.stButton > button *,
+.stDownloadButton > button *,
+[data-testid="stFormSubmitButton"] > button *,
+.stLinkButton > a * {
+  color: var(--ab-button-text) !important;
+}
+
+[data-testid="stPageLink"] a {
+  color: var(--ab-primary) !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+}
+
+[data-testid="stPageLink"] a:hover {
+  color: var(--ab-primary-2) !important;
+  text-decoration: underline !important;
+}
+
+.stProgress > div > div > div > div {
+  background-color: var(--ab-accent);
+}
+
+.stCheckbox input,
+.stRadio input,
+.stToggle input {
+  accent-color: var(--ab-primary) !important;
+}
+
+[data-testid="stCheckbox"] input:checked,
+[data-testid="stRadio"] input:checked,
+[data-testid="stToggle"] input:checked {
+  accent-color: var(--ab-primary) !important;
+}
+
+[data-testid="stCheckbox"] [aria-checked="true"],
+[data-testid="stRadio"] [aria-checked="true"],
+[data-testid="stToggle"] [aria-checked="true"],
+button[role="switch"][aria-checked="true"] {
+  background-color: var(--ab-primary) !important;
+  border-color: var(--ab-primary) !important;
+}
+
+button[role="switch"][aria-checked="true"] * {
+  border-color: var(--ab-primary) !important;
+}
+
+/* Streamlit widget internals are not part of a stable public API.
+   These narrow overrides keep checkbox/toggle/switch accents aligned with
+   the app theme, but may need revisiting after a Streamlit upgrade. */
+div[data-testid="stCheckbox"] span:has(+ input[type="checkbox"]:checked),
+div[data-testid="stToggle"] span:has(+ input[type="checkbox"]:checked),
+label[data-baseweb="checkbox"] span:has(+ input[type="checkbox"]:checked) {
+  background-color: var(--ab-primary) !important;
+  border-color: var(--ab-primary) !important;
+}
+
+div[data-testid="stCheckbox"] span:has(+ input[type="checkbox"]:checked):hover,
+div[data-testid="stToggle"] span:has(+ input[type="checkbox"]:checked):hover,
+label[data-baseweb="checkbox"] span:has(+ input[type="checkbox"]:checked):hover {
+  background-color: var(--ab-primary-2) !important;
+  border-color: var(--ab-primary-2) !important;
+}
+
+div[data-testid="stCheckbox"] input[type="checkbox"]:focus + span,
+div[data-testid="stToggle"] input[type="checkbox"]:focus + span,
+label[data-baseweb="checkbox"] input[type="checkbox"]:focus + span {
+  box-shadow: 0 0 0 2px var(--ab-focus-ring) !important;
+}
+
+[data-testid="stSlider"] [role="slider"] {
+  background-color: var(--ab-primary) !important;
+  border-color: var(--ab-primary) !important;
+}
+
+[data-testid="stSlider"] div[data-baseweb="slider"] > div {
+  color: var(--ab-primary) !important;
+}
+
+div[data-baseweb="select"] div[aria-selected="true"],
+div[data-baseweb="menu"] li[aria-selected="true"] {
+  background-color: var(--ab-primary-soft) !important;
+}
+
+/* Open expanders use a quiet blue surface so nested sections stay visible. */
+div[data-testid="stExpander"] > details[open] {
+  background: var(--ab-panel-2);
+  border-color: var(--ab-line);
+  box-shadow: inset 3px 0 0 var(--ab-primary-soft);
+}
+
+div[data-testid="stExpander"] > details[open] > summary {
+  background: var(--ab-primary-soft);
+  border-bottom: 1px solid var(--ab-line);
+}
+
+div[data-testid="stExpander"] div[data-testid="stExpander"] > details {
+  margin-left: 10px;
+  border-left: 3px solid var(--ab-accent);
+}
+
+div[data-testid="stExpander"] div[data-testid="stExpander"] > details[open] {
+  background: var(--ab-panel-2);
+  box-shadow: none;
+}
+
+.stButton > button:hover:not(:disabled),
+.stDownloadButton > button:hover:not(:disabled),
+[data-testid="stFormSubmitButton"] > button:hover:not(:disabled),
+.stLinkButton > a:hover {
+  background: var(--ab-button-hover) !important;
+  border-color: var(--ab-button-hover) !important;
+  color: var(--ab-button-text) !important;
+}
+
+.stButton > button:active:not(:disabled),
+.stDownloadButton > button:active:not(:disabled),
+[data-testid="stFormSubmitButton"] > button:active:not(:disabled),
+.stLinkButton > a:active {
+  background: var(--ab-button-active) !important;
+  border-color: var(--ab-button-active) !important;
+}
+
+.stButton > button:disabled,
+.stDownloadButton > button:disabled,
+[data-testid="stFormSubmitButton"] > button:disabled {
+  background: var(--ab-button-disabled) !important;
+  border-color: var(--ab-button-disabled) !important;
+  color: var(--ab-button-text) !important;
+  opacity: 0.62;
+}

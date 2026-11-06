@@ -1,0 +1,4 @@
+# Optional Google sharing dependencies; the main application imports without these.
+google-auth>=2.38.0,<3
+google-auth-oauthlib>=1.2.2,<2
+requests>=2.32.3,<3

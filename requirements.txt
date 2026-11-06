@@ -1,0 +1,7 @@
+streamlit
+pandas
+matplotlib
+seaborn
+scipy
+japanize-matplotlib
+plotly>=6.9,<7

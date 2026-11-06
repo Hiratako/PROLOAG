@@ -1,0 +1,46 @@
+[theme]
+base = "light"
+primaryColor = "#003B71"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F4F7FB"
+textColor = "#111827"
+linkColor = "#003B71"
+borderColor = "#D0D7E2"
+showWidgetBorder = true
+
+[theme.sidebar]
+primaryColor = "#003B71"
+backgroundColor = "#F7F9FC"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#111827"
+linkColor = "#003B71"
+borderColor = "#D0D7E2"
+showWidgetBorder = true
+
+[client]
+showSidebarNavigation = false
+showErrorDetails = "none"
+toolbarMode = "viewer"
+
+[server]
+address = "localhost"
+port = 8502
+headless = true
+enableCORS = true
+enableXsrfProtection = true
+maxUploadSize = 20
+folderWatchBlacklist = [
+  "study_logs",
+  "daily_plans",
+  "notes_data",
+  "master_data",
+  "diary_entries",
+  "health_logs",
+  "exercise_logs",
+  "statistics_practice",
+  "backups",
+  ".deps311",
+  ".deps312",
+  ".venv",
+  "__pycache__"
+]
