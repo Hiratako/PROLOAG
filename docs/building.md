@@ -25,7 +25,7 @@ py -3.11 scripts/build_public_release.py --check --version 0.1.0-preview.2
 
 ## 通常版とDemo版を作る
 
-以下は、まだ一般配布していない`0.1.0-preview.2`下書きの利用条件を更新する今回の例です。公開済み版を変更する場合は新しい識別版を使いますが、今回は未公開下書きで添付の取得がないことを確認しているため、版番号を増やさず、通常版・Demo版ZIPとチェックサム等の添付を差し替えます。
+以下は、2026年11月7日に、公開前の`0.1.0-preview.2`下書きを利用条件入りの内容へ更新した際の作成例です。当時は未公開で添付の取得がないことを確認し、版番号を増やさずZIPとチェックサム等を差し替えました。現在は[同版のRelease](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2)を公開済みです。公開済み版を変更する場合は、新しい識別版を使用してください。
 
 ```powershell
 py -3.11 scripts/build_public_release.py --version 0.1.0-preview.2 --reference-date 2026-11-05 --days 180 --seed 20261105
@@ -79,6 +79,6 @@ py -3.11 scripts/build_public_release.py --version 0.1.0-preview.2 --reference-d
 
 ## ソースと過去の配布物の対応
 
-`0.1.0-preview.2`は、成分初期例を統一し、独自の利用条件を同梱する未公開の配布準備版です。既存のRelease下書きの添付だけを更新し、新しいReleaseやタグは作成しません。元の`0.1.0-preview.2` ZIP、利用条件入りの`0.1.0-preview.3`試作ZIP、初期の`0.1.0-preview.1` ZIP、準備時点の`SOURCE_MANIFEST.json`はローカルの履歴資料として保管し、上書きしません。同じアプリソースでも、Python版、EXEコンパイル、ZIPの時刻等でバイト列は変わるため、過去ZIPと完全同一のSHA-256になるとは限りません。
+`0.1.0-preview.2`は、成分初期例を統一し、独自の利用条件を同梱して2026年11月7日に公開したプレビュー版です。公開前に同版のRelease下書きの添付を整理しました。`0.1.0-preview.3`のReleaseやタグは作成していません。元の`0.1.0-preview.2` ZIP、利用条件入りの`0.1.0-preview.3`試作ZIP、初期の`0.1.0-preview.1` ZIP、準備時点の`SOURCE_MANIFEST.json`はローカルの履歴資料として保管し、上書きしません。同じアプリソースでも、Python版、EXEコンパイル、ZIPの時刻等でバイト列は変わるため、過去ZIPと完全同一のSHA-256になるとは限りません。
 
 Git管理されたルートから作ると、ソースcommitと未コミット差分の有無をmanifestに記録します。Git外なら未設定です。`source_dirty=true`の配布物を、そのcommitだけから作ったものと説明しないでください。公開時はソース・資料・利用条件の版を確定し、対応タグとZIPをそろえます。
