@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from contextlib import ExitStack
+from collections import Counter
+from copy import deepcopy
 from datetime import date, datetime
 import hashlib
 import json
@@ -44,9 +46,9 @@ class ConsultantDemoGeneratorTests(unittest.TestCase):
     def test_180_day_demo_integrity_defaults_and_manifest(self):
         summary = self.generate()
         self.assertEqual(summary["days"], 180)
-        self.assertEqual(summary["non_caffeine_substance_records"], 90)
-        self.assertGreater(summary["substance_records"], 90)
-        self.assertEqual(summary["substance_profiles"], 4)
+        self.assertEqual(summary["non_caffeine_substance_records"], 12)
+        self.assertGreater(summary["substance_records"], 12)
+        self.assertEqual(summary["substance_profiles"], 2)
         settings = self.read("settings/user_settings.json")
         self.assertEqual(settings["countdown"], {"enabled": True, "title": "模擬試験（デモ）", "target_date": "2026-10-11"})
         self.assertEqual(settings["display"]["hidden_sidebar_pages"], [])
@@ -74,6 +76,65 @@ class ConsultantDemoGeneratorTests(unittest.TestCase):
                 self.assertEqual(row["io_type"], row["condition"]["io_type"])
                 if index:
                     self.assertGreater(start, datetime.fromisoformat(rows[index - 1]["end_at"]))
+
+    def test_release_sample_keeps_caffeine_and_unrelated_data_with_13_new_examples(self):
+        summary = demo.build_dataset(self.root, 180, date(2026, 11, 5), 20261105, False)
+        documents = {path.relative_to(self.root).as_posix(): self.read(path.relative_to(self.root))
+                     for path in self.root.rglob("*.json") if path.name != demo.MANIFEST_NAME}
+        caffeine, unaffected, independent = {}, {}, []
+        for relative, document in documents.items():
+            if relative in {"settings/substance_profiles.json", "settings/study_roadmap.json"} or relative.startswith("daily_plans/"):
+                continue
+            value = deepcopy(document)
+            if relative.startswith("diary_entries/"):
+                records = value.pop("substance_records")
+                self.assertTrue(all(row["substance_id"] in {"caffeine", "acetaminophen"} for row in records))
+                caffeine[relative] = [row for row in records if row["substance_id"] == "caffeine"]
+                independent.extend(row for row in records if row["substance_id"] == "acetaminophen")
+            unaffected[relative] = value
+        def fingerprint(value):
+            raw = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+            return hashlib.sha256(raw).hexdigest()
+        # The released synthetic sample is the independent baseline. Roadmap
+        # augmentation changes daily plans, so those documents are excluded.
+        self.assertEqual(len(unaffected), 532)
+        self.assertEqual(fingerprint(unaffected), "44021cd2d7e1f63bd9d5f3b74d654bfee129e14369bf1c378dbde4288c0493fc")
+        self.assertEqual(fingerprint(caffeine), "cea0f414392271335425cd2effbadb14e7cbf9c93df0638fbd5d55cfe71cab2f")
+        self.assertEqual(sum(map(len, caffeine.values())), 239)
+        self.assertEqual(summary["non_caffeine_substance_records"], 13)
+        self.assertEqual(summary["substance_records"], 252)
+        self.assertEqual({row["taken_at"][:10] for row in independent}, {
+            "2026-05-10", "2026-05-27", "2026-06-01", "2026-06-19",
+            "2026-07-13", "2026-07-24", "2026-08-15", "2026-08-30",
+            "2026-09-15", "2026-09-20", "2026-10-08", "2026-10-18", "2026-11-05",
+        })
+        profile = next(row for row in default_substance_profiles() if row["substance_id"] == "acetaminophen")
+        for row in independent:
+            self.assertEqual(row["amount_mg"], 300.0)
+            self.assertTrue(row["taken_at"].endswith("T14:00:00"))
+            self.assertEqual(row["model_snapshot"], demo._model_snapshot(profile))
+            self.assertTrue(row["substance_record_id"].startswith("acetaminophen_demo_consultant_"))
+
+    def test_sparse_examples_remain_in_range_for_short_and_cross_year_datasets(self):
+        cases = ((1, date(2027, 1, 5), 7), (45, date(2027, 1, 24), 19),
+                 (60, date(2028, 3, 3), 123))
+        for days, end_date, seed in cases:
+            root = self.temporary / f"consultant_demo_{days}_{seed}" / "app"
+            root.mkdir(parents=True)
+            (root / "main.py").write_text("# Synthetic test scaffold\n", encoding="utf-8")
+            summary = demo.build_dataset(root, days, end_date, seed, False)
+            rows = [row for path in (root / "diary_entries").rglob("*.json")
+                    for row in json.loads(path.read_text(encoding="utf-8"))["substance_records"]
+                    if row["substance_id"] == "acetaminophen"]
+            dates = [date.fromisoformat(row["taken_at"][:10]) for row in rows]
+            start = end_date.fromordinal(end_date.toordinal() - days + 1)
+            self.assertEqual(len(dates), len(set(dates)))
+            self.assertTrue(all(start <= day <= end_date for day in dates))
+            self.assertTrue(all(count <= 2 for count in Counter(day.strftime("%Y-%m") for day in dates).values()))
+            self.assertEqual(summary["non_caffeine_substance_records"], len(rows))
+            first = {path.relative_to(root): path.read_bytes() for path in root.rglob("*.json")}
+            demo.build_dataset(root, days, end_date, seed, True)
+            self.assertEqual(first, {path.relative_to(root): path.read_bytes() for path in root.rglob("*.json")})
 
     def test_fresh_portable_empty_scaffold_is_allowed_without_force(self):
         for relative, value in demo.EMPTY_SCAFFOLD.items():

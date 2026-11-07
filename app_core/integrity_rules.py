@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 from app_core.json_store import record_json_files
 from app_core.navigation import NAV_GROUPS, SETTINGS_PAGE_PATH
+from app_core.substance_service import DEFAULT_SUBSTANCE_PROFILES
 
 from config import (
     DAILY_PLANS_DIR,
@@ -31,6 +32,10 @@ from config import (
 Issue = dict[str, Any]
 ERROR = "エラー"
 NOTICE = "注意"
+
+# Historical records can predate saved profile settings. These identifiers are
+# accepted only as record references; they are never starter profiles/fallbacks.
+_LEGACY_SUBSTANCE_RECORD_IDS = frozenset({"eszopiclone", "trazodone", "melatonin"})
 
 CHECK_SCOPE = [
     "JSON構文、文字コード、重複キー、NaN・Infinity",
@@ -992,7 +997,11 @@ def _validate_substances(audit: Audit, workspace: dict[str, Any]) -> None:
             "成分IDを一意にしてください。",
         )
 
-    known_profile_ids = set(profile_ids) | {"caffeine", "eszopiclone", "trazodone", "melatonin"}
+    known_profile_ids = (
+        set(profile_ids)
+        | {profile["substance_id"] for profile in DEFAULT_SUBSTANCE_PROFILES}
+        | _LEGACY_SUBSTANCE_RECORD_IDS
+    )
     stored_records: list[dict[str, Any]] = []
     signatures: dict[tuple[Any, ...], list[dict[str, Any]]] = defaultdict(list)
     for diary in workspace.get("diaries", []):

@@ -59,7 +59,7 @@ class StorageIntegrationTests(unittest.TestCase):
             taken_at = datetime(2026, 8, 28, 8, index)
             if index % 3 == 0:
                 return diary_service.add_caffeine_record(wrong_target, 10, taken_at=taken_at)
-            substance = "caffeine" if index % 3 == 1 else "melatonin"
+            substance = "caffeine" if index % 3 == 1 else "acetaminophen"
             return substance_service.add_substance_record(
                 wrong_target, substance, 10 if substance == "caffeine" else 0.5,
                 taken_at=taken_at, label="synthetic",
