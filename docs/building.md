@@ -11,24 +11,24 @@
 - リポジトリの公開用ファイル一式。Pythonランタイムやインストール済み依存はソースに含まれません。
 - 本体の利用条件はルートの`LICENSE`（PROLOAG 利用条件（販売・有料提供禁止）第1版／`LicenseRef-PROLOAG-No-Sale-1.0`）です。配布ZIPにも同じLICENSEを同梱します。利用・複製・改変・無料再配布は可能ですが、ソフトウェアまたは利用権への対価を伴う提供は禁止します。
 
-ビルドは新しい`release/`配下だけに出力します。既存の同名フォルダ・ZIP・チェックサム・ビルド結果がある場合は、上書きせず停止します。失敗時も既存配布物を削除せず、新しい版名でやり直すか、作業者が生成途中のフォルダを確認してください。
+ビルドは新しい`release/`配下だけに出力します。既存の同名フォルダ・ZIP・チェックサム・ビルド結果がある場合は、上書きせず停止します。失敗時も既存配布物を削除せず、新しい版名でやり直すか、作業者が生成途中のフォルダを確認してください。未公開下書きの添付更新でも、この上書き防止は変えません。同名出力がない別のクリーンな作業場所から作り、元のZIPや検証資料は保管してください。
 
 ## 読み取り専用で入力を確認する
 
 リポジトリのルートで実行します。
 
 ```powershell
-py -3.11 scripts/build_public_release.py --check --version 0.1.0-preview.3
+py -3.11 scripts/build_public_release.py --check --version 0.1.0-preview.2
 ```
 
 必要な公開ファイル、ライセンス状態、版名、出力先の重複を確認します。ランタイム生成、データ保存、ZIP作成、ネット通信は行いません。`--help`で全引数を確認できます。
 
 ## 通常版とDemo版を作る
 
-以下の版名は例です。既に配布した版を作り替える場合は、新しい識別版を指定してください。
+以下は、まだ一般配布していない`0.1.0-preview.2`下書きの利用条件を更新する今回の例です。公開済み版を変更する場合は新しい識別版を使いますが、今回は未公開下書きで添付の取得がないことを確認しているため、版番号を増やさず、通常版・Demo版ZIPとチェックサム等の添付を差し替えます。
 
 ```powershell
-py -3.11 scripts/build_public_release.py --version 0.1.0-preview.3 --reference-date 2026-11-05 --days 180 --seed 20261105
+py -3.11 scripts/build_public_release.py --version 0.1.0-preview.2 --reference-date 2026-11-05 --days 180 --seed 20261105
 ```
 
 既定では両方を生成します。通常版だけなら`--variant normal`、Demoだけなら`--variant demo`を指定します。Pythonが複数ある場合は、`--python "<Python 3.11 x64のpython.exe>"`で明示できます。
@@ -39,13 +39,13 @@ Demoの基準日は、その版で再現できるよう固定します。基準�
 
 ```text
 release/
-├─ proloag-v0.1.0-preview.3-windows-x64/
-├─ proloag-demo-consultant-v0.1.0-preview.3-windows-x64/
-├─ proloag-v0.1.0-preview.3-windows-x64.zip
-├─ proloag-demo-consultant-v0.1.0-preview.3-windows-x64.zip
+├─ proloag-v0.1.0-preview.2-windows-x64/
+├─ proloag-demo-consultant-v0.1.0-preview.2-windows-x64/
+├─ proloag-v0.1.0-preview.2-windows-x64.zip
+├─ proloag-demo-consultant-v0.1.0-preview.2-windows-x64.zip
 ├─ 各ZIPの.sha256
-├─ SHA256SUMS-proloag-v0.1.0-preview.3.txt
-└─ BUILD_RESULT-proloag-v0.1.0-preview.3.json
+├─ SHA256SUMS-proloag-v0.1.0-preview.2.txt
+└─ BUILD_RESULT-proloag-v0.1.0-preview.2.json
 ```
 
 配布用Python本体を同梱します。通常の初回起動では、`app/requirements-release.lock.txt`から基本ライブラリをネット経由で導入します。開発環境の`.deps311`・venv・モデル等をZIPへコピーする方式ではありません。
@@ -56,11 +56,13 @@ release/
 
 ZIPは一時的な`.zip.partial`として生成し、全ファイル一覧・CRC・各ファイルのSHA-256を照合できてから正式名へ移します。失敗した`.partial`を公開しないでください。
 
+検証済み試作ZIPの版表示・配布manifest・チェックサム等だけを調整して組み直す場合は、アプリ・Demoデータ・Pythonランタイム・LICENSEのバイト列が変わらないことを確認します。継承する画面検証と、組み直したZIPでやり直した静的検査の範囲を分けて記録します。
+
 静的検査だけでは、実画面の動作や別PCでの初回導入まで検証したことにはなりません。アプリ画面の読み取り専用検査も行う場合は、ルートの`.deps311`へ固定依存を準備し、次のように実行します。
 
 ```powershell
 py -3.11 -m pip install --target .deps311 -r requirements-release.lock.txt
-py -3.11 scripts/build_public_release.py --version 0.1.0-preview.3 --reference-date 2026-11-05 --verify-pages
+py -3.11 scripts/build_public_release.py --version 0.1.0-preview.2 --reference-date 2026-11-05 --verify-pages
 ```
 
 `--verify-pages`は既存の配布検査を呼び、通常版・Demo版ともポータルと現行全ページを自動列挙します。検査中の記録保存・外部通信・外部プロセス起動は防止し、配布内データを変更しない検査です。`.deps311`は検査専用に使い、ソースやZIPには含めません。
@@ -77,6 +79,6 @@ py -3.11 scripts/build_public_release.py --version 0.1.0-preview.3 --reference-d
 
 ## ソースと過去の配布物の対応
 
-`0.1.0-preview.3`は、独自の利用条件を確定し、ソースと配布内の案内をそろえた配布準備版です。成分初期例を統一した`0.1.0-preview.2`、初期の`0.1.0-preview.1`のZIP、準備時点の`SOURCE_MANIFEST.json`は履歴として保持し、上書きしません。同じアプリソースでも、Python版、EXEコンパイル、ZIPの時刻等でバイト列は変わるため、過去ZIPと完全同一のSHA-256になるとは限りません。
+`0.1.0-preview.2`は、成分初期例を統一し、独自の利用条件を同梱する未公開の配布準備版です。既存のRelease下書きの添付だけを更新し、新しいReleaseやタグは作成しません。元の`0.1.0-preview.2` ZIP、利用条件入りの`0.1.0-preview.3`試作ZIP、初期の`0.1.0-preview.1` ZIP、準備時点の`SOURCE_MANIFEST.json`はローカルの履歴資料として保管し、上書きしません。同じアプリソースでも、Python版、EXEコンパイル、ZIPの時刻等でバイト列は変わるため、過去ZIPと完全同一のSHA-256になるとは限りません。
 
 Git管理されたルートから作ると、ソースcommitと未コミット差分の有無をmanifestに記録します。Git外なら未設定です。`source_dirty=true`の配布物を、そのcommitだけから作ったものと説明しないでください。公開時はソース・資料・利用条件の版を確定し、対応タグとZIPをそろえます。
