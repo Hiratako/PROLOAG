@@ -9,7 +9,7 @@
 - Windows x64と、標準インストール版のPython 3.11 x64。
 - Windows PowerShellと.NETのC#コンパイル機能。軽量な`PROLOAG.exe`を生成します。
 - リポジトリの公開用ファイル一式。Pythonランタイムやインストール済み依存はソースに含まれません。
-- 本体の利用条件は未確定です。現状態では`LICENSE_STATUS.md`を同梱した配布準備版を作ります。利用条件を決めた後は、同ファイルを選定した`LICENSE`へ置き換え、README等も合わせて更新します。
+- 本体の利用条件はルートの`LICENSE`（PROLOAG 利用条件（販売・有料提供禁止）第1版／`LicenseRef-PROLOAG-No-Sale-1.0`）です。配布ZIPにも同じLICENSEを同梱します。利用・複製・改変・無料再配布は可能ですが、ソフトウェアまたは利用権への対価を伴う提供は禁止します。
 
 ビルドは新しい`release/`配下だけに出力します。既存の同名フォルダ・ZIP・チェックサム・ビルド結果がある場合は、上書きせず停止します。失敗時も既存配布物を削除せず、新しい版名でやり直すか、作業者が生成途中のフォルダを確認してください。
 
@@ -18,7 +18,7 @@
 リポジトリのルートで実行します。
 
 ```powershell
-py -3.11 scripts/build_public_release.py --check
+py -3.11 scripts/build_public_release.py --check --version 0.1.0-preview.3
 ```
 
 必要な公開ファイル、ライセンス状態、版名、出力先の重複を確認します。ランタイム生成、データ保存、ZIP作成、ネット通信は行いません。`--help`で全引数を確認できます。
@@ -28,7 +28,7 @@ py -3.11 scripts/build_public_release.py --check
 以下の版名は例です。既に配布した版を作り替える場合は、新しい識別版を指定してください。
 
 ```powershell
-py -3.11 scripts/build_public_release.py --version 0.1.0-preview.2 --reference-date 2026-11-05 --days 180 --seed 20261105
+py -3.11 scripts/build_public_release.py --version 0.1.0-preview.3 --reference-date 2026-11-05 --days 180 --seed 20261105
 ```
 
 既定では両方を生成します。通常版だけなら`--variant normal`、Demoだけなら`--variant demo`を指定します。Pythonが複数ある場合は、`--python "<Python 3.11 x64のpython.exe>"`で明示できます。
@@ -39,13 +39,13 @@ Demoの基準日は、その版で再現できるよう固定します。基準�
 
 ```text
 release/
-├─ proloag-v0.1.0-preview.2-windows-x64/
-├─ proloag-demo-consultant-v0.1.0-preview.2-windows-x64/
-├─ proloag-v0.1.0-preview.2-windows-x64.zip
-├─ proloag-demo-consultant-v0.1.0-preview.2-windows-x64.zip
+├─ proloag-v0.1.0-preview.3-windows-x64/
+├─ proloag-demo-consultant-v0.1.0-preview.3-windows-x64/
+├─ proloag-v0.1.0-preview.3-windows-x64.zip
+├─ proloag-demo-consultant-v0.1.0-preview.3-windows-x64.zip
 ├─ 各ZIPの.sha256
-├─ SHA256SUMS-proloag-v0.1.0-preview.2.txt
-└─ BUILD_RESULT-proloag-v0.1.0-preview.2.json
+├─ SHA256SUMS-proloag-v0.1.0-preview.3.txt
+└─ BUILD_RESULT-proloag-v0.1.0-preview.3.json
 ```
 
 配布用Python本体を同梱します。通常の初回起動では、`app/requirements-release.lock.txt`から基本ライブラリをネット経由で導入します。開発環境の`.deps311`・venv・モデル等をZIPへコピーする方式ではありません。
@@ -60,7 +60,7 @@ ZIPは一時的な`.zip.partial`として生成し、全ファイル一覧・CRC
 
 ```powershell
 py -3.11 -m pip install --target .deps311 -r requirements-release.lock.txt
-py -3.11 scripts/build_public_release.py --version 0.1.0-preview.2 --reference-date 2026-11-05 --verify-pages
+py -3.11 scripts/build_public_release.py --version 0.1.0-preview.3 --reference-date 2026-11-05 --verify-pages
 ```
 
 `--verify-pages`は既存の配布検査を呼び、通常版・Demo版ともポータルと現行全ページを自動列挙します。検査中の記録保存・外部通信・外部プロセス起動は防止し、配布内データを変更しない検査です。`.deps311`は検査専用に使い、ソースやZIPには含めません。
@@ -71,12 +71,12 @@ py -3.11 scripts/build_public_release.py --version 0.1.0-preview.2 --reference-d
 
 配布用README等は`docs/distribution/`から組み込みます。`{{VERSION}}`、`{{REFERENCE_DATE}}`、`{{REFERENCE_DATE_JA}}`をテンプレートに使えます。初期の文書に残る既知の版・基準日の表記も置換しますが、機能説明や既知の制限は作業者が現行実装に合わせて確認してください。
 
-本体の利用条件と、`THIRD_PARTY_NOTICES.md`・`licenses/`・同梱Pythonのライセンスを配布へ含めます。LICENSEを選定しても第三者の利用条件を置き換えません。
+本体の`LICENSE`と、`THIRD_PARTY_NOTICES.md`・`licenses/`・同梱Pythonのライセンスを配布へ含めます。本体の独自利用条件は、第三者ソフトの利用条件を置き換えません。
 
 この共通ビルドはFFmpeg/FFprobe、ASR/OCR専用依存・モデル、Google認証を同梱しません。FFmpegを追加配布する場合は、選んだビルドの再配布条件に応じた資料と検証を別途準備します。
 
 ## ソースと過去の配布物の対応
 
-`0.1.0-preview.2`は、初期公開用ソースを基礎に、公開用の成分初期例とDemo生成内容をカフェイン・アセトアミノフェンへそろえた配布準備版です。旧`0.1.0-preview.1`のZIPや、初期準備時点の`SOURCE_MANIFEST.json`は履歴として保持します。同じアプリソースでも、Python版、EXEコンパイル、ZIPの時刻等でバイト列は変わるため、過去ZIPと完全同一のSHA-256になるとは限りません。
+`0.1.0-preview.3`は、独自の利用条件を確定し、ソースと配布内の案内をそろえた配布準備版です。成分初期例を統一した`0.1.0-preview.2`、初期の`0.1.0-preview.1`のZIP、準備時点の`SOURCE_MANIFEST.json`は履歴として保持し、上書きしません。同じアプリソースでも、Python版、EXEコンパイル、ZIPの時刻等でバイト列は変わるため、過去ZIPと完全同一のSHA-256になるとは限りません。
 
 Git管理されたルートから作ると、ソースcommitと未コミット差分の有無をmanifestに記録します。Git外なら未設定です。`source_dirty=true`の配布物を、そのcommitだけから作ったものと説明しないでください。公開時はソース・資料・利用条件の版を確定し、対応タグとZIPをそろえます。

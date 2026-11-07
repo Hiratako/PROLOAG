@@ -12,7 +12,7 @@ Web体験版はインストール不要です。架空180日分のデータを�
 
 Web体験版にはHobby & Toolsを含めず、Google連携による接続・データ送信も行いません。Web公開向けの構成は `codex/web-demo` ブランチで管理しています。
 
-> ソースコードをプレビュー版として公開しています。PROLOAG本体の公開ライセンスは未確定です。[LICENSE_STATUS.md](LICENSE_STATUS.md)を確認してください。
+> 独自の[利用条件](LICENSE)でソース公開しています。利用・複製・改変・無料再配布は可能ですが、ソフトウェアまたは利用権への対価を伴う提供は禁止します。
 
 このREADMEと `main` ブランチは、アプリを実行するPC内のJSONへ記録を保存するローカル版の説明・ソースです。Streamlitを使い、ブラウザで操作します。Google連携は任意の手動操作で、基本機能にGoogleアカウントやAIのAPI接続は不要です。
 
@@ -46,7 +46,7 @@ Web体験版にはHobby & Toolsを含めず、Google連携による接続・デ�
 
 Windows通常版・Demo版ZIPは作成済みですが、一般配布はまだ開始していません。GitHubのReleasesは下書き段階で、公開済みZIPのダウンロード先はありません。ブラウザで試す場合は公開中のWeb体験版をご利用ください。このmainブランチから得るソースには、Pythonランタイム・導入済みライブラリ・個人記録を含めません。
 
-公開用の成分初期例は、Web体験版と同じ「カフェイン」「アセトアミノフェン」です。Windows配布準備版`0.1.0-preview.2`もこの初期例を使用し、Demo版の成分記録は独立して生成した架空サンプルです。成分・量・モデルは表示機能の例で、実際の服用や推奨を示しません。既存利用者が保存した独自成分や過去の記録を削除する変更ではありません。
+公開用の成分初期例は、Web体験版と同じ「カフェイン」「アセトアミノフェン」です。利用条件を同梱する新しいWindows配布準備版`0.1.0-preview.3`もこの初期例を使用し、Demo版の成分記録は独立して生成した架空サンプルです。成分・量・モデルは表示機能の例で、実際の服用や推奨を示しません。既存利用者が保存した独自成分や過去の記録を削除する変更ではありません。
 
 ## ソースから起動する
 
@@ -100,7 +100,7 @@ FFmpegやOCR専用依存が必要な検証は別のintegration群です。使用
 
 Windows通常版ZIPとWindows Demo版ZIPは同じアプリコードを使い、初期データとDemo設定を分けます。ビルド・Demo生成・検査の手順は[配布物の作成](docs/building.md)にあります。Web体験版は、公開向けに機能範囲と一時保存の仕組みを調整した別ブランチです。過去の配布検証結果を、今後の変更すべての動作保証とは扱いません。
 
-[初期公開用ソースの検証記録](https://github.com/Hiratako/PROLOAG/blob/66511380cf03a0c9b35b7fd7e5ca9baafebf565f/docs/verification.md)と[SOURCE_MANIFEST.json](https://github.com/Hiratako/PROLOAG/blob/66511380cf03a0c9b35b7fd7e5ca9baafebf565f/SOURCE_MANIFEST.json)は、2026年11月6日の準備時点の情報です。READMEと利用条件の状況説明は公開後の案内に合わせて更新しています。これらの文書更新を、アプリの再検証や新しい利用許諾の付与として扱うものではありません。
+[初期公開用ソースの検証記録](https://github.com/Hiratako/PROLOAG/blob/66511380cf03a0c9b35b7fd7e5ca9baafebf565f/docs/verification.md)と[SOURCE_MANIFEST.json](https://github.com/Hiratako/PROLOAG/blob/66511380cf03a0c9b35b7fd7e5ca9baafebf565f/SOURCE_MANIFEST.json)は、2026年11月6日の準備時点の情報です。現行の本体利用条件は[LICENSE](LICENSE)です。当時の検証記録と、その後の文書・利用条件の更新を区別して参照してください。
 
 ## 記録の保管と既知の制限
 
@@ -115,6 +115,6 @@ Windows通常版ZIPとWindows Demo版ZIPは同じアプリコードを使い、�
 - [旧版勉強ログの移行](docs/legacy-study-import.md)
 - [相談提案の取り込み](docs/consultation-proposals.md)
 
-## ライセンス
+## 利用条件
 
-PROLOAG本体の公開ライセンスは未確定です。[LICENSE_STATUS.md](LICENSE_STATUS.md)を参照してください。第三者ソフトの利用条件・表示は、そのソフトに付属する文書を基準にしてください。
+PROLOAG本体には独自の[PROLOAG 利用条件（販売・有料提供禁止）第1版](LICENSE)（`LicenseRef-PROLOAG-No-Sale-1.0`）が適用されます。利用・複製・改変・無料再配布を許可します。本体・改変版・コードの販売、有料Web提供、有料製品への組み込み、バンドル、有料会員限定配布など、ソフトウェアまたは利用権への対価を伴う提供は禁止します。内部業務での利用と、ソフトを含まない独立成果物の販売は許可します。無料再配布の際も著作権表示と利用条件を保持してください。詳しい範囲と条件はLICENSE本文を確認してください。第三者ソフトにはそれぞれの利用条件が適用されます。
