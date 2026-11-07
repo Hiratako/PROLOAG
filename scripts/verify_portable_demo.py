@@ -43,6 +43,25 @@ REQUIRED_FILES = (
     "app/.streamlit/config.toml", "app/settings/demo_mode.json",
     f"app/{MANIFEST_NAME}",
 )
+# Reviewed display-only defaults, independent of the artifact under inspection.
+# Keep these expectations explicit: self-consistent tampered profiles/snapshots
+# must not authorize new model values or imply a different default sample.
+PUBLIC_SUBSTANCE_PROFILES = {
+    "caffeine": {
+        "substance_id": "caffeine", "name": "カフェイン", "unit": "mg",
+        "default_amount_mg": 200.0, "default_label": "タブレット", "amount_step_mg": 25.0,
+        "half_life_hours": 5.0, "peak_delay_minutes": 30, "residual_cutoff_hours": 36.0,
+        "color": "#25A9D6", "fill_enabled": True, "is_active": True,
+        "sort_order": 10, "model_revision": 1,
+    },
+    "acetaminophen": {
+        "substance_id": "acetaminophen", "name": "アセトアミノフェン", "unit": "mg",
+        "default_amount_mg": 300.0, "default_label": "錠剤", "amount_step_mg": 100.0,
+        "half_life_hours": 2.4, "peak_delay_minutes": 30, "residual_cutoff_hours": 24.0,
+        "color": "#EF7D57", "fill_enabled": True, "is_active": True,
+        "sort_order": 20, "model_revision": 1,
+    },
+}
 
 
 def digest(path: Path) -> str:
@@ -186,8 +205,64 @@ def verify_demo_json(app: Path) -> dict[str, str]:
     end_date = date.fromisoformat(str(manifest.get("end_date", "")))
     if demo.get("fixed_today") != end_date.isoformat():
         raise AssertionError("Demo clock does not match the generated dataset end date")
+    verify_substance_examples(parsed, end_date)
     print(f"PASS {len(paths)} strict UTF-8 JSON files and synthetic manifest; demo date={end_date}", flush=True)
     return hashes
+
+
+def verify_substance_examples(documents: dict[str, Any], end_date: date) -> None:
+    """Reject unexpected profiles, daily regimens and inconsistent sample rows."""
+    if __package__:
+        from .generate_consultant_demo_dataset import acetaminophen_demo_dates
+    else:
+        from generate_consultant_demo_dataset import acetaminophen_demo_dates
+
+    settings = documents.get("settings/substance_profiles.json")
+    rows = settings.get("profiles") if isinstance(settings, dict) else None
+    if (not isinstance(rows, list) or len(rows) != 2
+            or any(not isinstance(row, dict) for row in rows)):
+        raise AssertionError("The public Demo must contain exactly two substance profiles")
+    profiles = {row.get("substance_id"): row for row in rows}
+    if settings.get("schema_version") != 1 or profiles != PUBLIC_SUBSTANCE_PROFILES:
+        raise AssertionError("Public Demo profiles differ from the reviewed sample defaults")
+    expected_models = {
+        identifier: {
+            "schema_version": 1, "profile_revision": profile["model_revision"],
+            "unit": "mg", "half_life_hours": profile["half_life_hours"],
+            "peak_delay_minutes": profile["peak_delay_minutes"],
+            "residual_cutoff_hours": profile["residual_cutoff_hours"],
+        }
+        for identifier, profile in PUBLIC_SUBSTANCE_PROFILES.items()
+    }
+    diaries = [value for name, value in documents.items() if name.startswith("diary_entries/")]
+    if any(not isinstance(value, dict) for value in diaries):
+        raise AssertionError("Invalid public Demo diary document")
+    dates = [value.get("date") for value in diaries]
+    if any(not isinstance(value, str) for value in dates):
+        raise AssertionError("Invalid public Demo diary date")
+    expected_dates = acetaminophen_demo_dates(dates, reference_date=end_date.isoformat())
+    observed = []
+    for diary in diaries:
+        records = diary.get("substance_records")
+        if not isinstance(records, list):
+            raise AssertionError("Public Demo substance records must be a list")
+        for record in records:
+            if not isinstance(record, dict) or record.get("substance_id") not in profiles:
+                raise AssertionError("Unknown substance in public Demo records")
+            if (record.get("unit") != "mg"
+                    or record.get("model_snapshot") != expected_models[record["substance_id"]]):
+                raise AssertionError("Public Demo record model differs from the reviewed sample model")
+            if record["substance_id"] != "acetaminophen":
+                continue
+            day = diary["date"]
+            observed.append(day)
+            if (record.get("taken_at") != day + "T14:00:00"
+                    or record.get("amount_mg") != 300.0 or record.get("unit") != "mg"
+                    or record.get("source") != "demo_generator"
+                    or record.get("substance_record_id") != "acetaminophen_demo_consultant_" + day.replace("-", "") + "_01"):
+                raise AssertionError("Inconsistent independent acetaminophen sample")
+    if len(observed) != len(expected_dates) or set(observed) != expected_dates:
+        raise AssertionError("Acetaminophen examples must use the sparse monthly sample dates")
 
 
 def verify_zip(archive: Path, package: Path, package_files: dict[str, Path], app_hashes: dict[str, str]) -> None:

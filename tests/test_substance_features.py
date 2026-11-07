@@ -36,8 +36,8 @@ class SubstanceFeatureTests(unittest.TestCase):
     def test_default_profiles_and_model_revision(self) -> None:
         profiles = substance_service.load_substance_profiles(include_inactive=True)
         self.assertEqual(
-            [item["substance_id"] for item in profiles[:4]],
-            ["caffeine", "eszopiclone", "trazodone", "melatonin"],
+            [item["substance_id"] for item in profiles],
+            ["caffeine", "acetaminophen"],
         )
         self.assertEqual(
             {
@@ -46,11 +46,11 @@ class SubstanceFeatureTests(unittest.TestCase):
             },
             {
                 "caffeine": (200.0, "タブレット"),
-                "eszopiclone": (2.0, "タブレット"),
-                "trazodone": (25.0, "タブレット"),
-                "melatonin": (3.0, "タブレット"),
+                "acetaminophen": (300.0, "錠剤"),
             },
         )
+        for identifier in ("eszopiclone", "trazodone", "melatonin"):
+            self.assertIsNone(substance_service._fallback_profile(identifier))
         caffeine = next(item for item in profiles if item["substance_id"] == "caffeine")
         caffeine["color"] = "#112233"
         saved = substance_service.save_substance_profiles(profiles)
@@ -74,8 +74,77 @@ class SubstanceFeatureTests(unittest.TestCase):
 
         loaded = substance_service.substance_profile_map()
         self.assertEqual(loaded["caffeine"]["default_amount_mg"], 75.0)
-        self.assertTrue(all(item["default_label"] == "タブレット" for item in loaded.values()))
+        self.assertEqual(
+            {key: item["default_label"] for key, item in loaded.items()},
+            {"caffeine": "タブレット", "acetaminophen": "錠剤"},
+        )
         self.assertEqual(path.read_bytes(), before)
+
+    def test_saved_legacy_profiles_and_records_are_read_without_rewriting(self) -> None:
+        target = date(2026, 8, 24)
+        profiles = []
+        records = []
+        for index, identifier in enumerate(("eszopiclone", "trazodone", "melatonin")):
+            profile = {
+                **substance_service.default_substance_profiles()[0],
+                "substance_id": identifier,
+                "name": f"User saved substance {index + 1}",
+                "default_amount_mg": 1.75,
+                "default_label": "User label",
+                "half_life_hours": 7.25,
+                "peak_delay_minutes": 45,
+                "residual_cutoff_hours": 58.0,
+                "model_revision": 4,
+                "sort_order": 30 + index,
+            }
+            profiles.append(profile)
+            records.append({
+                "substance_record_id": f"saved_record_{index}",
+                "substance_id": identifier,
+                "taken_at": f"2026-08-24T{10 + index:02d}:00:00",
+                "amount_mg": 1.25,
+                "unit": "mg",
+                "source": "substance_record_page",
+                "label": "User record label",
+                "memo": "User record memo",
+                "model_snapshot": substance_service.model_snapshot_for_profile(profile),
+            })
+        path = substance_service.SUBSTANCE_PROFILES_PATH
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps({"profiles": profiles}, ensure_ascii=False), encoding="utf-8")
+        diary_path = diary_service.get_diary_entry_path(target)
+        diary_path.parent.mkdir(parents=True, exist_ok=True)
+        diary_path.write_text(json.dumps({"date": target.isoformat(),
+            "substance_records_schema_version": 1, "substance_records": records},
+            ensure_ascii=False), encoding="utf-8")
+        before = {item: item.read_bytes() for item in (path, diary_path)}
+
+        loaded = substance_service.substance_profile_map()
+        for profile in profiles:
+            self.assertEqual(loaded[profile["substance_id"]], profile)
+        entry = diary_service.load_diary_entry(target)
+        self.assertEqual(entry["substance_records"], records)
+        self.assertEqual({item: item.read_bytes() for item in before}, before)
+
+    def test_integrity_accepts_historical_ids_only_as_record_references(self) -> None:
+        snapshot = substance_service.model_snapshot_for_profile(
+            substance_service.default_substance_profiles()[0])
+        diary = {"date": "2026-08-24", "_file": str(self.root / "diary_entries/2026/08/20260824.json"),
+            "substance_records_schema_version": 1,
+            "substance_records": [{
+                "substance_record_id": f"historic_{index}", "substance_id": identifier,
+                "taken_at": f"2026-08-24T{10 + index:02d}:00:00", "amount_mg": 1.25,
+                "unit": "mg", "model_snapshot": dict(snapshot),
+            } for index, identifier in enumerate(("eszopiclone", "trazodone", "melatonin"))]}
+        audit = integrity_rules.Audit()
+        integrity_rules._validate_substances(audit, {"diaries": [diary]})
+        self.assertEqual(audit.issues, [])
+        diary["substance_records"][0]["substance_id"] = "missing_custom_profile"
+        audit = integrity_rules.Audit()
+        integrity_rules._validate_substances(audit, {"diaries": [diary]})
+        self.assertTrue(any("設定に存在しない成分ID" in issue["内容"] for issue in audit.issues))
+        self.assertEqual({profile["substance_id"] for profile in
+            substance_service.load_substance_profiles()}, {"caffeine", "acetaminophen"})
 
     def test_input_defaults_persist_without_changing_records_or_model(self) -> None:
         target = date(2026, 8, 24)
@@ -121,7 +190,7 @@ class SubstanceFeatureTests(unittest.TestCase):
         integrity_rules._validate_substances(audit, {"substance_profiles": profiles})
         self.assertEqual(audit.issues, [])
 
-        profiles[2]["default_label"] = 123
+        profiles[1]["default_label"] = 123
         audit = integrity_rules.Audit()
         integrity_rules._validate_substances(audit, {"substance_profiles": profiles})
         self.assertEqual(len(audit.issues), 1)
@@ -179,7 +248,7 @@ class SubstanceFeatureTests(unittest.TestCase):
         target = date(2026, 8, 24)
         substance_service.add_substance_record(
             target,
-            "eszopiclone",
+            "acetaminophen",
             1.5,
             taken_at=datetime(2026, 8, 24, 22, 30),
             label="錠剤",
@@ -196,9 +265,9 @@ class SubstanceFeatureTests(unittest.TestCase):
             item_id: substance_service.substance_records_total(
                 substance_service.records_for_substance(entry, item_id)
             )
-            for item_id in ("caffeine", "eszopiclone")
+            for item_id in ("caffeine", "acetaminophen")
         }
-        self.assertEqual(totals["eszopiclone"], 1.5)
+        self.assertEqual(totals["acetaminophen"], 1.5)
         self.assertEqual(totals["caffeine"], 100.0)
         self.assertEqual(entry["caffeine_mg"], 100.0)
         self.assertEqual(len(entry["caffeine_records"]), 1)
@@ -221,35 +290,35 @@ class SubstanceFeatureTests(unittest.TestCase):
         target = date(2026, 8, 24)
         substance_service.add_substance_record(
             target,
-            "eszopiclone",
+            "acetaminophen",
             1.5,
             taken_at=datetime(2026, 8, 24, 22, 30),
         )
         profiles = substance_service.load_substance_profiles(include_inactive=True)
         for profile in profiles:
-            if profile["substance_id"] == "eszopiclone":
+            if profile["substance_id"] == "acetaminophen":
                 profile["is_active"] = False
         substance_service.save_substance_profiles(profiles)
 
         entry = diary_service.load_diary_entry(target)
-        existing = substance_service.records_for_substance(entry, "eszopiclone")
+        existing = substance_service.records_for_substance(entry, "acetaminophen")
         existing[0]["amount_mg"] = 1.0
-        updated = substance_service.replace_substance_records_for_day(target, "eszopiclone", existing)
+        updated = substance_service.replace_substance_records_for_day(target, "acetaminophen", existing)
         self.assertEqual(
-            substance_service.records_for_substance(updated, "eszopiclone")[0]["amount_mg"],
+            substance_service.records_for_substance(updated, "acetaminophen")[0]["amount_mg"],
             1.0,
         )
         with self.assertRaisesRegex(ValueError, "アーカイブ中"):
             substance_service.add_substance_record(
                 target,
-                "eszopiclone",
+                "acetaminophen",
                 0.5,
                 taken_at=datetime(2026, 8, 24, 23, 0),
             )
         with self.assertRaisesRegex(ValueError, "アーカイブ中"):
             substance_service.replace_substance_records_for_day(
                 target,
-                "eszopiclone",
+                "acetaminophen",
                 [
                     *existing,
                     {
@@ -310,13 +379,13 @@ class SubstanceFeatureTests(unittest.TestCase):
         substance_service.save_substance_profiles(profiles)
         substance_service.add_substance_record(
             date(2026, 8, 24),
-            "melatonin",
+            "acetaminophen",
             0.5,
             taken_at=datetime(2026, 8, 24, 22, 0),
         )
         bundle = build_export_bundle(self.root, generated_at=datetime(2026, 8, 24, 23, 0))
         tables = {item.key: item for item in bundle.tables}
-        self.assertEqual(tables["substance_profiles"].row_count, 4)
+        self.assertEqual(tables["substance_profiles"].row_count, 2)
         self.assertIn("default_label", tables["substance_profiles"].columns)
         self.assertEqual(tables["substance_records"].row_count, 1)
         self.assertIn("model_snapshot.half_life_hours", tables["substance_records"].columns)
@@ -324,13 +393,16 @@ class SubstanceFeatureTests(unittest.TestCase):
     def test_export_includes_virtual_default_profiles_before_first_settings_save(self) -> None:
         bundle = build_export_bundle(self.root, generated_at=datetime(2026, 8, 24, 23, 0))
         table = next(item for item in bundle.tables if item.key == "substance_profiles")
-        self.assertEqual(table.row_count, 4)
+        self.assertEqual(table.row_count, 2)
         rows = list(csv.DictReader(io.StringIO(table.data.decode("utf-8-sig"))))
         self.assertEqual(
             {row["substance_id"]: float(row["default_amount_mg"]) for row in rows},
-            {"caffeine": 200.0, "eszopiclone": 2.0, "trazodone": 25.0, "melatonin": 3.0},
+            {"caffeine": 200.0, "acetaminophen": 300.0},
         )
-        self.assertTrue(all(row["default_label"] == "タブレット" for row in rows))
+        self.assertEqual(
+            {row["substance_id"]: row["default_label"] for row in rows},
+            {"caffeine": "タブレット", "acetaminophen": "錠剤"},
+        )
         self.assertFalse(substance_service.SUBSTANCE_PROFILES_PATH.exists())
 
 

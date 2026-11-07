@@ -1,8 +1,8 @@
 """Fixed synthetic examples for the public Web experience only.
 
 These values illustrate the application's simple residual model. They are not
-individual treatment recommendations. The local application's own defaults
-and the Windows Demo package are intentionally independent of this overlay.
+individual treatment recommendations. Public source and new Windows packages
+use the same starter examples; this overlay also handles older Web sessions.
 """
 from copy import deepcopy
 from typing import Any, MutableMapping

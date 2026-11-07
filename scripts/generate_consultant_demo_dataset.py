@@ -653,10 +653,10 @@ def build_diary(
     exercise: dict[str, Any] | None,
     health: dict[str, Any],
     *,
-    include_substances: bool = False,
+    ensure_diary: bool = False,
     profiles: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any] | None:
-    if not sessions and not exercise and not include_substances and rng.random() > 0.25:
+    if not sessions and not exercise and not ensure_diary and rng.random() > 0.25:
         return None
     total_minutes = sum(int(item.get("duration_sec", 0)) for item in sessions) // 60
     title = f"{target:%Y-%m-%d} 学習メモ"
@@ -708,23 +708,6 @@ def build_diary(
         }
         for item in caffeine_records
     ]
-    if include_substances:
-        # Independent synthetic records to demonstrate the four-panel chart;
-        # neither a real person's medication history nor a suggested regimen.
-        for index, profile in enumerate(profile_rows):
-            if profile["substance_id"] == "caffeine":
-                continue
-            taken_at = iso_dt(target, 22, index * 10)
-            substances.append({
-                "substance_record_id": f"{profile['substance_id']}_demo_{target:%Y%m%d}",
-                "substance_id": profile["substance_id"],
-                "taken_at": taken_at.isoformat(timespec="seconds"),
-                "amount_mg": profile["default_amount_mg"], "unit": "mg",
-                "source": "demo_generator", "label": profile["default_label"],
-                "memo": "完全に架空の表示テスト用記録。実際の服薬・併用例ではありません。",
-                "model_snapshot": _model_snapshot(profile),
-                "created_at": timestamp(target, 23, 40), "updated_at": timestamp(target, 23, 40),
-            })
     return {
         "date": target.isoformat(),
         "title": title,
@@ -916,6 +899,46 @@ def _model_snapshot(profile: dict[str, Any]) -> dict[str, Any]:
     return model_snapshot_for_profile(profile)
 
 
+def acetaminophen_demo_dates(dates: list[str], *, reference_date: str) -> frozenset[str]:
+    """Select sparse independent examples without consuming the dataset RNG.
+
+    Use the same month-half selection as the Web sample. Only existing diary
+    dates are eligible, so adding these examples never creates unrelated data.
+    """
+    months: dict[str, list[str]] = {}
+    for value in sorted(set(dates)):
+        date.fromisoformat(value)
+        months.setdefault(value[:7], []).append(value)
+    selected = set()
+    reference = date.fromisoformat(reference_date)
+    for month, available in sorted(months.items()):
+        if month == reference_date[:7] and reference.day <= 15:
+            selected.add(reference_date if reference_date in available else available[-1])
+            continue
+        for half in ([value for value in available if int(value[8:10]) <= 15],
+                     [value for value in available if int(value[8:10]) > 15]):
+            if half:
+                selected.add(min(half, key=lambda value: hashlib.sha256(
+                    ("web-acetaminophen-v1:" + value).encode()).digest()))
+    return frozenset(selected)
+
+
+def _acetaminophen_record(day: str, profile: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "substance_record_id": "acetaminophen_demo_consultant_" + day.replace("-", "") + "_01",
+        "substance_id": "acetaminophen",
+        "taken_at": day + "T14:00:00",
+        "amount_mg": 300.0,
+        "unit": "mg",
+        "source": "demo_generator",
+        "label": "架空サンプル（錠剤）",
+        "memo": "表示用に新規作成した架空記録です。実際の服用や推奨を示すものではありません。",
+        "model_snapshot": _model_snapshot(profile),
+        "created_at": day + " 14:00:00",
+        "updated_at": day + " 14:00:00",
+    }
+
+
 def build_dataset(root: Path, days: int, end_date: date, seed: int, force: bool) -> dict[str, int]:
     root = validate_demo_root(root)
     if type(days) is not int or not 1 <= days <= 3650:
@@ -939,6 +962,7 @@ def build_dataset(root: Path, days: int, end_date: date, seed: int, force: bool)
     sessions_by_date: dict[date, list[dict[str, Any]]] = {}
     health_by_date: dict[date, dict[str, Any]] = {}
     source_sessions: list[dict[str, Any]] = []
+    diaries_by_date: dict[date, dict[str, Any]] = {}
     substance_record_count = 0
 
     for day_index, target in enumerate(all_dates):
@@ -955,12 +979,22 @@ def build_dataset(root: Path, days: int, end_date: date, seed: int, force: bool)
         sessions = build_sessions_for_day(target, day_index, plan, health, rng)
         sessions_by_date[target] = sessions
 
-        diary = build_diary(target, rng, sessions, exercise, health, include_substances=(end_date - target).days < 30, profiles=profiles)
+        # Preserve diary coverage and the RNG stream of the established sample.
+        # The optional display records are generated independently afterwards.
+        diary = build_diary(target, rng, sessions, exercise, health, ensure_diary=(end_date - target).days < 30, profiles=profiles)
         if diary:
-            write_json(daily_path(root, "diary_entries", target), diary)
-            substance_record_count += len(diary["substance_records"])
+            diaries_by_date[target] = diary
 
         source_sessions.extend([session for session in sessions if int(session["duration_sec"]) >= 45 * 60])
+
+    selected_dates = acetaminophen_demo_dates(
+        [day.isoformat() for day in diaries_by_date], reference_date=end_date.isoformat())
+    profile = next(item for item in profiles if item["substance_id"] == "acetaminophen")
+    for target, diary in diaries_by_date.items():
+        if target.isoformat() in selected_dates:
+            diary["substance_records"].append(_acetaminophen_record(target.isoformat(), profile))
+        write_json(daily_path(root, "diary_entries", target), diary)
+        substance_record_count += len(diary["substance_records"])
 
     notes = build_notes(source_sessions, sessions_by_date, rng)
     cards = build_cards(notes, rng)
@@ -1030,7 +1064,7 @@ def build_dataset(root: Path, days: int, end_date: date, seed: int, force: bool)
         "reminders": len(reminders),
         "substance_profiles": len(profiles),
         "substance_records": substance_record_count,
-        "non_caffeine_substance_records": min(days, 30) * (len(profiles) - 1),
+        "non_caffeine_substance_records": len(selected_dates),
     }
 
 

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import ast
+from copy import deepcopy
+from datetime import date
 from contextlib import redirect_stdout
 from io import StringIO
 import io
@@ -246,6 +248,88 @@ class PortableVerificationTests(unittest.TestCase):
                 raise RuntimeError("synthetic check failure")
         self.assertIs(json_store._file_transaction, original)
         self.assertFalse(lock_root.exists())
+
+    def public_substance_fixture(self):
+        profile = {"substance_id": "acetaminophen", "name": "アセトアミノフェン",
+                   "unit": "mg", "default_amount_mg": 300.0, "default_label": "錠剤",
+                   "amount_step_mg": 100.0, "color": "#EF7D57", "fill_enabled": True,
+                   "is_active": True, "sort_order": 20,
+                   "model_revision": 1, "half_life_hours": 2.4,
+                   "peak_delay_minutes": 30, "residual_cutoff_hours": 24.0}
+        caffeine = {"substance_id": "caffeine", "name": "カフェイン", "unit": "mg",
+                    "default_amount_mg": 200.0, "default_label": "タブレット", "amount_step_mg": 25.0,
+                    "half_life_hours": 5.0, "peak_delay_minutes": 30, "residual_cutoff_hours": 36.0,
+                    "color": "#25A9D6", "fill_enabled": True, "is_active": True,
+                    "sort_order": 10, "model_revision": 1}
+        documents = {"settings/substance_profiles.json": {"schema_version": 1, "profiles": [caffeine, profile]}}
+        for day in ("2027-01-05", "2027-01-20"):
+            record = {
+                "substance_id": "acetaminophen",
+                "substance_record_id": "acetaminophen_demo_consultant_" + day.replace("-", "") + "_01",
+                "taken_at": day + "T14:00:00", "amount_mg": 300.0,
+                "unit": "mg", "source": "demo_generator",
+                "model_snapshot": {"schema_version": 1, "profile_revision": 1,
+                    "unit": "mg", "half_life_hours": 2.4,
+                    "peak_delay_minutes": 30, "residual_cutoff_hours": 24.0},
+            }
+            documents["diary_entries/" + day + ".json"] = {"date": day, "substance_records": [record]}
+        return documents
+
+    def test_public_demo_substance_verifier_accepts_sparse_independent_examples(self):
+        documents = self.public_substance_fixture()
+        before = deepcopy(documents)
+        verify.verify_substance_examples(documents, date(2027, 1, 20))
+        self.assertEqual(documents, before)
+
+    def test_public_demo_substance_verifier_rejects_extra_profiles_records_and_bad_models(self):
+        valid = self.public_substance_fixture()
+        mutations = []
+        extra_profile = deepcopy(valid)
+        extra_profile["settings/substance_profiles.json"]["profiles"].append(
+            {"substance_id": "unapproved_sample", "name": "Unexpected sample"})
+        mutations.append(extra_profile)
+        extra_record = deepcopy(valid)
+        extra_record["diary_entries/2027-01-05.json"]["substance_records"].append(
+            {"substance_id": "unapproved_sample"})
+        mutations.append(extra_record)
+        wrong_model = deepcopy(valid)
+        wrong_model["diary_entries/2027-01-05.json"]["substance_records"][0]["model_snapshot"]["half_life_hours"] = 99
+        mutations.append(wrong_model)
+        wrong_amount = deepcopy(valid)
+        wrong_amount["diary_entries/2027-01-05.json"]["substance_records"][0]["amount_mg"] = 999
+        mutations.append(wrong_amount)
+        duplicate = deepcopy(valid)
+        duplicate["diary_entries/2027-01-05.json"]["substance_records"] *= 2
+        mutations.append(duplicate)
+        missing = deepcopy(valid)
+        missing["diary_entries/2027-01-05.json"]["substance_records"] = []
+        mutations.append(missing)
+        for index, documents in enumerate(mutations):
+            with self.subTest(case=index), self.assertRaises(AssertionError):
+                verify.verify_substance_examples(documents, date(2027, 1, 20))
+
+    def test_public_demo_substance_verifier_rejects_matching_profile_and_record_tampering(self):
+        for identifier in ("caffeine", "acetaminophen"):
+            documents = self.public_substance_fixture()
+            profile = next(row for row in documents["settings/substance_profiles.json"]["profiles"]
+                           if row["substance_id"] == identifier)
+            profile["default_amount_mg"] = 999.0
+            profile["half_life_hours"] = 99.0
+            for name, diary in documents.items():
+                if not name.startswith("diary_entries/"):
+                    continue
+                if identifier == "caffeine":
+                    diary["substance_records"].append({
+                        "substance_id": "caffeine", "unit": "mg", "amount_mg": 999.0,
+                        "model_snapshot": {"schema_version": 1, "profile_revision": 1,
+                            "unit": "mg", "half_life_hours": 99.0,
+                            "peak_delay_minutes": 30, "residual_cutoff_hours": 36.0},
+                    })
+                else:
+                    for record in diary["substance_records"]:
+                        record["model_snapshot"]["half_life_hours"] = 99.0
+            with self.subTest(substance=identifier), self.assertRaisesRegex(AssertionError, "reviewed sample defaults"):
+                verify.verify_substance_examples(documents, date(2027, 1, 20))
 
 
 if __name__ == "__main__":

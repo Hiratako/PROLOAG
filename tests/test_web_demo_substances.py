@@ -198,7 +198,7 @@ class WebSubstanceDemoTests(unittest.TestCase):
         self.assertEqual(first, before)
         self.assertEqual(inventory(), first)
 
-    def test_missing_profile_fallback_and_local_defaults_remain_distinct(self):
+    def test_missing_profile_fallback_and_local_defaults_match_public_examples(self):
         import config
         from app_core import substance_service as service
         from web_demo.sandbox import sandbox_context
@@ -209,7 +209,7 @@ class WebSubstanceDemoTests(unittest.TestCase):
             self.assertEqual({p["substance_id"] for p in service.load_substance_profiles()}, EXPECTED_IDS)
             with patch.object(config, "WEB_DEMO_EXPERIENCE", False):
                 original = {p["substance_id"] for p in service.default_substance_profiles()}
-                self.assertEqual(original, {"caffeine", "eszopiclone", "trazodone", "melatonin"})
+                self.assertEqual(original, EXPECTED_IDS)
             self.assertFalse(missing.exists(), "Reading a missing profile must not write defaults")
 
     def test_fresh_display_record_and_profile_editor_show_only_two_defaults(self):

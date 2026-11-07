@@ -81,19 +81,19 @@ class DailyFormSafetyTests(unittest.TestCase):
     def test_substance_replace_rejects_added_and_deleted_records(self):
         for change in ("add", "delete"):
             with self.subTest(change=change):
-                substance.add_substance_record(self.target, "eszopiclone", 1, taken_at=datetime(2026, 9, 10, 12))
+                substance.add_substance_record(self.target, "acetaminophen", 1, taken_at=datetime(2026, 9, 10, 12))
                 entry = diary.load_diary_entry(self.target)
-                rows = deepcopy(substance.records_for_substance(entry, "eszopiclone"))
+                rows = deepcopy(substance.records_for_substance(entry, "acetaminophen"))
                 ids = {r["substance_record_id"] for r in rows}
                 revision = store.observed_json_revision(diary.get_diary_entry_path(self.target))
                 if change == "add":
-                    Context().run(lambda: substance.add_substance_record(self.target, "eszopiclone", 2, taken_at=datetime(2026, 9, 10, 15)))
+                    Context().run(lambda: substance.add_substance_record(self.target, "acetaminophen", 2, taken_at=datetime(2026, 9, 10, 15)))
                 else:
-                    Context().run(lambda: substance.replace_substance_records_for_day(self.target, "eszopiclone", []))
+                    Context().run(lambda: substance.replace_substance_records_for_day(self.target, "acetaminophen", []))
                 before = self.live_bytes()
                 for _ in range(2):
                     with self.assertRaises(store.JsonConflictError):
-                        substance.replace_substance_records_for_day(self.target, "eszopiclone", rows,
+                        substance.replace_substance_records_for_day(self.target, "acetaminophen", rows,
                             expected_revision=revision, expected_record_ids=ids)
                     self.assertEqual(self.live_bytes(), before)
 
