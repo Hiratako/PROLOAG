@@ -133,8 +133,11 @@ def _all_json_files() -> list[Path]:
     for _, _, folder in DATED_DATASETS:
         paths.update(_json_files(folder))
     for path in (NOTES_DATA_DIR / "notebooks.json", MASTER_DATA_DIR / "master.json", FLASHCARDS_PATH, REMINDERS_PATH):
-        if path.exists():
-            paths.add(path)
+        # Resolve deferred Web paths in this visitor before mixing them with
+        # the concrete Paths returned by record_json_files.
+        concrete_path = Path(path)
+        if concrete_path.exists():
+            paths.add(concrete_path)
     paths.update(_json_files(SETTINGS_DIR))
     return sorted(paths)
 
