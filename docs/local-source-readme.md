@@ -1,5 +1,7 @@
 # 参照資料：元のローカル版
 
+以下は元のローカル版を説明した歴史的な参照資料です。本文中の「公開準備中」「ライセンス未確定」「LICENSE_STATUS.md」は当時の状態を示します。現行のPROLOAG本体には独自の[PROLOAG 利用条件（販売・有料提供禁止）第1版](../LICENSE)（`LicenseRef-PROLOAG-No-Sale-1.0`）が適用されます。
+
 この資料の通常版セットアップはWeb展示版では使いません。[Web展示版の案内](../WEB_DEMO_README.md)を参照してください。
 
 # PROLOAG

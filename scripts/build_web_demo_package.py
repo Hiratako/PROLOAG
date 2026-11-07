@@ -12,10 +12,29 @@ ROOT = Path(__file__).resolve().parents[1]
 EXCLUDED_PARTS = {"__pycache__", ".git", ".venv", ".pytest_cache", ".ruff_cache"}
 EXCLUDED_NAMES = {"WEB_DEMO_PACKAGE_MANIFEST.json"}
 SOURCE_FOLDERS = {"app_core", "prolog_ui", "reference_pages", "docs", "licenses", "scripts", "tests", "web_demo"}
-ROOT_FILES = {"main.py", "config.py", "data_utils.py", "master_ui.py", ".gitignore", "README.md", "WEB_DEMO_README.md", "LICENSE_STATUS.md", "THIRD_PARTY_NOTICES.md", "requirements.txt", "requirements-google.txt", "requirements-ocr.txt", "requirements-transcription.txt", "requirements-release.lock.txt", "run_app.ps1", "run_app.bat", "UPSTREAM_SOURCE_MANIFEST.json", "WEB_DEMO_VERIFICATION.json"}
+ROOT_FILES = {"main.py", "config.py", "data_utils.py", "master_ui.py", ".gitignore", "README.md", "WEB_DEMO_README.md", "LICENSE", "LICENSE_STATUS.md", "THIRD_PARTY_NOTICES.md", "requirements.txt", "requirements-google.txt", "requirements-ocr.txt", "requirements-transcription.txt", "requirements-release.lock.txt", "run_app.ps1", "run_app.bat", "UPSTREAM_SOURCE_MANIFEST.json", "WEB_DEMO_VERIFICATION.json"}
+
+
+def license_metadata():
+    selected = ROOT / "LICENSE"
+    pending = ROOT / "LICENSE_STATUS.md"
+    if selected.is_file() == pending.is_file():
+        raise ValueError("Provide exactly one of LICENSE or LICENSE_STATUS.md")
+    path = selected if selected.is_file() else pending
+    if path.is_symlink():
+        raise ValueError("The package license must not be a linked file.")
+    raw = path.read_bytes()
+    identifier = "LicenseRef-PROLOAG-No-Sale-1.0"
+    return {
+        "license_status": "selected" if path == selected else "unselected_prepublication_preparation",
+        "license_file": path.name,
+        "license_sha256": hashlib.sha256(raw).hexdigest(),
+        "license_identifier": identifier if path == selected and identifier in raw.decode("utf-8-sig") else None,
+    }
 
 
 def inventory():
+    license_metadata()
     files = []
     synthetic = set(json.loads((ROOT / "web_demo/dataset_manifest.json").read_text(encoding="utf-8"))["record_sha256"])
     for path in sorted(ROOT.rglob("*")):
@@ -41,6 +60,7 @@ def inventory():
 
 
 def build(output: Path):
+    license_info = license_metadata()
     from web_demo.data import verify_demo_dataset
     verify_demo_dataset()
     check = json.loads((ROOT / "WEB_DEMO_VERIFICATION.json").read_text(encoding="utf-8"))
@@ -57,7 +77,7 @@ def build(output: Path):
     manifest = {
         "kind": "proloag_readonly_web_exhibition_source",
         "reference_date": "2026-11-05",
-        "license_status": "unselected_prepublication_preparation",
+        **license_info,
         "linux_runtime_verified": False,
         "community_cloud_deployed": False,
         "entrypoint": "main.py",

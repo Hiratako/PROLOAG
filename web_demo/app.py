@@ -149,7 +149,8 @@ def about() -> None:
     st.subheader("ローカル版との違い")
     st.write("Google連携は説明のみで、認証・外部送信は実行しません。Hobby & Toolsのメディア変換・文字起こし・OCRはこのWeb版には含みません。インポート・エクスポートも体験用のサンプルでお試しください。")
     st.subheader("利用条件と検証")
-    st.write("PROLOAG本体の公開ライセンスは未確定です。第三者ソフトの利用条件はTHIRD_PARTY_NOTICES.mdとlicensesをご確認ください。")
+    st.markdown("**利用・改変・無料再配布可／販売・有料提供禁止**。個人・企業の内部業務での利用は可能です。詳細は[LICENSE](https://github.com/Hiratako/PROLOAG/blob/codex/web-demo/LICENSE)（LicenseRef-PROLOAG-No-Sale-1.0、独自条件）を確認してください。")
+    st.caption("第三者ソフトには、それぞれの利用条件が適用されます。THIRD_PARTY_NOTICES.mdとlicensesを確認してください。")
     st.caption("Community Cloudでは起動待ちや、ブラウザの読み込み情報による表示の遅れが発生する場合があります。")
 
 

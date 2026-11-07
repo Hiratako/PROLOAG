@@ -162,7 +162,11 @@ class ExhibitionViewTests(unittest.TestCase):
         self.assertIn("永続保存は行いません", text)
         self.assertIn("Google", text)
         self.assertIn("Hobby & Tools", text)
-        self.assertIn("ライセンスは未確定", text)
+        self.assertIn("利用・改変・無料再配布可／販売・有料提供禁止", text)
+        self.assertIn("個人・企業の内部業務", text)
+        self.assertIn("https://github.com/Hiratako/PROLOAG/blob/codex/web-demo/LICENSE", text)
+        self.assertIn("LicenseRef-PROLOAG-No-Sale-1.0", text)
+        self.assertNotIn("ライセンスは未確定", text)
 
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@
 
 公開URL: https://proloag-demo.streamlit.app/
 
-このブランチは `codex/web-demo` です。ローカル版の公開用ソースは `main` にあります。PROLOAG本体の公開ライセンスは未確定です。`LICENSE_STATUS.md` を参照してください。
+このブランチは `codex/web-demo` です。ローカル版の公開用ソースは `main` にあります。独自の[利用条件](LICENSE)でソース公開しています。利用・複製・改変・無料再配布は可能ですが、ソフトウェアまたは利用権への対価を伴う提供は禁止します。
 
 ## 体験できること
 
@@ -28,7 +28,7 @@
 
 Web体験版の初期成分は「カフェイン」「アセトアミノフェン」の2種類です。元のDemo ZIPの架空データを基に、Web展示用に成分だけを調整しています。元の3種類の薬の例は初期記録から除き、ほかの学習・生活記録とカフェイン記録は保持しています。体験中に独自の成分を追加する機能は利用できます。
 
-公開用mainと新しいWindows配布準備版`0.1.0-preview.2`も、同じ2種類を初期例にしています。このWeb版の共通715 JSONと、その旧Demo ZIPからの派生来歴は変更していません。`scripts/prepare_web_substance_demo.py`は記録された旧artifact専用の変換手順で、現在のWindows Demo生成器とは区別します。
+公開用mainと、利用条件を同梱する新しいWindows配布準備版`0.1.0-preview.3`も、同じ2種類を初期例にしています。Windows ZIPは作成済み・一般配布未開始で、GitHub Releasesは下書き段階です。このWeb版の共通715 JSONと、その旧Demo ZIPからの派生来歴は変更していません。`scripts/prepare_web_substance_demo.py`は記録された旧artifact専用の変換手順で、現在のWindows Demo生成器とは区別します。
 
 訪問者ごとに一時データを作成します。追加・編集・削除はこのセッションだけに反映し、共通サンプルや他の訪問者へ反映しません。メニュー移動中は操作内容を引き継ぎます。サイドバーの「体験をリセット」で初期状態へ戻せます。
 
@@ -58,4 +58,6 @@ py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe scripts/verify_web_demo.py
 ```
 
-第三者ソフトの利用条件は `THIRD_PARTY_NOTICES.md` と `licenses/` にあります。
+## 利用条件
+
+PROLOAG本体には独自の[PROLOAG 利用条件（販売・有料提供禁止）第1版](LICENSE)（`LicenseRef-PROLOAG-No-Sale-1.0`）が適用されます。利用・複製・改変・無料再配布を許可します。本体・改変版・コードの販売、有料Web提供、有料製品への組み込み、バンドル、有料会員限定配布など、ソフトウェアまたは利用権への対価を伴う提供は禁止します。内部業務での利用と、ソフトを含まない独立成果物の販売は許可します。無料再配布でも著作権表示と利用条件を保持してください。詳細はLICENSE本文を参照してください。第三者ソフトの利用条件は `THIRD_PARTY_NOTICES.md` と `licenses/` にあります。
