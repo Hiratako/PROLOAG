@@ -6,7 +6,7 @@
 
 PROLOAGは、学習計画・計測・ノート・復習と、睡眠・体調・運動などの生活記録をまとめる個人開発アプリです。中期の計画を日々のタスクと学習実績につなぎ、記録を振り返ることを目的にしています。Python / Streamlitを用い、生成AIの支援も活用して開発しています。
 
-**[Web体験版を開く](https://proloag-demo.streamlit.app/)** · [Web体験版のソースコード](https://github.com/Hiratako/PROLOAG/tree/codex/web-demo)
+**[Web体験版を開く](https://proloag-demo.streamlit.app/)** · [ソースコード（GitHub）](https://github.com/Hiratako/PROLOAG) · [Windows版ダウンロード](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2)
 
 Web体験版はインストール不要です。架空180日分のデータを使い、計画・記録・ノート・復習・分析などの主要機能をブラウザで試せます。追加・編集・保存は閲覧者専用の一時データへ反映され、共通サンプルや他の閲覧者には影響しません。操作内容は永続保存されないため、実際の記録の保管用ではありません。
 
@@ -40,13 +40,13 @@ Web体験版にはHobby & Toolsを含めず、Google連携による接続・デ�
 | 方法 | 用途 | 公開状況・必要な準備 |
 |---|---|---|
 | [Web体験版](https://proloag-demo.streamlit.app/) | 架空データで主要機能をブラウザから試す | 公開中。インストール不要。閲覧者専用の一時データを使用 |
-| このソース（main） | コードを読む・自分のPCでローカル版を動かす | 公開中。実行にはPython 3.11と依存ライブラリの導入が必要 |
-| Windows通常版ZIP | 自分の記録を空の状態から始める | 作成済み・一般配布は未開始。Python本体同梱、初回ライブラリ導入時はネット接続が必要 |
-| Windows Demo版ZIP | 架空データでローカル版の画面・入力・分析を試す | 作成済み・一般配布は未開始。180日分の架空データと少量のロードマップを収録 |
+| [ソースコード（main）](https://github.com/Hiratako/PROLOAG) | コードを読む・自分のPCでローカル版を動かす | 公開中。実行にはPython 3.11と依存ライブラリの導入が必要 |
+| [Windows通常版ZIP](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2) | 自分の記録を空の状態から始める | `0.1.0-preview.2`を公開済み。Python本体同梱、初回ライブラリ導入時はネット接続が必要 |
+| [Windows Demo版ZIP](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2) | 架空データでローカル版の画面・入力・分析を試す | `0.1.0-preview.2`を公開済み。180日分の架空データと少量のロードマップを収録 |
 
-Windows通常版・Demo版ZIPは作成済みですが、一般配布はまだ開始していません。GitHubのReleasesは下書き段階で、公開済みZIPのダウンロード先はありません。ブラウザで試す場合は公開中のWeb体験版をご利用ください。このmainブランチから得るソースには、Pythonランタイム・導入済みライブラリ・個人記録を含めません。
+Windows通常版・Demo版ZIPは、2026年11月7日に公開した[`v0.1.0-preview.2`のRelease](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2)からダウンロードできます。プレビュー版のため、既知の制限を確認してご利用ください。インストールせずに試す場合は[Web体験版](https://proloag-demo.streamlit.app/)をご利用ください。このmainブランチから得るソースには、Pythonランタイム・導入済みライブラリ・個人記録を含めません。
 
-公開用の成分初期例は、Web体験版と同じ「カフェイン」「アセトアミノフェン」です。未公開のWindows配布準備版`0.1.0-preview.2`もこの初期例を使用し、同じ版番号の下書き添付を利用条件入りのZIPへ更新します。Demo版の成分記録は独立して生成した架空サンプルです。成分・量・モデルは表示機能の例で、実際の服用や推奨を示しません。既存利用者が保存した独自成分や過去の記録を削除する変更ではありません。
+公開用の成分初期例は、Web体験版と同じ「カフェイン」「アセトアミノフェン」です。公開済みのWindows版`0.1.0-preview.2`もこの初期例を使用し、ZIPには独自の利用条件を同梱しています。Demo版の成分記録は独立して生成した架空サンプルです。成分・量・モデルは表示機能の例で、実際の服用や推奨を示しません。既存利用者が保存した独自成分や過去の記録を削除する変更ではありません。
 
 ## ソースから起動する
 
