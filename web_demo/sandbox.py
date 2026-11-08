@@ -10,6 +10,7 @@ from contextvars import ContextVar
 from dataclasses import dataclass, field
 import hashlib
 import json
+import logging
 import os
 from pathlib import Path
 import shutil
@@ -18,6 +19,8 @@ import tempfile
 import threading
 import time
 from uuid import uuid4
+
+import streamlit as st
 
 SOURCE_ROOT = Path(__file__).resolve().parents[1]
 SESSION_KEY = "_proloag_sandbox"
@@ -33,6 +36,7 @@ _active: ContextVar[Sandbox | None] = ContextVar("proloag_private_sandbox", defa
 _registry_lock = threading.RLock()
 _registry: dict[str, Sandbox] = {}
 _last_cleanup = 0.0
+LOGGER = logging.getLogger(__name__)
 
 
 class SandboxAccessError(ValueError):
@@ -44,6 +48,13 @@ class SandboxLimitError(SandboxAccessError):
 
 
 @dataclass(eq=False)
+class SessionOwner:
+    """A session-scoped resource; Streamlit releases it on disconnect."""
+
+    released: bool = False
+
+
+@dataclass(eq=False)
 class Sandbox:
     root: Path
     token: str
@@ -52,6 +63,7 @@ class Sandbox:
     users: int = 0
     retired: bool = False
     lock: threading.RLock = field(default_factory=threading.RLock, repr=False)
+    owner: SessionOwner | None = field(default=None, repr=False)
 
 
 def _not_link(path: Path) -> None:
@@ -93,7 +105,18 @@ def _session_handle() -> Sandbox | None:
         handle = st.session_state.get(SESSION_KEY)
     except (ImportError, RuntimeError):
         return None
-    return _validate(handle, full=False) if handle is not None else None
+    if handle is None:
+        return None
+    try:
+        _validate(handle, full=False)
+        if not handle.retired and (handle.owner is None or not handle.owner.released):
+            return handle
+    except SandboxAccessError:
+        pass
+    # Widget callbacks may run before the entrypoint after a reconnect. Replace
+    # the released store and request a full rerun before an old callback can do
+    # I/O using stale widget selections or a captured path.
+    return ensure_session_sandbox()
 
 
 def current_sandbox() -> Sandbox | None:
@@ -200,6 +223,36 @@ def destroy_sandbox(handle: Sandbox) -> bool:
         return _remove(handle)
 
 
+def _release_session_owner(owner: SessionOwner) -> None:
+    """Release only this disconnected session's server-registered stores."""
+    with _registry_lock:
+        owner.released = True
+        for handle in list(_registry.values()):
+            if handle.owner is not owner:
+                continue
+            try:
+                _remove(handle)
+            except (OSError, SandboxAccessError):
+                # Leave a failed removal registered and retry through normal
+                # cleanup. Never broaden the deletion boundary to free a slot.
+                handle.retired = True
+                LOGGER.exception("Could not release a Web experience store")
+
+
+@st.cache_resource(scope="session", on_release=_release_session_owner, show_spinner=False)
+def _session_owner() -> SessionOwner:
+    return SessionOwner()
+
+
+def _get_session_owner() -> SessionOwner | None:
+    from streamlit.runtime.scriptrunner import get_script_run_ctx
+    if get_script_run_ctx(suppress_warning=True) is None:
+        # Standalone storage checks do not have a browser connection to own a
+        # resource. They retain the existing bounded idle-TTL behavior.
+        return None
+    return _session_owner()
+
+
 def cleanup_expired_sandboxes(*, now: float | None = None, force: bool = False) -> int:
     global _last_cleanup
     now = time.time() if now is None else now
@@ -209,25 +262,36 @@ def cleanup_expired_sandboxes(*, now: float | None = None, force: bool = False) 
         _last_cleanup = now
         removed = 0
         for handle in list(_registry.values()):
-            if not handle.users and (handle.retired or now - handle.touched_at > IDLE_TTL_SECONDS):
+            expired = (handle.owner is None and now - handle.touched_at > IDLE_TTL_SECONDS)
+            if not handle.users and (handle.retired or expired):
                 removed += int(_remove(handle))
         return removed
 
 
-def create_sandbox(*, base_dir: Path | None = None, _replaces: Sandbox | None = None) -> Sandbox:
+def _can_replace(handle: Sandbox | None, owner: SessionOwner | None) -> bool:
+    """Never reclaim or discount a different live session's slot."""
+    return (isinstance(handle, Sandbox) and _registry.get(handle.token) is handle
+            and (handle.owner is None or handle.owner is owner
+                 or handle.owner.released or handle.retired))
+
+
+def create_sandbox(*, base_dir: Path | None = None, _replaces: Sandbox | None = None,
+                   _owner: SessionOwner | None = None) -> Sandbox:
     from web_demo.data import DATA_MANIFEST, DATA_ROOT, verify_demo_dataset
     verify_demo_dataset()
     records = json.loads(DATA_MANIFEST.read_text(encoding="utf-8"))["record_sha256"]
     with _registry_lock:
+        if _owner is not None and _owner.released:
+            raise SandboxAccessError("体験データの接続が切れました。ページを開き直してください。")
         cleanup_expired_sandboxes(force=True)
-        replacement = int(isinstance(_replaces, Sandbox) and _registry.get(_replaces.token) is _replaces)
+        replacement = int(_can_replace(_replaces, _owner))
         if len(_registry) - replacement >= MAX_SESSIONS:
             raise SandboxLimitError("ただいま体験中の利用者が多いため、少し時間をおいて開き直してください。")
         base = (_DEFAULT_BASE if base_dir is None else Path(base_dir)).absolute()
         _not_link(base)
         base.mkdir(parents=True, exist_ok=True)
         base = base.resolve()
-        handle = Sandbox(root=base / uuid4().hex, token="")
+        handle = Sandbox(root=base / uuid4().hex, token="", owner=_owner)
         handle.token = handle.root.name
         handle.root.mkdir(mode=0o700)
         try:
@@ -272,28 +336,45 @@ def sandbox_context(handle: Sandbox):
 
 def ensure_session_sandbox() -> Sandbox:
     import streamlit as st
+    owner = _get_session_owner()
     handle = st.session_state.get(SESSION_KEY)
     if handle is not None:
         try:
-            _validate(handle)
-            handle.touched_at = time.time()
-            return handle
+            with _registry_lock:
+                _validate(handle)
+                if (not handle.retired and (owner is None or not owner.released)
+                        and (handle.owner is None or handle.owner is owner)):
+                    handle.owner = owner
+                    handle.touched_at = time.time()
+                    return handle
         except SandboxAccessError:
             pass
-    handle = create_sandbox()
-    st.session_state[SESSION_KEY] = handle
-    return handle
+    fresh = create_sandbox(_replaces=handle, _owner=owner)
+    if handle is not None:
+        # A reconnected session may retain widget selections from the released
+        # store. Reset only this session's UI along with its disposable data.
+        st.session_state.clear()
+    st.session_state[SESSION_KEY] = fresh
+    if isinstance(handle, Sandbox):
+        with _registry_lock:
+            if _can_replace(handle, owner):
+                _remove(handle)
+    if handle is not None and owner is not None:
+        st.rerun()
+    return fresh
 
 
 def reset_session_sandbox() -> Sandbox:
     import streamlit as st
     old = st.session_state.get(SESSION_KEY)
+    owner = _get_session_owner()
     # A reset replaces the caller's existing slot. At capacity it must not
     # require a second permanent slot or discard the old data before seeding.
-    fresh = create_sandbox(_replaces=old if isinstance(old, Sandbox) else None)
+    fresh = create_sandbox(_replaces=old if isinstance(old, Sandbox) else None,
+                           _owner=owner)
     st.session_state[SESSION_KEY] = fresh
     if isinstance(old, Sandbox):
         with _registry_lock:
-            if _registry.get(old.token) is old:
+            if _can_replace(old, owner):
                 _remove(old)
     return fresh

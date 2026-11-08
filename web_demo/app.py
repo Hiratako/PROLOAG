@@ -145,7 +145,7 @@ def about() -> None:
 このWeb版は、**Hobby & Toolsを除く主要機能**を体験できる構成です。学習・知識・生活の記録を追加・編集し、分析への反映まで試せます。表示基準日は **2026年11月5日**、初期データは架空の180日分です。""")
     st.subheader("データの扱い")
     st.write("体験データはブラウザのセッションごとに分かれています。共通サンプルやほかの人のデータは変更しません。メニューを移動しても、このタブの操作内容を引き継ぎます。")
-    st.write("永続保存は行いません。ページの再読み込み・接続切れ・Cloudの再起動等で初期状態に戻る場合があります。サイドバーの『体験をリセット』でも初期状態に戻せます。長時間使わない一時データは自動的に削除します。")
+    st.write("永続保存は行いません。ページの再読み込み・接続切れ・Cloudの再起動等で初期状態に戻る場合があります。サイドバーの『体験をリセット』でも初期状態に戻せます。接続が終了した一時データは自動的に削除します。")
     st.subheader("ローカル版との違い")
     st.write("Google連携は説明のみで、認証・外部送信は実行しません。Hobby & Toolsのメディア変換・文字起こし・OCRはこのWeb版には含みません。インポート・エクスポートも体験用のサンプルでお試しください。")
     st.subheader("利用条件と検証")
@@ -176,9 +176,15 @@ def _sidebar(pages):
 
 def run() -> None:
     st.set_page_config(page_title="PROLOAG | Web Demo", page_icon="📘", layout="wide")
+    from web_demo.sandbox import SandboxLimitError, ensure_session_sandbox, sandbox_context
     try:
-        from web_demo.sandbox import ensure_session_sandbox, sandbox_context
         handle = ensure_session_sandbox()
+    except SandboxLimitError:
+        LOGGER.warning("Web experience capacity reached")
+        st.warning("ただいま体験中の利用者が多いため、新しい体験を開始できません。少し時間をおいて再試行してください。")
+        if st.button("もう一度試す"):
+            st.rerun()
+        st.stop()
     except (OSError, ValueError, RuntimeError):
         LOGGER.exception("Web experience sandbox preparation failed")
         st.error("体験データを準備できませんでした。少し待ってから開き直してください。")

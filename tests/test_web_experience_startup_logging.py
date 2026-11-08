@@ -11,6 +11,41 @@ GENERIC_NOTICE = "体験データを準備できませんでした。少し待�
 
 
 class ExperienceStartupLoggingTests(unittest.TestCase):
+    def test_capacity_notice_can_retry_without_logging_an_unexpected_failure(self):
+        from streamlit import config
+        from web_demo import sandbox
+        config.get_config_options(force_reparse=True,
+                                  options_from_flags={"global.developmentMode": False})
+        original = sandbox.ensure_session_sandbox
+        attempts = 0
+
+        def prepare():
+            nonlocal attempts
+            attempts += 1
+            if attempts <= 2:
+                raise sandbox.SandboxLimitError("internal capacity detail")
+            return original()
+
+        with patch.object(sandbox, "ensure_session_sandbox", side_effect=prepare), \
+                self.assertLogs("web_demo.app", level="WARNING") as captured:
+            app = AppTest.from_file(ROOT / "main.py", default_timeout=90).run()
+            self.assertEqual(len(app.exception), 0)
+            self.assertEqual(len(app.error), 0)
+            self.assertEqual(len(app.warning), 1)
+            self.assertIn("体験中の利用者が多い", app.warning[0].value)
+            self.assertNotIn("internal capacity detail", app.warning[0].value)
+            app.button[0].click().run(timeout=90)
+        handle = app.session_state[sandbox.SESSION_KEY]
+        self.addCleanup(sandbox.destroy_sandbox, handle)
+        self.assertEqual(attempts, 3)
+        self.assertEqual(len(app.exception), 0)
+        self.assertEqual(len(app.error), 0)
+        self.assertEqual(len(app.warning), 0)
+        logged = "\n".join(captured.output)
+        self.assertIn("Web experience capacity reached", logged)
+        self.assertNotIn("Traceback", logged)
+        self.assertNotIn("Web experience sandbox preparation failed", logged)
+
     def test_preparation_failure_is_logged_without_exposing_details_in_the_page(self):
         from streamlit import config
         config.get_config_options(force_reparse=True,
