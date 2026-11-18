@@ -244,7 +244,7 @@ ab.topbar(BRAND_NAME, BRAND_TAGLINE_JA, eyebrow=BRAND_EXPANSION)
 
 today = app_today()
 if is_demo_mode():
-    st.info(f"{demo_mode_label()} / 表示基準日: {today:%Y年%m月%d日}")
+    st.info(f"{demo_mode_label()} / 表示基準日: {today.year:04d}年{today.month:02d}月{today.day:02d}日")
 
 summary = summarize_today(today)
 
