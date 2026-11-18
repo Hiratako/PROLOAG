@@ -30,6 +30,16 @@ jobs:
         with:
           python-version: '3.11.4'
           architecture: x64
+      - name: Use one canonical temporary directory
+        shell: pwsh
+        run: |
+          $taskTemp = Join-Path $env:RUNNER_TEMP 'proloag-ci'
+          New-Item -ItemType Directory -Path $taskTemp -Force | Out-Null
+          $canonicalTemp = & python -c "from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve(strict=True))" $taskTemp
+          if ($LASTEXITCODE -ne 0 -or -not $canonicalTemp) { throw 'Cannot resolve the CI temporary directory' }
+          foreach ($name in @('TEMP', 'TMP', 'TMPDIR')) { "$name=$canonicalTemp" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8 }
+          "MPLCONFIGDIR=$(Join-Path $canonicalTemp 'mpl')" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          Write-Host "Using canonical temporary directory: $canonicalTemp"
       - name: Install fixed basic dependencies
         shell: pwsh
         run: |
@@ -40,6 +50,8 @@ jobs:
         run: |
           $env:PYTHONPATH = (Join-Path $PWD '.deps311')
           $env:PYTHONDONTWRITEBYTECODE = '1'
+          python -c "import os,tempfile; from pathlib import Path; expected=str(Path(os.environ['TMPDIR']).resolve(strict=True)); assert all(os.environ[name]==expected for name in ('TMPDIR','TEMP','TMP')); assert tempfile.gettempdir()==expected; print('Verified canonical temporary directory:',expected)"
+          if ($LASTEXITCODE -ne 0) { throw 'Temporary directory configuration is inconsistent' }
           python -B scripts/run_tests.py --suite core
           if ($LASTEXITCODE -ne 0) { throw 'Source tests failed' }
       - name: Build and verify both packages
