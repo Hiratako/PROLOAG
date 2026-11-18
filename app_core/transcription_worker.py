@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
 import threading
@@ -14,11 +15,13 @@ import wave
 if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from app_core.transcription import atomic_json, file_lock, read_json
+from app_core.transcription import (atomic_json, file_lock, read_json, file_sha256,
+                                    load_checkpoint, checkpoint_prefix, checkpoint_signature)
 from app_core.media_conversion import _identity, _process_options
 
 CHUNK_SECONDS = 300
 OVERLAP_SECONDS = 2
+TERMINAL = {"done", "cancelled", "failed"}
 
 
 class Cancelled(Exception):
@@ -50,6 +53,55 @@ def normalized_segments(segments, offset, core_start, core_end, duration, first_
         number += 1
 
 
+def _sync_audio_memo_terminal(request, folder, state, update):
+    """Sync a linked memo without turning a successful ASR into a failure."""
+    memo_id = request.get("audio_memo_id")
+    job_id = request.get("id")
+    root_value = request.get("root")
+    if (
+        state.get("status") not in TERMINAL
+        or not isinstance(memo_id, str)
+        or not re.fullmatch("[a-f0-9]{32}", memo_id)
+        or not isinstance(job_id, str)
+        or not re.fullmatch("[a-f0-9]{32}", job_id)
+        or state.get("id") != job_id
+        or state.get("audio_memo_id") != memo_id
+        or not isinstance(root_value, str)
+        or not root_value
+    ):
+        return
+    try:
+        root = Path(root_value)
+        if not root.is_absolute():
+            return
+        root = root.resolve()
+        expected = root / "transcription_data/jobs" / job_id
+        if (
+            any(path.is_symlink() for path in (expected.parent.parent, expected.parent, expected))
+            or Path(folder).resolve() != expected
+        ):
+            return
+    except (OSError, ValueError, RuntimeError):
+        return
+    try:
+        from app_core.audio_memo_service import sync_audio_memo
+
+        sync_audio_memo(root, memo_id, job_id)
+        if state.get("memo_save_error"):
+            update(memo_save_error="")
+    except Exception as exc:
+        message = "録音メモの同期に失敗しました。文字起こしの結果は保持しています。履歴から再試行してください。"
+        print(
+            f"Audio memo synchronization failed ({type(exc).__name__}); ASR result is preserved.",
+            file=sys.stderr,
+            flush=True,
+        )
+        try:
+            update(memo_save_error=message)
+        except Exception:
+            print("Could not record the audio memo synchronization warning.", file=sys.stderr, flush=True)
+
+
 def run(folder):
     folder = Path(folder).resolve()
     request = read_json(folder / "request.json")
@@ -59,13 +111,27 @@ def run(folder):
     started = time.monotonic()
     stop = threading.Event()
     state_lock = threading.Lock()
+    memo_sync_lock = threading.Lock()
+    memo_sync_attempted = False
 
     def update(**values):
         with state_lock:
+            if (
+                state.get("status") in TERMINAL
+                and values.get("status") not in (None, state["status"])
+            ):
+                return
             state.update(
                 values, elapsed=time.monotonic() - started, heartbeat=time.time()
             )
             atomic_json(folder / "state.json", state)
+
+    def sync_memo():
+        nonlocal memo_sync_attempted
+        with memo_sync_lock:
+            if not memo_sync_attempted:
+                memo_sync_attempted = True
+                _sync_audio_memo_terminal(request, folder, state, update)
 
     def heartbeat():
         while not stop.wait(2):
@@ -77,7 +143,9 @@ def run(folder):
                 # Inference/download/native calls cannot reliably be interrupted
                 # from Python; durable segments already flushed remain available.
                 try:
+                    stop.set()
                     update(status="cancelled", message="中止しました", error="")
+                    sync_memo()
                 finally:
                     os._exit(0)
 
@@ -91,6 +159,19 @@ def run(folder):
                 raise ValueError(
                     "元ファイルが変更されました。もう一度確認してください。"
                 )
+            source_hash = file_sha256(source)
+            if request.get("source_sha256", source_hash) != source_hash:
+                raise ValueError("元音声のハッシュが変わっています。以前の結果は保持しています。")
+            request["source_sha256"] = source_hash
+            resumed = None
+            prefix_digest = None
+            if request.get("resume_from") is not None:
+                if not isinstance(request["resume_from"], str) or not re.fullmatch("[a-f0-9]{32}", request["resume_from"]):
+                    raise ValueError("再開元の認識履歴IDが不正です。")
+                resumed = load_checkpoint(folder, request)
+                if resumed.get("copied_from") != request["resume_from"]:
+                    raise ValueError("再開元と完了区間の対応を確認できません。")
+                prefix_digest = checkpoint_prefix(folder / "segments.jsonl", resumed, exact=True)
             audio = folder / "audio.wav"
             partial = folder / "audio.partial.wav"
             command = [
@@ -206,17 +287,25 @@ def run(folder):
                 warning=warning,
                 detected_languages=[],
             )
-            count = 0
-            languages = set()
+            count = resumed["segments_count"] if resumed else 0
+            languages = set(resumed["detected_languages"]) if resumed else set()
+            completed = resumed["completed_seconds"] if resumed else 0
+            if resumed:
+                update(resumed_seconds=completed, segments=count)
+            import hashlib
+            prefix_digest = prefix_digest or hashlib.sha256()
             with (
                 wave.open(str(audio), "rb") as incoming,
                 (folder / "segments.jsonl").open(
-                    "w", encoding="utf-8", newline="\n"
+                    "ab" if resumed else "wb"
                 ) as output,
             ):
                 rate = incoming.getframerate()
                 duration = incoming.getnframes() / rate
-                for core_start in range(0, int(duration) + 1, CHUNK_SECONDS):
+                if completed > duration + 0.001:
+                    raise ValueError("再開位置が実際の音声より後にあります。")
+                starts = () if completed >= duration else range(int(completed), int(duration) + 1, CHUNK_SECONDS)
+                for core_start in starts:
                     if core_start >= duration:
                         break
                     check_cancel(folder)
@@ -252,9 +341,9 @@ def run(folder):
                         segments, offset, core_start, core_end, duration, count
                     ):
                         check_cancel(folder)
-                        output.write(
-                            json.dumps(row, ensure_ascii=False, allow_nan=False) + "\n"
-                        )
+                        encoded = (json.dumps(row, ensure_ascii=False, allow_nan=False) + "\n").encode("utf-8")
+                        output.write(encoded)
+                        prefix_digest.update(encoded)
                         output.flush()
                         os.fsync(output.fileno())
                         count += 1
@@ -263,6 +352,15 @@ def run(folder):
                             segments=count,
                             detected_languages=sorted(languages),
                         )
+                    output.flush()
+                    os.fsync(output.fileno())
+                    atomic_json(folder / "checkpoint.json", {
+                        "schema_version": 1, "job_id": folder.name,
+                        "signature": checkpoint_signature(request), "source_sha256": source_hash,
+                        "completed_seconds": core_end, "segments_count": count,
+                        "segments_bytes": output.tell(), "segments_sha256": prefix_digest.hexdigest(),
+                        "detected_languages": sorted(languages),
+                    })
                     update(
                         progress=min(0.999, core_end / duration),
                         segments=count,
@@ -291,7 +389,10 @@ def run(folder):
             )
         finally:
             stop.set()
-            (folder / "audio.partial.wav").unlink(missing_ok=True)
+            try:
+                (folder / "audio.partial.wav").unlink(missing_ok=True)
+            finally:
+                sync_memo()
 
 
 if __name__ == "__main__":

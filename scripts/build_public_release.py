@@ -25,7 +25,7 @@ DEFAULT_VERSION = "0.1.0-preview.1"
 DEFAULT_REFERENCE_DATE = date(2026, 11, 5)
 PUBLIC_GUIDES = (
     "study-roadmap.md", "legacy-study-import.md", "media-conversion.md",
-    "transcription.md", "ocr.md", "google-sheets-setup.md",
+    "transcription.md", "audio-memos.md", "ocr.md", "google-sheets-setup.md",
     "google-docs-reports.md", "consultation-proposals.md",
     "roadmap-ai-import.md", "ai-roadmap-import-prompt.md",
 )
@@ -34,7 +34,7 @@ COMMON_DISTRIBUTION_DOCS = (
 )
 REQUIRED_SOURCE = (
     "main.py", "config.py", "data_utils.py", "master_ui.py",
-    "requirements.txt", "requirements-release.lock.txt",
+    "requirements.txt", "requirements-release.lock.txt", "requirements-recording.txt",
     "THIRD_PARTY_NOTICES.md", ".streamlit/config.toml",
     "scripts/build_portable_release.ps1",
     "scripts/generate_consultant_demo_dataset.py",

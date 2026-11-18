@@ -234,6 +234,11 @@ function Copy-AppFiles {
         Copy-Item -LiteralPath $ocrRequirements -Destination $AppDir -Force
     }
 
+    $recordingRequirements = Join-Path $ProjectRoot "requirements-recording.txt"
+    if (Test-Path -LiteralPath $recordingRequirements -PathType Leaf) {
+        Copy-Item -LiteralPath $recordingRequirements -Destination $AppDir -Force
+    }
+
     # Include only public setup guides; never recursively copy docs or auth files.
     $docsDir = Join-Path $AppDir "docs"
     New-Item -ItemType Directory -Path $docsDir -Force | Out-Null
@@ -248,6 +253,11 @@ function Copy-AppFiles {
     $asrGuide = Join-Path $ProjectRoot "docs\transcription.md"
     if (Test-Path -LiteralPath $asrGuide -PathType Leaf) {
         Copy-Item -LiteralPath $asrGuide -Destination $docsDir -Force
+    }
+
+    $recordingGuide = Join-Path $ProjectRoot "docs\audio-memos.md"
+    if (Test-Path -LiteralPath $recordingGuide -PathType Leaf) {
+        Copy-Item -LiteralPath $recordingGuide -Destination $docsDir -Force
     }
 
     $ocrGuide = Join-Path $ProjectRoot "docs\ocr.md"

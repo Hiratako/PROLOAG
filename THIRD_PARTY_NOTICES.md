@@ -8,9 +8,23 @@ PROLOAG 0.1.0-preview.1 / Windows x64 / Python 3.11
 
 以下の基本PythonライブラリはZIPにインストール済みの形では含めず、初回起動時に配布用の固定依存定義から取得します。関連するライセンス原文をlicenses/python-packagesに収録しています。表の表示は各配布パッケージのメタデータから抽出した補助情報です。個々の原文と配布元の条件が基準となります。
 
-FFmpeg/FFprobe、Google連携の追加依存、文字起こし/OCRエンジン・モデルはこのZIPには同梱していません。任意導入する場合は各配布元の条件を確認してください。
+FFmpeg/FFprobe、Google連携の追加依存、録音ライブラリ、文字起こし/OCRエンジン・モデルはこのZIPには同梱していません。任意導入する場合は各配布元の条件を確認してください。
 
 本書はPROLOAG本体の利用条件を置き換えるものではありません。
+
+## preview.3の任意録音機能
+
+`requirements-recording.txt`は次の録音用パッケージを固定し、初回セットアップで専用の`.deps-record311`等へ取得します。ソース・配布ZIPにインストール済みパッケージやPortAudioのDLLは含めません。次の原文は導入対象の配布パッケージから取得したものです。
+
+| パッケージ | 固定版 | 原文 |
+|---|---|---|
+| sounddevice | 0.5.6 | [LICENSE](licenses/python-packages/sounddevice/LICENSE) |
+| cffi | 2.1.1 | [LICENSE](licenses/python-packages/cffi/LICENSE) |
+| pycparser | 3.12 | [LICENSE](licenses/python-packages/pycparser/LICENSE) |
+
+sounddeviceは[PortAudio](https://www.portaudio.com/)を使用します。Windows用wheelが取得するPortAudioバイナリも同プロジェクトの利用条件に従います。将来、導入済みライブラリやDLLを配布物へ同梱する場合は、その時点で各バイナリに対応する利用条件と表示を確認してください。
+
+## 基本依存の初期収集記録
 
 | パッケージ | 固定版 | 配布元のライセンス表示 | 原文ファイル数 |
 |---|---|---|---|

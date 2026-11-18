@@ -1,6 +1,6 @@
 # Windows配布ZIPを作る
 
-このソースには、通常版と中小企業診断士Demo版を作る補助を収録しています。GitHubへのアップロード・公開は行いません。
+このソースには、通常版と中小企業診断士Demo版を作る補助を収録しています。`build_public_release.py`自体はGitHubへのアップロード・公開を行いません。GitHub Actionsを使う公開処理は後述します。
 
 通常版は記録が空で、医学・英語のサンプル分類のみです。Demo版は同じアプリコードに、専用生成器の架空データ・固定日・少量のロードマップを追加します。使用中の記録・設定を配布用データとしてコピーしません。
 
@@ -18,17 +18,17 @@
 リポジトリのルートで実行します。
 
 ```powershell
-py -3.11 scripts/build_public_release.py --check --version 0.1.0-preview.2
+py -3.11 scripts/build_public_release.py --check --version 0.1.0-preview.3
 ```
 
 必要な公開ファイル、ライセンス状態、版名、出力先の重複を確認します。ランタイム生成、データ保存、ZIP作成、ネット通信は行いません。`--help`で全引数を確認できます。
 
 ## 通常版とDemo版を作る
 
-以下は、2026年11月7日に、公開前の`0.1.0-preview.2`下書きを利用条件入りの内容へ更新した際の作成例です。当時は未公開で添付の取得がないことを確認し、版番号を増やさずZIPとチェックサム等を差し替えました。現在は[同版のRelease](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2)を公開済みです。公開済み版を変更する場合は、新しい識別版を使用してください。
+以下は録音機能を含む`0.1.0-preview.3`の作成例です。公開済みの[preview.2](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2)は保持し、新しい識別版で配布します。
 
 ```powershell
-py -3.11 scripts/build_public_release.py --version 0.1.0-preview.2 --reference-date 2026-11-05 --days 180 --seed 20261105
+py -3.11 scripts/build_public_release.py --version 0.1.0-preview.3 --reference-date 2026-11-05 --days 180 --seed 20261105
 ```
 
 既定では両方を生成します。通常版だけなら`--variant normal`、Demoだけなら`--variant demo`を指定します。Pythonが複数ある場合は、`--python "<Python 3.11 x64のpython.exe>"`で明示できます。
@@ -39,13 +39,13 @@ Demoの基準日は、その版で再現できるよう固定します。基準�
 
 ```text
 release/
-├─ proloag-v0.1.0-preview.2-windows-x64/
-├─ proloag-demo-consultant-v0.1.0-preview.2-windows-x64/
-├─ proloag-v0.1.0-preview.2-windows-x64.zip
-├─ proloag-demo-consultant-v0.1.0-preview.2-windows-x64.zip
+├─ proloag-v0.1.0-preview.3-windows-x64/
+├─ proloag-demo-consultant-v0.1.0-preview.3-windows-x64/
+├─ proloag-v0.1.0-preview.3-windows-x64.zip
+├─ proloag-demo-consultant-v0.1.0-preview.3-windows-x64.zip
 ├─ 各ZIPの.sha256
-├─ SHA256SUMS-proloag-v0.1.0-preview.2.txt
-└─ BUILD_RESULT-proloag-v0.1.0-preview.2.json
+├─ SHA256SUMS-proloag-v0.1.0-preview.3.txt
+└─ BUILD_RESULT-proloag-v0.1.0-preview.3.json
 ```
 
 配布用Python本体を同梱します。通常の初回起動では、`app/requirements-release.lock.txt`から基本ライブラリをネット経由で導入します。開発環境の`.deps311`・venv・モデル等をZIPへコピーする方式ではありません。
@@ -62,7 +62,7 @@ ZIPは一時的な`.zip.partial`として生成し、全ファイル一覧・CRC
 
 ```powershell
 py -3.11 -m pip install --target .deps311 -r requirements-release.lock.txt
-py -3.11 scripts/build_public_release.py --version 0.1.0-preview.2 --reference-date 2026-11-05 --verify-pages
+py -3.11 scripts/build_public_release.py --version 0.1.0-preview.3 --reference-date 2026-11-05 --verify-pages
 ```
 
 `--verify-pages`は既存の配布検査を呼び、通常版・Demo版ともポータルと現行全ページを自動列挙します。検査中の記録保存・外部通信・外部プロセス起動は防止し、配布内データを変更しない検査です。`.deps311`は検査専用に使い、ソースやZIPには含めません。
@@ -75,10 +75,20 @@ py -3.11 scripts/build_public_release.py --version 0.1.0-preview.2 --reference-d
 
 本体の`LICENSE`と、`THIRD_PARTY_NOTICES.md`・`licenses/`・同梱Pythonのライセンスを配布へ含めます。本体の独自利用条件は、第三者ソフトの利用条件を置き換えません。
 
-この共通ビルドはFFmpeg/FFprobe、ASR/OCR専用依存・モデル、Google認証を同梱しません。FFmpegを追加配布する場合は、選んだビルドの再配布条件に応じた資料と検証を別途準備します。
+この共通ビルドは録音用ライブラリ、FFmpeg/FFprobe、ASR/OCR専用依存・モデル、Google認証を同梱しません。録音用の依存定義・セットアップ・操作ガイドは同梱します。FFmpegを追加配布する場合は、選んだビルドの再配布条件に応じた資料と検証を別途準備します。
 
 ## ソースと過去の配布物の対応
 
-`0.1.0-preview.2`は、成分初期例を統一し、独自の利用条件を同梱して2026年11月7日に公開したプレビュー版です。公開前に同版のRelease下書きの添付を整理しました。`0.1.0-preview.3`のReleaseやタグは作成していません。元の`0.1.0-preview.2` ZIP、利用条件入りの`0.1.0-preview.3`試作ZIP、初期の`0.1.0-preview.1` ZIP、準備時点の`SOURCE_MANIFEST.json`はローカルの履歴資料として保管し、上書きしません。同じアプリソースでも、Python版、EXEコンパイル、ZIPの時刻等でバイト列は変わるため、過去ZIPと完全同一のSHA-256になるとは限りません。
+`0.1.0-preview.2`は、成分初期例を統一し、独自の利用条件を同梱して2026年11月7日に公開したプレビュー版です。`0.1.0-preview.3`では録音・文字起こしメモを追加します。過去の未公開試作品を新しい公開版と混同せず、公開タグ・ソースcommit・`RELEASE_MANIFEST.json`を確認してください。過去のZIPと、準備時点の`SOURCE_MANIFEST.json`は履歴資料であり、新しい版の検証結果へ読み替えません。同じアプリソースでも、Python版、EXEコンパイル、ZIPの時刻等でバイト列は変わるため、過去ZIPと完全同一のSHA-256になるとは限りません。
 
 Git管理されたルートから作ると、ソースcommitと未コミット差分の有無をmanifestに記録します。Git外なら未設定です。`source_dirty=true`の配布物を、そのcommitだけから作ったものと説明しないでください。公開時はソース・資料・利用条件の版を確定し、対応タグとZIPをそろえます。
+
+## GitHub Actionsによる新しい版の公開
+
+`.github/workflows/windows-release.yml`は、mainの`release-control/windows-preview.json`が変更された場合、または所有者が手動実行した場合に動きます。対象はその実行の固定commitです。通常のアプリコード更新だけでは公開を開始しません。
+
+Windowsのbuild jobは読取権限で固定依存・coreテスト・通常版とDemo版の全ページ検査を行います。`stage_windows_release.py`はcommit、未コミット差分なし、ZIP内の検証記録、5個の配布ファイルとチェックサムを確認します。録音・認証情報・モデルを送る処理はありません。
+
+後続のpublish jobだけに当該リポジトリのcontents書込権限を与えます。既存のtag・Releaseがあれば停止し、新しいDraftへ添付して、全件のサイズ・SHA256を確認できた場合にだけ公開します。既存のReleaseや添付を削除・上書きしません。ユーザーの長期APIキーを登録する必要はありません。失敗時は結果を確認し、Draftやtagを無条件に消して再実行しないでください。
+
+このworkflowを初めて登録する接続には、GitHub側でWorkflowファイルを書ける権限も必要です。

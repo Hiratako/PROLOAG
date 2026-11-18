@@ -3,8 +3,9 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
-from dataclasses import asdict
+from dataclasses import asdict, replace
 import importlib.util
+import hashlib
 import json
 import math
 import os
@@ -12,6 +13,7 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
+import stat
 import sys
 import threading
 import time
@@ -31,8 +33,138 @@ from app_core.media_conversion import (
 )
 
 ACTIVE = {"starting", "preparing", "loading", "transcribing", "cancelling"}
+BLOCKING = ACTIVE | {"unavailable"}
 MODELS = {"standard": "small", "accurate": "medium"}
 _mutex = threading.RLock()
+
+
+def file_sha256(path):
+    digest = hashlib.sha256()
+    with Path(path).open("rb") as stream:
+        while block := stream.read(1024**2):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def checkpoint_signature(request):
+    """Audio/configuration identity shared by the launcher and isolated worker."""
+    values = {key: request.get(key) for key in (
+        "source_sha256", "duration", "track", "language", "model", "hotwords", "device", "audio_memo_id"
+    )}
+    values.update(pipeline=1, chunk_seconds=300, overlap_seconds=2, beam_size=5,
+                  vad_filter=True, condition_on_previous_text=False)
+    return hashlib.sha256(json.dumps(values, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()).hexdigest()
+
+
+def _checkpoint_file(path):
+    value = Path(path).lstat()
+    if not stat.S_ISREG(value.st_mode) or getattr(value, "st_file_attributes", 0) & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 1024):
+        raise MediaError("再開用の履歴にリンクは使用できません。")
+
+
+def _checkpoint_json(path):
+    _checkpoint_file(path)
+    with Path(path).open("rb") as stream:
+        raw = stream.read(128 * 1024 + 1)
+    if len(raw) > 128 * 1024:
+        raise MediaError("再開用の履歴が大きすぎます。")
+    try:
+        value = json.loads(raw)
+        if not isinstance(value, dict):
+            raise ValueError("not an object")
+        return value
+    except (ValueError, TypeError, RecursionError) as exc:
+        raise MediaError("再開用の履歴を確認できません。") from exc
+
+
+def load_checkpoint(folder, request):
+    folder = Path(folder)
+    checkpoint = _checkpoint_json(folder / "checkpoint.json")
+    try:
+        completed, duration = checkpoint["completed_seconds"], request["duration"]
+        if (checkpoint.get("schema_version") != 1 or checkpoint.get("job_id") != folder.name
+                or checkpoint.get("signature") != checkpoint_signature(request)
+                or checkpoint.get("source_sha256") != request.get("source_sha256")
+                or not isinstance(checkpoint.get("source_sha256"), str) or not re.fullmatch("[0-9a-f]{64}", checkpoint["source_sha256"])
+                or type(completed) not in {int, float} or not math.isfinite(completed)
+                or type(duration) not in {int, float} or not math.isfinite(duration)
+                or not 0 < completed <= duration <= 24 * 3600
+                or (completed % 300 != 0 and abs(completed - duration) > 0.001)
+                or type(checkpoint.get("segments_count")) is not int or not 0 <= checkpoint["segments_count"] <= 1_000_000
+                or type(checkpoint.get("segments_bytes")) is not int or not 0 <= checkpoint["segments_bytes"] <= 1024**3
+                or not isinstance(checkpoint.get("segments_sha256"), str) or not re.fullmatch("[0-9a-f]{64}", checkpoint["segments_sha256"])
+                or not isinstance(checkpoint.get("detected_languages"), list) or len(checkpoint["detected_languages"]) > 128
+                or any(not isinstance(value, str) or not re.fullmatch("[a-z0-9-]{1,16}", value) for value in checkpoint["detected_languages"])):
+            raise ValueError("incompatible checkpoint")
+    except (ValueError, TypeError, KeyError, OverflowError) as exc:
+        raise MediaError("同じ音声・認識条件の完了区間を確認できません。以前の結果は保持しています。") from exc
+    return checkpoint
+
+
+def checkpoint_prefix(path, checkpoint, destination=None, *, exact=False):
+    """Validate/copy only committed lines; a failed window's tail is excluded."""
+    _checkpoint_file(path)
+    digest = hashlib.sha256()
+    remaining = checkpoint["segments_bytes"]
+    count = 0
+    with Path(path).open("rb") as incoming:
+        while remaining:
+            line = incoming.readline(min(1024**2 + 1, remaining + 1))
+            if not line or len(line) > min(1024**2, remaining) or not line.endswith(b"\n"):
+                raise MediaError("再開区間の原文が途中で切れています。")
+            try:
+                row = json.loads(line)
+                if not isinstance(row, dict):
+                    raise ValueError("invalid segment object")
+                start, end = row["start"], row["end"]
+                if (type(row.get("id")) is not int or row["id"] != count
+                        or type(start) not in {int, float} or type(end) not in {int, float}
+                        or not math.isfinite(start) or not math.isfinite(end)
+                        or not 0 <= start < end <= checkpoint["completed_seconds"] + 0.001
+                        or not isinstance(row.get("original_text"), str) or "\0" in row["original_text"]):
+                    raise ValueError("invalid segment")
+            except (ValueError, TypeError, KeyError, OverflowError) as exc:
+                raise MediaError("再開区間の原文・時刻を確認できません。") from exc
+            digest.update(line)
+            if destination is not None:
+                destination.write(line)
+            remaining -= len(line)
+            count += 1
+        if exact and incoming.read(1):
+            raise MediaError("再開用の原文に未完了の末尾があります。")
+    if count != checkpoint["segments_count"] or digest.hexdigest() != checkpoint["segments_sha256"]:
+        raise MediaError("再開区間の件数・ハッシュが一致しません。")
+    return digest
+
+
+def copy_checkpoint(previous, current, request):
+    """Copy a stopped job's committed prefix into a new, independently owned job."""
+    previous, current = Path(previous), Path(current)
+    for path in (previous / "state.json", previous / "request.json", previous / "checkpoint.json", previous / "segments.jsonl"):
+        _checkpoint_file(path)
+    if (previous / ".worker.lock").exists() or (previous / ".worker.lock").is_symlink():
+        _checkpoint_file(previous / ".worker.lock")
+    with file_lock(previous / ".worker.lock", blocking=False):
+        state = _checkpoint_json(previous / "state.json")
+        if state.get("status") in ACTIVE:
+            created = state.get("created")
+            if type(created) not in {int, float} or not math.isfinite(created) or time.time() - created <= 45:
+                raise MediaError("以前の認識処理が終了してから再開してください。")
+        elif state.get("status") not in {"failed", "cancelled", "interrupted"}:
+            raise MediaError("完了済みの認識は、最初から再認識してください。")
+        previous_request = _checkpoint_json(previous / "request.json")
+        checkpoint_raw = _checkpoint_json(previous / "checkpoint.json")
+        previous_request.setdefault("source_sha256", checkpoint_raw.get("source_sha256"))
+        checkpoint = load_checkpoint(previous, previous_request)
+        if checkpoint["signature"] != checkpoint_signature(request):
+            raise MediaError("音声または認識条件が異なるため、途中から再開できません。")
+        with (current / "segments.jsonl").open("xb") as output:
+            checkpoint_prefix(previous / "segments.jsonl", checkpoint, output)
+            output.flush()
+            os.fsync(output.fileno())
+        checkpoint = {**checkpoint, "job_id": current.name, "copied_from": previous.name}
+        atomic_json(current / "checkpoint.json", checkpoint)
+        return checkpoint
 
 
 def atomic_json(path, data):
@@ -57,10 +189,15 @@ def atomic_json(path, data):
 
 
 def read_json(path, default=None):
-    try:
-        return json.loads(Path(path).read_text(encoding="utf-8"))
-    except FileNotFoundError:
-        return default
+    for attempt in range(3):
+        try:
+            return json.loads(Path(path).read_text(encoding="utf-8"))
+        except FileNotFoundError:
+            return default
+        except PermissionError:
+            if attempt == 2:
+                raise
+            time.sleep(0.025)
 
 
 @contextmanager
@@ -104,9 +241,12 @@ class TranscriptionSources(MediaManager):
                 "音声情報を取得できません。正常なMP4／MP3を選択してください。"
             ) from exc
         formats = set(str(data.get("format", {}).get("format_name", "")).split(","))
-        expected = {"mp3"} if Path(name).suffix.lower() == ".mp3" else {"mov", "mp4"}
+        suffix = Path(name).suffix.lower()
+        expected = (
+            {"mp3"} if suffix == ".mp3" else {"wav"} if suffix == ".wav" else {"mov", "mp4"}
+        )
         if not formats.intersection(expected):
-            raise MediaError("ファイルの内容とMP4／MP3の拡張子が一致しません。")
+            raise MediaError("ファイルの内容と音声の拡張子が一致しません。")
         tracks = []
         for row in data.get("streams", []):
             if row.get("codec_type") != "audio":
@@ -167,6 +307,61 @@ class TranscriptionSources(MediaManager):
         return self._prepare(
             owner, buffer=buffer, name=name.replace("\\", "/").split("/")[-1]
         )
+
+    def prepare_recording(self, owner, path):
+        """Prepare an immutable WAV already saved by the audio-memo service."""
+        from app_core.audio_memo_service import (
+            validate_recording_file,
+        )
+
+        with self._lock:
+            self._owner(owner)
+            if self._busy(owner):
+                raise MediaError("処理中です。完了してから録音を選択してください。")
+        path = Path(path)
+        memo_id = path.parent.name
+        expected = self.root / "transcription_data/memos" / memo_id / "audio.wav"
+        if (
+            not path.is_absolute()
+            or not re.fullmatch("[a-f0-9]{32}", memo_id)
+            or path.name != "audio.wav"
+            or path != expected
+        ):
+            raise MediaError("保存済みの録音メモを選択してください。")
+        try:
+            for candidate in (
+                self.root / "transcription_data",
+                self.root / "transcription_data/memos",
+                expected.parent,
+                expected,
+            ):
+                if candidate.is_symlink():
+                    raise MediaError("録音メモの保存先を確認してください。")
+            path = path.resolve(strict=True)
+            if not path.is_relative_to(self.root):
+                raise MediaError("録音メモの保存先を確認してください。")
+            before = _identity(path)
+            meta = read_json(path.parent / "memo.json", {})
+            is_long = (isinstance(meta, dict) and meta.get("source_kind") == "long_recording"
+                       and meta.get("recording_id") == memo_id and meta.get("id") == memo_id)
+            validate_recording_file(path, long_recording=is_long)
+            if _identity(path) != before:
+                raise MediaError("録音が変更されました。もう一度選択してください。")
+        except MediaError:
+            raise
+        except (OSError, ValueError, RuntimeError) as exc:
+            raise MediaError("保存済みの録音を読み取れません。") from exc
+        prepared = self._prepare(owner, path=path, name=path.name)
+        if prepared.identity != before:
+            raise MediaError("録音が変更されました。もう一度選択してください。")
+        source = replace(prepared, id=memo_id, mode="recording")
+        with self._lock:
+            self._owner(owner)
+            work = self._works.get(owner)
+            if work is None or work.source is not prepared:
+                raise MediaError("録音の選択が変わりました。もう一度選択してください。")
+            work.source = source
+        return source
 
 
 def dependency_dir(root):
@@ -259,7 +454,18 @@ class TranscriptionStore:
                 try:
                     values.append(self._state(path.name))
                 except (OSError, ValueError):
-                    continue
+                    values.append(
+                        {
+                            "id": path.name,
+                            "status": "unavailable",
+                            "name": "状態を確認できない履歴",
+                            "created": 0.0,
+                            "progress": 0.0,
+                            "elapsed": 0.0,
+                            "message": "履歴を読み取れません。少し待って再読込してください。",
+                            "error": "処理中か確認できないため、新しい文字起こしを停止しています。",
+                        }
+                    )
         return sorted(values, key=lambda row: row.get("created", 0), reverse=True)
 
     def start(
@@ -271,7 +477,17 @@ class TranscriptionStore:
         hotwords="",
         device="cpu",
         operation_id=None,
+        *,
+        audio_memo_id=None,
+        resume_from=None,
     ):
+        if resume_from is not None and (not isinstance(resume_from, str) or not re.fullmatch("[a-f0-9]{32}", resume_from)):
+            raise MediaError("再開元の認識履歴IDを確認してください。")
+        if audio_memo_id is not None and (
+            not isinstance(audio_memo_id, str)
+            or not re.fullmatch("[a-f0-9]{32}", audio_memo_id)
+        ):
+            raise MediaError("録音メモの識別情報を確認してください。")
         if (
             language not in {"ja", "en", "auto"}
             or mode not in MODELS
@@ -301,11 +517,19 @@ class TranscriptionStore:
                     (r for r in rows if r.get("operation_id") == operation_id), None
                 )
                 fingerprint = [source.id, track_index, language, mode, hotwords, device]
+                if audio_memo_id is not None:
+                    fingerprint.append(audio_memo_id)
+                if resume_from is not None:
+                    fingerprint.extend(["resume_from", resume_from])
                 if old:
                     if old.get("fingerprint") != fingerprint:
                         raise MediaError("処理IDと設定が一致しません。")
                     return old["id"]
-                if any(r["status"] in ACTIVE for r in rows):
+                if any(r["status"] == "unavailable" for r in rows):
+                    raise MediaError(
+                        "履歴の状態を確認できません。履歴を再読込してから開始してください。"
+                    )
+                if any(r["status"] in BLOCKING for r in rows):
                     raise MediaError(
                         "別の文字起こしを処理中です。履歴から進捗を確認してください。"
                     )
@@ -349,7 +573,10 @@ class TranscriptionStore:
                         "device": device,
                         "ffmpeg": str(tools.ffmpeg),
                         "root": str(self.root),
+                        "source_sha256": file_sha256(input_path),
                     }
+                    if _identity(source.path) != source.identity:
+                        raise MediaError("確認中に元音声が変更されました。")
                     state = {
                         "schema_version": 1,
                         "id": job_id,
@@ -363,6 +590,14 @@ class TranscriptionStore:
                         "operation_id": operation_id,
                         "fingerprint": fingerprint,
                     }
+                    if audio_memo_id is not None:
+                        request["audio_memo_id"] = audio_memo_id
+                        state["audio_memo_id"] = audio_memo_id
+                    if resume_from is not None:
+                        request["resume_from"] = resume_from
+                        checkpoint = copy_checkpoint(self.folder(resume_from), folder, request)
+                        state.update(resume_from=resume_from, resumed_seconds=checkpoint["completed_seconds"],
+                                     segments=checkpoint["segments_count"])
                     atomic_json(folder / "request.json", request)
                     atomic_json(folder / "state.json", state)
                     env = os.environ.copy()
@@ -520,10 +755,20 @@ class TranscriptionStore:
     def delete(self, job_id):
         try:
             with _mutex, file_lock(self.base / ".catalog.lock"):
-                if self._state(job_id)["status"] in ACTIVE:
+                state = self._state(job_id)
+                if state["status"] in ACTIVE:
                     raise MediaError(
                         "処理中の履歴は削除できません。先に中止してください。"
                     )
+                memo_id = state.get("audio_memo_id")
+                if memo_id is not None:
+                    if not isinstance(memo_id, str) or not re.fullmatch("[a-f0-9]{32}", memo_id):
+                        raise MediaError("録音メモとの対応を確認できないため、履歴を削除できません。")
+                    memo_path = self.base / "memos" / memo_id / "memo.json"
+                    if memo_path.exists() or memo_path.is_symlink():
+                        raise MediaError(
+                            "録音メモに関連する認識履歴は削除できません。『録音・文字起こしメモ』で確認してください。"
+                        )
                 shutil.rmtree(self.folder(job_id))
         except OSError as exc:
             raise MediaError(

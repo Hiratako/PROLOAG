@@ -6,7 +6,7 @@
 
 PROLOAGは、学習計画・計測・ノート・復習と、睡眠・体調・運動などの生活記録をまとめる個人開発アプリです。中期の計画を日々のタスクと学習実績につなぎ、記録を振り返ることを目的にしています。Python / Streamlitを用い、生成AIの支援も活用して開発しています。
 
-**[Web体験版を開く](https://proloag-demo.streamlit.app/)** · [ソースコード（GitHub）](https://github.com/Hiratako/PROLOAG) · [Windows版ダウンロード](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2)
+**[Web体験版を開く](https://proloag-demo.streamlit.app/)** · [ソースコード（GitHub）](https://github.com/Hiratako/PROLOAG) · [Windows版ダウンロード](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.3)
 
 Web体験版はインストール不要です。架空180日分のデータを使い、計画・記録・ノート・復習・分析などの主要機能をブラウザで試せます。追加・編集・保存は閲覧者専用の一時データへ反映され、共通サンプルや他の閲覧者には影響しません。操作内容は永続保存されないため、実際の記録の保管用ではありません。
 
@@ -25,9 +25,11 @@ Web体験版にはHobby & Toolsを含めず、Google連携による接続・デ�
 | 知識と復習 | ノート、カード、復習リマインダー、知識都市、学習蓄積ビジュアライザー |
 | 生活記録と振り返り | 日記、服薬・カフェイン、睡眠・体調、運動、生活と学習の推移・条件比較 |
 | データの利用 | 全記録CSV・ZIP、旧版勉強ログの移行、データ整合性チェック、マイデータ統計演習 |
-| Hobby & Tools | MP4→MP3、日本語・英語の文字起こし、画像・PDFの文字読み取り（追加準備が必要） |
+| Hobby & Tools | 最大3時間の録音・文字起こしメモ、MP4→MP3、日本語・英語の文字起こし、画像・PDFの文字読み取り（追加準備が必要） |
 
-ポータルを含む29ページを、目的別のナビゲーションにまとめています。すべての機能を使わず、必要な記録から始められます。
+ポータルを含む30ページを、目的別のナビゲーションにまとめています。すべての機能を使わず、必要な記録から始められます。
+
+`0.1.0-preview.3`では、Windowsのマイクで最大3時間録音し、音声を順次保存する[録音・文字起こしメモ](docs/audio-memos.md)を追加しました。一時停止・再開・中断後の復旧、全文編集、TXT保存に対応します。録音ライブラリと認識エンジンは任意の追加導入です。録音・保存だけなら認識エンジンは不要です。
 
 ## 画面例
 
@@ -41,12 +43,12 @@ Web体験版にはHobby & Toolsを含めず、Google連携による接続・デ�
 |---|---|---|
 | [Web体験版](https://proloag-demo.streamlit.app/) | 架空データで主要機能をブラウザから試す | 公開中。インストール不要。閲覧者専用の一時データを使用 |
 | [ソースコード（main）](https://github.com/Hiratako/PROLOAG) | コードを読む・自分のPCでローカル版を動かす | 公開中。実行にはPython 3.11と依存ライブラリの導入が必要 |
-| [Windows通常版ZIP](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2) | 自分の記録を空の状態から始める | `0.1.0-preview.2`を公開済み。Python本体同梱、初回ライブラリ導入時はネット接続が必要 |
-| [Windows Demo版ZIP](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2) | 架空データでローカル版の画面・入力・分析を試す | `0.1.0-preview.2`を公開済み。180日分の架空データと少量のロードマップを収録 |
+| [Windows通常版ZIP](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.3) | 自分の記録を空の状態から始める | `0.1.0-preview.3`。Python本体同梱、初回ライブラリ導入時はネット接続が必要 |
+| [Windows Demo版ZIP](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.3) | 架空データでローカル版の画面・入力・分析を試す | `0.1.0-preview.3`。180日分の架空データと少量のロードマップを収録 |
 
-Windows通常版・Demo版ZIPは、2026年11月7日に公開した[`v0.1.0-preview.2`のRelease](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2)からダウンロードできます。プレビュー版のため、既知の制限を確認してご利用ください。インストールせずに試す場合は[Web体験版](https://proloag-demo.streamlit.app/)をご利用ください。このmainブランチから得るソースには、Pythonランタイム・導入済みライブラリ・個人記録を含めません。
+Windows通常版・Demo版ZIPは[`v0.1.0-preview.3`のRelease](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.3)からダウンロードできます。[従来のpreview.2](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2)も保持します。プレビュー版のため、既知の制限を確認してご利用ください。インストールせずに試す場合は[Web体験版](https://proloag-demo.streamlit.app/)をご利用ください。Web体験版には録音を含めません。このmainブランチから得るソースには、Pythonランタイム・導入済みライブラリ・個人記録を含めません。
 
-公開用の成分初期例は、Web体験版と同じ「カフェイン」「アセトアミノフェン」です。公開済みのWindows版`0.1.0-preview.2`もこの初期例を使用し、ZIPには独自の利用条件を同梱しています。Demo版の成分記録は独立して生成した架空サンプルです。成分・量・モデルは表示機能の例で、実際の服用や推奨を示しません。既存利用者が保存した独自成分や過去の記録を削除する変更ではありません。
+公開用の成分初期例は、Web体験版と同じ「カフェイン」「アセトアミノフェン」です。Windows配布版もこの初期例を使用し、ZIPには独自の利用条件を同梱しています。Demo版の成分記録は独立して生成した架空サンプルです。成分・量・モデルは表示機能の例で、実際の服用や推奨を示しません。既存利用者が保存した独自成分や過去の記録を削除する変更ではありません。
 
 ## ソースから起動する
 
@@ -72,6 +74,7 @@ Windowsでは`run_app.bat`からも起動できます。READMEの初期セット
 ## 追加準備が必要な機能
 
 - [メディア変換](docs/media-conversion.md)：FFmpeg/FFprobe。
+- [録音・文字起こしメモ](docs/audio-memos.md)：Windows PC録音用の専用ライブラリ。認識には次項の追加準備も必要。
 - [文字起こし](docs/transcription.md)：FFmpeg/FFprobe、専用エンジン、初回モデル取得。
 - [画像・PDFの文字読み取り](docs/ocr.md)：専用エンジン・モデル等。
 - [Google Sheets共有](docs/google-sheets-setup.md)・[Google Docs相談レポート](docs/google-docs-reports.md)：任意依存と、自分のGoogle設定・認証。
@@ -85,12 +88,15 @@ Windowsでは`run_app.bat`からも起動できます。READMEの初期セット
 - タイマーの秒表示と入力を部分更新で分け、入力のたびに周囲の集計を実行しない構成を使っています。
 - ロードマップは期間・数量進捗・記録時間を分け、AIからの取り込みもプレビュー確認後に保存します。
 - 時間のかかる変換・認識はバックグラウンド処理へ分け、進捗・中止・結果の確認を用意しています。
+- PC録音は別プロセスで分割保存し、ブラウザのページ移動と分離しています。上限停止・中断後の復旧・検証済み認識区間の再利用を用意しています。
 
 具体的なモジュールと境界は[アーキテクチャ](docs/architecture.md)、変更時の進め方は[開発ガイド](docs/development.md)にまとめています。
 
 ## テストと配布
 
 自動テストは`unittest`を使っています。保存・競合・入力保持・集計・取り込み・配布物の除外などを、架空データと一時ディレクトリで確認します。[テスト手順と範囲](docs/testing.md)を参照してください。
+
+録音機能追加時の確認結果と未検証の範囲は[preview.3の検証記録](docs/verification-audio-memos.md)にあります。
 
 ```powershell
 .\.venv\Scripts\python.exe scripts/run_tests.py --suite core
@@ -104,7 +110,7 @@ Windows通常版ZIPとWindows Demo版ZIPは同じアプリコードを使い、�
 
 ## 記録の保管と既知の制限
 
-記録はプロジェクト内の`study_logs/`、`daily_plans/`、`notes_data/`、`settings/`等へ保存します。使用後のフォルダには個人情報が残るため、Gitへ登録・再配布するのは公開用ソースと未使用の配布物だけにしてください。CSV・ZIP出力は一覧・分析用で、アプリ全体の完全復元機能ではありません。
+記録はプロジェクト内の`study_logs/`、`daily_plans/`、`notes_data/`、`settings/`等へ保存します。録音・認識結果・編集メモは`transcription_data/`に保存します。使用後のフォルダには個人情報が残るため、Gitへ登録・再配布するのは公開用ソースと未使用の配布物だけにしてください。CSV・ZIP出力は一覧・分析用で、アプリ全体の完全復元機能ではありません。
 
 この版には入力・表示・編集導線の既知の制限があります。[既知の制限](docs/known-limitations.md)を確認してください。分析は記録上の傾向を示し、因果関係・理解度・健康状態を確定するものではありません。
 

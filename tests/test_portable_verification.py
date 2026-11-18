@@ -126,6 +126,11 @@ class PortableVerificationTests(unittest.TestCase):
         forbidden += [
             "connection.dpapi", "app/.deps311/library.py", "app/.deps312/library.py",
             "app/.deps-google311/google/auth/__init__.py", "app/.deps-google312/google/auth/__init__.py",
+            "app/.deps-record311/sounddevice.py", "app/.deps-record311.install-synthetic/cffi/__init__.py",
+            "app/transcription_data/memos/synthetic/audio.wav", "app/transcription_data/memos/synthetic/memo.txt",
+            "app/transcription_data/recordings/synthetic/chunks/000000.wav",
+            "app/transcription_data/recordings/synthetic/chunks/000001.part.pcm",
+            "app/transcription_data/jobs/synthetic/checkpoint.json",
             "app/backups/google_share/pending.json", "app/.streamlit/secrets.toml",
         ]
         for name in forbidden:

@@ -60,6 +60,18 @@ class PublicReleaseBuilderTests(unittest.TestCase):
         (self.root / "LICENSE_STATUS.md").unlink()
         self.assertEqual(builder.preflight(self.root, "1.2.3", "normal")["license_status"], "selected")
 
+    def test_recording_setup_inputs_are_required_before_build(self):
+        self.fixture()
+        for name in ("requirements-recording.txt", "docs/audio-memos.md"):
+            path = self.root / name
+            with self.subTest(name=name):
+                original = path.read_bytes()
+                path.unlink()
+                with self.assertRaisesRegex(ValueError, "Required public build inputs are missing"):
+                    builder.preflight(self.root, "1.2.3", "both")
+                self.assertFalse((self.root / "release").exists())
+                path.write_bytes(original)
+
     def test_every_existing_release_target_stops_before_build(self):
         self.fixture()
         output = self.root / "release"

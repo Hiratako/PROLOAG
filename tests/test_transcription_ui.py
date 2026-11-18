@@ -87,6 +87,21 @@ class TranscriptionUITests(unittest.TestCase):
         self.assertEqual(len(app.get("audio")), 0)
         self.assertTrue(self.button(app, "修正を保存").disabled)
 
+    def test_audio_memo_job_routes_to_memo_instead_of_independent_edit_or_delete(self):
+        self.seed()
+        path = self.store.folder(self.job_id) / "state.json"
+        state = json.loads(path.read_text(encoding="utf-8"))
+        atomic_json(path, dict(state, audio_memo_id="b" * 32))
+        memo_path = self.root / "transcription_data/memos" / ("b" * 32) / "memo.json"
+        memo_path.parent.mkdir(parents=True)
+        atomic_json(memo_path, {"id": "b" * 32})
+        with patch.object(ui.st, "page_link") as link:
+            app = self.app()
+            self.assertFalse(app.exception)
+            link.assert_called_once_with("pages/23_録音・文字起こしメモ.py", label="録音・文字起こしメモを開く")
+        self.assertNotIn("履歴を削除", [button.label for button in app.button])
+        self.assertNotIn("修正を保存", [button.label for button in app.button])
+
     def test_listening_reads_only_requested_segment(self):
         self.seed()
         with patch.object(

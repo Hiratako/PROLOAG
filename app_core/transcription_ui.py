@@ -2,6 +2,7 @@
 
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+import re
 import sys
 from uuid import uuid4
 
@@ -11,6 +12,7 @@ from app_core.media_conversion import MediaError
 from app_core.media_conversion_ui import duration_text, _track_label
 from app_core.transcription import (
     ACTIVE,
+    BLOCKING,
     TranscriptionSources,
     TranscriptionStore,
     dependency_dir,
@@ -29,6 +31,7 @@ STATUS = {
     "cancelled": "中止",
     "failed": "失敗",
     "interrupted": "中断",
+    "unavailable": "状態確認不可",
 }
 
 
@@ -325,7 +328,7 @@ def render_transcription(root):
     root = Path(root).resolve()
     store = TranscriptionStore(root)
     history = store.history()
-    busy = any(row["status"] in ACTIVE for row in history)
+    busy = any(row["status"] in BLOCKING for row in history)
     st.caption(
         "日本語・英語の音声を、読み返せる文章と字幕へ。処理中にページを移動しても続行し、結果はアプリを閉じた後も残ります。"
     )
@@ -356,6 +359,21 @@ def render_transcription(root):
         "表示する履歴", list(by_id), format_func=label, key="asr_history_widget"
     )
     st.session_state["asr_selected"] = selected
+    if by_id[selected]["status"] == "unavailable":
+        st.warning(by_id[selected].get("error") or "履歴の状態を確認できません。少し待って「履歴を更新」を押してください。確認できるまで新しい処理は開始しません。")
+        _setup(root)
+        return
+    memo_id = by_id[selected].get("audio_memo_id")
+    if memo_id is not None:
+        if not isinstance(memo_id, str) or not re.fullmatch("[a-f0-9]{32}", memo_id):
+            st.warning("録音メモとの対応を確認できません。履歴の保存先を確認してください。")
+            _setup(root)
+            return
+        if (root / "transcription_data/memos" / memo_id / "memo.json").exists():
+            st.info("この認識結果は録音メモに関連付いています。全文の編集・TXT保存・再認識は専用ページで行います。")
+            st.page_link("pages/23_録音・文字起こしメモ.py", label="録音・文字起こしメモを開く")
+            _setup(root)
+            return
     initial = store._state(selected)
     active = initial["status"] in ACTIVE
 

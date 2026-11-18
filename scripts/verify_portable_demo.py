@@ -31,9 +31,9 @@ import zipfile
 TOP_PYTHON = ("main.py", "config.py", "data_utils.py", "master_ui.py")
 CODE_FOLDERS = ("app_core", "prolog_ui", "pages")
 PUBLIC_SUPPORT_FILES = (
-    "requirements.txt", "requirements-google.txt",
+    "requirements.txt", "requirements-google.txt", "requirements-recording.txt",
     "docs/google-sheets-setup.md", "docs/google-docs-reports.md",
-    "docs/consultation-proposals.md",
+    "docs/consultation-proposals.md", "docs/audio-memos.md",
 )
 REQUIRED_GUIDE_PREFIXES = ("95", "96")
 MANIFEST_NAME = ".consultant_demo_manifest.json"
@@ -168,7 +168,7 @@ def verify_forbidden_files(package_files: dict[str, Path]) -> None:
             or name.startswith(("client_secret", "client-secret", "clientsecret", "service_account", "service-account"))
             or (name.startswith(("credentials", "google_credentials", "token", "google_auth")) and name.endswith((".json", ".bin")))
             or name.endswith((".pem", ".p12", ".pfx", ".key", ".dpapi", ".pyc", ".log"))
-            or any(part in {".git", ".codex", ".agents", "__pycache__", "backups", "backup"} or part.startswith(".deps") for part in lowered)
+            or any(part in {".git", ".codex", ".agents", "__pycache__", "backups", "backup", "transcription_data"} or part.startswith(".deps") for part in lowered)
         ):
             violations.append(relative)
     if violations:

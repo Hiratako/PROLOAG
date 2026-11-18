@@ -50,6 +50,7 @@ NAV_GROUPS = [
         "items": [
             {"title": "メディア変換", "path": "pages/20_メディア変換.py"},
             {"title": "音声・動画の文字起こし", "path": "pages/21_音声・動画の文字起こし.py"},
+            {"title": "録音・文字起こしメモ", "path": "pages/23_録音・文字起こしメモ.py"},
             {"title": "画像・PDFの文字読み取り", "path": "pages/22_画像・PDFの文字読み取り.py"},
         ],
     },

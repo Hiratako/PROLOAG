@@ -1,0 +1,126 @@
+name: Build and publish Windows preview
+
+on:
+  push:
+    branches: [main]
+    paths: [release-control/windows-preview.json]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: proloag-windows-release
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.repository == 'Hiratako/PROLOAG' && github.ref == 'refs/heads/main'
+    runs-on: windows-2022
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11.4'
+          architecture: x64
+      - name: Install fixed basic dependencies
+        shell: pwsh
+        run: |
+          python -m pip --isolated install --disable-pip-version-check --no-deps --target .deps311 -r requirements-release.lock.txt
+          if ($LASTEXITCODE -ne 0) { throw 'Basic dependency setup failed' }
+      - name: Verify source tests
+        shell: pwsh
+        run: |
+          $env:PYTHONPATH = (Join-Path $PWD '.deps311')
+          $env:PYTHONDONTWRITEBYTECODE = '1'
+          python -B scripts/run_tests.py --suite core
+          if ($LASTEXITCODE -ne 0) { throw 'Source tests failed' }
+      - name: Build and verify both packages
+        shell: pwsh
+        run: |
+          $request = Get-Content -LiteralPath release-control/windows-preview.json -Raw | ConvertFrom-Json
+          if ($request.version -notmatch '^\d+\.\d+\.\d+-preview\.\d+$') { throw 'Invalid preview version' }
+          if ($request.notes -ne "docs/releases/v$($request.version).md") { throw 'Invalid release notes path' }
+          $env:PYTHONPATH = (Join-Path $PWD '.deps311')
+          $env:PYTHONDONTWRITEBYTECODE = '1'
+          python -B scripts/build_public_release.py --version $request.version --python (Get-Command python).Source --reference-date 2026-11-05 --days 180 --seed 20261105 --verify-pages
+          if ($LASTEXITCODE -ne 0) { throw 'Windows package verification failed' }
+          $env:PROLOAG_RELEASE_VERSION = $request.version
+          python -B scripts/stage_windows_release.py
+          if ($LASTEXITCODE -ne 0) { throw 'Release staging failed' }
+      - name: Keep verified distribution bundle
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: windows-preview-${{ github.sha }}
+          path: release/staged/*
+          if-no-files-found: error
+          retention-days: 14
+
+  publish:
+    needs: build
+    if: github.repository == 'Hiratako/PROLOAG' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: windows-preview-${{ github.sha }}
+          path: bundle
+      - name: Create a new draft, upload, verify, then publish
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_SOURCE_SHA: ${{ github.sha }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $headers = @{ Authorization = "Bearer $env:GH_TOKEN"; Accept = 'application/vnd.github+json'; 'X-GitHub-Api-Version' = '2022-11-28' }
+          $api = "https://api.github.com/repos/$env:GITHUB_REPOSITORY"
+          $index = Get-Content -LiteralPath bundle/index.json -Raw | ConvertFrom-Json
+          if ($index.source_commit -ne $env:EXPECTED_SOURCE_SHA -or $index.source_dirty -ne $false) { throw 'Source identity mismatch' }
+          if ($index.version -notmatch '^\d+\.\d+\.\d+-preview\.\d+$') { throw 'Invalid version' }
+          $tag = "v$($index.version)"
+          $expectedNames = @("proloag-$tag-windows-x64.zip", "proloag-$tag-windows-x64.zip.sha256", "proloag-demo-consultant-$tag-windows-x64.zip", "proloag-demo-consultant-$tag-windows-x64.zip.sha256", "SHA256SUMS-proloag-$tag.txt") | Sort-Object
+          if (@(Compare-Object $expectedNames @($index.assets.name | Sort-Object)).Count -ne 0) { throw 'Unexpected release assets' }
+          foreach ($asset in $index.assets) {
+            $file = Join-Path bundle $asset.name
+            if ($asset.name -ne [IO.Path]::GetFileName($asset.name) -or (Get-Item -LiteralPath $file).Length -ne $asset.bytes) { throw 'Asset path/size mismatch' }
+            if ((Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToLowerInvariant() -ne $asset.sha256) { throw 'Asset digest mismatch' }
+          }
+          $main = Invoke-RestMethod -Headers $headers -Uri "$api/git/ref/heads/main"
+          if ($main.object.sha -ne $env:EXPECTED_SOURCE_SHA) { throw 'main advanced; stop before publication' }
+          foreach ($endpoint in @("$api/releases/tags/$tag", "$api/git/ref/tags/$tag")) {
+            try {
+              $existing = Invoke-RestMethod -Headers $headers -Uri $endpoint
+              throw 'The release or tag already exists; no overwrite is allowed'
+            } catch {
+              if ($_.Exception.Response.StatusCode.value__ -ne 404) { throw }
+            }
+          }
+          $tagBody = @{ ref = "refs/tags/$tag"; sha = $env:EXPECTED_SOURCE_SHA } | ConvertTo-Json
+          $createdTag = Invoke-RestMethod -Headers $headers -Method Post -Uri "$api/git/refs" -Body $tagBody -ContentType 'application/json'
+          if ($createdTag.ref -ne "refs/tags/$tag" -or $createdTag.object.sha -ne $env:EXPECTED_SOURCE_SHA -or $createdTag.object.type -ne 'commit') { throw 'Unexpected new tag target' }
+          $notes = Get-Content -LiteralPath bundle/release-notes.md -Raw
+          $body = @{ tag_name = $tag; target_commitish = $env:EXPECTED_SOURCE_SHA; name = "PROLOAG $tag"; body = $notes; draft = $true; prerelease = $true; make_latest = 'false' } | ConvertTo-Json -Depth 4
+          $release = Invoke-RestMethod -Headers $headers -Method Post -Uri "$api/releases" -Body $body -ContentType 'application/json; charset=utf-8'
+          if (-not $release.draft -or $release.tag_name -ne $tag -or $release.target_commitish -ne $env:EXPECTED_SOURCE_SHA) { throw 'Unexpected created draft identity' }
+          foreach ($asset in $index.assets) {
+            $url = "https://uploads.github.com/repos/$env:GITHUB_REPOSITORY/releases/$($release.id)/assets?name=$([Uri]::EscapeDataString($asset.name))"
+            $null = Invoke-RestMethod -Headers $headers -Method Post -Uri $url -InFile (Join-Path bundle $asset.name) -ContentType 'application/octet-stream'
+          }
+          $saved = Invoke-RestMethod -Headers $headers -Uri "$api/releases/$($release.id)"
+          if (-not $saved.draft -or @($saved.assets).Count -ne 5 -or $saved.target_commitish -ne $env:EXPECTED_SOURCE_SHA) { throw 'Draft upload incomplete' }
+          foreach ($asset in $index.assets) {
+            $remote = @($saved.assets | Where-Object name -eq $asset.name)
+            if ($remote.Count -ne 1 -or $remote[0].size -ne $asset.bytes -or $remote[0].digest -ne "sha256:$($asset.sha256)") { throw 'Uploaded asset verification failed' }
+          }
+          $finalTag = Invoke-RestMethod -Headers $headers -Uri "$api/git/ref/tags/$tag"
+          if ($finalTag.object.type -ne 'commit' -or $finalTag.object.sha -ne $env:EXPECTED_SOURCE_SHA) { throw 'Release tag target changed' }
+          $published = Invoke-RestMethod -Headers $headers -Method Patch -Uri "$api/releases/$($release.id)" -Body '{"draft":false}' -ContentType 'application/json'
+          if ($published.draft) { throw 'Release is still a draft' }
+          Write-Host "Published $($published.html_url)"

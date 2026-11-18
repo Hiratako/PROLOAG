@@ -97,7 +97,7 @@ $RuntimeDir = Join-Path $ReleaseDir 'runtime\\python311'
     def test_copy_app_allows_only_code_stylesheet_and_streamlit_config(self):
         for name in ("main.py", "config.py", "data_utils.py", "master_ui.py", "requirements.txt",
                      "requirements-google.txt", "README.md", "docs/google-sheets-setup.md", "docs/google-docs-reports.md",
-                     "docs/consultation-proposals.md"):
+                     "docs/consultation-proposals.md", "requirements-recording.txt", "docs/audio-memos.md"):
             self.write(name)
         required = ["app_core/startup_launcher.py", "app_core/navigation.py", "app_core/countdown_service.py",
                     "app_core/personalization_ui.py", "prolog_ui/styles.css", "pages/01_sample.py"]
@@ -120,9 +120,14 @@ $RuntimeDir = Join-Path $ReleaseDir 'runtime\\python311'
         for directory in ("", "app_core", "pages", "prolog_ui", "docs", ".streamlit"):
             for filename in OAUTH_PRIVATE_FILES:
                 self.write(f"{directory}/{filename}".lstrip("/"), "FAKE_SECRET_MUST_NOT_SHIP")
-        for directory in (".deps-google311", ".deps-google312"):
+        for directory in (".deps-google311", ".deps-google312", ".deps-record311", ".deps-record311.install-synthetic"):
             self.write(f"{directory}/google/auth/__init__.py", "FAKE_SECRET_MUST_NOT_SHIP")
             self.write(f"{directory}/token.json", "FAKE_SECRET_MUST_NOT_SHIP")
+        for name in ("transcription_data/memos/synthetic/audio.wav", "transcription_data/memos/synthetic/memo.txt",
+                     "transcription_data/recordings/synthetic/chunks/000000.wav",
+                     "transcription_data/recordings/synthetic/chunks/000001.part.pcm",
+                     "transcription_data/jobs/synthetic/checkpoint.json"):
+            self.write(name, "FAKE_SECRET_MUST_NOT_SHIP")
         self.write(".streamlit/config.toml", "[client]\nshowSidebarNavigation = false\n")
         result = self.run_functions(BUILD_SCRIPT, self.variables() + "Assert-ReleaseTargets; Copy-AppFiles")
         self.assert_success(result)
@@ -133,11 +138,11 @@ $RuntimeDir = Join-Path $ReleaseDir 'runtime\\python311'
         self.assertIn("app_core/nested/service.py", files)
         self.assertTrue({"requirements-google.txt", "docs/google-sheets-setup.md",
                          "docs/google-docs-reports.md",
-                         "docs/consultation-proposals.md",
+                         "docs/consultation-proposals.md", "requirements-recording.txt", "docs/audio-memos.md",
                          "app_core/google_share_service.py", "app_core/google_sheets_client.py",
                          "app_core/google_share_auth.py"}.issubset(files))
         self.assertFalse({Path(item).name for item in files}.intersection(OAUTH_PRIVATE_FILES))
-        self.assertFalse(any(item.startswith((".deps-google311/", ".deps-google312/")) for item in files))
+        self.assertFalse(any(item.startswith((".deps", "transcription_data/")) for item in files))
         self.assertEqual([item for item in files if item.startswith(".streamlit/")], [".streamlit/config.toml"])
         for path in app.rglob("*"):
             if path.is_file():
@@ -149,9 +154,16 @@ $RuntimeDir = Join-Path $ReleaseDir 'runtime\\python311'
         subprocess.run([GIT, "init", "--quiet", str(self.root)], check=True, capture_output=True, timeout=30)
         private_paths = [f"{folder}/{name}" for folder in ("app_core", "private") for name in OAUTH_PRIVATE_FILES]
         private_paths += [f"{folder}/google/auth/__init__.py" for folder in (".deps-google311", ".deps-google312")]
+        private_paths += [".deps-record311/sounddevice.py", ".deps-record311.install-synthetic/cffi/__init__.py",
+                          "transcription_data/memos/synthetic/audio.wav", "transcription_data/memos/synthetic/memo.txt",
+                          "transcription_data/recordings/synthetic/chunks/000000.wav",
+                          "transcription_data/recordings/synthetic/chunks/000001.part.pcm",
+                          "transcription_data/jobs/synthetic/checkpoint.json"]
         public_paths = ["requirements-google.txt", "docs/google-sheets-setup.md", "docs/google-docs-reports.md",
                         "docs/consultation-proposals.md",
-                        "app_core/google_share_auth.py", "app_core/google_sheets_client.py"]
+                        "app_core/google_share_auth.py", "app_core/google_sheets_client.py",
+                        "requirements-recording.txt", "docs/audio-memos.md", "app_core/recording_worker.py",
+                        "app_core/audio_memo_service.py"]
         result = subprocess.run([GIT, "-C", str(self.root), "check-ignore", "--no-index",
                                  *private_paths, *public_paths],
                                 text=True, capture_output=True, timeout=30)

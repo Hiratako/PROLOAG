@@ -1,6 +1,6 @@
 """Run the existing unittest suite from a clean source checkout.
 
-Core excludes only the four modules that require external media/OCR tools.
+Core excludes only the five modules that require external media/OCR tools.
 The exclusion list is printed explicitly; unittest skips and errors stay visible.
 Unknown record JSON is rejected by name. Only the four documented empty
 scaffold JSON files may be read to verify their exact, empty initial values.
@@ -21,6 +21,7 @@ INTEGRATION_MODULES = {
     "test_media_conversion.py": "FFmpeg/FFprobe with required encoders",
     "test_media_conversion_ui.py": "FFmpeg/FFprobe media fixtures",
     "test_transcription_process.py": "FFmpeg/FFprobe; recognition uses a test double",
+    "test_audio_memo_process.py": "FFmpeg/FFprobe; recording uses synthetic PCM and recognition a test double",
     "test_ocr_process.py": "optional OCR dependencies installed by app_core/setup_ocr.py",
 }
 RECORD_DIRECTORIES = (
