@@ -19,6 +19,9 @@ jobs:
     runs-on: windows-2022
     timeout-minutes: 35
     steps:
+      - name: Preserve source line endings
+        shell: pwsh
+        run: git config --global core.autocrlf false
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           ref: ${{ github.sha }}
