@@ -2,6 +2,7 @@ from pathlib import Path
 import json
 import tempfile
 import time
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
@@ -66,6 +67,75 @@ class TranscriptionUITests(unittest.TestCase):
 
     def button(self, app, label):
         return next(b for b in app.button if b.label == label)
+
+    def input_app(self):
+        from streamlit.testing.v1 import AppTest
+
+        return AppTest.from_string(
+            f"from pathlib import Path\nfrom app_core.transcription_ui import _input\n"
+            f"from app_core.transcription import TranscriptionStore\n"
+            f"root = Path({str(self.root)!r})\n_input(root, TranscriptionStore(root), False)",
+            default_timeout=30,
+        ).run()
+
+    def mkv_source(self):
+        return SimpleNamespace(
+            id="c" * 32, name="複数音声.mkv", duration=7.0,
+            media_kind="mkv", default_track_index=2,
+            tracks=(
+                SimpleNamespace(index=1, codec="aac", language="jpn", title="日本語", channels=1),
+                SimpleNamespace(index=2, codec="aac", language="eng", title="English", channels=1),
+            ),
+        )
+
+    def test_mkv_local_default_audio_can_be_explicitly_changed_before_start(self):
+        selected = {"source": None, "job": None}
+        source = self.mkv_source()
+
+        def prepare(owner, path):
+            selected["source"] = source
+            return source
+
+        with (patch.object(self.manager, "snapshot", side_effect=lambda owner: selected),
+              patch.object(self.manager, "prepare_local", side_effect=prepare) as prepare_local,
+              patch.object(ui, "engine_available", return_value=True),
+              patch.object(TranscriptionStore, "start", return_value=self.job_id) as start):
+            app = self.input_app()
+            app.radio[0].set_value("PC内のファイルを直接指定").run()
+            path = str(self.root / "複数音声.mkv")
+            app.text_input[0].set_value(path).run()
+            prepare_local.assert_not_called()
+            self.button(app, "音声を確認").click().run()
+            self.assertEqual(prepare_local.call_args.args[1], path)
+            tracks = next(widget for widget in app.selectbox if widget.label == "文字起こしする音声")
+            self.assertEqual(tracks.value, 2)
+            tracks.set_value(1).run()
+            self.button(app, "文字起こしを開始").click().run()
+            self.assertFalse(app.exception)
+            self.assertEqual(start.call_args.args[:2], (source, 1))
+            self.assertEqual(start.call_count, 1)
+            self.assertEqual(app.session_state["asr_selected"], self.job_id)
+
+    def test_mkv_upload_is_allowed_and_prepared_only_after_confirmation(self):
+        selected = {"source": None, "job": None}
+        payload = b"synthetic upload"
+        uploaded = SimpleNamespace(name="日本語.mkv", file_id="upload-mkv", getbuffer=lambda: memoryview(payload))
+
+        def prepare(owner, name, raw):
+            selected["source"] = self.mkv_source()
+            return selected["source"]
+
+        with (patch.object(ui.st, "file_uploader", return_value=uploaded) as uploader,
+              patch.object(self.manager, "snapshot", side_effect=lambda owner: selected),
+              patch.object(self.manager, "prepare_upload", side_effect=prepare) as prepare_upload):
+            app = self.input_app()
+            self.assertIn("mkv", uploader.call_args.kwargs["type"])
+            prepare_upload.assert_not_called()
+            self.button(app, "音声を確認").click().run()
+            self.assertFalse(app.exception)
+            self.assertEqual(prepare_upload.call_args.args[1:], (uploaded.name, memoryview(payload)))
+            self.assertEqual(prepare_upload.call_count, 1)
+            self.assertTrue(any("動画の開始を0秒" in caption.value for caption in app.caption))
 
     def test_open_and_path_typing_do_not_prepare_or_create_storage(self):
         with patch.object(

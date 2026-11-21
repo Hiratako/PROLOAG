@@ -320,8 +320,12 @@ class WorkerTerminalIntegrationTests(SyntheticFixture):
         faster = ModuleType("faster_whisper")
         faster.__path__ = []
         faster.WhisperModel = make_model
+        snapshot = folder / "synthetic-model"
+        snapshot.mkdir()
+        (snapshot / "model.bin").write_bytes(b"synthetic model")
+        (snapshot / "config.json").write_bytes(b"{}")
         utils = ModuleType("faster_whisper.utils")
-        utils.download_model = lambda *args, **kwargs: "synthetic-model"
+        utils.download_model = lambda *args, **kwargs: str(snapshot)
         numpy = ModuleType("numpy")
         numpy.int16, numpy.float32 = "int16", "float32"
         numpy.frombuffer = lambda *args, **kwargs: Samples()

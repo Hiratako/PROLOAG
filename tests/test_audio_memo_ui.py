@@ -210,10 +210,24 @@ class AudioMemoUITests(unittest.TestCase):
             app = self.app()
             self.button(app, "文字起こし").click().run()
         self.healthy(app)
-        start.assert_called_once_with(memo["id"], language="ja", mode="standard", hotwords="", retry=False)
+        start.assert_called_once_with(
+            memo["id"], language="ja", mode="standard", hotwords="", retry=False, device="cpu"
+        )
         with patch.object(AudioMemoStore, "busy", return_value=True):
             app.run()
         self.assertTrue(self.button(app, "文字起こし").disabled)
+
+    def test_high_precision_and_device_are_independent(self):
+        memo = self.seed()
+        with patch.object(AudioMemoStore, "start", return_value="a" * 32) as start:
+            app = self.app()
+            app.selectbox(key="audio_memo_mode_" + memo["id"]).select("precise")
+            app.selectbox(key="audio_memo_device_" + memo["id"]).select("auto")
+            self.button(app, "文字起こし").click().run()
+        self.healthy(app)
+        start.assert_called_once_with(
+            memo["id"], language="ja", mode="precise", hotwords="", retry=False, device="auto"
+        )
 
     def test_done_memo_can_be_explicitly_transcribed_again(self):
         memo = self.seed(text="Edited text")

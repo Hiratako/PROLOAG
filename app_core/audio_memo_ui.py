@@ -12,7 +12,13 @@ from app_core.audio_memo_service import AudioMemoStore
 from app_core.long_recording_ui import render_long_recording
 from app_core.media_conversion import MediaError
 from app_core.transcription import ACTIVE
-from app_core.transcription_ui import STATUS, _setup
+from app_core.transcription_ui import (
+    DEVICE_LABELS,
+    QUALITY_LABELS,
+    STATUS,
+    _setup,
+    _show_recognition_device,
+)
 
 
 DRAFTS = "audio_memo_drafts"
@@ -168,6 +174,7 @@ def _render_activity(store, memo):
             st.rerun()
         st.progress(_progress_value(current.get("progress")), text=current.get("message") or "文字起こし中")
         st.caption("経過 " + _duration_text(current.get("elapsed", 0)))
+        _show_recognition_device(current)
         if current.get("resumed_seconds"):
             st.caption("前回の認識済み区間から再開：" + _duration_text(current["resumed_seconds"]))
         st.caption("モデル準備中は進捗率が動かないことがあります。保存済みの録音は残ります。")
@@ -189,11 +196,24 @@ def _render_start(store, memo, dirty):
         return
     memo_id = memo["id"]
     with st.expander("文字起こしの設定", expanded=not bool(memo.get("job_id"))):
-        languages = {"日本語": "ja", "英語": "en", "自動判定": "auto"}
-        modes = {"標準": "standard", "精度優先": "accurate"}
-        language = st.selectbox("認識言語", list(languages), key="audio_memo_language_" + memo_id)
-        mode = st.selectbox("認識モード", list(modes), key="audio_memo_mode_" + memo_id)
-        hotwords = st.text_input("認識しやすくする語句（任意）", key="audio_memo_hotwords_" + memo_id)
+        settings = memo.get("start_settings") or {}
+
+        def select(label, labels, setting, key):
+            values = list(labels)
+            current = settings.get(setting)
+            return st.selectbox(
+                label, values, index=values.index(current) if current in labels else 0,
+                format_func=labels.get, key=f"audio_memo_{key}_{memo_id}",
+            )
+
+        language = select("認識言語", {"ja": "日本語", "en": "英語", "auto": "自動判定"},
+                          "language", "language")
+        mode = select("認識モード", QUALITY_LABELS, "mode", "mode")
+        device = select("認識に使うデバイス", DEVICE_LABELS, "device", "device")
+        hotwords = st.text_input(
+            "認識しやすくする語句（任意）", value=settings.get("hotwords", ""),
+            max_chars=1000, key="audio_memo_hotwords_" + memo_id,
+        )
     try:
         busy = store.busy()
     except (MediaError, OSError, ValueError) as exc:
@@ -209,8 +229,8 @@ def _render_start(store, memo, dirty):
     if st.button(label,
                  key="audio_memo_start_" + memo_id, type="primary", disabled=busy or dirty):
         try:
-            store.start(memo_id, language=languages[language], mode=modes[mode],
-                        hotwords=hotwords, retry=bool(memo.get("job_id")))
+            store.start(memo_id, language=language, mode=mode, hotwords=hotwords,
+                        retry=bool(memo.get("job_id")), device=device)
         except (MediaError, OSError, ValueError) as exc:
             ab.show_action_error("文字起こしを開始できませんでした。" + str(exc))
         else:
@@ -368,6 +388,7 @@ def render_audio_memo(root):
     if _is_active(memo):
         _render_activity(store, memo)
     else:
+        _show_recognition_device(memo)
         if memo.get("status") in {"failed", "cancelled", "interrupted", "start_failed"}:
             st.warning("文字起こしは完了していません。保存済みの音声と、認識できた文章は保持します。")
         dirty = _render_editor(store, memo)

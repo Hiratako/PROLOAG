@@ -35,6 +35,23 @@ STATUS = {
 }
 
 
+QUALITY_LABELS = {
+    "standard": "標準（small）",
+    "accurate": "精度優先（medium）",
+    "precise": "高精度（large-v3）",
+    "fast": "高精度・速度重視（turbo）",
+}
+DEVICE_LABELS = {"cpu": "CPU", "auto": "自動（GPUが使えない場合はCPU）"}
+
+
+def _show_recognition_device(state):
+    device_label = {"cpu": "CPU", "cuda": "GPU（NVIDIA CUDA）"}.get(state.get("device"))
+    if device_label:
+        st.caption("認識に使ったデバイス：" + device_label)
+    if state.get("warning"):
+        st.info(state["warning"])
+
+
 @st.cache_resource(show_spinner=False)
 def source_manager(root):
     return TranscriptionSources(Path(root))
@@ -55,8 +72,10 @@ def _setup(root):
         st.caption("専用ライブラリ：" + str(dependency_dir(root)))
         st.caption("履歴と聞き直し用音声：" + str(root / "transcription_data"))
         st.caption("モデル：" + str(root / "tools/asr-models"))
+        if sys.platform == "win32":
+            st.caption("GPU用DLLの任意配置先：" + str(root / "tools/asr-cuda/bin"))
         st.markdown(
-            "初回のモデル取得にはインターネット接続が必要です。取得後の認識はPC内で行います。標準はsmall、精度優先はmediumです。音声の長さ・内容により速度と精度が変わります。"
+            "初回のモデル取得にはインターネット接続が必要です。取得後の認識はPC内で行います。turboはlarge-v3より速度を重視したモデルです。高精度モデルはCPUでの処理に時間がかかることがあります。"
         )
         st.caption(
             "このページを開くだけでインストールやモデルのダウンロードは行いません。聞き直し用の音声は1時間あたり約115MBです。履歴を削除すると、その履歴専用の音声・結果・修正も削除します。"
@@ -80,8 +99,8 @@ def _input(root, store, busy):
     uploaded, path = None, ""
     if mode == "アップロード":
         uploaded = st.file_uploader(
-            "MP4／MP3を選択（200MBまで）",
-            type=["mp4", "mp3"],
+            "MP4／MP3／MKVを選択（200MBまで）",
+            type=["mp4", "mp3", "mkv"],
             max_upload_size=200,
             key="asr_upload",
             disabled=busy,
@@ -91,7 +110,7 @@ def _input(root, store, busy):
         if "asr_local_path" not in st.session_state:
             st.session_state["asr_local_path"] = prefs.get("path", "")
         path = st.text_input(
-            "MP4／MP3の場所（フルパス）", key="asr_local_path", disabled=busy
+            "MP4／MP3／MKVの場所（フルパス）", key="asr_local_path", disabled=busy
         )
         prefs["path"] = path
         token = (mode, path.strip().strip('"')) if path.strip() else None
@@ -115,15 +134,19 @@ def _input(root, store, busy):
         return
     st.text(source.name)
     st.caption("音声の長さ：" + duration_text(source.duration))
+    indices = [t.index for t in source.tracks]
+    preferred = getattr(source, "default_track_index", None)
     track = st.selectbox(
         "文字起こしする音声",
-        [t.index for t in source.tracks],
+        indices,
+        index=indices.index(preferred) if preferred in indices else 0,
         format_func=lambda i: _track_label(source, i),
         key="asr_track_" + source.id,
         disabled=busy,
     )
+    if getattr(source, "media_kind", None) == "mkv":
+        st.caption("選択した音声1本を認識します。音声の遅れて始まる部分は無音として保持し、再生・字幕は動画の開始を0秒とする時刻で表示します。")
     language_labels = {"ja": "日本語", "en": "英語", "auto": "自動判定"}
-    quality_labels = {"standard": "標準（small）", "accurate": "精度優先（medium）"}
 
     def select(label, options, key, default):
         widget_key = "asr_" + key
@@ -139,7 +162,7 @@ def _input(root, store, busy):
     with cols[0]:
         language = select("音声の言語", language_labels, "language", "ja")
     with cols[1]:
-        quality = select("認識モード", quality_labels, "quality", "standard")
+        quality = select("認識モード", QUALITY_LABELS, "quality", "standard")
     if "asr_hotwords" not in st.session_state:
         st.session_state["asr_hotwords"] = prefs.get("hotwords", "")
     hotwords = st.text_input(
@@ -156,12 +179,12 @@ def _input(root, store, busy):
     with st.expander("処理デバイス"):
         device = select(
             "認識に使うデバイス",
-            {"cpu": "CPU（推奨）", "auto": "GPUを試す／利用できなければCPU"},
+            DEVICE_LABELS,
             "device",
             "cpu",
         )
         st.caption(
-            "GPUには対応するCUDA・cuDNNが必要です。未導入の場合はCPUを選んでください。"
+            "自動では対応するNVIDIA GPUとライブラリが使える場合に加速します。"
         )
     confirmed = token and token == st.session_state.get("asr_confirmed_token")
     ready = engine_available(root)
@@ -384,6 +407,7 @@ def render_transcription(root):
             if state["status"] == "done":
                 ab.queue_success("文字起こしが完了しました。")
             st.rerun()
+        _show_recognition_device(state)
         if state["status"] in ACTIVE:
             st.progress(
                 max(0.0, min(1.0, state.get("progress", 0.0))),
@@ -404,8 +428,6 @@ def render_transcription(root):
                 + " / 経過 "
                 + duration_text(state.get("elapsed", 0))
             )
-            if state.get("warning"):
-                st.info(state["warning"])
             if state.get("error"):
                 st.error(state["error"])
             _result(store, selected, store.result(selected))

@@ -234,6 +234,20 @@ class OCRStoreTests(unittest.TestCase):
         with self.assertRaises(ocr.OCRError):
             self.store.start(source, [2])
 
+    def test_ocr_profile_is_saved_and_part_of_the_operation(self):
+        self.mock_start()
+        self.seed()
+        source = self.source()
+        operation = "e" * 32
+        job = self.store.start(source, [1], operation_id=operation, profile="accurate")
+        self.assertEqual(self.store.result(job)["profile"], "accurate")
+        self.assertEqual(
+            self.store.start(source, [1], operation_id=operation, profile="accurate"), job
+        )
+        with self.assertRaises(ocr.OCRError):
+            self.store.start(source, [1], operation_id=operation)
+        self.assertEqual(self.store.result(self.job)["profile"], "standard")
+
     def test_changed_source_cannot_start(self):
         process = self.mock_start()
         source = self.source()

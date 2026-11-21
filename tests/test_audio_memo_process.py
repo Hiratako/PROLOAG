@@ -13,7 +13,7 @@ import wave
 from app_core import transcription as tr
 from app_core.audio_memo_service import AudioMemoStore
 from app_core.media_conversion import discover_tools, MediaError
-from test_transcription_process import FAKE
+from test_transcription_process import FAKE, FAKE_DOWNLOAD
 
 
 class AudioMemoProcessTests(unittest.TestCase):
@@ -41,7 +41,7 @@ class AudioMemoProcessTests(unittest.TestCase):
         (dependencies / "faster_whisper").mkdir(parents=True)
         (dependencies / "faster_whisper/__init__.py").write_text(FAKE, encoding="utf-8")
         (dependencies / "faster_whisper/utils.py").write_text(
-            "def download_model(model, **kwargs): return model\n", encoding="utf-8")
+            FAKE_DOWNLOAD, encoding="utf-8")
         (dependencies / "ctranslate2.py").write_text(
             "def get_cuda_device_count(): return 0\n", encoding="utf-8")
         stream = BytesIO()

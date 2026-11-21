@@ -36,6 +36,7 @@ dist/
 runtime/
 tools/ffmpeg/
 tools/asr-models/
+tools/asr-cuda/
 tools/ocr-models/
 
 # Only the public Streamlit configuration is tracked

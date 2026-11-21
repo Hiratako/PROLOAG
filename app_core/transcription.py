@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
-from dataclasses import asdict, replace
+from dataclasses import asdict, dataclass, replace
 import importlib.util
 import hashlib
 import json
@@ -34,8 +34,19 @@ from app_core.media_conversion import (
 
 ACTIVE = {"starting", "preparing", "loading", "transcribing", "cancelling"}
 BLOCKING = ACTIVE | {"unavailable"}
-MODELS = {"standard": "small", "accurate": "medium"}
+MODELS = {
+    "standard": "small", "accurate": "medium",
+    "precise": "large-v3", "fast": "turbo",
+}
 _mutex = threading.RLock()
+
+
+@dataclass(frozen=True)
+class MatroskaTranscriptionSource(Source):
+    """MKV-specific presentation/clock metadata without changing legacy sources."""
+
+    default_track_index: int | None = None
+    media_kind: str = "mkv"
 
 
 def file_sha256(path):
@@ -53,6 +64,8 @@ def checkpoint_signature(request):
     )}
     values.update(pipeline=1, chunk_seconds=300, overlap_seconds=2, beam_size=5,
                   vad_filter=True, condition_on_previous_text=False)
+    if request.get("media_kind") == "mkv":
+        values.update(media_kind="mkv", timeline=request.get("timeline"))
     return hashlib.sha256(json.dumps(values, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()).hexdigest()
 
 
@@ -230,7 +243,13 @@ def file_lock(path, blocking=True):
 
 
 class TranscriptionSources(MediaManager):
-    """Reuse owned uploads and track descriptors, with MP3 validation added."""
+    """Owned MP3/MP4/MKV inputs; managed recording WAVs use a separate entry."""
+
+    def _upload_filename(self, name):
+        suffix = Path(name).suffix.lower()
+        if suffix not in {".mp3", ".mp4", ".mkv"}:
+            raise MediaError("MP4／MP3／MKVを選択してください。")
+        return "input" + suffix
 
     def _source(self, path, name, mode):
         before = _identity(path)
@@ -238,16 +257,19 @@ class TranscriptionSources(MediaManager):
             data = _probe(self._tools(), path)
         except MediaError as exc:
             raise MediaError(
-                "音声情報を取得できません。正常なMP4／MP3を選択してください。"
+                "音声情報を取得できません。正常なMP4／MP3／MKVを選択してください。"
             ) from exc
         formats = set(str(data.get("format", {}).get("format_name", "")).split(","))
         suffix = Path(name).suffix.lower()
-        expected = (
-            {"mp3"} if suffix == ".mp3" else {"wav"} if suffix == ".wav" else {"mov", "mp4"}
-        )
-        if not formats.intersection(expected):
+        expected = {".mp3": {"mp3"}, ".wav": {"wav"}, ".mp4": {"mov", "mp4"}}
+        if suffix == ".mkv":
+            from app_core.matroska import inspect_matroska
+
+            inspect_matroska(path, data)
+        elif not formats.intersection(expected.get(suffix, set())):
             raise MediaError("ファイルの内容と音声の拡張子が一致しません。")
         tracks = []
+        preferred = []
         for row in data.get("streams", []):
             if row.get("codec_type") != "audio":
                 continue
@@ -255,6 +277,9 @@ class TranscriptionSources(MediaManager):
             if type(index) is not int or index < 0:
                 raise MediaError("音声トラック情報が不正です。")
             tags = row.get("tags") or {}
+            disposition = row.get("disposition")
+            if suffix == ".mkv" and isinstance(disposition, dict) and disposition.get("default") == 1:
+                preferred.append(index)
             tracks.append(
                 Track(
                     index,
@@ -266,28 +291,41 @@ class TranscriptionSources(MediaManager):
                 )
             )
         duration = _finite_duration(data.get("format", {}).get("duration"))
+        if suffix == ".mkv" and duration:
+            try:
+                origin = float(data["format"].get("start_time", 0))
+                if not math.isfinite(origin):
+                    raise ValueError("nonfinite container origin")
+                # Matroska duration is its ending timestamp. -start_at_zero
+                # shifts the source origin, so measure the same span here.
+                duration -= origin
+            except (TypeError, ValueError, OverflowError) as exc:
+                raise MediaError("MKVの開始時刻・長さを確認できません。") from exc
         if (
             not tracks
             or len(tracks) > 256
             or len({t.index for t in tracks}) != len(tracks)
         ):
             raise MediaError("利用できる音声トラックがありません。")
-        if not duration or duration > 24 * 3600:
+        if not duration or not 0 < duration <= 24 * 3600:
             raise MediaError("長さを確認できる、24時間以内の音声を選択してください。")
         if before != _identity(path):
             raise MediaError(
                 "確認中に元ファイルが変更されました。もう一度確認してください。"
             )
-        return Source(uuid4().hex, path, name, mode, before, duration, tuple(tracks))
+        values = (uuid4().hex, path, name, mode, before, duration, tuple(tracks))
+        if suffix == ".mkv":
+            return MatroskaTranscriptionSource(*values, default_track_index=preferred[0] if preferred else tracks[0].index)
+        return Source(*values)
 
     def prepare_local(self, owner, value):
         path = Path(str(value).strip().strip('"')).expanduser()
         if (
             not path.is_absolute()
-            or path.suffix.lower() not in {".mp3", ".mp4"}
+            or path.suffix.lower() not in {".mp3", ".mp4", ".mkv"}
             or str(path).startswith(("\\\\", "//"))
         ):
-            raise MediaError("PC内のMP4／MP3ファイルのフルパスを指定してください。")
+            raise MediaError("PC内のMP4／MP3／MKVファイルのフルパスを指定してください。")
         try:
             path = path.resolve(strict=True)
         except (OSError, ValueError, RuntimeError) as exc:
@@ -297,8 +335,8 @@ class TranscriptionSources(MediaManager):
         return self._prepare(owner, path=path, name=path.name)
 
     def prepare_upload(self, owner, name, buffer):
-        if Path(str(name)).suffix.lower() not in {".mp3", ".mp4"}:
-            raise MediaError("MP4／MP3を選択してください。")
+        if Path(str(name)).suffix.lower() not in {".mp3", ".mp4", ".mkv"}:
+            raise MediaError("MP4／MP3／MKVを選択してください。")
         if (
             not isinstance(buffer, (bytes, bytearray, memoryview))
             or not 0 < len(buffer) <= UPLOAD_LIMIT
@@ -575,6 +613,8 @@ class TranscriptionStore:
                         "root": str(self.root),
                         "source_sha256": file_sha256(input_path),
                     }
+                    if getattr(source, "media_kind", None) == "mkv":
+                        request.update(media_kind="mkv", timeline="container_start")
                     if _identity(source.path) != source.identity:
                         raise MediaError("確認中に元音声が変更されました。")
                     state = {

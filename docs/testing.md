@@ -16,7 +16,7 @@ Python 3.11の仮想環境へ、READMEに従って固定した基本依存を導
 .\.venv\Scripts\python.exe scripts/run_tests.py --suite core --verbosity 2
 ```
 
-`core`では外部ツールが必須の5モジュールだけを除き、除外名と理由を最初に表示します。除外をテスト成功として数えません。実行したテストの失敗・エラー・`unittest`によるスキップは、末尾の`SUMMARY`で確認できます。終了コードは成功0、テスト失敗1、準備状態の不備2です。
+`core`では外部ツールが必須のモジュールを除き、除外名と理由を最初に表示します。除外をテスト成功として数えません。実行したテストの失敗・エラー・`unittest`によるスキップは、末尾の`SUMMARY`で確認できます。終了コードは成功0、テスト失敗1、準備状態の不備2です。
 
 テストは個人記録のないソースコピーで実行してください。`scripts/init_local_data.py`が作る次の4ファイルは、正確に空の初期値である場合だけ許可します。
 
@@ -32,11 +32,12 @@ Python 3.11の仮想環境へ、READMEに従って固定した基本依存を導
 |---|---|---|
 | `test_media_conversion.py` | FFmpeg／FFprobe | 架空動画からの音声選択・変換、失敗・中止・出力保護 |
 | `test_media_conversion_ui.py` | FFmpeg／FFprobe | 架空のメディア素材を使う画面操作 |
+| `test_video_conversion.py` | FFmpeg／FFprobe | MKV→MP4のトラック選択・コピー・再圧縮・失敗・中止 |
 | `test_transcription_process.py` | FFmpeg／FFprobe | 実プロセスの開始・中止・途中失敗。認識器はテスト用の偽物 |
 | `test_audio_memo_process.py` | FFmpeg／FFprobe | 合成録音から実workerで認識・メモ・TXT保存。認識器はテスト用の偽物 |
 | `test_ocr_process.py` | OCR専用依存 | 実プロセス・PDF／画像処理・中止。認識器はテスト用の偽物 |
 
-FFmpegの素材生成にはMPEG-4、AAC、MP3（libmp3lame）等の対応が必要です。検出方法は[メディア変換ガイド](media-conversion.md)を参照してください。
+FFmpegの素材生成にはMPEG-4、H.264（libx264）、AAC、MP3（libmp3lame）等の対応が必要です。検出方法は[メディア変換ガイド](media-conversion.md)を参照してください。
 
 OCR専用依存は、同じPythonから明示的に導入します。ネット接続が必要です。
 
@@ -44,7 +45,7 @@ OCR専用依存は、同じPythonから明示的に導入します。ネット�
 .\.venv\Scripts\python.exe app_core/setup_ocr.py
 ```
 
-準備した後、外部ツールを使う5モジュールだけを実行する場合：
+準備した後、外部ツールを使うモジュールを実行する場合：
 
 ```powershell
 .\.venv\Scripts\python.exe scripts/run_tests.py --suite integration

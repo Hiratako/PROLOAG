@@ -6,6 +6,7 @@ from types import SimpleNamespace
 import shutil
 import subprocess
 import tempfile
+from threading import Event
 import time
 import unittest
 from unittest.mock import patch
@@ -403,8 +404,29 @@ class MediaTests(unittest.TestCase):
         def bad(*args):
             return ["missing-ffmpeg-not-real.exe"] + original(*args)[1:]
 
-        with patch.object(media, "conversion_command", side_effect=bad):
-            identifier, job = self.start(source)
+        cleaning = Event()
+        finish_cleanup = Event()
+        unlink = Path.unlink
+
+        def pause_cleanup(path, *args, **kwargs):
+            if path.name == "partial.mp3":
+                cleaning.set()
+                if not finish_cleanup.wait(5):
+                    raise TimeoutError("Test did not finish conversion cleanup")
+            return unlink(path, *args, **kwargs)
+
+        with patch.object(media, "conversion_command", side_effect=bad), patch.object(
+            Path, "unlink", autospec=True, side_effect=pause_cleanup
+        ):
+            self.manager.start(
+                self.owner, source.id, source.tracks[0].index, 192, operation_id=uuid4().hex
+            )
+            try:
+                self.assertTrue(cleaning.wait(5))
+                self.assertIn(self.manager.snapshot(self.owner)["job"]["status"], media.ACTIVE)
+            finally:
+                finish_cleanup.set()
+            job = wait_for(self.manager, self.owner)
         self.assertEqual(job["status"], "failed")
         self.assertEqual(self.manager.snapshot(self.owner)["source"], source)
         identifier, job = self.start(source)

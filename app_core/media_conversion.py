@@ -20,6 +20,22 @@ UPLOAD_LIMIT = 200 * 1024 * 1024
 PREVIEW_LIMIT = 64 * 1024 * 1024
 BITRATES = (128, 192, 320)
 ACTIVE = {"starting", "running", "cancelling"}
+_conversion_lock = threading.Lock()
+_active_conversions: dict[Path, str] = {}
+
+
+def acquire_conversion(root: Path, token: str) -> bool:
+    with _conversion_lock:
+        if root in _active_conversions:
+            return False
+        _active_conversions[root] = token
+        return True
+
+
+def release_conversion(root: Path, token: str) -> None:
+    with _conversion_lock:
+        if _active_conversions.get(root) == token:
+            del _active_conversions[root]
 
 
 class MediaError(ValueError):
@@ -63,7 +79,7 @@ def _finite_duration(value):
         return None
 
 
-def _probe(tools: Tools, path: Path) -> dict:
+def _probe(tools: Tools, path: Path, *, include_chapters: bool = False) -> dict:
     command = [
         str(tools.ffprobe),
         "-v",
@@ -72,6 +88,7 @@ def _probe(tools: Tools, path: Path) -> dict:
         "file,pipe",
         "-show_format",
         "-show_streams",
+        *(["-show_chapters"] if include_chapters else []),
         "-of",
         "json",
         "-i",
@@ -91,7 +108,7 @@ def _probe(tools: Tools, path: Path) -> dict:
         ) from exc
     if result.returncode:
         raise MediaError(
-            "ファイルを読み取れません。破損していないMP4を選択してください。"
+            "ファイルを読み取れません。形式とファイルの状態を確認してください。"
         )
     try:
         data = json.loads(result.stdout.decode("utf-8"))
@@ -387,6 +404,9 @@ class MediaManager:
             owner, buffer=buffer, name=name.replace("\\", "/").split("/")[-1]
         )
 
+    def _upload_filename(self, name: str) -> str:
+        return "input.mp4"
+
     def _prepare(self, owner, *, path=None, buffer=None, name):
         with self._lock:
             self._owner(owner)
@@ -399,7 +419,7 @@ class MediaManager:
             self._preparing.add(owner)
         try:
             if path is None:
-                path = folder / "input.mp4"
+                path = folder / self._upload_filename(name)
                 with path.open("xb") as output:
                     output.write(buffer)
             source = self._source(
@@ -484,7 +504,6 @@ class MediaManager:
                     "一時保存先の空き容量が不足しています。空きを確保してから再試行してください。"
                 )
             folder = work.folder / uuid4().hex
-            folder.mkdir()
             job = Job(
                 uuid4().hex,
                 operation_id,
@@ -494,19 +513,23 @@ class MediaManager:
                 track,
                 bitrate,
             )
-            if work.job:
-                shutil.rmtree(work.job.folder)
-            work.job = job
-            work.touched = time.monotonic()
-            job.thread = threading.Thread(
-                target=self._worker,
-                args=(owner, work, job),
-                name="proloag-media-" + job.id[:8],
-                daemon=True,
-            )
+            if not acquire_conversion(self.root, job.id):
+                raise MediaError("別の変換が実行中です。完了または中止後に開始できます。")
             try:
+                folder.mkdir()
+                if work.job:
+                    shutil.rmtree(work.job.folder)
+                work.job = job
+                work.touched = time.monotonic()
+                job.thread = threading.Thread(
+                    target=self._worker,
+                    args=(owner, work, job),
+                    name="proloag-media-" + job.id[:8],
+                    daemon=True,
+                )
                 job.thread.start()
             except Exception:
+                release_conversion(self.root, job.id)
                 job.status = "failed"
                 job.error = "変換処理を開始できませんでした。もう一度試してください。"
                 raise MediaError(job.error)
@@ -519,6 +542,7 @@ class MediaManager:
             job.folder / "errors.txt",
         )
         process = None
+        outcome = "failed"
         try:
             if job.cancel.is_set():
                 return
@@ -592,10 +616,9 @@ class MediaManager:
                         data.get("format", {}).get("duration")
                     )
                     job.progress = 1.0
-                    job.status = "done"
+                    outcome = "done"
         except Exception as exc:
             with self._lock:
-                job.status = "failed"
                 job.error = (
                     str(exc)
                     if isinstance(exc, MediaError)
@@ -609,16 +632,15 @@ class MediaManager:
                     process.kill()
                     process.wait(timeout=3)
                 partial.unlink(missing_ok=True)
-                if job.cancel.is_set():
+                if job.cancel.is_set() and outcome != "done":
                     output.unlink(missing_ok=True)
             except (OSError, subprocess.TimeoutExpired):
                 cleanup_error = True
             with self._lock:
-                if job.cancel.is_set():
-                    job.status = "cancelled"
+                if job.cancel.is_set() and outcome != "done":
+                    outcome = "cancelled"
                     job.size = 0
-                elif job.status in ACTIVE:
-                    job.status = "failed"
+                elif outcome == "failed" and not job.error:
                     job.error = (
                         "変換処理を完了できませんでした。もう一度試してください。"
                     )
@@ -627,6 +649,8 @@ class MediaManager:
                 job.elapsed = time.monotonic() - job.started
                 job.process = None
                 work.touched = time.monotonic()
+                release_conversion(self.root, job.id)
+                job.status = outcome
 
     def snapshot(self, owner):
         with self._lock:
@@ -748,7 +772,7 @@ class MediaManager:
                 if job.status in ACTIVE:
                     job.cancel.set()
         for job in jobs:
-            if job.thread and job.thread is not threading.current_thread():
+            if job.thread and job.thread.ident is not None and job.thread is not threading.current_thread():
                 job.thread.join(timeout=5)
         with self._lock:
             if self._base and not any(

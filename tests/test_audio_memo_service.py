@@ -42,12 +42,14 @@ class AudioMemoServiceTests(unittest.TestCase):
         return Source(path.parent.name, path, path.name, "recording", _identity(path), details["duration"],
                       (Track(0, "pcm_s16le", "", "", 1, details["duration"]),))
 
-    def seed_job(self, source, *, operation_id, audio_memo_id, status="starting", text=""):
+    def seed_job(self, source, *, operation_id, audio_memo_id, status="starting", text="",
+                 language="ja", mode="standard", hotwords="", device="cpu"):
         job_id = uuid4().hex
         folder = self.store.transcriptions.folder(job_id)
         folder.mkdir(parents=True)
         atomic_json(folder / "request.json", {"id": job_id, "audio_memo_id": audio_memo_id,
-                    "source_path": str(source.path), "language": "ja", "model": "small", "duration": source.duration,
+                    "source_path": str(source.path), "language": language, "model": memo.MODELS[mode],
+                    "hotwords": hotwords, "device": device, "duration": source.duration,
                     "track": {"index": 0}})
         atomic_json(folder / "state.json", {"id": job_id, "audio_memo_id": audio_memo_id,
                     "operation_id": operation_id, "status": status, "created": time.time(), "name": "audio.wav",
@@ -57,9 +59,11 @@ class AudioMemoServiceTests(unittest.TestCase):
                                                               "original_text": text}, ensure_ascii=False) + "\n", encoding="utf-8")
         return job_id
 
-    def start(self, item, status="done", text="認識した原文", early_hook=False, lost_ack=False, retry=False):
-        def launch(source, track, language, mode, hotwords, *, operation_id, audio_memo_id):
-            job_id = self.seed_job(source, operation_id=operation_id, audio_memo_id=audio_memo_id, status=status, text=text)
+    def start(self, item, status="done", text="認識した原文", early_hook=False, lost_ack=False, retry=False,
+              mode="standard", device="cpu", hotwords=""):
+        def launch(source, track, language, mode, hotwords, *, operation_id, audio_memo_id, device="cpu"):
+            job_id = self.seed_job(source, operation_id=operation_id, audio_memo_id=audio_memo_id, status=status, text=text,
+                                   language=language, mode=mode, hotwords=hotwords, device=device)
             if early_hook:
                 memo.sync_audio_memo(self.root, audio_memo_id, job_id)
             if lost_ack:
@@ -68,8 +72,82 @@ class AudioMemoServiceTests(unittest.TestCase):
 
         with patch.object(memo.TranscriptionSources, "prepare_recording", side_effect=self.prepare), \
                 patch.object(self.store.transcriptions, "start", side_effect=launch) as process:
-            job_id = self.store.start(item["id"], retry=retry)
+            job_id = self.store.start(item["id"], mode=mode, hotwords=hotwords, retry=retry, device=device)
         return job_id, process.call_count
+
+    def test_all_shared_modes_and_cpu_auto_are_forwarded_and_saved(self):
+        self.assertEqual(memo.MODELS["precise"], "large-v3")
+        self.assertEqual(memo.MODELS["fast"], "turbo")
+        for mode in memo.MODELS:
+            for device in ("cpu", "auto"):
+                with self.subTest(mode=mode, device=device):
+                    item = self.capture(f"take-{mode}-{device}")
+                    job_id, launches = self.start(item, mode=mode, device=device, hotwords="  ATP  ")
+                    request = read_json(self.store.transcriptions.folder(job_id) / "request.json")
+                    self.assertEqual((request["model"], request["device"], request["hotwords"]),
+                                     (memo.MODELS[mode], device, "ATP"))
+                    self.assertEqual(self.store.get(item["id"])["start_settings"],
+                                     {"language": "ja", "mode": mode, "hotwords": "ATP", "device": device})
+                    self.assertEqual(launches, 1)
+                    self.assertEqual(self.store.audio_path(item["id"]).read_bytes(), self.raw)
+
+    def test_legacy_settings_without_device_reuse_the_original_cpu_job(self):
+        item = self.capture()
+        job_id, _ = self.start(item)
+        meta = self.store._read(item["id"])
+        del meta["start_settings"]["device"]
+        self.store._write(meta)
+        with patch.object(self.store.transcriptions, "start", side_effect=AssertionError("duplicate launch")):
+            self.assertEqual(self.store.start(item["id"]), job_id)
+        self.assertNotIn("device", self.store.get(item["id"])["start_settings"])
+        with self.assertRaises(MediaError):
+            self.store.start(item["id"], device="auto")
+
+    def test_device_or_model_change_requires_retry_and_preserves_edited_text(self):
+        item = self.capture()
+        self.start(item)
+        saved = self.store.get(item["id"])
+        self.store.save(item["id"], saved["revision"], "edited title", "manually edited body")
+        with self.assertRaises(MediaError):
+            self.store.start(item["id"], mode="precise", device="auto")
+        self.start(item, mode="precise", device="auto", retry=True, text="new original")
+        saved = self.store.get(item["id"])
+        self.assertEqual((saved["title"], saved["text"]), ("edited title", "manually edited body"))
+        self.assertEqual(saved["original_text"], "new original")
+        self.assertEqual(saved["start_settings"]["device"], "auto")
+        self.assertEqual(self.store.audio_path(item["id"]).read_bytes(), self.raw)
+
+    def test_actual_device_and_fallback_warning_are_visible_and_persist_after_sync(self):
+        item = self.capture()
+        job_id, _ = self.start(item, status="transcribing", text="", device="auto")
+        state_path = self.store.transcriptions.folder(job_id) / "state.json"
+        state = read_json(state_path)
+        history = [{"device": "cuda"}, {"device": "cpu", "reason": "synthetic fallback"}]
+        atomic_json(state_path, {**state, "device": "cpu", "warning": "GPUからCPUへ切り替えました。",
+                                 "device_history": history})
+        current = self.store.get(item["id"])
+        self.assertEqual(current["device"], "cpu")
+        self.assertTrue(current["warning"])
+        self.assertEqual(current["device_history"], history)
+        self.assertEqual(current["start_settings"]["device"], "auto")
+        atomic_json(state_path, {**read_json(state_path), "status": "done"})
+        self.store.sync(item["id"])
+        durable = self.store._read(item["id"])
+        self.assertEqual((durable["device"], durable["device_history"]), ("cpu", history))
+        self.assertTrue(durable["warning"])
+        self.start(item, status="starting", text="", retry=True)
+        current = self.store.get(item["id"])
+        self.assertIsNone(current["device"])
+        self.assertEqual((current["warning"], current["device_history"]), ("", []))
+
+    def test_invalid_device_or_mode_does_not_change_memo(self):
+        item = self.capture()
+        path = self.store._folder(item["id"]) / "memo.json"
+        before = path.read_bytes()
+        for changes in ({"device": "cuda"}, {"device": None}, {"device": []}, {"mode": "unknown"}, {"mode": []}):
+            with self.subTest(changes=changes), self.assertRaises(MediaError):
+                self.store.start(item["id"], **changes)
+        self.assertEqual(path.read_bytes(), before)
 
     def test_readonly_empty_store_and_invalid_ids_create_nothing(self):
         self.assertEqual(self.store.history(), [])

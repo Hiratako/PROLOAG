@@ -244,7 +244,7 @@ def _input(root, store, busy):
                         st.rerun()
                     except OCRError as exc:
                         ab.show_action_error(str(exc))
-    labels = {"auto": "自動（PDFの既存文字を優先）", "ocr": "画像としてOCR"}
+    labels = {"auto": "自動（PDFの文字抽出とOCRを併用）", "ocr": "画像としてOCR"}
     if "ocr_strategy" not in st.session_state:
         st.session_state["ocr_strategy"] = prefs.get("strategy", "auto")
     strategy = st.selectbox(
@@ -255,9 +255,15 @@ def _input(root, store, busy):
         disabled=busy,
     )
     prefs["strategy"] = strategy
-    st.caption(
-        "画像部分の文章が抽出されないPDFは「画像としてOCR」を選びます。回転・範囲指定したページも画像として読み取ります。"
+    profiles = {"standard": "標準", "accurate": "高精度（細かい文字向け）"}
+    if "ocr_profile" not in st.session_state:
+        st.session_state["ocr_profile"] = prefs.get("profile", "standard")
+    profile = st.selectbox(
+        "読み取り精度", list(profiles), format_func=profiles.get, key="ocr_profile",
+        disabled=busy, help="高精度は画像領域を高解像度で処理するため時間がかかります。",
     )
+    prefs["profile"] = profile
+    st.caption("回転や範囲指定をしたページは、指定した領域を画像として読み取ります。")
     configured = [
         {
             "ページ": page,
@@ -287,6 +293,7 @@ def _input(root, store, busy):
                     settings,
                     strategy,
                     st.session_state.setdefault("ocr_operation", uuid4().hex),
+                    profile=profile,
                 )
             st.session_state["ocr_selected"] = job_id
             st.session_state["ocr_operation"] = uuid4().hex
@@ -322,11 +329,15 @@ def _result(store, job_id, result):
         "表示するページ", list(page_by_id), key="ocr_result_page_" + job_id
     )
     page = page_by_id[page_number]
-    st.caption(
-        "PDFの文字を抽出しました。"
-        if page["method"] == "pdf_text"
-        else "画像から文字を読み取りました。"
-    )
+    reading_method = {
+        "pdf_text": "PDFの文字を抽出しました。",
+        "pdf_mixed": "PDFの文字を抽出し、画像部分をOCRで読み取りました。",
+        "ocr": "画像から文字を読み取りました。",
+    }.get(page["method"])
+    if reading_method:
+        if page["method"] != "pdf_text" and result.get("profile") == "accurate":
+            reading_method += " OCR設定は高精度です。"
+        st.caption(reading_method)
     blocks = page["blocks"]
     by_id = {b["id"]: b for b in blocks}
     block_key = f"ocr_block_{job_id}_{page_number}"

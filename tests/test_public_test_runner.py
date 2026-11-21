@@ -9,7 +9,7 @@ import unittest
 
 
 RUNNER = Path(__file__).resolve().parents[1] / "scripts/run_tests.py"
-OPTIONAL = ("test_media_conversion.py", "test_media_conversion_ui.py", "test_transcription_process.py", "test_audio_memo_process.py", "test_ocr_process.py")
+OPTIONAL = ("test_media_conversion.py", "test_media_conversion_ui.py", "test_transcription_process.py", "test_audio_memo_process.py", "test_ocr_process.py", "test_video_conversion.py")
 
 
 class EntryPointTests(unittest.TestCase):
@@ -44,7 +44,7 @@ class EntryPointTests(unittest.TestCase):
             self.assertIn(name, result.stdout)
 
     def test_integration_and_all_select_the_documented_modules(self):
-        for kind, count in (("integration", 5), ("all", 6)):
+        for kind, count in (("integration", len(OPTIONAL)), ("all", len(OPTIONAL) + 1)):
             result = self.run_it(kind)
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertIn(f"Selected {count} test modules", result.stdout)

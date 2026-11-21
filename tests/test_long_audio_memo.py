@@ -131,6 +131,42 @@ class LongImportTests(Fixture):
         self.assertEqual(options["resume_from"], folder.name)
         self.assertEqual(current["text"], "manually edited memo")
 
+    def test_checkpoint_without_request_device_uses_safe_fresh_recognition(self):
+        item, source, folder = self.seed_recognized()
+        request = tr.read_json(folder / "request.json")
+        del request["device"]
+        tr.atomic_json(folder / "request.json", request)
+        checkpoint = tr.read_json(folder / "checkpoint.json")
+        tr.atomic_json(folder / "checkpoint.json", {**checkpoint, "signature": tr.checkpoint_signature(request)})
+        before = [(folder / name).read_bytes() for name in ("request.json", "checkpoint.json", "segments.jsonl")]
+        options, current = self.retry_with_fake_start(item, source)
+        self.assertNotIn("resume_from", options)
+        self.assertEqual(options["device"], "cpu")
+        self.assertTrue(current["resume_warning"])
+        self.assertEqual(current["text"], "manually edited memo")
+        self.assertEqual(before, [(folder / name).read_bytes() for name in ("request.json", "checkpoint.json", "segments.jsonl")])
+
+    def test_matching_auto_device_and_precise_model_keep_valid_checkpoint(self):
+        item, source, folder = self.seed_recognized()
+        request = tr.read_json(folder / "request.json")
+        request.update(device="auto", model="large-v3")
+        tr.atomic_json(folder / "request.json", request)
+        checkpoint = tr.read_json(folder / "checkpoint.json")
+        tr.atomic_json(folder / "checkpoint.json", {**checkpoint, "signature": tr.checkpoint_signature(request)})
+        item["start_settings"] = {"language": "ja", "mode": "precise", "hotwords": "", "device": "auto"}
+        self.store._write(item)
+        options, current = self.retry_with_fake_start(item, source, mode="precise", device="auto")
+        self.assertEqual(options["resume_from"], folder.name)
+        self.assertEqual(options["device"], "auto")
+        self.assertEqual(current["text"], "manually edited memo")
+
+    def test_requested_device_change_does_not_reuse_cpu_checkpoint(self):
+        item, source, folder = self.seed_recognized()
+        options, current = self.retry_with_fake_start(item, source, device="auto")
+        self.assertNotIn("resume_from", options)
+        self.assertEqual(options["device"], "auto")
+        self.assertEqual(current["text"], "manually edited memo")
+
     def test_real_native_start_manifest_bridges_without_a_microphone(self):
         recorder = native.LongRecordingStore(self.root)
         with patch.object(native, "engine_available", return_value=True), patch.object(
@@ -220,7 +256,12 @@ def fake_inference(model, source):
         def wait(self, **kwargs): return 0
     faster = ModuleType("faster_whisper"); faster.__path__ = []
     faster.WhisperModel = lambda *args, **kwargs: model
-    utils = ModuleType("faster_whisper.utils"); utils.download_model = lambda *args, **kwargs: "fake-model"
+    snapshot = source.parent / "synthetic-model"
+    snapshot.mkdir(exist_ok=True)
+    (snapshot / "model.bin").write_bytes(b"synthetic model")
+    (snapshot / "config.json").write_bytes(b"{}")
+    utils = ModuleType("faster_whisper.utils")
+    utils.download_model = lambda *args, **kwargs: str(snapshot)
     numpy = ModuleType("numpy"); numpy.int16 = "int16"; numpy.float32 = "float32"
     numpy.frombuffer = lambda *args, **kwargs: Samples()
     translate = ModuleType("ctranslate2"); translate.get_cuda_device_count = lambda: 0

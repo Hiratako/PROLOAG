@@ -145,6 +145,7 @@ class MediaUITests(unittest.TestCase):
             group["items"],
             [{"title": "メディア変換", "path": "pages/20_メディア変換.py"},
              {"title": "音声・動画の文字起こし", "path": "pages/21_音声・動画の文字起こし.py"},
+             {"title": "録音・文字起こしメモ", "path": "pages/23_録音・文字起こしメモ.py"},
              {"title": "画像・PDFの文字読み取り", "path": "pages/22_画像・PDFの文字読み取り.py"}],
         )
         tree = ast.parse(
@@ -167,6 +168,7 @@ class MediaUITests(unittest.TestCase):
         self.assertEqual(hidden_sidebar_pages(settings), {"pages/20_メディア変換.py"})
         self.assertIn("Hobby & Tools", [group["title"] for group in visible_nav_groups(settings)])
         settings["display"]["hidden_sidebar_pages"].append("pages/21_音声・動画の文字起こし.py")
+        settings["display"]["hidden_sidebar_pages"].append("pages/23_録音・文字起こしメモ.py")
         settings["display"]["hidden_sidebar_pages"].append("pages/22_画像・PDFの文字読み取り.py")
         self.assertNotIn(
             "Hobby & Tools", [group["title"] for group in visible_nav_groups(settings)]

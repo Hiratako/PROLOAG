@@ -366,7 +366,10 @@ class OCRStore:
                     continue
         return sorted(values, key=lambda v: v["created"], reverse=True)
 
-    def start(self, source, pages, transforms=None, strategy="auto", operation_id=None):
+    def start(
+        self, source, pages, transforms=None, strategy="auto", operation_id=None, *,
+        profile="standard",
+    ):
         if (
             not isinstance(pages, list)
             or not pages
@@ -374,6 +377,7 @@ class OCRStore:
             or any(type(p) is not int or not 1 <= p <= source.pages for p in pages)
             or len(set(pages)) != len(pages)
             or strategy not in {"auto", "ocr"}
+            or profile not in ("standard", "accurate")
         ):
             raise OCRError("読み取りページ・方法を確認してください。")
         pages = sorted(pages)
@@ -388,6 +392,9 @@ class OCRStore:
         if not re.fullmatch("[a-f0-9]{32}", operation_id):
             raise OCRError("処理IDが不正です。")
         fingerprint = [source.id, pages, settings, strategy]
+        # Old standard jobs used the same fingerprint without a profile.
+        if profile != "standard":
+            fingerprint.append(profile)
         try:
             with _lock, file_lock(self.base / ".catalog.lock"):
                 history = self.history()
@@ -435,6 +442,7 @@ class OCRStore:
                         "pages": pages,
                         "transforms": settings,
                         "strategy": strategy,
+                        "profile": profile,
                         "languages": ["ja", "en"],
                     }
                     state = {
@@ -500,6 +508,7 @@ class OCRStore:
             "state": state,
             "requested_pages": request["pages"],
             "strategy": request["strategy"],
+            "profile": request.get("profile", "standard"),
             "languages": request["languages"],
             "transforms": request["transforms"],
             "revision": edits["revision"],

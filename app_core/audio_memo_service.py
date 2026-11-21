@@ -24,7 +24,7 @@ from uuid import uuid4
 import wave
 
 from app_core.media_conversion import MediaError, _identity
-from app_core.transcription import (ACTIVE, TranscriptionSources, TranscriptionStore, atomic_json, file_lock,
+from app_core.transcription import (ACTIVE, MODELS, TranscriptionSources, TranscriptionStore, atomic_json, file_lock,
                                     read_json, file_sha256, timestamp, load_checkpoint, checkpoint_prefix)
 
 
@@ -43,6 +43,11 @@ class _StartBusy(MediaError):
 
 def _now():
     return datetime.now().astimezone().isoformat(timespec="microseconds")
+
+
+def _start_settings(value):
+    """Old memo settings predate device selection and always used the CPU."""
+    return {**value, "device": value.get("device", "cpu")} if isinstance(value, dict) else value
 
 
 def validate_recording(data: bytes) -> dict:
@@ -263,10 +268,14 @@ class AudioMemoStore:
         result.setdefault("progress", 0.0)
         result.setdefault("elapsed", 0.0)
         result.setdefault("message", "録音を保存しました。")
+        result.setdefault("device", None)
+        result.setdefault("warning", "")
+        result.setdefault("device_history", [])
         if meta.get("job_id"):
             try:
                 state, _ = self._job(meta, meta["job_id"])
-                for key in ("status", "progress", "elapsed", "message", "error", "resumed_seconds", "resume_from"):
+                for key in ("status", "progress", "elapsed", "message", "error", "resumed_seconds", "resume_from",
+                            "device", "warning", "device_history"):
                     if key in state:
                         result[key] = state[key]
             except MediaError as exc:
@@ -615,51 +624,61 @@ class AudioMemoStore:
             if (not isinstance(request, dict) or request.get("audio_memo_id") != meta["id"] or request.get("source_sha256") != meta["audio_sha256"]
                     or Path(request.get("source_path", "")).resolve() != self.audio_path(meta["id"]).resolve()):
                 raise MediaError("different recording")
-            settings = meta.get("start_settings") or {}
+            settings = _start_settings(meta.get("start_settings") or {})
             if not isinstance(settings, dict):
                 raise MediaError("invalid recognition settings")
             if (request.get("language") != settings.get("language")
-                    or request.get("model") != {"standard": "small", "accurate": "medium"}.get(settings.get("mode"))
-                    or request.get("hotwords") != settings.get("hotwords") or request.get("device") != "cpu"):
+                    or request.get("model") != MODELS.get(settings.get("mode"))
+                    or request.get("hotwords") != settings.get("hotwords")
+                    or request.get("device", "cpu") != settings.get("device")):
                 raise MediaError("different recognition settings")
+            if "device" not in request:
+                # The old checkpoint's signature includes an unspecified device.
+                # Do not relabel that prefix as a new explicit CPU/GPU request.
+                return None, "旧形式の認識履歴には処理デバイスの情報がないため、最初から認識します。以前の原文と編集本文は保持しています。"
             checkpoint = load_checkpoint(folder, request)
             checkpoint_prefix(folder / "segments.jsonl", checkpoint)
             return job_id, ""
         except (MediaError, OSError, ValueError, TypeError):
             return None, "完了区間の保存情報を確認できないため、最初から認識します。以前の原文と編集本文は保持しています。"
 
-    def start(self, memo_id, language="ja", mode="standard", hotwords="", retry=False):
-        if language not in {"ja", "en", "auto"} or mode not in {"standard", "accurate"} or not isinstance(hotwords, str) or len(hotwords) > 1000 or type(retry) is not bool:
+    def start(self, memo_id, language="ja", mode="standard", hotwords="", retry=False, device="cpu"):
+        if (not isinstance(language, str) or language not in {"ja", "en", "auto"}
+                or not isinstance(mode, str) or mode not in MODELS
+                or not isinstance(device, str) or device not in {"cpu", "auto"}
+                or not isinstance(hotwords, str) or len(hotwords) > 1000 or type(retry) is not bool):
             raise MediaError("文字起こし設定を確認してください。")
-        settings = {"language": language, "mode": mode, "hotwords": hotwords.strip()}
+        settings = {"language": language, "mode": mode, "hotwords": hotwords.strip(), "device": device}
         with self._locked(memo_id):
             meta = self._read(memo_id)
-            resume_from, resume_warning = self._resume_candidate(meta, meta.get("resume_from")) if meta.get("start_settings") == settings else (None, "")
+            previous_settings = _start_settings(meta.get("start_settings"))
+            resume_from, resume_warning = self._resume_candidate(meta, meta.get("resume_from")) if previous_settings == settings else (None, "")
             existing = self._find_job(meta)
             if existing:
                 state, _ = self._job(meta, existing)
                 if retry and state.get("status") in ACTIVE | {"unavailable"}:
                     raise MediaError("この録音を文字起こし中です。終了してから再試行してください。")
                 if not retry:
-                    if meta.get("start_settings") != settings:
+                    if previous_settings != settings:
                         raise MediaError("開始済み操作と設定が異なります。完了後に再試行してください。")
                     self._sync_locked(meta, existing)
                     return existing
                 resume_from, resume_warning = None, ""
-                if (meta.get("start_settings") == settings and state.get("status") in {"failed", "cancelled", "interrupted"}
+                if (previous_settings == settings and state.get("status") in {"failed", "cancelled", "interrupted"}
                         and (self.transcriptions.folder(existing) / "checkpoint.json").is_file()):
                     resume_from, resume_warning = self._resume_candidate(meta, existing)
             if retry and not existing and meta.get("status") == "starting":
                 raise MediaError("開始結果を確認中です。同じ設定のまま再試行してから、認識履歴を確認してください。")
-            if not retry and meta.get("start_operation_id") and not (meta.get("status") == "start_failed" and meta.get("start_settings") != settings):
-                if meta.get("start_settings") != settings:
+            if not retry and meta.get("start_operation_id") and not (meta.get("status") == "start_failed" and previous_settings != settings):
+                if previous_settings != settings:
                     raise MediaError("開始確認中の設定と異なります。同じ設定で再試行してください。")
                 operation = meta["start_operation_id"]
             else:
                 operation = uuid4().hex
             meta.update(start_operation_id=operation, start_settings=settings, job_id=None,
                         resume_from=resume_from, resume_warning=resume_warning,
-                        start_reserved_at=time.time(), status="starting", error="", updated_at=_now())
+                        start_reserved_at=time.time(), status="starting", error="", device=None, warning="",
+                        device_history=[], updated_at=_now())
             self._write(meta)
         # Do not hold the memo lock while spawning. A very fast worker may
         # complete and link this reserved operation before start() returns.
@@ -683,7 +702,7 @@ class AudioMemoStore:
                 if resume_from is not None:
                     options["resume_from"] = resume_from
                 job_id = self.transcriptions.start(source, source.tracks[0].index, language, mode,
-                                                  hotwords.strip(), **options)
+                                                  hotwords.strip(), device=device, **options)
         except _StartBusy:
             raise
         except (MediaError, OSError) as exc:
@@ -713,6 +732,9 @@ class AudioMemoStore:
             return meta
         before = deepcopy(meta)
         meta.update(job_id=job_id, status=state.get("status", "unavailable"), error=state.get("error", ""))
+        for key in ("device", "warning", "device_history"):
+            if key in state:
+                meta[key] = deepcopy(state[key])
         terminal = meta["status"] not in ACTIVE | {"unavailable"}
         text_changed = False
         if terminal and not any(row.get("job_id") == job_id for row in meta["original_versions"]):
