@@ -28,9 +28,9 @@ PROLOAGは、学習計画・計測・ノート・復習と、生活コンディ�
 
 ## 追加準備が必要な機能
 
-- [MP4→MP3](docs/media-conversion.md)：FFmpeg／FFprobeを準備します。
+- [メディア変換（MKV→MP4／MP4→MP3）](docs/media-conversion.md)にはFFmpeg／FFprobeを準備します。
 - [録音・文字起こしメモ](docs/audio-memos.md)：最大3時間のPC録音用ライブラリを追加導入します。認識する場合は次項の準備も必要です。
-- [文字起こし](docs/transcription.md)：FFmpeg、専用エンジン、認識モデルを準備します。
+- [MP4／MP3／MKVの文字起こし](docs/transcription.md)にはFFmpeg／FFprobe、専用エンジン、認識モデルを準備します。CPUで利用でき、対応環境ではGPUで加速できます。
 - [画像・PDFの文字読み取り](docs/ocr.md)：専用エンジン・モデル等を準備します。
 - [Google Sheets共有](docs/google-sheets-setup.md)、[Google Docs相談レポート](docs/google-docs-reports.md)：任意の追加依存と自分のGoogle設定・認証が必要です。
 - [相談提案の取り込み](docs/consultation-proposals.md)：内容を確認して手動で反映します。
