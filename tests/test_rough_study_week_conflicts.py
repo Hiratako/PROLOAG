@@ -1,3 +1,5 @@
+from datetime import date
+import locale
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
@@ -9,7 +11,7 @@ from streamlit.proto.WidgetStates_pb2 import WidgetStates
 
 from app_core.rough_study_drafts import load_rough_draft
 from app_core.rough_study_service import load_rough_study_records, save_rough_study_batch
-from app_core.rough_study_ui import _new_editor, _records
+from app_core.rough_study_ui import _date_range_label, _new_editor, _records
 
 
 class RoughStudyWeekConflictTests(unittest.TestCase):
@@ -68,6 +70,15 @@ with patch.object(rough_study_ui, "app_today", return_value=date(2026, 11, 23)):
     def saved_memos(self):
         saved = load_rough_draft(self.root, self.week)
         return [row["memo"] for row in saved["rows"][:3]]
+
+    def test_date_range_label_supports_a_non_japanese_locale(self):
+        original_locale = locale.setlocale(locale.LC_CTYPE)
+        self.addCleanup(locale.setlocale, locale.LC_CTYPE, original_locale)
+        locale.setlocale(locale.LC_CTYPE, "C")
+        self.assertEqual(
+            _date_range_label(date(2026, 11, 23), date(2026, 11, 29)),
+            "2026年11/23（月） 〜 11/29（日）",
+        )
 
     def test_cleared_copied_rows_do_not_block_review_and_save(self):
         save_rough_study_batch(

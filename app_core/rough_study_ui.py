@@ -104,6 +104,10 @@ def _date_label(day: date) -> str:
     return f"{day:%m/%d}（{_DAY_LABELS[day.weekday()]}）"
 
 
+def _date_range_label(start: date, end: date) -> str:
+    return f"{start.year:04d}年{_date_label(start)} 〜 {_date_label(end)}"
+
+
 def _days(start: date, end: date) -> list[date]:
     return [start + timedelta(days=offset) for offset in range((end - start).days + 1)]
 
@@ -622,7 +626,7 @@ def _render_week(root: Path, labels: dict[str, str], subjects: dict[str, dict]) 
     now = navigation[1].button("今週", key="rough_week_today", disabled=start == today)
     following = navigation[2].button("次の週", key="rough_week_next")
     picked = navigation[3].date_input("週に含まれる日", key=_WEEK_PICKER, label_visibility="collapsed")
-    st.markdown(f"**{start:%Y年}{_date_label(start)} 〜 {_date_label(end)}**")
+    st.markdown(f"**{_date_range_label(start, end)}**")
     draft_status = st.empty()
     if draft.notice:
         st.warning(draft.notice)
@@ -758,7 +762,7 @@ def _render_period(root: Path, labels: dict[str, str], subjects: dict[str, dict]
                 status = "rerun"
     elif draft:
         average = _duration_label(draft.period["average_minutes"] * 60)
-        st.markdown(f"**{draft.start:%Y年}{_date_label(draft.start)} 〜 {_date_label(draft.end)}　1日平均 約{average}**")
+        st.markdown(f"**{_date_range_label(draft.start, draft.end)}　1日平均 約{average}**")
         if draft.notice:
             st.warning(draft.notice)
         if draft.approved is not None:
