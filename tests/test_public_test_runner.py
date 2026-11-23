@@ -56,13 +56,16 @@ class EntryPointTests(unittest.TestCase):
         self.assertIn("failures=1", result.stdout)
 
     def test_unknown_json_is_rejected_before_any_test_import(self):
-        path = self.root / "settings/unknown.json"
-        path.parent.mkdir()
-        path.write_text("not JSON - must not be parsed", encoding="utf-8")
+        record_paths = ("settings/unknown.json", "rough_study_logs/batches.json", "rough_study_logs/drafts.json")
+        for relative in record_paths:
+            path = self.root / relative
+            path.parent.mkdir(exist_ok=True)
+            path.write_text("not JSON - must not be parsed", encoding="utf-8")
         (self.root / "tests/test_basic.py").write_text("raise RuntimeError('must not import tests')\n", encoding="utf-8")
         result = self.run_it()
         self.assertEqual(result.returncode, 2)
-        self.assertIn("settings/unknown.json", result.stderr)
+        for relative in record_paths:
+            self.assertIn(relative, result.stderr)
         self.assertNotIn("must not import tests", result.stdout + result.stderr)
 
     def test_four_exact_empty_files_are_allowed_but_user_content_is_rejected(self):

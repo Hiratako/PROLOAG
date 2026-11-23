@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta
 from app_core.app_clock import app_today
 from typing import Any
@@ -176,9 +176,10 @@ class LearningDataSnapshot:
     notes: list[dict[str, Any]]
     cards: list[dict[str, Any]]
     reminders: list[dict[str, Any]]
+    rough_records: list[dict[str, Any]] = field(default_factory=list)
 
     @classmethod
-    def load(cls) -> LearningDataSnapshot:
+    def load(cls, *, rough_records: list[dict[str, Any]] | None = None) -> LearningDataSnapshot:
         sessions: list[dict[str, Any]] = []
         activity_sessions: list[dict[str, Any]] = []
         if STUDY_LOGS_DIR.exists():
@@ -194,11 +195,12 @@ class LearningDataSnapshot:
             notes=_load_notes_readonly(),
             cards=_load_flashcards_readonly(),
             reminders=_load_reminders_readonly(),
+            rough_records=rough_records if rough_records is not None else [],
         )
 
 
 def _default_period(sessions: list[dict[str, Any]], start_date: date | None, end_date: date | None) -> tuple[date, date]:
-    dated = [_parse_date(session.get("start_at") or session.get("end_at")) for session in sessions]
+    dated = [_parse_date(session.get("study_date") or session.get("start_at") or session.get("end_at")) for session in sessions]
     dated = [day for day in dated if day]
     today = app_today()
     start = start_date or (min(dated) if dated else today - timedelta(days=365))
@@ -230,12 +232,16 @@ def build_daily_learning_summary(
     notes = [note for note in (snapshot.notes if snapshot is not None else _load_notes_readonly()) if _matches_filters(note, filters)]
     cards = [card for card in (snapshot.cards if snapshot is not None else _load_flashcards_readonly()) if _matches_filters(card, filters)]
     reminders = [reminder for reminder in (snapshot.reminders if snapshot is not None else _load_reminders_readonly()) if _matches_filters(reminder, filters)]
-    start, end = _default_period(sessions, start_date, end_date)
+    rough = [row for row in (snapshot.rough_records if snapshot else []) if _matches_filters(row, filters)]
+    start, end = _default_period(sessions + rough, start_date, end_date)
 
     rows = {
         day: {
             "date": day.isoformat(),
             "total_duration_sec": 0,
+            "rough_duration_sec": 0,
+            "rough_count": 0,
+            "rough_unknown_count": 0,
             "total_hours": 0.0,
             "total_money": 0.0,
             "session_count": 0,
@@ -258,6 +264,16 @@ def build_daily_learning_summary(
         rows[day]["total_money"] += _num(session.get("money"))
         rows[day]["session_count"] += 1
         sessions_by_day[day].append(session)
+
+    for record in rough:
+        day = _parse_date(record.get("study_date"))
+        if day in rows:
+            duration = _num(record.get("duration_sec"))
+            rows[day]["total_duration_sec"] += duration
+            rows[day]["rough_duration_sec"] += duration
+            rows[day]["rough_count"] += 1
+            rows[day]["rough_unknown_count"] += record.get("duration_sec") is None
+            sessions_by_day[day].append(record)
 
     for plan in plans:
         day = _parse_date(plan.get("date"))
@@ -330,12 +346,16 @@ def build_subject_growth_summary(
     master: MasterSnapshot | None = None,
 ) -> list[dict[str, Any]]:
     sessions = [session for session in (snapshot.sessions if snapshot is not None else _load_study_sessions_readonly()) if _matches_filters(session, filters)]
-    start, end = _default_period(sessions, start_date, end_date)
+    rough = [row for row in (snapshot.rough_records if snapshot else []) if _matches_filters(row, filters)]
+    start, end = _default_period(sessions + rough, start_date, end_date)
     rows: dict[str, dict[str, Any]] = defaultdict(
         lambda: {
             "subject_id": "",
             "subject_name": "未設定",
             "duration_sec": 0,
+            "rough_duration_sec": 0,
+            "rough_count": 0,
+            "rough_unknown_count": 0,
             "hours": 0.0,
             "session_count": 0,
             "note_count": 0,
@@ -364,6 +384,16 @@ def build_subject_growth_summary(
             row = row_for(session)
             row["duration_sec"] += _num(session.get("duration_sec"))
             row["session_count"] += 1
+
+    for record in rough:
+        day = _parse_date(record.get("study_date"))
+        if day and start <= day <= end:
+            row = row_for(record)
+            duration = _num(record.get("duration_sec"))
+            row["duration_sec"] += duration
+            row["rough_duration_sec"] += duration
+            row["rough_count"] += 1
+            row["rough_unknown_count"] += record.get("duration_sec") is None
 
     for note in snapshot.notes if snapshot is not None else _load_notes_readonly():
         day = _parse_date(note.get("created_at") or note.get("updated_at"))

@@ -13,6 +13,7 @@ Thumbs.db
 
 # Local application records, settings, private media and operation journals
 study_logs/
+rough_study_logs/
 daily_plans/
 diary_entries/
 health_logs/

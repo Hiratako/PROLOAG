@@ -10,8 +10,9 @@ from pathlib import Path
 from typing import Any
 
 from app_core.json_store import JsonReadError, load_json_safe, record_json_files
-from app_core.substance_service import default_substance_profiles
+from app_core.rough_study_service import load_rough_study_batches, rough_study_path
 from app_core.study_record_reader import unpack_study_document
+from app_core.substance_service import default_substance_profiles
 from config import PROJECT_ROOT
 
 
@@ -659,6 +660,30 @@ def build_export_bundle(root: Path | None = None, generated_at: datetime | None 
                 else:
                     rows = [_flat_row("settings/study_roadmap.json", index, record, maps) for index, record in enumerate(capacity)]
                     tables.append(_make_table("roadmap_capacity", "学習可能時間", "曜日ごとと例外日の学習可能時間（分）。", rows, ("kind", "weekday", "date", "capacity_minutes")))
+
+    try:
+        rough_batches = load_rough_study_batches(project_root)
+    except (OSError, ValueError) as exc:
+        warnings.append(f"ざっくり記録を出力できませんでした。{exc}")
+        rough_batches = []
+    if rough_batches:
+        source = _relative_path(rough_study_path(project_root), project_root)
+        rough_rows = []
+        batch_rows = []
+        for index, batch in enumerate(rough_batches, start=1):
+            metadata = {key: value for key, value in batch.items() if key != "rows"}
+            batch_rows.append(_flat_row(source, index, metadata, maps))
+            for record in batch["rows"]:
+                row = {"batch_id": batch["batch_id"], "kind": batch["kind"], **record}
+                rough_rows.append(_flat_row(source, len(rough_rows) + 1, row, maps))
+        tables.extend([
+            _make_table("rough_study_records", "ざっくり記録",
+                        "学習日、学習時間、内容、分類。時間未記録の場合は秒数欄が空欄です。",
+                        rough_rows, ("batch_id", "record_id", "kind", "study_date", "duration_sec", "estimated")),
+            _make_table("rough_study_batches", "ざっくり記録の入力履歴",
+                        "一括入力の種類と期間指定。batch_idで個別行と対応します。",
+                        batch_rows, ("batch_id", "kind", "revision", "created_at", "updated_at")),
+        ])
 
     manifest_rows = [
         {

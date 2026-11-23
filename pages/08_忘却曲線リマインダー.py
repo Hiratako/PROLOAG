@@ -21,11 +21,13 @@ from app_core.reminder_page_state import (
 )
 from app_core.reminder_service import (
     PRESET_INTERVALS,
+    StaleReviewError,
     complete_review,
     create_reminder,
     defer_reminder,
     get_due_reminders,
     normalize_intervals,
+    review_cycle,
     schedule_progress,
     set_schedule_status,
     skip_review,
@@ -66,6 +68,10 @@ RESULT_LABELS = {
     "easy": "簡単だった",
     "skipped": "スキップ",
 }
+REVIEW_CHANGED_MESSAGE = (
+    "この復習予定は別画面で処理されたか変更されています。"
+    "入力は保持しています。表示内容を切り替えて最新の予定を確認してください。"
+)
 
 
 def parse_date(value: Any, fallback: date | None = None) -> date:
@@ -238,6 +244,9 @@ def save_reminder_action(action: Any, message: str, *, on_success: Any = None,
                          missing_message: str = "復習予定が見つからなかったため変更していません。入力は保持しています。") -> None:
     try:
         updated = action()
+    except StaleReviewError:
+        ab.show_action_message(REVIEW_CHANGED_MESSAGE, kind="warning")
+        return
     except (ValueError, OSError) as exc:
         ab.show_action_error(f"復習予定を更新できませんでした。入力は保持しています。{exc}")
         return
@@ -255,6 +264,10 @@ def render_review_actions(item: dict[str, Any], context: str) -> None:
     render_reminder_details(item, context)
     if not reminder_can_be_changed(item):
         return
+    cycle = review_cycle(item)
+    selection = (context, reminder_id)
+    displayed = st.session_state.get("p08_displayed_review")
+    expected_cycle = displayed[2] if displayed and displayed[:2] == selection else cycle
     memo_key, duration_key = restore_review_draft(st.session_state, reminder_id)
 
     def remember_draft() -> None:
@@ -279,7 +292,10 @@ def render_review_actions(item: dict[str, Any], context: str) -> None:
         with column:
             if st.button(RESULT_LABELS[result], key=f"review_{context}_{reminder_id}_{result}", width="stretch"):
                 save_reminder_action(
-                    lambda: complete_review(reminder_id, result, memo=review_memo, duration_min=int(review_duration), root=ROOT),
+                    lambda: complete_review(
+                        reminder_id, result, memo=review_memo, duration_min=int(review_duration),
+                        root=ROOT, expected_cycle=expected_cycle,
+                    ),
                     "復習結果を記録し、次回予定を更新しました。",
                     on_success=lambda: discard_review_draft(st.session_state, reminder_id),
                     missing_message="復習予定が見つからなかったため保存していません。入力は保持しています。",
@@ -295,13 +311,16 @@ def render_review_actions(item: dict[str, Any], context: str) -> None:
     with action_cols[2]:
         if st.button("今回はスキップ", key=f"skip_{context}_{reminder_id}", width="stretch"):
             save_reminder_action(
-                lambda: skip_review(reminder_id, root=ROOT), "今回の復習をスキップしました。",
+                lambda: skip_review(reminder_id, root=ROOT, expected_cycle=expected_cycle),
+                "今回の復習をスキップしました。",
                 on_success=lambda: discard_review_draft(st.session_state, reminder_id),
                 missing_message="復習予定が見つからなかったためスキップしていません。入力は保持しています。",
             )
     with action_cols[3]:
         if st.button("キャンセル", key=f"cancel_{context}_{reminder_id}", width="stretch"):
             save_reminder_action(lambda: set_schedule_status(reminder_id, "cancelled", ROOT), "復習予定をキャンセルしました。")
+    # A click in this rerun belongs to the occurrence shown on the previous render.
+    st.session_state["p08_displayed_review"] = (*selection, cycle)
     st.divider()
 
 
@@ -362,6 +381,9 @@ def render_selected_review(selected: dict[str, Any], context: str, initial_conte
         return
     # Check duplicates against every record, including filtered-out schedules.
     current = matches[0] if len(matches) == 1 else selected
+    if len(matches) == 1 and not get_due_reminders(TODAY, reminders=[current]):
+        st.warning(REVIEW_CHANGED_MESSAGE)
+        return
     render_review_actions(current, context)
 
 

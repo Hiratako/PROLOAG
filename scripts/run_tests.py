@@ -26,7 +26,7 @@ INTEGRATION_MODULES = {
     "test_ocr_process.py": "optional OCR dependencies installed by app_core/setup_ocr.py",
 }
 RECORD_DIRECTORIES = (
-    "study_logs", "daily_plans", "diary_entries", "health_logs", "exercise_logs",
+    "study_logs", "rough_study_logs", "daily_plans", "diary_entries", "health_logs", "exercise_logs",
     "statistics_practice", "notes_data", "master_data", "settings",
     "transcription_data", "ocr_data",
 )

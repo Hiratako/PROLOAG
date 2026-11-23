@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from config import PROJECT_ROOT
+from app_core.ids import new_daily_task_id
 from app_core.json_store import json_transaction_for
 
 
@@ -39,12 +40,12 @@ def ensure_daily_plan(target: date | datetime | str | None = None, root: Path | 
 
 @json_transaction_for(lambda target, task, root=None: get_plan_path(target, root))
 def add_task(target: date | datetime | str | None, task: dict[str, Any], root: Path | None = None) -> dict[str, Any]:
-    from data_utils import generate_id, save_daily_plan as _save
+    from data_utils import save_daily_plan as _save
 
     plan = load_daily_plan(target, root)
-    existing_ids = {item.get("task_id", "") for item in plan.get("tasks", [])}
     task = dict(task)
-    task.setdefault("task_id", generate_id("task", plan.get("date"), existing_ids))
+    if not task.get("task_id"):
+        task["task_id"] = new_daily_task_id(plan.get("date"))
     task.setdefault("linked_note_ids", [])
     task.setdefault("linked_session_ids", [])
     plan.setdefault("tasks", []).append(task)
@@ -80,18 +81,17 @@ def delete_task(target: date | datetime | str | None, task_id: str, root: Path |
 
 @json_transaction_for(lambda from_date, to_date, root=None: get_plan_path(to_date, root))
 def carry_over_unfinished_tasks(from_date: date, to_date: date, root: Path | None = None) -> int:
-    from data_utils import generate_id, save_daily_plan as _save
+    from data_utils import save_daily_plan as _save
 
     source = load_daily_plan(from_date, root, write_back=False)
     target = load_daily_plan(to_date, root)
-    existing_ids = {task.get("task_id", "") for task in target.get("tasks", [])}
     carried = {task.get("carried_from_task_id") for task in target.get("tasks", [])}
     count = 0
     for task in source.get("tasks", []):
         if task.get("status") not in ("not_started", "in_progress", "pending") or task.get("task_id") in carried:
             continue
         new_task = dict(task)
-        new_task["task_id"] = generate_id("task", target.get("date"), existing_ids)
+        new_task["task_id"] = new_daily_task_id(to_date)
         new_task["status"] = "not_started"
         new_task["linked_session_ids"] = []
         new_task["carried_from_task_id"] = task.get("task_id", "")

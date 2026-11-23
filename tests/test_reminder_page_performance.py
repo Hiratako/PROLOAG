@@ -187,7 +187,10 @@ class ReminderPageAppTests(unittest.TestCase):
                 self.complete.reset_mock()
                 app.button(key=f"review_due_r0_{result}").click().run()
                 self.assertFalse(app.exception, str(app.exception))
-                self.complete.assert_called_once_with("r0", result, memo=" 記録するメモ ", duration_min=15, root=PROJECT)
+                self.complete.assert_called_once_with(
+                    "r0", result, memo=" 記録するメモ ", duration_min=15, root=PROJECT,
+                    expected_cycle=reminder_service.review_cycle(self.records[0]),
+                )
 
     def test_current_source_names_are_reloaded_after_external_edits(self):
         app = self.app()

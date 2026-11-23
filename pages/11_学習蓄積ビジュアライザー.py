@@ -28,6 +28,7 @@ from app_core.plot_style import (
     style_chart_axis,
     style_legend,
 )
+from app_core.rough_study_service import load_rough_study_records
 from app_core.study_log_service import load_all_study_sessions
 
 
@@ -126,7 +127,9 @@ def aggregate_for_unit(df: pd.DataFrame, unit: str) -> pd.DataFrame:
         "card_count",
         "reminder_count",
     ]
-    grouped = work.set_index("date").resample(freq)[numeric_cols].sum().reset_index()
+    if "rough_count" in work and work["rough_count"].any():
+        numeric_cols += [key for key in ("rough_duration_sec", "rough_count", "rough_unknown_count") if key in work]
+    grouped = work.set_index("date").resample(freq, closed="left", label="left")[numeric_cols].sum().reset_index()
     grouped["total_hours"] = grouped["total_duration_sec"] / 3600
     return grouped
 
@@ -375,6 +378,11 @@ def render_subject_growth(subject_rows: list[dict[str, Any]]) -> None:
         st.info("対象期間の科目別データはまだありません。")
         return
     df = pd.DataFrame(subject_rows)
+    extra_columns = []
+    if "rough_count" in df and df["rough_count"].sum():
+        df["ざっくり時間"] = df["rough_duration_sec"].map(format_duration)
+        df["時間未記録"] = df["rough_unknown_count"]
+        extra_columns = ["ざっくり時間", "時間未記録"]
     display = df.rename(
         columns={
             "subject_name": "科目",
@@ -391,6 +399,7 @@ def render_subject_growth(subject_rows: list[dict[str, Any]]) -> None:
             [
                 "科目",
                 "累積勉強時間",
+                *extra_columns,
                 "ノート数",
                 "カード数",
                 "リマインダー数",
@@ -554,7 +563,7 @@ with st.sidebar:
     unit_label = st.selectbox("単元", list(unit_options.keys()))
     unit_id = selected_value(unit_label, unit_options)
 
-    display_unit = st.selectbox("表示単位", ["日別", "週別", "月別"])
+    display_unit = st.selectbox("表示単位", ["日別", "週別", "月別"], help="週別は月曜始まりです。")
 
 filters = {"project_id": project_id, "subject_id": subject_id, "material_id": material_id, "unit_id": unit_id}
 if end_date < start_date:
@@ -562,7 +571,12 @@ if end_date < start_date:
 
 ab.topbar("学習蓄積ビジュアライザー", "日々の学習時間、知識整理、復習準備の蓄積を視覚的に確認します。")
 
-learning_data = LearningDataSnapshot.load()
+try:
+    rough_records = load_rough_study_records(ROOT)
+except (OSError, ValueError) as exc:
+    st.warning(f"ざっくり記録を読み込めませんでした。{exc}")
+    rough_records = []
+learning_data = LearningDataSnapshot.load(rough_records=rough_records)
 daily_rows = build_daily_learning_summary(start_date, end_date, filters, snapshot=learning_data)
 daily_df = rows_to_frame(daily_rows)
 unit_df = aggregate_for_unit(daily_df, display_unit)
@@ -583,7 +597,14 @@ pending_reminders = sum(int(row.get("pending_reminder_count", 0) or 0) for row i
 st.subheader("主要KPI")
 kpi_rows = [st.columns(4), st.columns(4)]
 with kpi_rows[0][0]:
-    ab.metric_block("期間内の総勉強時間", format_duration(total_duration), "対象期間の学習実績")
+    duration_caption = "対象期間の学習実績"
+    if not daily_df.empty and daily_df["rough_count"].sum():
+        rough_seconds = int(daily_df["rough_duration_sec"].sum())
+        unknown_count = int(daily_df["rough_unknown_count"].sum())
+        duration_caption = f"通常 {format_duration(total_duration - rough_seconds)} / ざっくり {format_duration(rough_seconds)}"
+        if unknown_count:
+            duration_caption += f" / 時間未記録 {unknown_count}件"
+    ab.metric_block("期間内の総勉強時間", format_duration(total_duration), duration_caption)
 with kpi_rows[0][1]:
     ab.metric_block("期間内の総換算金額", format_yen(total_money), "勉強時間の価値換算")
 with kpi_rows[0][2]:
@@ -600,7 +621,7 @@ with kpi_rows[1][3]:
     ab.metric_block("未完了リマインダー数", f"{pending_reminders}件", "未完了または保留中の復習予定")
 
 if daily_df.empty or total_duration == 0:
-    st.info("対象期間に勉強ログはまだありません。ノートや復習データがある場合も、学習時間の可視化はログ保存後に表示されます。")
+    st.info("対象期間に時間が入力された勉強ログはまだありません。")
 
 st.subheader("年間学習ヒートマップ")
 render_heatmap(daily_df, start_date, end_date)
@@ -655,7 +676,7 @@ download_df = unit_df.copy()
 if not download_df.empty:
     download_df["date"] = download_df["date"].dt.date.astype(str)
 st.download_button(
-    "日別集計CSVをダウンロード",
+    f"{display_unit}集計CSVをダウンロード",
     data=to_csv_bytes(download_df),
     file_name="learning_accumulation_summary.csv",
     mime="text/csv",

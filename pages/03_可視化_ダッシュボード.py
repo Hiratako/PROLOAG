@@ -30,6 +30,7 @@ import prolog_ui.components as ab
 from app_core.app_clock import app_today
 from app_core.analysis_dates import analysis_datetime_series
 from app_core.daily_analysis_service import build_calendar_study_totals
+from app_core.rough_study_service import load_rough_study_records
 from app_core.plot_style import (
     add_bar_value_labels,
     configure_japanese_font,
@@ -139,6 +140,51 @@ def load_df() -> pd.DataFrame:
     return df
 
 
+def add_rough_study_records(timed: pd.DataFrame, records: list[dict[str, Any]]) -> pd.DataFrame:
+    if not records:
+        return timed
+    rough = pd.DataFrame(records)
+    dates = analysis_datetime_series(rough["study_date"])
+    seconds = pd.to_numeric(rough["duration_sec"], errors="coerce")
+    rough = pd.DataFrame({
+        "date": dates.dt.date,
+        "duration_sec": seconds,
+        "study_hours": seconds / 3600,
+        "weekday_num": dates.dt.weekday,
+        "hour": pd.NA,
+        "money": 0.0,
+        "memo": rough["memo"],
+        "is_rough_study": True,
+    })
+    rough["weekday"] = rough["weekday_num"].map(dict(enumerate(WEEKDAY_ORDER)))
+    combined = rough if timed.empty else pd.concat(
+        [timed.assign(is_rough_study=False), rough], ignore_index=True,
+    )
+    combined.attrs.update(timed.attrs)
+    return combined
+
+
+def add_rough_daily_breakdown(daily: pd.DataFrame, records: pd.DataFrame) -> pd.DataFrame:
+    is_rough = records["is_rough_study"]
+    seconds = records["duration_sec"]
+    rough_daily = records.assign(
+        calendar_date=pd.to_datetime(records["date"]),
+        rough_duration_sec=seconds.where(is_rough, 0),
+        rough_records=is_rough,
+        unknown_rough_records=is_rough & seconds.isna(),
+    ).groupby("calendar_date").agg(
+        rough_duration_sec=("rough_duration_sec", "sum"),
+        rough_records=("rough_records", "sum"),
+        unknown_rough_records=("unknown_rough_records", "sum"),
+    )
+    daily = daily.join(rough_daily, on="date")
+    daily["rough_duration_sec"] = daily["rough_duration_sec"].fillna(0)
+    for key in ("rough_records", "unknown_rough_records"):
+        daily[key] = daily[key].fillna(0).astype(int)
+    daily["timed_duration_sec"] = daily["duration_sec"] - daily["rough_duration_sec"]
+    return daily
+
+
 def to_csv_bytes(df: pd.DataFrame) -> bytes:
     return df.to_csv(index=False).encode("utf-8-sig")
 
@@ -191,7 +237,7 @@ def aggregate_study_memo_words(frame: pd.DataFrame) -> pd.DataFrame:
             occurrence_counts[normalized] += 1
             normalized_words.append(normalized)
 
-        duration_sec = max(float(row.duration_sec or 0), 0.0)
+        duration_sec = 0.0 if pd.isna(row.duration_sec) else max(float(row.duration_sec or 0), 0.0)
         for normalized in set(normalized_words):
             study_seconds[normalized] += duration_sec
             session_counts[normalized] += 1
@@ -370,7 +416,15 @@ ab.inject_css(settings=PAGE_SETTINGS)
 ab.sidemenu("表示期間とグラフ設定を調整できます。", settings=PAGE_SETTINGS)
 
 df = load_df()
+try:
+    rough_records = load_rough_study_records(ROOT)
+except (OSError, ValueError) as exc:
+    st.error(f"ざっくり記録を読み込めませんでした。{exc}")
+    rough_records = []
+df = add_rough_study_records(df, rough_records)
 default_start = date(2026, 2, 1)
+if rough_records:
+    default_start = min(default_start, df["date"].min())
 if df.empty:
     default_start = app_today() - timedelta(days=30)
     default_end = app_today()
@@ -394,7 +448,7 @@ if end_date < start_date:
     start_date, end_date = end_date, start_date
 
 if df.empty:
-    st.info("まだ可視化できる勉強ログがありません。まずは秒給カウンターから記録を作成してください。")
+    st.info("まだ可視化できる勉強ログがありません。秒給カウンターや勉強ログから記録を作成してください。")
     st.stop()
 
 filtered = df[(df["date"] >= start_date) & (df["date"] <= end_date)].copy()
@@ -402,30 +456,44 @@ if filtered.empty:
     st.warning("選択期間にデータがありません。期間を変更してください。")
     st.stop()
 
+timed_filtered = filtered.dropna(subset=["hour"])
+show_rough = bool(rough_records) and filtered["is_rough_study"].any()
 daily = build_calendar_study_totals(
     filtered, start_date, end_date, moving_average_days=ma_days,
 )
+if show_rough:
+    daily = add_rough_daily_breakdown(daily, filtered)
 
 calendar_days = max((end_date - start_date).days + 1, 1)
 calendar_index = pd.date_range(start_date, end_date, freq="D")
 weekday_days = int((calendar_index.weekday < 5).sum())
 weekend_days = int((calendar_index.weekday >= 5).sum())
 active_days = filtered["date"].nunique()
-total_hours = filtered["duration_sec"].sum() / 3600
+time_record_days = filtered.loc[filtered["duration_sec"].notna(), "date"].nunique() if show_rough else active_days
+total_seconds = filtered["duration_sec"].sum()
+total_hours = total_seconds / 3600
 total_money = filtered["money"].sum()
 weekday_hours = filtered.loc[filtered["weekday_num"] < 5, "duration_sec"].sum() / 3600
 weekend_hours = filtered.loc[filtered["weekday_num"] >= 5, "duration_sec"].sum() / 3600
 
 st.subheader("KPIサマリ")
+duration_caption = "対象期間の合計"
+if show_rough:
+    normal = sec_to_hms(daily["timed_duration_sec"].sum())
+    rough = sec_to_hms(daily["rough_duration_sec"].sum())
+    unknown = daily["unknown_rough_records"].sum()
+    duration_caption = f"通常 {normal} ＋ ざっくり {rough}（時間未記録 {unknown}件）"
 cols = st.columns(4)
 with cols[0]:
-    ab.metric_block("総勉強時間", sec_to_hms(filtered["duration_sec"].sum()), "対象期間の合計")
+    ab.metric_block("総勉強時間", sec_to_hms(total_seconds) if time_record_days else "未記録", duration_caption)
 with cols[1]:
-    ab.metric_block("総換算金額", yen(total_money), "対象期間の合計")
+    ab.metric_block("総換算金額", yen(total_money) if not timed_filtered.empty else "対象外",
+                    "通常記録のみ" if show_rough else "対象期間の合計")
 with cols[2]:
     ab.metric_block("稼働日数", f"{active_days}日", "学習記録がある日")
 with cols[3]:
-    ab.metric_block("1稼働日平均", f"{(total_hours / active_days if active_days else 0):.2f}h", "実績日の平均")
+    average = f"{total_hours / time_record_days:.2f}h" if time_record_days else "未記録"
+    ab.metric_block("1稼働日平均", average, "学習時間が記録された日の平均" if show_rough else "実績日の平均")
 
 cols = st.columns(4)
 with cols[0]:
@@ -446,6 +514,8 @@ configure_plot_theme(ab.is_dark_theme())
 
 st.subheader("日別勉強時間")
 st.caption("移動平均は暦日単位です。学習記録のない日は集計上0として扱います。")
+if show_rough:
+    st.caption("グラフは入力済みの学習時間を表示します。ざっくり記録の時間も含みます。")
 fig, ax = plt.subplots(figsize=(11, 4))
 study_values = daily["study_hours"].to_numpy(dtype=float)
 highlight_indices = sorted({len(daily) - 1, int(study_values.argmax())})
@@ -526,20 +596,23 @@ st.pyplot(fig)
 plt.close(fig)
 
 st.subheader("時間帯×曜日ヒートマップ")
-heat = filtered.pivot_table(index="hour", columns="weekday", values="study_hours", aggfunc="sum", fill_value=0)
-heat = heat.reindex(index=range(23, -1, -1), columns=WEEKDAY_ORDER, fill_value=0)
-fig, ax = plt.subplots(figsize=(9, 7))
-if sns is not None:
-    sns.heatmap(heat, cmap=palette, ax=ax)
+if timed_filtered.empty:
+    st.info("開始時刻のある勉強ログが選択期間にありません。")
 else:
-    image = ax.imshow(heat.values, aspect="auto", cmap=heatmap_cmap(palette))
-    ax.set_xticks(range(len(heat.columns)), heat.columns)
-    ax.set_yticks(range(len(heat.index)), heat.index)
-    fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04)
-ax.set_xlabel("曜日")
-ax.set_ylabel("開始時刻")
-st.pyplot(fig)
-plt.close(fig)
+    heat = timed_filtered.pivot_table(index="hour", columns="weekday", values="study_hours", aggfunc="sum", fill_value=0)
+    heat = heat.reindex(index=range(23, -1, -1), columns=WEEKDAY_ORDER, fill_value=0)
+    fig, ax = plt.subplots(figsize=(9, 7))
+    if sns is not None:
+        sns.heatmap(heat, cmap=palette, ax=ax)
+    else:
+        image = ax.imshow(heat.values, aspect="auto", cmap=heatmap_cmap(palette))
+        ax.set_xticks(range(len(heat.columns)), heat.columns)
+        ax.set_yticks(range(len(heat.index)), heat.index)
+        fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04)
+    ax.set_xlabel("曜日")
+    ax.set_ylabel("開始時刻")
+    st.pyplot(fig)
+    plt.close(fig)
 
 st.subheader("累積カーブ")
 fig, ax1 = plt.subplots(figsize=(11, 4))
@@ -593,16 +666,19 @@ st.pyplot(fig)
 plt.close(fig)
 
 st.subheader("セッション分布")
-fig, ax = plt.subplots(figsize=(11, 4))
-sizes = (filtered["money"].clip(lower=1) / filtered["money"].clip(lower=1).max()) * 500
-ax.scatter(filtered["hour"], filtered["duration_sec"] / 60, s=sizes, alpha=0.55)
-ax.set_xlabel("開始時刻")
-ax.set_ylabel("学習時間（分）")
-ax.set_xticks(range(0, 24, 2))
-if show_grid:
-    ax.grid(color=GRID, linewidth=0.8)
-st.pyplot(fig)
-plt.close(fig)
+if timed_filtered.empty:
+    st.info("開始時刻のある勉強ログが選択期間にありません。")
+else:
+    fig, ax = plt.subplots(figsize=(11, 4))
+    sizes = (timed_filtered["money"].clip(lower=1) / timed_filtered["money"].clip(lower=1).max()) * 500
+    ax.scatter(timed_filtered["hour"], timed_filtered["duration_sec"] / 60, s=sizes, alpha=0.55)
+    ax.set_xlabel("開始時刻")
+    ax.set_ylabel("学習時間（分）")
+    ax.set_xticks(range(0, 24, 2))
+    if show_grid:
+        ax.grid(color=GRID, linewidth=0.8)
+    st.pyplot(fig)
+    plt.close(fig)
 
 st.subheader("勉強内容ワードクラウド")
 st.caption(

@@ -194,9 +194,10 @@ import pandas as pd
 import streamlit as st
 from app_core.daily_task_service import save_task_edit
 from app_core.form_snapshot import advance_form_snapshots_after_own_patch, discard_form_snapshot, form_snapshot
-from app_core.json_store import observed_json_revision, resolved_json_path
+from app_core.ids import new_daily_task_id
+from app_core.json_store import JsonConflictError, observed_json_revision, resolved_json_path
 from app_core.master_snapshot import MasterSnapshot
-from data_utils import daily_plan_path, generate_id, load_daily_plan, load_all_study_sessions, save_daily_plan
+from data_utils import daily_plan_path, load_daily_plan, load_all_study_sessions, save_daily_plan
 ROOT=Path({str(self.root)!r})
 target_date=date(2026,9,16)
 plan=load_daily_plan(ROOT,target_date)
@@ -406,6 +407,49 @@ ab=SimpleNamespace(queue_success=lambda text: st.success(text),
 
     def test_actual_ui_carryover_preserves_draft_and_binds_new_task_revision(self):
         self.check_plan_action_preserves_draft("未完了タスクを今日に繰り越す")
+
+    def test_actual_ui_does_not_reuse_deleted_task_id_in_historical_log(self):
+        from app_core.reference_snapshot import ReferenceSnapshot
+        from app_core.study_log_service import get_study_log_path
+        from data_utils import load_study_sessions_file, save_study_sessions_file
+
+        old_id = "task_20260916_001"
+        self.remote(lambda plan: plan.update(tasks=[{
+            "task_id": old_id, "title": "元のタスク", "linked_session_ids": ["session1"],
+        }]))
+        save_daily_plan(self.root, {"date": "2026-09-15", "tasks": [
+            {"task_id": "task_20260915_001", "title": "前日のタスク", "status": "not_started"},
+        ]})
+        study_path = get_study_log_path(self.target, self.root)
+        save_study_sessions_file(study_path, [{
+            "session_id": "session1", "linked_task_id": old_id,
+            "start_at": "2026-09-16T08:00:00", "end_at": "2026-09-16T08:30:00",
+            "duration_sec": 1800,
+        }])
+        original_log = study_path.read_bytes()
+        self.assertEqual(ReferenceSnapshot(self.root).task_title(old_id), "元のタスク")
+
+        app = self.app(with_plan_actions=True)
+        next(w for w in app.checkbox if "delete_confirm_" in str(w.key)).check()
+        next(w for w in app.button if w.label == "タスクを削除").click().run()
+        self.assertFalse(app.exception, str(app.exception))
+        self.assertFalse(app.error, str(app.error))
+        self.assertEqual(load_daily_plan(self.root, self.target)["tasks"], [])
+
+        next(w for w in app.text_input if w.label == "タスク名").input("新しいタスク")
+        next(w for w in app.button if w.label == "タスクを追加").click().run()
+        next(w for w in app.button if w.label == "未完了タスクを今日に繰り越す").click().run()
+        self.assertFalse(app.exception, str(app.exception))
+        self.assertFalse(app.error, str(app.error))
+        tasks = load_daily_plan(self.root, self.target)["tasks"]
+        self.assertEqual([task["title"] for task in tasks], ["新しいタスク", "前日のタスク"])
+        new_ids = {task["task_id"] for task in tasks}
+        self.assertNotIn(old_id, new_ids)
+        self.assertEqual(len(new_ids), 2)
+        self.assertEqual(study_path.read_bytes(), original_log)
+        record = load_study_sessions_file(study_path)[0]
+        self.assertEqual(record["linked_task_id"], old_id)
+        self.assertEqual(ReferenceSnapshot(self.root).task_title(record["linked_task_id"]), "不明なタスク")
 
 
 if __name__ == "__main__":

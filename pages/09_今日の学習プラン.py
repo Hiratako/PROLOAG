@@ -14,7 +14,8 @@ from app_core.countdown_service import get_countdown
 from app_core.daily_save_service import save_daily_records
 from app_core.daily_task_service import save_task_edit
 from app_core.form_snapshot import advance_form_snapshots_after_own_patch, discard_form_snapshot, form_snapshot
-from app_core.json_store import observed_json_revision, resolved_json_path
+from app_core.ids import new_daily_task_id
+from app_core.json_store import JsonConflictError, observed_json_revision, resolved_json_path
 from app_core.diary_service import get_diary_entry_path, investment_total, load_diary_entry, upsert_daily_hub_cost
 from app_core.exercise_service import (
     calculate_running_pace,
@@ -27,7 +28,6 @@ from app_core.master_snapshot import MasterSnapshot
 from master_ui import render_master_quick_add
 from data_utils import (
     daily_plan_path,
-    generate_id,
     load_all_flashcards,
     load_all_daily_plans,
     load_all_notes,
@@ -138,17 +138,19 @@ def plan_task_ids(plan: dict[str, Any]) -> set[str]:
     return {task.get("task_id", "") for task in plan.get("tasks", []) if task.get("task_id")}
 
 
-def save_plan_and_advance_tasks(plan: dict[str, Any]) -> str | None:
+def save_plan_and_advance_tasks(plan: dict[str, Any], expected_revision: str | None) -> str | None:
     path = daily_plan_path(ROOT, plan["date"])
-    before = observed_json_revision(path)
+    if observed_json_revision(path) != expected_revision:
+        raise JsonConflictError("別の更新が保存されています。計画を再読込してください。")
     if any(task.get("roadmap_allocation_id") for task in plan.get("tasks", [])):
         from app_core.roadmap_service import save_linked_daily_plan
-        save_linked_daily_plan(ROOT, plan, expected_revision=before)
+        save_linked_daily_plan(ROOT, plan, expected_revision=expected_revision)
     else:
         save_daily_plan(ROOT, plan)
-    advance_form_snapshots_after_own_patch(st.session_state, path, before_revision=before,
-                                         after_revision=observed_json_revision(path), updates={})
-    return observed_json_revision(path)
+    revision = observed_json_revision(path)
+    advance_form_snapshots_after_own_patch(st.session_state, path, before_revision=expected_revision,
+                                         after_revision=revision, updates={})
+    return revision
 
 
 def task_form_baseline(target: date, task: dict[str, Any], revision: str | None) -> tuple[str, dict[str, Any]]:
@@ -529,7 +531,7 @@ def render_daily_inputs(target_date: date, initial_context: dict[str, Any],
                 plan["review_note_ids"] = [note_options[label] for label in review_note_labels]
                 plan["review_card_ids"] = [card_options[label] for label in review_card_labels]
                 try:
-                    plan_revision = save_plan_and_advance_tasks(plan)
+                    plan_revision = save_plan_and_advance_tasks(plan, plan_revision)
                 except (ValueError, OSError) as exc:
                     plan = plan_before_action
                     ab.show_action_error(f"基本計画を保存できませんでした。入力は保持しています。{exc}")
@@ -554,11 +556,10 @@ def render_daily_inputs(target_date: date, initial_context: dict[str, Any],
                 st.caption(f"{task.get('title', '無題のタスク')} / {STATUS_LABELS.get(task.get('status'), '未着手')}")
             if st.button("未完了タスクを今日に繰り越す", type="primary"):
                 plan_before_action = deepcopy(plan)
-                existing_ids = plan_task_ids(plan)
                 for task in new_carryover_candidates:
                     plan.setdefault("tasks", []).append(
                         {
-                            "task_id": generate_id("task", plan.get("date"), existing_ids),
+                            "task_id": new_daily_task_id(target_date),
                             "title": task.get("title", "無題のタスク"),
                             "subject": task.get("subject", ""),
                             "material": task.get("material", ""),
@@ -575,7 +576,7 @@ def render_daily_inputs(target_date: date, initial_context: dict[str, Any],
                         }
                     )
                 try:
-                    plan_revision = save_plan_and_advance_tasks(plan)
+                    plan_revision = save_plan_and_advance_tasks(plan, plan_revision)
                 except (ValueError, OSError) as exc:
                     plan = plan_before_action
                     ab.show_action_error(f"タスクを繰り越せませんでした。入力は保持しています。{exc}")
@@ -636,10 +637,9 @@ def render_daily_inputs(target_date: date, initial_context: dict[str, Any],
         selected_note_labels = st.multiselect("関連ノート", options=list(note_options.keys()), key="new_task_notes")
         if st.form_submit_button("タスクを追加", type="primary"):
             plan_before_action = deepcopy(plan)
-            existing_ids = {task.get("task_id", "") for task in plan.get("tasks", [])}
             plan.setdefault("tasks", []).append(
                 {
-                    "task_id": generate_id("task", plan.get("date"), existing_ids),
+                    "task_id": new_daily_task_id(target_date),
                     "title": title.strip() or "無題のタスク",
                     "subject": subject.strip(),
                     "material": material.strip(),
@@ -651,7 +651,7 @@ def render_daily_inputs(target_date: date, initial_context: dict[str, Any],
                 }
             )
             try:
-                plan_revision = save_plan_and_advance_tasks(plan)
+                plan_revision = save_plan_and_advance_tasks(plan, plan_revision)
             except (ValueError, OSError) as exc:
                 plan = plan_before_action
                 ab.show_action_error(f"タスクを追加できませんでした。入力は保持しています。{exc}")

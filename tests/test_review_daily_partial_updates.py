@@ -2,19 +2,21 @@
 from __future__ import annotations
 
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from contextlib import ExitStack
 from datetime import date, timedelta
 import json
 from pathlib import Path
 import sys
 import tempfile
+from threading import Barrier
 import unittest
 from unittest.mock import patch
 
 import data_utils
 import prolog_ui.components as ab
 from app_core import app_clock, diary_service, exercise_service, health_service, json_store
-from app_core import settings_service, substance_service
+from app_core import reminder_service, settings_service, substance_service
 
 PROJECT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT / "scripts"))
@@ -180,6 +182,105 @@ class ReviewDailyPartialUpdateTests(unittest.TestCase):
         self.assertTrue(any("重複" in item.value for item in driver.app.warning))
         draft = driver.app.session_state["p08_review_drafts"]["r"]
         self.assertEqual(draft, {"memo": "残す復習メモ", "duration": 25})
+
+    def test_other_tab_cannot_review_or_skip_the_new_future_occurrence(self):
+        reminder = {**self.reminders[0], "schedule_mode": "standard", "intervals_days": [1, 3]}
+        for first_label, stale_label in (("普通", "今回はスキップ"), ("今回はスキップ", "普通")):
+            with self.subTest(first_action=first_label):
+                self.write("settings/demo_mode.json", {"enabled": True, "fixed_today": TODAY.isoformat()})
+                self.write("reminders.json", [reminder])
+                first, stale = self.driver("08"), self.driver("08")
+                memo = stale.app.text_input(key="p08_review_memo_r")
+                memo.input("別タブの下書き")
+                self.partial(stale, memo)
+                first_button = next(button for button in first.app.button if button.label == first_label)
+                first.run(first_button.click())
+                saved = (self.root / "reminders.json").read_bytes()
+                updated = json.loads(saved)[0]
+                self.assertEqual(updated["scheduled_date"], (TODAY + timedelta(days=1)).isoformat())
+                self.assertEqual(len(updated["review_history"]), 1)
+
+                stale_button = next(button for button in stale.app.button if button.label == stale_label)
+                self.partial(stale, stale_button.click())
+                self.assertTrue(any("復習予定は別画面で" in warning.value for warning in stale.app.warning))
+                self.assertEqual(stale.app.session_state["p08_review_drafts"]["r"]["memo"], "別タブの下書き")
+                self.assertEqual((self.root / "reminders.json").read_bytes(), saved)
+
+                stale.run()
+                self.assertFalse(any(widget.label == "今回の復習メモ" for widget in stale.app.text_input))
+                tomorrow = TODAY + timedelta(days=1)
+                self.write("settings/demo_mode.json", {"enabled": True, "fixed_today": tomorrow.isoformat()})
+                stale.run()
+                self.assertEqual(stale.app.text_input(key="p08_review_memo_r").value, "別タブの下書き")
+                fresh_button = next(button for button in stale.app.button if button.label == "普通")
+                stale.run(fresh_button.click())
+                updated = self.read_value("reminders.json")[0]
+                self.assertEqual(len(updated["review_history"]), 2)
+                self.assertEqual(updated["review_history"][-1]["memo"], "別タブの下書き")
+                self.assertEqual(updated["scheduled_date"], (tomorrow + timedelta(days=3)).isoformat())
+
+    def test_review_click_uses_the_displayed_occurrence_even_when_next_date_matches(self):
+        self.write("reminders.json", [
+            {**self.reminders[0], "schedule_mode": "standard", "intervals_days": [1, 3]},
+        ])
+        stale = self.driver("08")
+        self.assertIsNotNone(reminder_service.complete_review("r", "normal", reviewed_on=TODAY, root=self.root))
+        # Another screen moves the new occurrence back to the previous displayed date.
+        self.assertTrue(reminder_service.update_reminder(
+            "r", {"scheduled_date": TODAY.isoformat(), "next_review_date": TODAY.isoformat()}, self.root,
+        ))
+        saved = (self.root / "reminders.json").read_bytes()
+        button = next(button for button in stale.app.button if button.label == "普通")
+        self.partial(stale, button.click())
+        self.assertTrue(any("復習予定は別画面で" in warning.value for warning in stale.app.warning))
+        self.assertEqual((self.root / "reminders.json").read_bytes(), saved)
+
+        fresh = self.driver("08")
+        button = next(button for button in fresh.app.button if button.label == "普通")
+        fresh.run(button.click())
+        updated = self.read_value("reminders.json")[0]
+        self.assertEqual(len(updated["review_history"]), 2)
+        self.assertEqual(updated["scheduled_date"], (TODAY + timedelta(days=3)).isoformat())
+
+    def test_review_and_skip_compare_cycle_inside_the_save_lock(self):
+        self.write("reminders.json", [
+            {**self.reminders[0], "schedule_mode": "standard", "intervals_days": [1, 3]},
+        ])
+        expected_cycle = reminder_service.review_cycle(reminder_service.load_reminders(self.root)[0])
+        start = Barrier(2)
+
+        def submit(action, *args):
+            start.wait(timeout=5)
+            try:
+                return action("r", *args, reviewed_on=TODAY, root=self.root, expected_cycle=expected_cycle)
+            except reminder_service.StaleReviewError:
+                return None
+
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            complete = executor.submit(submit, reminder_service.complete_review, "normal")
+            skip = executor.submit(submit, reminder_service.skip_review)
+            self.assertEqual(sum(result.result() is not None for result in (complete, skip)), 1)
+        updated = self.read_value("reminders.json")[0]
+        self.assertEqual(len(updated["review_history"]), 1)
+        self.assertEqual(updated["scheduled_date"], (TODAY + timedelta(days=1)).isoformat())
+
+    def test_paused_or_cancelled_occurrence_does_not_accept_stale_result(self):
+        reminder = {**self.reminders[0], "schedule_mode": "standard", "intervals_days": [1, 3]}
+        for status in ("paused", "cancelled"):
+            with self.subTest(status=status):
+                self.write("reminders.json", [reminder])
+                expected_cycle = reminder_service.review_cycle(reminder_service.load_reminders(self.root)[0])
+                self.assertTrue(reminder_service.set_schedule_status("r", status, self.root))
+                saved = (self.root / "reminders.json").read_bytes()
+                with self.assertRaises(reminder_service.StaleReviewError):
+                    reminder_service.complete_review(
+                        "r", "normal", reviewed_on=TODAY, root=self.root, expected_cycle=expected_cycle,
+                    )
+                with self.assertRaises(reminder_service.StaleReviewError):
+                    reminder_service.skip_review(
+                        "r", reviewed_on=TODAY, root=self.root, expected_cycle=expected_cycle,
+                    )
+                self.assertEqual((self.root / "reminders.json").read_bytes(), saved)
 
     def test_daily_exercise_and_master_inputs_do_not_scan_history_or_integrity(self):
         driver = self.driver("09")

@@ -10,6 +10,7 @@ import streamlit as st
 import prolog_ui.components as ab
 from app_core.branding import BRAND_EXPANSION, BRAND_NAME, BRAND_TAGLINE_JA
 from app_core.diary_service import investment_total, load_diary_entry
+from app_core.rough_study_service import load_rough_study_records
 from config import DIARY_ENTRIES_DIR, STUDY_LOGS_DIR
 from data_utils import load_study_sessions_file
 
@@ -45,6 +46,15 @@ def summarize_today(target: date) -> dict[str, Any]:
     diary_data = load_diary_entry(target)
 
     duration = sum(float(item.get("duration_sec", 0) or 0) for item in study_data if isinstance(item, dict))
+    try:
+        rough_records = load_rough_study_records(ROOT)
+    except (OSError, ValueError) as exc:
+        st.warning(f"ざっくり記録を読み込めませんでした。{exc}")
+    else:
+        target_day = target.isoformat()
+        duration += sum(
+            row["duration_sec"] or 0 for row in rough_records if row["study_date"] == target_day
+        )
     money = sum(float(item.get("money", 0) or 0) for item in study_data if isinstance(item, dict))
     mood = diary_data.get("mood") or "未記録"
     weather = diary_data.get("weather") or "未記録"

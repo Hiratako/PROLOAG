@@ -9,6 +9,8 @@ from typing import Any
 import unittest
 from unittest.mock import Mock
 
+from app_core.reminder_service import StaleReviewError
+
 
 PAGE = Path(__file__).resolve().parents[1] / "pages/05_高度AI分析.py"
 
@@ -206,7 +208,8 @@ class SaveActionNotificationTests(unittest.TestCase):
                       and isinstance(node.test.args[0], ast.Constant) and node.test.args[0].value == "タスクを追加")
         original = {"date": "2026-10-03", "tasks": []}
         scope = {"st": self.ui, "ab": self.feedback, "deepcopy": deepcopy, "plan": deepcopy(original),
-                 "generate_id": lambda *_args: "new_synthetic", "title": "keep task title",
+                 "target_date": date(2026, 10, 3), "new_daily_task_id": lambda *_args: "new_synthetic",
+                 "title": "keep task title",
                  "subject": "keep subject", "material": "keep material", "planned_minutes": 60,
                  "selected_note_labels": [], "note_options": {}, "new_master_values": {},
                  "save_plan_and_advance_tasks": Mock(side_effect=ValueError("synthetic conflict")),
@@ -223,7 +226,8 @@ class SaveActionNotificationTests(unittest.TestCase):
         page = PAGE.parent / "08_忘却曲線リマインダー.py"
         tree = ast.parse(page.read_text(encoding="utf-8-sig"))
         function = next(node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == "save_reminder_action")
-        scope = {"st": self.ui, "ab": self.feedback, "Any": Any}
+        scope = {"st": self.ui, "ab": self.feedback, "Any": Any,
+                 "StaleReviewError": StaleReviewError, "REVIEW_CHANGED_MESSAGE": "復習予定の変更"}
         exec(compile(ast.Module(body=[function], type_ignores=[]), str(page), "exec"), scope)
         clear = Mock()
         scope["save_reminder_action"](Mock(return_value=result, side_effect=error), "復習予定を更新しました。", on_success=clear)

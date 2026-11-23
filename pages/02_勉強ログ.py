@@ -2,12 +2,19 @@ from __future__ import annotations
 from app_core.json_store import record_json_files
 
 from datetime import date, datetime, time, timedelta
+from hashlib import sha256
 import math
 from app_core.app_clock import app_today
 from app_core.settings_service import load_user_settings
 from app_core.study_log_service import append_study_session, calculate_session_money_with_daily_total
 from app_core.study_log_editor_ui import render_study_log_management
 from app_core.reference_snapshot import ReferenceSnapshot
+from app_core.rough_study_service import load_rough_study_records
+from app_core.rough_study_ui import (
+    render_rough_study_entry,
+    request_rough_study_editor,
+    rough_study_editor_requested,
+)
 from app_core.master_snapshot import MasterSnapshot
 from pathlib import Path
 from typing import Any
@@ -233,14 +240,34 @@ def date_from_source(value: Any) -> date | None:
         return None
 
 
-def load_study_df(master_name_lookup: dict[str, dict[Any, Any]] | None = None) -> pd.DataFrame:
+def load_study_df(
+    master_name_lookup: dict[str, dict[Any, Any]] | None = None,
+    rough_records: list[dict[str, Any]] | None = None,
+) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     for path in record_json_files(STUDY_DIR):
         for item in load_sessions(path):
             if isinstance(item, dict):
                 row = dict(item)
                 row["source_file"] = str(path)
+                if rough_records:
+                    row["entry_kind"] = "timed"
                 rows.append(row)
+    if rough_records:
+        rows.extend(
+            dict(
+                record,
+                entry_kind=record["kind"],
+                source_file="ざっくり記録",
+                start_at=None,
+                end_at=None,
+                money=None,
+                hourly_rate=None,
+                linked_note_ids=[],
+                linked_task_id="",
+            )
+            for record in rough_records
+        )
     df = pd.DataFrame(rows)
     if df.empty:
         return df
@@ -250,11 +277,22 @@ def load_study_df(master_name_lookup: dict[str, dict[Any, Any]] | None = None) -
     for key in ("duration_sec", "money", "hourly_rate"):
         values = df[key] if key in df.columns else pd.Series(None, index=df.index, dtype="object")
         df[key] = pd.to_numeric(values, errors="coerce").replace([float("inf"), float("-inf")], float("nan"))
-    df["date"] = df["start_at"].dt.date
+    df["date"] = df["start_at"].dt.date.astype("object")
     missing_dates = df["date"].isna()
     df.loc[missing_dates, "date"] = df.loc[missing_dates, "source_file"].map(date_from_source)
     df["duration_hms"] = df["duration_sec"].map(sec_to_hms)
     df["money_display"] = df["money"].map(yen)
+    if rough_records:
+        is_rough = df["entry_kind"].ne("timed")
+        df.loc[is_rough, "date"] = pd.to_datetime(
+            df.loc[is_rough, "study_date"], format="%Y-%m-%d", errors="coerce",
+        ).dt.date
+        df["entry_label"] = df["entry_kind"].map({
+            "timed": "通常記録", "week": "週まとめ", "period": "期間から入力",
+        })
+        estimated = is_rough & df["estimated"].eq(True) & df["duration_sec"].notna()
+        df.loc[estimated, "duration_hms"] = "約 " + df.loc[estimated, "duration_hms"]
+        df.loc[is_rough, "money_display"] = "対象外"
     df["memo"] = df["memo"].fillna("") if "memo" in df.columns else ""
     if "linked_note_ids" not in df.columns:
         df["linked_note_ids"] = [[] for _ in range(len(df))]
@@ -313,11 +351,72 @@ def load_diary_df() -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def annotate_study_durations(frame: pd.DataFrame) -> pd.DataFrame:
+    is_rough = frame["entry_kind"].ne("timed")
+    seconds = frame["duration_sec"]
+    return frame.assign(
+        timed_duration_sec=seconds.where(~is_rough),
+        rough_duration_sec=seconds.where(is_rough),
+        timed_records=~is_rough,
+        rough_records=is_rough,
+        unknown_rough_records=is_rough & seconds.isna(),
+    )
+
+
+def render_study_duration_rollups(frame: pd.DataFrame) -> None:
+    week_start = frame["date"].map(
+        lambda day: day - timedelta(days=day.weekday()) if pd.notna(day) else None,
+    )
+    with st.expander("週別・科目別の学習時間"):
+        for title, data, keys, labels in (
+            ("週別", frame.assign(week_start=week_start), ["week_start"], ["週の開始日"]),
+            ("科目別", frame, ["project_name", "subject_name"], ["プロジェクト", "科目"]),
+        ):
+            st.markdown(f"**{title}**")
+            table = data.groupby(keys, as_index=False).agg(
+                timed=("timed_duration_sec", "sum"),
+                rough=("rough_duration_sec", "sum"),
+                total=("duration_sec", lambda values: values.sum(min_count=1)),
+                unknown=("unknown_rough_records", "sum"),
+            )
+            for key in ("timed", "rough", "total"):
+                table[key] = table[key].map(sec_to_hms)
+            table.columns = [*labels, "通常記録", "ざっくり記録", "合計", "時間未記録の件数"]
+            st.dataframe(table, width="stretch", hide_index=True)
+
+
 def to_csv_bytes(df: pd.DataFrame) -> bytes:
     return df.to_csv(index=False).encode("utf-8-sig")
 
 
 @st.fragment
+@st.fragment
+def render_study_detail(filtered: pd.DataFrame, detail: pd.DataFrame, *, show_rough: bool) -> None:
+    if not show_rough:
+        st.dataframe(detail, width="stretch", hide_index=True)
+        return
+
+    # Streamlit reports row positions. Scope the selection to the displayed row IDs
+    # so a filter or data change cannot move an old selection to another record.
+    row_ids = filtered[["entry_kind", "batch_id", "record_id"]].fillna("")
+    revision = sha256(row_ids.to_csv(index=False).encode()).hexdigest()
+    st.caption("ざっくり記録の行を選ぶと、該当する記録を編集できます。")
+    event = st.dataframe(
+        detail, width="stretch", hide_index=True,
+        on_select="rerun", selection_mode="single-row", key=f"study_detail_{revision}",
+    )
+    positions = event.selection.rows
+    target = None
+    if len(positions) == 1 and 0 <= positions[0] < len(row_ids):
+        row = row_ids.iloc[positions[0]]
+        if row["entry_kind"] in {"week", "period"} and row["batch_id"] and row["record_id"]:
+            target = (row["batch_id"], row["record_id"])
+    if st.button("選択したざっくり記録を編集", disabled=target is None, key=f"study_detail_edit_{revision}"):
+        if target is not None:
+            request_rough_study_editor(*target)
+            st.rerun()
+
+
 def render_manual_log_add() -> None:
     from app_core.study_entry_service import MANUAL_SUBMISSION_KEY, save_manual_entry
 
@@ -403,7 +502,12 @@ ab.sidemenu("ログの絞り込みとCSV出力を行います。", settings=USER
 
 master_data = load_master_data(ROOT)
 master_name_lookup = build_master_name_lookup(master_data)
-study_df = load_study_df(master_name_lookup)
+try:
+    rough_records = load_rough_study_records(ROOT)
+except (OSError, ValueError) as exc:
+    st.error(f"ざっくり記録を読み込めませんでした。{exc}")
+    rough_records = []
+study_df = load_study_df(master_name_lookup, rough_records)
 diary_df = load_diary_df()
 
 if not study_df.empty and not study_df["date"].dropna().empty:
@@ -428,6 +532,9 @@ with st.sidebar:
 
 ab.topbar("勉強ログ履歴＆明細", "記録の検索・修正、手動追加、日記データとの統合出力を行います。")
 
+editing_from_detail = rough_study_editor_requested()
+if not editing_from_detail:
+    render_rough_study_entry(ROOT, master_data)
 render_master_quick_add(ROOT, "study_log_master", snapshot=MasterSnapshot(master_data))
 render_manual_log_add()
 
@@ -441,42 +548,77 @@ if not study_df.empty:
             mask &= study_df[key] == value
     filtered = study_df.loc[mask].copy()
 
-render_study_log_management(filtered.to_dict(orient="records"), root=ROOT, fallback_policy=current_money_policy())
+timed_filtered = filtered.loc[filtered["entry_kind"].eq("timed")] if rough_records else filtered
+render_study_log_management(timed_filtered.to_dict(orient="records"), root=ROOT, fallback_policy=current_money_policy())
 
 if study_df.empty:
-    st.info("まだ勉強ログがありません。秒給カウンターか手動追加から記録を始められます。")
+    if editing_from_detail:
+        render_rough_study_entry(ROOT, master_data)
+    st.info("まだ勉強ログがありません。秒給カウンター、手動追加、ざっくり記録から始められます。")
     st.stop()
 
 st.subheader("日別サマリ")
 if filtered.empty:
     st.warning("条件に一致するログがありません。")
 else:
+    show_rough = bool(rough_records) and filtered["entry_kind"].ne("timed").any()
+    breakdown = {}
+    summaries = filtered
+    if show_rough:
+        summaries = annotate_study_durations(filtered)
+        breakdown = {
+            "timed_duration_sec": ("timed_duration_sec", "sum"),
+            "rough_duration_sec": ("rough_duration_sec", "sum"),
+            "timed_records": ("timed_records", "sum"),
+            "rough_records": ("rough_records", "sum"),
+            "unknown_rough_records": ("unknown_rough_records", "sum"),
+        }
     summary = (
-        filtered.groupby("date", as_index=False)
+        summaries.groupby("date", as_index=False)
         .agg(
             duration_sec=("duration_sec", "sum"),
             money=("money", "sum"),
-            sessions=("duration_sec", "count"),
+            sessions=("timed_duration_sec" if show_rough else "duration_sec", "count"),
             project_name=("project_name", lambda s: " / ".join(sorted({x for x in s.astype(str) if x and x != "未設定"}))),
             subject_name=("subject_name", lambda s: " / ".join(sorted({x for x in s.astype(str) if x and x != "未設定"}))),
             material_name=("material_name", lambda s: " / ".join(sorted({x for x in s.astype(str) if x and x != "未設定"}))),
             unit_name=("unit_name", lambda s: " / ".join(sorted({x for x in s.astype(str) if x and x != "未設定"}))),
             memo=("memo", lambda s: " / ".join(sorted({x for x in s.astype(str) if x}))),
+            **breakdown,
         )
         .sort_values("date", ascending=False)
     )
+    if show_rough:
+        timed_days = summary["timed_records"].gt(0)
+        known_duration = timed_days | summary["rough_records"].gt(summary["unknown_rough_records"])
+        summary["duration_sec"] = summary["duration_sec"].where(known_duration)
+        summary["money"] = summary["money"].where(timed_days)
     summary["総勉強時間"] = summary["duration_sec"].map(sec_to_hms)
     summary["総換算金額"] = summary["money"].map(yen)
+    if show_rough:
+        summary.loc[~timed_days, "総換算金額"] = "対象外"
     display_summary = summary[["date", "総勉強時間", "総換算金額", "sessions", "project_name", "subject_name", "material_name", "unit_name", "memo"]].rename(columns={"date": "日付", "sessions": "セッション数", "project_name": "プロジェクト", "subject_name": "科目", "material_name": "教材", "unit_name": "単元", "memo": "勉強内容"})
+    if show_rough:
+        display_summary.insert(2, "通常記録", summary["timed_duration_sec"].map(sec_to_hms))
+        display_summary.insert(3, "ざっくり記録", summary["rough_duration_sec"].map(sec_to_hms))
+        display_summary.insert(4, "時間未記録の件数", summary["unknown_rough_records"])
+        st.caption("総勉強時間は入力済みの時間を合算します。換算金額は通常記録のみです。")
     st.dataframe(display_summary, width="stretch", hide_index=True)
     st.download_button("日別サマリCSV", to_csv_bytes(summary), "daily_study_summary.csv", "text/csv", on_click="ignore")
+    if show_rough:
+        render_study_duration_rollups(summaries)
 
     st.subheader("セッション一覧")
     detail = filtered[["date", "duration_hms", "money_display", "project_name", "subject_name", "material_name", "unit_name", "memo", "related_task", "related_notes", "start_at", "end_at", "hourly_rate", "source_file"]].rename(
         columns={"date": "日付", "duration_hms": "勉強時間", "money_display": "換算金額", "project_name": "プロジェクト", "subject_name": "科目", "material_name": "教材", "unit_name": "単元", "memo": "内容", "related_task": "関連タスク", "related_notes": "関連ノート", "start_at": "開始", "end_at": "終了", "hourly_rate": "時給", "source_file": "保存元"}
     )
-    st.dataframe(detail, width="stretch", hide_index=True)
+    if show_rough:
+        detail.insert(1, "記録区分", filtered["entry_label"])
+    render_study_detail(filtered, detail, show_rough=show_rough)
     st.download_button("セッション明細CSV", to_csv_bytes(filtered), "study_session_detail.csv", "text/csv", on_click="ignore")
+
+if editing_from_detail:
+    render_rough_study_entry(ROOT, master_data)
 
 with st.expander("デバッグ情報", expanded=False):
     st.write({"loaded_rows": len(study_df), "filtered_rows": len(filtered), "last_saved_path": st.session_state.get("last_saved_path", "")})

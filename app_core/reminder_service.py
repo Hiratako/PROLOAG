@@ -22,6 +22,12 @@ REVIEW_QUALITY: dict[str, int] = {
     "easy": 5,
 }
 
+ReviewCycle = tuple[str, str, int]
+
+
+class StaleReviewError(ValueError):
+    """The displayed review occurrence is no longer available."""
+
 
 def _root(root: Path | None = None) -> Path:
     return root or PROJECT_ROOT
@@ -191,6 +197,31 @@ def get_due_reminders(
     ]
 
 
+def review_cycle(reminder: dict[str, Any]) -> ReviewCycle:
+    """Identify a displayed occurrence even if its successor is moved to the same date."""
+    history = reminder.get("review_history")
+    return (
+        str(reminder.get("schedule_id") or ""),
+        str(reminder.get("scheduled_date") or reminder.get("registered") or ""),
+        len(history) if isinstance(history, list) else 0,
+    )
+
+
+def _check_review_cycle(
+    reminders: list[dict[str, Any]], reminder: dict[str, Any],
+    expected_cycle: ReviewCycle | None, reviewed_on: date,
+) -> None:
+    if expected_cycle is None:
+        return
+    reminder_id = reminder.get("reminder_id")
+    if (
+        review_cycle(reminder) != expected_cycle
+        or not get_due_reminders(reviewed_on, reminders=[reminder])
+        or sum(item.get("reminder_id") == reminder_id for item in reminders) != 1
+    ):
+        raise StaleReviewError("復習予定が変更されています。")
+
+
 def calculate_sm2(
     *,
     quality: int,
@@ -236,6 +267,7 @@ def complete_review(
     memo: str = "",
     duration_min: int = 0,
     root: Path | None = None,
+    expected_cycle: ReviewCycle | None = None,
 ) -> dict[str, Any] | None:
     """復習結果を記録し、必要に応じて次回復習日を更新します。"""
     from data_utils import now_text
@@ -246,6 +278,7 @@ def complete_review(
         if reminder.get("reminder_id") != reminder_id:
             continue
 
+        _check_review_cycle(reminders, reminder, expected_cycle, reviewed_on)
         scheduled_before = _date(reminder.get("scheduled_date"))
         history = reminder.setdefault("review_history", [])
         history.append(
@@ -304,7 +337,10 @@ def complete_review(
 
 
 @json_transaction_for(lambda reminder_id, **options: _root(options.get("root")) / "reminders.json")
-def skip_review(reminder_id: str, *, reviewed_on: date | None = None, root: Path | None = None) -> dict[str, Any] | None:
+def skip_review(
+    reminder_id: str, *, reviewed_on: date | None = None, root: Path | None = None,
+    expected_cycle: ReviewCycle | None = None,
+) -> dict[str, Any] | None:
     """今回分をスキップし、系列を維持したまま次回予定へ進めます。"""
     from data_utils import now_text
 
@@ -313,6 +349,7 @@ def skip_review(reminder_id: str, *, reviewed_on: date | None = None, root: Path
     for reminder in reminders:
         if reminder.get("reminder_id") != reminder_id:
             continue
+        _check_review_cycle(reminders, reminder, expected_cycle, reviewed_on)
         scheduled_before = _date(reminder.get("scheduled_date"))
         reminder.setdefault("review_history", []).append(
             {

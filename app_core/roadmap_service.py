@@ -13,6 +13,7 @@ import re
 from uuid import uuid5, NAMESPACE_URL
 
 from app_core import json_store as store
+from app_core.ids import new_daily_task_id
 from app_core.json_operations import atomic_json_operation
 from app_core.study_record_reader import unpack_study_document
 
@@ -330,7 +331,7 @@ def allocate_task(
     expected_revisions: dict,
     operation_id: str,
 ) -> bool:
-    from data_utils import daily_plan_path, save_daily_plan, generate_id
+    from data_utils import daily_plan_path, save_daily_plan
 
     if (
         type(target) is not date
@@ -402,11 +403,7 @@ def allocate_task(
             _text(title, "タスク名")
             _classification(root, {}, item)
             task = {
-                "task_id": generate_id(
-                    "task",
-                    target.isoformat(),
-                    {row["task_id"] for row in plan.get("tasks", [])},
-                ),
+                "task_id": new_daily_task_id(target),
                 "title": title.strip(),
                 "planned_minutes": planned_minutes,
                 "status": "not_started",
