@@ -168,7 +168,11 @@ def verify_forbidden_files(package_files: dict[str, Path]) -> None:
             or name.startswith(("client_secret", "client-secret", "clientsecret", "service_account", "service-account"))
             or (name.startswith(("credentials", "google_credentials", "token", "google_auth")) and name.endswith((".json", ".bin")))
             or name.endswith((".pem", ".p12", ".pfx", ".key", ".dpapi", ".pyc", ".log"))
-            or any(part in {".git", ".codex", ".agents", "__pycache__", "backups", "backup", "transcription_data"} or part.startswith(".deps") for part in lowered)
+            or any(
+                part in {".git", ".codex", ".agents", "__pycache__", "backups", "backup",
+                         "transcription_data", "rough_study_logs"} or part.startswith(".deps")
+                for part in lowered
+            )
         ):
             violations.append(relative)
     if violations:

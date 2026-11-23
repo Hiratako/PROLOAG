@@ -131,6 +131,8 @@ class PortableVerificationTests(unittest.TestCase):
             "app/transcription_data/recordings/synthetic/chunks/000000.wav",
             "app/transcription_data/recordings/synthetic/chunks/000001.part.pcm",
             "app/transcription_data/jobs/synthetic/checkpoint.json",
+            "app/rough_study_logs/batches.json", "app/rough_study_logs/drafts.json",
+            "app/ROUGH_STUDY_LOGS/synthetic.lock",
             "app/backups/google_share/pending.json", "app/.streamlit/secrets.toml",
         ]
         for name in forbidden:
@@ -139,6 +141,7 @@ class PortableVerificationTests(unittest.TestCase):
         with redirect_stdout(StringIO()):
             verify.verify_forbidden_files({name: self.root / "not-read" for name in (
                 "app/app_core/google_share_auth.py", "app/app_core/google_sheets_client.py",
+                "app/app_core/rough_study_service.py", "app/app_core/rough_study_drafts.py",
                 "app/requirements-google.txt", "app/docs/google-sheets-setup.md",
             )})
 

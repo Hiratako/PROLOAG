@@ -6,7 +6,7 @@
 
 PROLOAGは、学習計画・計測・ノート・復習と、睡眠・体調・運動などの生活記録をまとめる個人開発アプリです。中期の計画を日々のタスクと学習実績につなぎ、記録を振り返ることを目的にしています。Python / Streamlitを用い、生成AIの支援も活用して開発しています。
 
-**[Web体験版を開く](https://proloag-demo.streamlit.app/)** · [ソースコード（GitHub）](https://github.com/Hiratako/PROLOAG) · [Windows版ダウンロード](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.4)
+**[Web体験版を開く](https://proloag-demo.streamlit.app/)** · [ソースコード（GitHub）](https://github.com/Hiratako/PROLOAG) · [Windows版ダウンロード](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.5)
 
 Web体験版はインストール不要です。架空180日分のデータを使い、計画・記録・ノート・復習・分析などの主要機能をブラウザで試せます。追加・編集・保存は閲覧者専用の一時データへ反映され、共通サンプルや他の閲覧者には影響しません。操作内容は永続保存されないため、実際の記録の保管用ではありません。
 
@@ -21,7 +21,7 @@ Web体験版にはHobby & Toolsを含めず、Google連携による接続・デ�
 | 分野 | 主な機能 |
 |---|---|
 | 学習の計画と実行 | 今日のタスク、繰越、ガント形式のロードマップ、日別配分、AIが作成した計画JSONの確認・取り込み |
-| 学習時間の記録 | 秒給カウンター、Chrome/Edge対応の小窓、一時停止・再開、手動ログ、編集・削除・復元 |
+| 学習時間の記録 | 秒給カウンター、Chrome/Edge対応の小窓、一時停止・再開、手動ログ、ざっくり記録（週まとめ・期間から入力）、編集・削除・復元 |
 | 知識と復習 | ノート、カード、復習リマインダー、知識都市、学習蓄積ビジュアライザー |
 | 生活記録と振り返り | 日記、服薬・カフェイン、睡眠・体調、運動、生活と学習の推移・条件比較 |
 | データの利用 | 全記録CSV・ZIP、旧版勉強ログの移行、データ整合性チェック、マイデータ統計演習 |
@@ -32,6 +32,8 @@ Web体験版にはHobby & Toolsを含めず、Google連携による接続・デ�
 `0.1.0-preview.3`では、Windowsのマイクで最大3時間録音し、音声を順次保存する[録音・文字起こしメモ](docs/audio-memos.md)を追加しました。一時停止・再開・中断後の復旧、全文編集、TXT保存に対応します。録音ライブラリと認識エンジンは任意の追加導入です。録音・保存だけなら認識エンジンは不要です。
 
 `0.1.0-preview.4` では、通常版とDemo版にMKVからMP4への変換とMKVの直接文字起こし、音声認識の高精度モデルと任意のGPU加速、文字層と画像が混在するPDFの読み取りを追加しました。詳しくは[更新内容](docs/releases/v0.1.0-preview.4.md)をご覧ください。
+
+`0.1.0-preview.5` では、時間が分からない日の内容や、期間内のおおよその学習時間を記録できます。週まとめの下書き、学習タスク、復習の保存処理と、学習時間の集計も改善しました。 [更新内容](docs/releases/v0.1.0-preview.5.md)
 
 ## 画面例
 
@@ -45,10 +47,10 @@ Web体験版にはHobby & Toolsを含めず、Google連携による接続・デ�
 |---|---|---|
 | [Web体験版](https://proloag-demo.streamlit.app/) | 架空データで主要機能をブラウザから試す | 公開中。インストール不要。閲覧者専用の一時データを使用 |
 | [ソースコード（main）](https://github.com/Hiratako/PROLOAG) | コードを読む・自分のPCでローカル版を動かす | 公開中。実行にはPython 3.11と依存ライブラリの導入が必要 |
-| [Windows通常版ZIP](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.4) | 自分の記録を空の状態から始める | `0.1.0-preview.4`。Python本体同梱、初回ライブラリ導入時はネット接続が必要 |
-| [Windows Demo版ZIP](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.4) | 架空データでローカル版の画面・入力・分析を試す | `0.1.0-preview.4`。180日分の架空データと少量のロードマップを収録 |
+| [Windows通常版ZIP](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.5) | 自分の記録を空の状態から始める | `0.1.0-preview.5`。Python本体同梱、初回ライブラリ導入時はネット接続が必要 |
+| [Windows Demo版ZIP](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.5) | 架空データでローカル版の画面・入力・分析を試す | `0.1.0-preview.5`。180日分の架空データと少量のロードマップを収録 |
 
-Windows通常版・Demo版ZIPは[`v0.1.0-preview.4`のRelease](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.4)からダウンロードできます。過去の配布ファイルは[preview.3](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.3)と[preview.2](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2)から取得できます。プレビュー版のため、既知の制限を確認してご利用ください。インストールせずに試す場合は[Web体験版](https://proloag-demo.streamlit.app/)をご利用ください。Web体験版には録音を含めません。このmainブランチから得るソースには、Pythonランタイム・導入済みライブラリ・個人記録を含めません。
+Windows通常版・Demo版ZIPは[`v0.1.0-preview.5`のRelease](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.5)からダウンロードできます。過去の配布ファイルは[preview.4](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.4)、[preview.3](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.3)、[preview.2](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2)から取得できます。プレビュー版のため、既知の制限を確認してご利用ください。インストールせずに試す場合は[Web体験版](https://proloag-demo.streamlit.app/)をご利用ください。Web体験版には録音を含めません。このmainブランチから得るソースには、Pythonランタイム・導入済みライブラリ・個人記録を含めません。
 
 公開用の成分初期例は、Web体験版と同じ「カフェイン」「アセトアミノフェン」です。Windows配布版もこの初期例を使用し、ZIPには独自の利用条件を同梱しています。Demo版の成分記録は独立して生成した架空サンプルです。成分・量・モデルは表示機能の例で、実際の服用や推奨を示しません。既存利用者が保存した独自成分や過去の記録を削除する変更ではありません。
 
@@ -112,7 +114,7 @@ Windows通常版ZIPとWindows Demo版ZIPは同じアプリコードを使い、�
 
 ## 記録の保管と既知の制限
 
-記録はプロジェクト内の`study_logs/`、`daily_plans/`、`notes_data/`、`settings/`等へ保存します。録音・認識結果・編集メモは`transcription_data/`に保存します。使用後のフォルダには個人情報が残るため、Gitへ登録・再配布するのは公開用ソースと未使用の配布物だけにしてください。CSV・ZIP出力は一覧・分析用で、アプリ全体の完全復元機能ではありません。
+記録はプロジェクト内の`study_logs/`、`rough_study_logs/`、`daily_plans/`、`notes_data/`、`settings/`等へ保存します。録音・認識結果・編集メモは`transcription_data/`に保存します。使用後のフォルダには個人情報が残るため、Gitへ登録・再配布するのは公開用ソースと未使用の配布物だけにしてください。CSV・ZIP出力は一覧・分析用で、アプリ全体の完全復元機能ではありません。
 
 この版には入力・表示・編集導線の既知の制限があります。[既知の制限](docs/known-limitations.md)を確認してください。分析は記録上の傾向を示し、因果関係・理解度・健康状態を確定するものではありません。
 

@@ -26,6 +26,7 @@ PROLOAG {{VERSION}}
 互換性を確認し、両アプリと処理を終了してから行います。コードやPythonランタイムを旧版から一括で戻さず、データの対象を選びます。
 
 - 主な記録：`app/study_logs/`、`daily_plans/`、`diary_entries/`、`health_logs/`、`exercise_logs/`、`notes_data/`、`master_data/`、`statistics_practice/`、`flashcards.json`、`reminders.json`。
+- 「ざっくり記録」を使った場合は、`app/rough_study_logs/batches.json` に保存済みの記録、`app/rough_study_logs/drafts.json` に下書きがあります。必要なファイルを選び、移行先に同名ファイルがあれば上書きする前に確認してください。
 - 設定やロードマップ：`app/settings/` 内の各設定。内容と用途を確認して選び、Demoの固定日設定を通常版へ移さないでください。
 - 文字起こし・OCRを利用した場合：`app/transcription_data/`、`app/ocr_data/` の原本コピーと履歴。
 
