@@ -1,9 +1,12 @@
 """Exercise real exhibition views, filters and independent visitor state."""
-from datetime import timedelta
+from datetime import date, timedelta
+import csv
+import io
 from html import unescape
 from pathlib import Path
 import re
 import unittest
+from unittest.mock import patch
 
 from streamlit.testing.v1 import AppTest
 
@@ -100,6 +103,50 @@ class ExhibitionViewTests(unittest.TestCase):
         subjects.set_value(subjects.options[1]).run(timeout=60)
         self.assert_healthy(app)
         self.assertNotEqual(_metric(app, "期間内の総勉強時間"), before)
+
+    def test_growth_csv_groups_sunday_and_monday_in_separate_weeks(self):
+        import streamlit as st
+        from app_core.study_log_service import save_study_sessions_by_date
+        from web_demo.sandbox import SESSION_KEY, sandbox_context
+
+        app = self.render("growth")
+        sunday = date(2026, 11, 1)
+        monday = date(2026, 11, 2)
+        with sandbox_context(app.session_state[SESSION_KEY]):
+            for day, minutes in ((sunday, 10), (monday, 20)):
+                save_study_sessions_by_date(day, [{
+                    "start_at": f"{day}T09:00:00",
+                    "end_at": f"{day}T09:{minutes}:00",
+                    "duration_sec": minutes * 60,
+                    "memo": "Synthetic weekly CSV record",
+                }])
+
+        _widget(app.date_input, "開始日").set_value(sunday)
+        _widget(app.date_input, "終了日").set_value(monday)
+        cases = {
+            "日別": [("2026-11-01", 600), ("2026-11-02", 1200)],
+            "週別": [("2026-10-26", 600), ("2026-11-02", 1200)],
+            "月別": [("2026-11-01", 1800)],
+        }
+        columns = [
+            "date", "total_duration_sec", "total_money", "session_count",
+            "planned_minutes", "task_count", "note_count", "card_count",
+            "reminder_count", "total_hours",
+        ]
+        for label, expected in cases.items():
+            with self.subTest(unit=label):
+                with patch.object(st, "download_button", wraps=st.download_button) as download:
+                    _widget(app.selectbox, "表示単位").set_value(label).run(timeout=60)
+                self.assert_healthy(app)
+                [export] = [call for call in download.call_args_list
+                            if call.kwargs.get("file_name") == "learning_accumulation_summary.csv"]
+                rows = csv.DictReader(io.StringIO(export.kwargs["data"].decode("utf-8-sig")))
+                self.assertEqual(rows.fieldnames, columns)
+                self.assertEqual(
+                    [(row["date"], int(float(row["total_duration_sec"]))) for row in rows],
+                    expected,
+                )
+                self.assertEqual(export.args[0], f"{label}集計CSVをダウンロード")
 
     def test_city_subject_filter_only_displays_the_selected_subject(self):
         app = self.render("city")

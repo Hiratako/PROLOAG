@@ -148,6 +148,11 @@ def about() -> None:
     st.write("永続保存は行いません。ページの再読み込み・接続切れ・Cloudの再起動等で初期状態に戻る場合があります。サイドバーの『体験をリセット』でも初期状態に戻せます。接続が終了した一時データは自動的に削除します。")
     st.subheader("ローカル版との違い")
     st.write("Google連携は説明のみで、認証・外部送信は実行しません。Hobby & Toolsのメディア変換・文字起こし・OCRはこのWeb版には含みません。インポート・エクスポートも体験用のサンプルでお試しください。")
+    st.link_button(
+        "Windows版をダウンロード（preview.5）",
+        "https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.5",
+        icon=":material/download:",
+    )
     st.subheader("利用条件と検証")
     st.markdown("**利用・改変・無料再配布可／販売・有料提供禁止**。個人・企業の内部業務での利用は可能です。詳細は[LICENSE](https://github.com/Hiratako/PROLOAG/blob/codex/web-demo/LICENSE)（LicenseRef-PROLOAG-No-Sale-1.0、独自条件）を確認してください。")
     st.caption("第三者ソフトには、それぞれの利用条件が適用されます。THIRD_PARTY_NOTICES.mdとlicensesを確認してください。")

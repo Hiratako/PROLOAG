@@ -13,6 +13,7 @@ from pathlib import Path
 from uuid import NAMESPACE_URL, uuid5
 
 from app_core import json_store as store
+from app_core.ids import new_daily_task_id
 from app_core.json_operations import atomic_json_operation
 from app_core.roadmap_service import (
     CLASS_KEYS,
@@ -588,7 +589,7 @@ def apply_distribution_preview(
     operation_id: str,
     allow_partial=False,
 ) -> bool:
-    from data_utils import daily_plan_path, generate_id, save_daily_plan
+    from data_utils import daily_plan_path, save_daily_plan
 
     _check_seal(preview, "distribution")
     if type(allow_partial) is not bool or (preview["unassigned"] and not allow_partial):
@@ -638,16 +639,12 @@ def apply_distribution_preview(
             )
         items = {row["id"]: row for row in data["items"]}
         changed_days = set()
-        ids = {
-            day: {task["task_id"] for task in plan.get("tasks", [])}
-            for day, plan in plans.items()
-        }
         now = datetime.now().isoformat(timespec="microseconds")
         for row in preview["rows"]:
             item = items[row["item_id"]]
             _classification(root, {}, item)
             day = row["date"]
-            task_id = generate_id("task", day, ids[day])
+            task_id = new_daily_task_id(day)
             allocation_id = (
                 "ra_"
                 + uuid5(NAMESPACE_URL, operation_id + ":" + day + ":" + item["id"]).hex

@@ -130,7 +130,7 @@ def aggregate_for_unit(df: pd.DataFrame, unit: str) -> pd.DataFrame:
         "card_count",
         "reminder_count",
     ]
-    grouped = work.set_index("date").resample(freq)[numeric_cols].sum().reset_index()
+    grouped = work.set_index("date").resample(freq, closed="left", label="left")[numeric_cols].sum().reset_index()
     grouped["total_hours"] = grouped["total_duration_sec"] / 3600
     return grouped
 
@@ -558,7 +558,7 @@ with st.sidebar:
     unit_label = st.selectbox("単元", list(unit_options.keys()))
     unit_id = selected_value(unit_label, unit_options)
 
-    display_unit = st.selectbox("表示単位", ["日別", "週別", "月別"])
+    display_unit = st.selectbox("表示単位", ["日別", "週別", "月別"], help="週別は月曜始まりです。")
 
 filters = {"project_id": project_id, "subject_id": subject_id, "material_id": material_id, "unit_id": unit_id}
 start_date = max(PERIOD_START, min(start_date, REFERENCE_DATE))
@@ -661,7 +661,7 @@ download_df = unit_df.copy()
 if not download_df.empty:
     download_df["date"] = download_df["date"].dt.date.astype(str)
 st.download_button(
-    "日別集計CSVをダウンロード",
+    f"{display_unit}集計CSVをダウンロード",
     data=to_csv_bytes(download_df),
     file_name="learning_accumulation_summary.csv",
     mime="text/csv",

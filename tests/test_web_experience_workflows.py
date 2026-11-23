@@ -188,6 +188,55 @@ class ExperienceWorkflowTests(unittest.TestCase):
         with sandbox_context(self.b):
             self.assertEqual(load_daily_plan(DAY), before_b)
 
+    def test_replacing_deleted_daily_task_keeps_old_log_reference(self):
+        from app_core.plan_service import load_daily_plan
+        from app_core.study_log_service import append_study_session
+        from data_utils import link_session_to_plan_task
+        from web_demo.sandbox import sandbox_context
+
+        app = self.render("today")
+
+        def add_task(title):
+            next(field for field in app.text_input
+                 if field.label == "タスク名" and field.key is None).set_value(title)
+            widget(app.button, "タスクを追加").click().run()
+            self.healthy(app)
+            with sandbox_context(self.a):
+                return next(task for task in load_daily_plan(DAY)["tasks"]
+                            if task["title"] == title)
+
+        original = add_task("Synthetic original task")
+        original_id = original["task_id"]
+        memo = "Synthetic study session for a deleted task"
+        with sandbox_context(self.a):
+            session = {
+                "start_at": f"{DAY}T23:00:00",
+                "end_at": f"{DAY}T23:01:00",
+                "duration_sec": 60,
+                "memo": memo,
+                "linked_task_id": original_id,
+            }
+            append_study_session(session)
+            link_session_to_plan_task(self.a.root, original_id, session["session_id"],
+                                      target_date=DAY, require_existing=True)
+
+        app = self.render("today")
+        next(field for field in app.checkbox if original_id in str(field.key)).check()
+        next(button for button in app.button
+             if button.label == "タスクを削除" and original_id in str(button.key)).click().run()
+        self.healthy(app)
+        with sandbox_context(self.a):
+            self.assertNotIn(original_id, {task["task_id"] for task in load_daily_plan(DAY)["tasks"]})
+
+        replacement = add_task("Synthetic replacement task")
+        logs = self.render("logs")
+        detail = next(table.value for table in logs.dataframe if "関連タスク" in table.value.columns)
+        related_task = detail.loc[detail["内容"] == memo, "関連タスク"].item()
+        self.assertEqual(related_task, "不明なタスク",
+                         f"Deleted task {original_id} resolved as {related_task!r} "
+                         f"after creating {replacement['task_id']}")
+        self.assertNotEqual(original_id, replacement["task_id"])
+
     def test_note_page_creation_and_card_creation_are_private(self):
         from app_core.note_service import load_all_notes
         from app_core.flashcard_service import load_flashcards

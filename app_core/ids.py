@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 from datetime import date, datetime
 from typing import Any
+from uuid import uuid4
 
 
 def parse_datetime(value: Any) -> datetime | None:
@@ -62,3 +63,9 @@ def generate_daily_sequence_id(prefix: str, existing_ids: set[str] | None = None
     if date_value is None and "date" in kwargs:
         date_value = kwargs["date"]
     return generate_id(prefix, date_value, existing_ids)
+
+
+def new_daily_task_id(target: str | date | datetime | None) -> str:
+    """Allocate an ID independent of the remaining tasks in a daily plan."""
+    # Keep the suffix distinct from legacy sequence IDs, including deleted ones.
+    return f"task_{date_token(target)}_u{uuid4().hex}"

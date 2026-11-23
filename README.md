@@ -2,7 +2,7 @@
 
 学習計画・時間計測・ノート・復習と、生活記録まで試せる個人開発アプリのWeb Demoです。
 
-**[Web体験版を開く](https://proloag-demo.streamlit.app/)** · [ソースコード（GitHub）](https://github.com/Hiratako/PROLOAG) · [Windows版ダウンロード](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2)
+**[Web体験版を開く](https://proloag-demo.streamlit.app/)** · [ソースコード（GitHub）](https://github.com/Hiratako/PROLOAG) · [Windows版ダウンロード（preview.5）](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.5)
 
 このブランチは `codex/web-demo` です。ローカル版の公開用ソースは `main` にあります。独自の[利用条件](LICENSE)でソース公開しています。利用・複製・改変・無料再配布は可能ですが、ソフトウェアまたは利用権への対価を伴う提供は禁止します。
 
@@ -28,7 +28,7 @@
 
 Web体験版の初期成分は「カフェイン」「アセトアミノフェン」の2種類です。元のDemo ZIPの架空データを基に、Web展示用に成分だけを調整しています。元の3種類の薬の例は初期記録から除き、ほかの学習・生活記録とカフェイン記録は保持しています。体験中に独自の成分を追加する機能は利用できます。
 
-公開用mainと、公開済みの[Windows版`0.1.0-preview.2`](https://github.com/Hiratako/PROLOAG/releases/tag/v0.1.0-preview.2)も、同じ2種類を初期例にしています。通常版・Demo版ZIPは、2026年11月7日公開のプレビュー版としてReleaseからダウンロードできます。ZIPには独自の利用条件を同梱しています。このWeb版の共通715 JSONと、その旧Demo ZIPからの派生来歴は変更していません。`scripts/prepare_web_substance_demo.py`は記録された旧artifact専用の変換手順で、現在のWindows Demo生成器とは区別します。
+公開用の main とWindows版も、同じ2種類を初期例にしています。Windows通常版・Demo版のZIPには独自の利用条件を同梱しています。このWeb版の共通715 JSONは旧Windows Demo ZIPの架空データに由来します。`scripts/prepare_web_substance_demo.py` は、この旧ZIP専用の変換手順です。
 
 訪問者ごとに一時データを作成します。追加・編集・削除はこのセッションだけに反映し、共通サンプルや他の訪問者へ反映しません。メニュー移動中は操作内容を引き継ぎます。サイドバーの「体験をリセット」で初期状態へ戻せます。
 

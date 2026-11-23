@@ -16,6 +16,7 @@ from app_core.countdown_service import get_countdown
 from app_core.daily_save_service import save_daily_records
 from app_core.daily_task_service import save_task_edit
 from app_core.form_snapshot import advance_form_snapshots_after_own_patch, discard_form_snapshot, form_snapshot
+from app_core.ids import new_daily_task_id
 from app_core.json_store import observed_json_revision, resolved_json_path
 from app_core.diary_service import get_diary_entry_path, investment_total, load_diary_entry, upsert_daily_hub_cost
 from app_core.exercise_service import (
@@ -29,7 +30,6 @@ from app_core.master_snapshot import MasterSnapshot
 from master_ui import render_master_quick_add
 from data_utils import (
     daily_plan_path,
-    generate_id,
     load_all_flashcards,
     load_all_daily_plans,
     load_all_notes,
@@ -558,11 +558,10 @@ def render_daily_inputs(target_date: date, initial_context: dict[str, Any],
                 st.caption(f"{task.get('title', '無題のタスク')} / {STATUS_LABELS.get(task.get('status'), '未着手')}")
             if st.button("未完了タスクを今日に繰り越す", type="primary"):
                 plan_before_action = deepcopy(plan)
-                existing_ids = plan_task_ids(plan)
                 for task in new_carryover_candidates:
                     plan.setdefault("tasks", []).append(
                         {
-                            "task_id": generate_id("task", plan.get("date"), existing_ids),
+                            "task_id": new_daily_task_id(target_date),
                             "title": task.get("title", "無題のタスク"),
                             "subject": task.get("subject", ""),
                             "material": task.get("material", ""),
@@ -640,10 +639,9 @@ def render_daily_inputs(target_date: date, initial_context: dict[str, Any],
         selected_note_labels = st.multiselect("関連ノート", options=list(note_options.keys()), key="new_task_notes")
         if st.form_submit_button("タスクを追加", type="primary"):
             plan_before_action = deepcopy(plan)
-            existing_ids = {task.get("task_id", "") for task in plan.get("tasks", [])}
             plan.setdefault("tasks", []).append(
                 {
-                    "task_id": generate_id("task", plan.get("date"), existing_ids),
+                    "task_id": new_daily_task_id(target_date),
                     "title": title.strip() or "無題のタスク",
                     "subject": subject.strip(),
                     "material": material.strip(),
